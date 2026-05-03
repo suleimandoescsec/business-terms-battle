@@ -398,15 +398,32 @@
       streak = 0;
       sounds.error();
       const item = currentItem();
-      const feedback = currentMode === 'scenario' ? el('mcqFeedback') : el('mcqFeedback');
+      const isScenario = currentMode === 'scenario';
+      const isMcq = currentMode === 'mcq';
+      
+      const feedback = (isMcq || isScenario) ? el('mcqFeedback') : el('feedbackBox');
       feedback.className = 'feedback bad shake';
+      
+      const correctOption = isScenario ? item.term : item.definition;
+      
+      if (isMcq || isScenario) {
+        [...document.querySelectorAll('.option')].forEach(btn => {
+          if (btn.textContent === correctOption) btn.classList.add('correct');
+        });
+      }
+
       feedback.innerHTML = `
         <div class="feedback-status">⏰ Time's up!</div>
         <div class="feedback-divider"></div>
-        <div class="feedback-body">The correct term was: <strong>${item.term}</strong></div>
+        <div class="feedback-body">
+          ${isScenario ? 'The correct term was:' : 'The correct definition was:'}<br>
+          <strong>${correctOption}</strong>
+        </div>
       `;
+      
+      showTip(item);
       updateHud();
-      setTimeout(next, 2500);
+      setTimeout(next, 3000);
     }
 
     function triggerConfetti(type = 'normal') {
@@ -536,14 +553,20 @@
     }
 
     function buildMcq(item) {
-      const distractors = shuffle(allTerms.filter(t => t.term !== item.term)).slice(0, 3).map(t => t.definition);
-      const options = shuffle([item.definition, ...distractors]);
+      const isScenario = currentMode === 'scenario';
+      const distractors = shuffle(allTerms.filter(t => t.term !== item.term))
+        .slice(0, 3)
+        .map(t => isScenario ? t.term : t.definition);
+      
+      const correctOption = isScenario ? item.term : item.definition;
+      const options = shuffle([correctOption, ...distractors]);
+      
       mcqOptions.innerHTML = '';
       options.forEach(opt => {
         const btn = document.createElement('button');
         btn.className = 'option';
         btn.textContent = opt;
-        btn.addEventListener('click', () => answerMcq(btn, opt === item.definition, item.definition));
+        btn.addEventListener('click', () => answerMcq(btn, opt === correctOption, correctOption));
         mcqOptions.appendChild(btn);
       });
     }
