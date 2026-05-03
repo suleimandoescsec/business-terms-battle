@@ -108,9 +108,12 @@
     .answer-box { display:grid; gap: var(--space-3); margin-bottom: var(--space-4); }
     textarea { width:100%; min-height: 140px; padding: var(--space-4); border-radius: var(--radius-lg); border:1px solid var(--color-border); background: var(--color-surface-2); }
     .btn-row { display:flex; flex-wrap:wrap; gap: var(--space-3); }
-    .feedback { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); min-height:80px; position: relative; }
+    .feedback { padding: var(--space-5); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); min-height:100px; display: flex; flex-direction: column; justify-content: center; }
     .feedback.good { border-color: color-mix(in oklab, var(--color-success) 40%, transparent); background: color-mix(in oklab, var(--color-success) 10%, var(--color-surface-2)); }
     .feedback.bad { border-color: color-mix(in oklab, var(--color-error) 35%, transparent); background: color-mix(in oklab, var(--color-error) 8%, var(--color-surface-2)); }
+    .feedback-status { font-family: var(--font-display); font-size: var(--text-lg); display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-1); }
+    .feedback-divider { height: 1px; width: 100%; background: currentColor; opacity: 0.15; margin: var(--space-2) 0; }
+    .feedback-body { font-size: var(--text-sm); line-height: 1.4; opacity: 0.9; }
     .chips { display:flex; gap: var(--space-2); flex-wrap:wrap; margin-top: var(--space-3); }
     .chip { padding: 0.4rem 0.7rem; border-radius:999px; font-size: var(--text-sm); background: var(--color-surface-offset); }
     .chip.priority { background: var(--color-error); color: white; }
@@ -397,7 +400,11 @@
       const item = currentItem();
       const feedback = currentMode === 'scenario' ? el('mcqFeedback') : el('mcqFeedback');
       feedback.className = 'feedback bad shake';
-      feedback.innerHTML = `<strong>Time's up!</strong> The answer was: ${item.term}`;
+      feedback.innerHTML = `
+        <div class="feedback-status">⏰ Time's up!</div>
+        <div class="feedback-divider"></div>
+        <div class="feedback-body">The correct term was: <strong>${item.term}</strong></div>
+      `;
       updateHud();
       setTimeout(next, 2500);
     }
@@ -552,8 +559,11 @@
         score++; streak++; sessionCount++;
         button.classList.add('correct');
         known.add(item.term);
-        mcqFeedback.className = 'feedback good';
-        mcqFeedback.innerHTML = '<strong>Correct!</strong> Well applied.';
+        mcqFeedback.innerHTML = `
+          <div class="feedback-status">✅ Correct!</div>
+          <div class="feedback-divider"></div>
+          <div class="feedback-body">Well applied. That's exactly right.</div>
+        `;
         showTip(item);
         setTimeout(next, 1500);
       } else {
@@ -562,7 +572,11 @@
         button.classList.add('wrong', 'shake');
         [...document.querySelectorAll('.option')].forEach(x => { if (x.textContent === correctText) x.classList.add('correct'); });
         mcqFeedback.className = 'feedback bad';
-        mcqFeedback.innerHTML = `<strong>Wrong.</strong> Correct term: ${item.term}`;
+        mcqFeedback.innerHTML = `
+          <div class="feedback-status">❌ Wrong</div>
+          <div class="feedback-divider"></div>
+          <div class="feedback-body">The correct term is: <strong>${item.term}</strong></div>
+        `;
         showTip(item);
       }
       updateStats(item.term, isCorrect);
@@ -613,7 +627,11 @@
 
     el('checkBtn').onclick = () => {
       const item = currentItem();
-      feedbackBox.innerHTML = `<strong>Answer key:</strong> ${item.definition}`;
+      feedbackBox.innerHTML = `
+        <div class="feedback-status">📖 Definition</div>
+        <div class="feedback-divider"></div>
+        <div class="feedback-body">${item.definition}</div>
+      `;
       showTip(item);
     };
     el('knowBtn').onclick = () => {
