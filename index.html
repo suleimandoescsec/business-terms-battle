@@ -619,6 +619,21 @@
       if (!focusMode) alert("🧠 Break Reminder: You've been focused for a while. Take 30 seconds to stretch!");
     }, 15 * 60 * 1000);
 
+    // Theme Toggle
+    (function() {
+      const t = document.querySelector('[data-theme-toggle]');
+      const r = document.documentElement;
+      let d = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      r.setAttribute('data-theme', d);
+      t.textContent = d === 'dark' ? '☀️' : '🌙';
+      t.onclick = () => {
+        d = d === 'dark' ? 'light' : 'dark';
+        r.setAttribute('data-theme', d);
+        localStorage.setItem('theme', d);
+        t.textContent = d === 'dark' ? '☀️' : '🌙';
+      };
+    })();
+
   </script>
 </body>
 </html>
