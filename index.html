@@ -27,6 +27,11 @@
       --color-text: #eceae5; --color-text-muted: #a19d95; --color-text-faint: #6e6b64; --color-text-inverse: #0d0d0c;
       --color-primary: #5ec2cf; --color-primary-hover: #7fd0db; --color-success: #8cd664; --color-error: #e675bd; --color-gold: #ffc84d;
     }
+    [data-theme="pink"] {
+      --color-bg: #ffdee3; --color-surface: #fff0f2; --color-surface-2: #fff5f6; --color-surface-offset: #ffd1d8; --color-border: #f8c2ca;
+      --color-text: #4a152c; --color-text-muted: #8a3a5a; --color-text-faint: #b36b8a; --color-text-inverse: #ffffff;
+      --color-primary: #d63384; --color-primary-hover: #b8226b; --color-success: #437a22; --color-error: #a12c7b; --color-gold: #d19900;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
     body {
       min-height: 100dvh; font-family: var(--font-body); font-size: var(--text-base); line-height: 1.6; color: var(--color-text);
@@ -684,14 +689,22 @@
     (function() {
       const t = document.querySelector('[data-theme-toggle]');
       const r = document.documentElement;
-      let d = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      r.setAttribute('data-theme', d);
-      t.textContent = d === 'dark' ? '☀️' : '🌙';
+      const themes = ['light', 'dark', 'pink'];
+      const icons = { light: '🌙', dark: '🌸', pink: '☀️' };
+      let d = localStorage.getItem('theme') || 'light';
+      
+      const applyTheme = (theme) => {
+        r.setAttribute('data-theme', theme);
+        t.textContent = icons[theme];
+        localStorage.setItem('theme', theme);
+      };
+
+      applyTheme(d);
+
       t.onclick = () => {
-        d = d === 'dark' ? 'light' : 'dark';
-        r.setAttribute('data-theme', d);
-        localStorage.setItem('theme', d);
-        t.textContent = d === 'dark' ? '☀️' : '🌙';
+        const idx = (themes.indexOf(d) + 1) % themes.length;
+        d = themes[idx];
+        applyTheme(d);
       };
     })();
 
