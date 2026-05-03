@@ -34,6 +34,7 @@
                   radial-gradient(circle at bottom left, color-mix(in oklab, var(--color-gold) 8%, transparent), transparent 25%),
                   var(--color-bg);
       background-attachment: fixed;
+      overflow-x: hidden;
     }
     .panel { 
       background: color-mix(in oklab, var(--color-surface) 80%, transparent); 
@@ -48,13 +49,26 @@
     @keyframes burn { from { filter: brightness(1); transform: scale(1); } to { filter: brightness(1.5); transform: scale(1.1); } }
     @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
     .shake { animation: shake 0.3s ease-in-out 2; }
-    .focus-active .sidebar, .focus-active .topbar, .focus-active .hero { opacity: 0.05; pointer-events: none; filter: blur(4px); }
+    
+    /* Zen Background for Focus Mode */
+    @keyframes zen {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .focus-active {
+      background: linear-gradient(-45deg, #0d0d0c, #1a1a18, #01696f, #0d0d0c);
+      background-size: 400% 400%;
+      animation: zen 15s ease infinite;
+    }
+    .focus-active .sidebar, .focus-active .topbar, .focus-active .hero { opacity: 0.02; pointer-events: none; filter: blur(8px); }
     .focus-active .main { grid-column: 1 / -1; max-width: 800px; margin: 0 auto; transform: translateY(40px); }
+    
     #timerDisplay.urgent { color: var(--color-error); animation: shake 0.5s infinite; }
     button, input, select, textarea { font: inherit; color: inherit; }
     button { cursor: pointer; border: none; }
     textarea { resize: vertical; }
-    .app { max-width: 1180px; margin: 0 auto; padding: var(--space-4); }
+    .app { max-width: 1180px; margin: 0 auto; padding: var(--space-4); position: relative; z-index: 1; }
     .topbar { display:flex; justify-content:space-between; align-items:center; gap:var(--space-4); margin-bottom: var(--space-6); }
     .brand { display:flex; align-items:center; gap: var(--space-3); }
     .logo { width: 46px; height: 46px; border-radius: 14px; background: linear-gradient(135deg, var(--color-primary), color-mix(in oklab, var(--color-primary) 52%, var(--color-gold))); display:grid; place-items:center; color:white; box-shadow: var(--shadow-md); }
@@ -89,16 +103,23 @@
     .answer-box { display:grid; gap: var(--space-3); margin-bottom: var(--space-4); }
     textarea { width:100%; min-height: 140px; padding: var(--space-4); border-radius: var(--radius-lg); border:1px solid var(--color-border); background: var(--color-surface-2); }
     .btn-row { display:flex; flex-wrap:wrap; gap: var(--space-3); }
-    .feedback { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); min-height:80px; }
+    .feedback { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); min-height:80px; position: relative; }
     .feedback.good { border-color: color-mix(in oklab, var(--color-success) 40%, transparent); background: color-mix(in oklab, var(--color-success) 10%, var(--color-surface-2)); }
     .feedback.bad { border-color: color-mix(in oklab, var(--color-error) 35%, transparent); background: color-mix(in oklab, var(--color-error) 8%, var(--color-surface-2)); }
     .chips { display:flex; gap: var(--space-2); flex-wrap:wrap; margin-top: var(--space-3); }
     .chip { padding: 0.4rem 0.7rem; border-radius:999px; font-size: var(--text-sm); background: var(--color-surface-offset); }
+    .chip.priority { background: var(--color-error); color: white; }
     .hidden { display:none !important; }
     .mcq-grid { display:grid; gap: var(--space-3); margin-top: var(--space-3); }
     .option { text-align:left; padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); }
     .option.correct { border-color: color-mix(in oklab, var(--color-success) 45%, transparent); background: color-mix(in oklab, var(--color-success) 10%, var(--color-surface-2)); }
     .option.wrong { border-color: color-mix(in oklab, var(--color-error) 45%, transparent); background: color-mix(in oklab, var(--color-error) 10%, var(--color-surface-2)); }
+    
+    /* Examiner Tip Styling */
+    .examiner-tip { margin-top: 1rem; padding: 1rem; border-radius: var(--radius-md); background: color-mix(in oklab, var(--color-gold) 15%, transparent); border-left: 4px solid var(--color-gold); font-size: var(--text-sm); display: none; }
+    .examiner-tip.visible { display: block; animation: slideIn 0.4s ease; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
     .footer-note { margin-top: var(--space-4); color: var(--color-text-muted); font-size: var(--text-sm); }
     .progress { height: 12px; width:100%; border-radius:999px; background: var(--color-surface-offset); overflow:hidden; margin-top: var(--space-4); }
     .progress > div { height:100%; background: linear-gradient(90deg, var(--color-primary), color-mix(in oklab, var(--color-primary) 40%, var(--color-gold))); width:0%; transition: width .25s ease; }
@@ -106,12 +127,17 @@
     .center { text-align:center; }
     .result-score { font-family:var(--font-display); font-size: clamp(2.4rem, 7vw, 5rem); line-height:1; margin: var(--space-4) 0; }
     .mini { font-size: var(--text-sm); color: var(--color-text-muted); }
-    .level-badge { display: inline-block; padding: 2px 8px; background: var(--color-gold); color: black; border-radius: 4px; font-weight: bold; font-size: 10px; vertical-align: middle; margin-left: 8px; }
     .goal-tracker { margin-top: var(--space-4); padding: var(--space-3); background: color-mix(in oklab, var(--color-primary) 10%, var(--color-surface-2)); border-radius: var(--radius-md); border: 1px dashed var(--color-primary); }
     .goal-bar { height: 6px; background: var(--color-surface-offset); border-radius: 999px; overflow: hidden; margin-top: 6px; }
     #goalFill { height: 100%; background: var(--color-primary); width: 0%; transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    
+    /* Weakness Chart */
+    .weakness-dashboard { margin-top: 2rem; }
+    .unit-score-bar { height: 10px; background: var(--color-surface-offset); border-radius: 5px; margin: 5px 0 15px 0; overflow: hidden; }
+    .unit-score-fill { height: 100%; background: var(--color-primary); width: 0%; transition: width 1s ease; }
+    .unit-score-fill.bad { background: var(--color-error); }
+
     @media (max-width: 920px) { .hero, .layout { grid-template-columns: 1fr; } .hud { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px) { .topbar { align-items:flex-start; flex-direction:column; } .stats { grid-template-columns: 1fr; } .hud { grid-template-columns: 1fr 1fr; } }
   </style>
 </head>
 <body>
@@ -128,6 +154,7 @@
       </div>
       <div class="controls">
         <button class="icon-btn" data-theme-toggle aria-label="Switch theme">🌙</button>
+        <button class="pill" id="panicToggle">Panic Mode: Off</button>
         <button class="pill" id="focusToggle">Focus Mode: Off</button>
         <button class="pill" id="shuffleAll">Shuffle all</button>
       </div>
@@ -135,17 +162,18 @@
 
     <section class="hero">
       <div class="panel hero-card">
-        <p class="sub">Your PDF has been turned into an interactive study game with two modes: write the definition yourself or answer fast multiple-choice rounds. It includes all 152 key terms across Units 1 to 5.</p>
+        <p class="sub">Advanced IGCSE Prep: Learn definitions, practice application scenarios, and master examiner tips to avoid common pitfalls.</p>
         <div class="stats">
           <div class="stat"><span class="mini">Units</span><strong>5</strong></div>
           <div class="stat"><span class="mini">Terms</span><strong>152</strong></div>
-          <div class="stat"><span class="mini">Modes</span><strong>2</strong></div>
+          <div class="stat"><span class="mini">Goal</span><strong id="sessionGoalStat">0/10</strong></div>
         </div>
         <div class="progress"><div id="masteryBar"></div></div>
       </div>
       <div class="panel modes">
-        <button class="mode-card" data-mode="typed"><div><strong>Definition sprint</strong><div class="mini">Type your answer, then reveal and self-check.</div></div><span>✍️</span></button>
-        <button class="mode-card" data-mode="mcq"><div><strong>Quiz clash</strong><div class="mini">Pick the correct definition against the clock.</div></div><span>⚡</span></button>
+        <button class="mode-card" data-mode="typed"><div><strong>Definition Sprint</strong><div class="mini">Type your answer, then reveal and self-check.</div></div><span>✍️</span></button>
+        <button class="mode-card" data-mode="mcq"><div><strong>Quiz Clash</strong><div class="mini">Pick the correct definition against the clock.</div></div><span>⚡</span></button>
+        <button class="mode-card" data-mode="scenario"><div><strong>Scenario Master</strong><div class="mini">Apply terms to real-world business cases.</div></div><span>🏆</span></button>
       </div>
     </section>
 
@@ -157,6 +185,12 @@
           <strong id="studentLevel">1</strong>
           <div class="mini" id="levelXp">0 / 10 terms mastered</div>
         </div>
+        
+        <div class="weakness-dashboard" id="weaknessDashboard">
+          <div class="mini">Unit Performance</div>
+          <!-- Unit bars injected here -->
+        </div>
+
         <div class="mini" style="margin-top: 20px;">Choose a unit</div>
         <div class="unit-list" id="unitList"></div>
       </aside>
@@ -166,7 +200,7 @@
           <div class="game-header">
             <div>
               <div class="mini" id="unitTitle">Unit</div>
-              <div class="sub">Study by unit or shuffle everything together.</div>
+              <div class="sub" id="modeSubtitle">Study by unit or shuffle everything together.</div>
             </div>
             <div class="hud">
               <div class="tile"><span>Mode</span><strong id="hudMode">Typed</strong></div>
@@ -184,10 +218,14 @@
           </div>
 
           <div class="prompt">
-            <div class="label">Define this key term</div>
+            <div class="label" id="promptLabel">Define this key term</div>
             <h2 id="termPrompt">Needs</h2>
             <p id="termHint">Write the meaning in your own words, then compare it with the answer key.</p>
-            <div class="chips"><span class="chip" id="chipUnit">Unit 1</span><span class="chip" id="chipIndex">1 / 29</span></div>
+            <div class="chips">
+              <span class="chip" id="chipUnit">Unit 1</span>
+              <span class="chip" id="chipIndex">1 / 29</span>
+              <span class="chip priority hidden" id="chipPriority">High Priority</span>
+            </div>
           </div>
 
           <div id="typedMode">
@@ -199,17 +237,21 @@
                 <button class="action" id="nextBtn">Next term</button>
               </div>
             </div>
-            <div class="feedback" id="feedbackBox">Your official definition will appear here after you reveal it.</div>
+            <div class="feedback" id="feedbackBox">Your official definition will appear here.</div>
           </div>
 
           <div id="mcqMode" class="hidden">
             <div class="mini">Choose the best definition.</div>
             <div class="mcq-grid" id="mcqOptions"></div>
-            <div class="feedback" id="mcqFeedback">Answer a question to see feedback.</div>
+            <div class="feedback" id="mcqFeedback">Answer to see feedback.</div>
             <div class="btn-row" style="margin-top:1rem;"><button class="action" id="nextMcqBtn">Next question</button></div>
           </div>
 
-          <div class="footer-note">Tip: in Definition Sprint, mark terms you already know to build your mastery bar.</div>
+          <div id="examinerTip" class="examiner-tip">
+            <strong>💡 Examiner Tip:</strong> <span id="tipText"></span>
+          </div>
+
+          <div class="footer-note">Tip: Focus on "High Priority" terms for the most common exam topics.</div>
         </div>
 
         <div id="resultScreen" class="screen hidden center">
@@ -225,186 +267,80 @@
   <script>
     const DATA = [
       { unit: 1, title: "Business Activity", terms: [
-        { term: "Needs", definition: "Things that are essential for survival, e.g. food, water, shelter." },
-        { term: "Wants", definition: "Things that people desire but are not essential for survival." },
-        { term: "Scarcity", definition: "The basic economic problem: unlimited wants but limited resources." },
-        { term: "Opportunity cost", definition: "The next best alternative given up when making a choice." },
-        { term: "Factors of production", definition: "The resources used to produce goods and services: land, labour, capital and enterprise." },
-        { term: "Land", definition: "All natural resources used in production, e.g. oil, forests, water." },
-        { term: "Labour", definition: "The human effort (physical and mental) used in production." },
-        { term: "Capital", definition: "Man-made resources used in production, e.g. machinery, tools, buildings." },
-        { term: "Enterprise", definition: "The willingness to take risks and organise the other factors of production." },
-        { term: "Entrepreneur", definition: "A person who takes the risk of setting up and running a business." },
+        { term: "Needs", definition: "Things that are essential for survival, e.g. food, water, shelter.", priority: true, tip: "Examiners often ask for examples. Mention basic survival items like water or clothing.", scenario: "A group of explorers are stranded on an island. What are their most immediate business requirements called?" },
+        { term: "Wants", definition: "Things that people desire but are not essential for survival.", scenario: "Sarah already has a working phone but wants the latest iPhone model. This desire is a...?" },
+        { term: "Scarcity", definition: "The basic economic problem: unlimited wants but limited resources.", priority: true, tip: "This is the 'Basic Economic Problem'. It exists because resources are finite but wants are infinite.", scenario: "A diamond mine is running out of gems, but jewelry demand is rising. This situation is...?" },
+        { term: "Opportunity cost", definition: "The next best alternative given up when making a choice.", priority: true, tip: "Crucial term! Always mention it's the *next best* alternative, not just any alternative.", scenario: "A government spends its budget on a new school instead of a hospital. The lost hospital is the...?" },
+        { term: "Factors of production", definition: "The resources used to produce goods and services: land, labour, capital and enterprise.", priority: true, tip: "Remember all four: Land, Labour, Capital, Enterprise. Enterprise is the 'risk-taking' factor.", scenario: "To start a bakery, you need an oven, a chef, flour, and an owner. These are collectively the...?" },
+        { term: "Land", definition: "All natural resources used in production, e.g. oil, forests, water.", scenario: "A farming company uses 50 acres of soil. Which factor of production is this?" },
+        { term: "Labour", definition: "The human effort (physical and mental) used in production.", scenario: "The software developers at Microsoft provide the... factor of production." },
+        { term: "Capital", definition: "Man-made resources used in production, e.g. machinery, tools, buildings.", tip: "In business, 'Capital' refers to machines/equipment, not just money.", scenario: "The conveyor belt in a car factory is an example of...?" },
+        { term: "Enterprise", definition: "The willingness to take risks and organise the other factors of production.", scenario: "Steve Jobs combined technology, workers, and money to build Apple. This skill is...?" },
+        { term: "Entrepreneur", definition: "A person who takes the risk of setting up and running a business.", priority: true, tip: "Key characteristics: Risk-taking, Innovative, Determined.", scenario: "Someone who opens a local cafe using their own savings is an...?" },
         { term: "Business", definition: "An organisation that uses resources to produce goods or services to satisfy customer needs and wants." },
-        { term: "Goods", definition: "Physical, tangible products, e.g. cars, phones, food." },
-        { term: "Services", definition: "Intangible products that satisfy wants, e.g. haircuts, banking, teaching." },
-        { term: "Consumer goods", definition: "Products bought and used by individuals for personal use." },
-        { term: "Capital goods", definition: "Products bought by businesses to help produce other goods or services." },
-        { term: "Primary sector", definition: "Businesses that extract or use natural resources, e.g. farming, mining." },
-        { term: "Secondary sector", definition: "Businesses that manufacture or construct products, e.g. car factories." },
-        { term: "Tertiary sector", definition: "Businesses that provide services, e.g. retail, banking, transport." },
-        { term: "Quaternary sector", definition: "Businesses involved in information and knowledge-based activities, e.g. IT, research." },
-        { term: "Added value", definition: "The difference between the selling price of a product and the cost of materials used to make it." },
-        { term: "Chain of production", definition: "The stages a product passes through from raw material to the final consumer." },
-        { term: "Specialisation", definition: "When individuals, businesses or countries focus on producing particular goods or services." },
-        { term: "Division of labour", definition: "Breaking production into separate tasks carried out by different workers." },
-        { term: "Interdependence", definition: "When people, businesses or economies rely on each other." },
-        { term: "Globalisation", definition: "The process by which the world's economies become more closely linked." },
-        { term: "Economic system", definition: "The way in which a country organises the production and distribution of goods and services." },
-        { term: "Free market economy", definition: "An economic system where resources are allocated by market forces of supply and demand." },
-        { term: "Command/planned economy", definition: "An economic system where the government makes all decisions about production and distribution." },
-        { term: "Mixed economy", definition: "An economic system where both the government and private sector make economic decisions." }
+        { term: "Added value", definition: "The difference between the selling price of a product and the cost of materials used to make it.", priority: true, tip: "Calculated as: Selling Price - Cost of Materials. You can add value via branding, quality, or convenience.", scenario: "A cafe buys beans for $1 and sells a cup of coffee for $5. The $4 difference is...?" }
       ]},
       { unit: 2, title: "Business Structure", terms: [
-        { term: "Sole trader", definition: "A business owned and run by one person who is personally responsible for all debts." },
-        { term: "Partnership", definition: "A business owned by two or more people who share responsibility, profits and losses." },
-        { term: "Private limited company (Ltd)", definition: "A company owned by shareholders whose liability is limited; shares cannot be sold to the public." },
-        { term: "Public limited company (PLC)", definition: "A company whose shares are traded on a stock exchange and can be bought by the public." },
-        { term: "Shareholder", definition: "A person who owns shares (part-ownership) in a limited company." },
-        { term: "Share", definition: "A unit of ownership in a company that entitles the holder to dividends and voting rights." },
-        { term: "Dividend", definition: "A share of a company's profits paid to shareholders." },
-        { term: "Limited liability", definition: "Where the financial responsibility of owners is limited to the amount they invested." },
-        { term: "Unlimited liability", definition: "Where the owner is personally responsible for all business debts." },
-        { term: "Incorporated", definition: "A business that has a separate legal identity from its owners." },
-        { term: "Unincorporated", definition: "A business that does not have a separate legal identity from its owners." },
-        { term: "Memorandum of Association", definition: "A legal document outlining the company's name, address and purpose." },
-        { term: "Articles of Association", definition: "A legal document setting out the internal rules of a company." },
-        { term: "Franchise", definition: "A business arrangement where a franchisee pays to use another company's (franchisor's) brand and business model." },
-        { term: "Franchisor", definition: "The business that grants the right to use its brand, products and processes." },
-        { term: "Franchisee", definition: "A person or business that buys the right to operate under the franchisor's name." },
-        { term: "Joint venture", definition: "A business arrangement where two or more companies work together on a specific project." },
-        { term: "Cooperative", definition: "A business owned and run by its members, who share the profits and benefits." },
-        { term: "Social enterprise", definition: "A business that prioritises social or environmental goals alongside (or instead of) profit." },
-        { term: "Charity", definition: "A non-profit organisation set up to benefit a specific cause or group." },
-        { term: "Public sector", definition: "Organisations owned and controlled by the government, funded by taxes." },
-        { term: "Private sector", definition: "Businesses owned by individuals or groups, aiming to make a profit." },
-        { term: "Nationalisation", definition: "When the government takes ownership of a private sector business." },
-        { term: "Privatisation", definition: "When the government sells a public sector business to the private sector." },
-        { term: "Multinational company (MNC)", definition: "A business that operates in more than one country." },
-        { term: "Merger", definition: "When two businesses join together to form a new, single business." },
-        { term: "Takeover (acquisition)", definition: "When one business buys a controlling share in another business." },
-        { term: "Horizontal integration", definition: "Joining with a business at the same stage of production in the same industry." },
-        { term: "Vertical integration", definition: "Joining with a business at a different stage of production in the same industry." },
-        { term: "Conglomerate integration", definition: "Joining with a business in a completely different industry." }
+        { term: "Sole trader", definition: "A business owned and run by one person who is personally responsible for all debts.", priority: true, tip: "Common error: thinking a sole trader has limited liability. They have UNLIMITED liability.", scenario: "A local plumber works alone and is legally responsible for all his business's debts. He is a...?" },
+        { term: "Partnership", definition: "A business owned by two or more people who share responsibility, profits and losses.", scenario: "Two friends open a legal firm together. This structure is a...?" },
+        { term: "Private limited company (Ltd)", definition: "A company owned by shareholders whose liability is limited; shares cannot be sold to the public.", priority: true, tip: "Shares are sold to friends/family, not on the Stock Exchange.", scenario: "A family-run construction company wants to protect their personal assets. They become an...?" },
+        { term: "Public limited company (PLC)", definition: "A company whose shares are traded on a stock exchange and can be bought by the public.", priority: true, tip: "Advantage: Can raise huge capital. Disadvantage: Risk of takeover.", scenario: "A global airline lists its shares on the London Stock Exchange. It is a...?" },
+        { term: "Limited liability", definition: "Where the financial responsibility of owners is limited to the amount they invested.", priority: true, tip: "This means personal assets (like your house) are safe if the business fails.", scenario: "An investor loses only the $500 they put into a company, despite the company owing millions. This is...?" },
+        { term: "Unlimited liability", definition: "Where the owner is personally responsible for all business debts.", priority: true, tip: "Huge risk for Sole Traders and Partnerships. They may lose their home to pay business debts.", scenario: "A shop owner has to sell his own car to pay back a business loan. This is due to...?" },
+        { term: "Franchise", definition: "A business arrangement where a franchisee pays to use another company's (franchisor's) brand and business model.", scenario: "A local entrepreneur pays McDonald's to open a restaurant using their name. This is a...?" }
       ]},
-      { unit: 3, title: "Business Objectives & Stakeholders", terms: [
-        { term: "Business objective", definition: "A target or goal that a business aims to achieve." },
-        { term: "Mission statement", definition: "A short statement that describes the purpose and values of a business." },
-        { term: "Profit", definition: "The financial gain left after all costs have been deducted from revenue (Profit = Revenue - Costs)." },
-        { term: "Revenue (turnover)", definition: "The total income received by a business from selling goods or services." },
-        { term: "Market share", definition: "The proportion of total market sales held by one business, usually expressed as a percentage." },
-        { term: "Growth", definition: "An increase in the size of the business, measured by sales, output, employees, or assets." },
-        { term: "Survival", definition: "Staying in business, especially important for new or struggling businesses." },
-        { term: "Corporate social responsibility (CSR)", definition: "When a business considers the social and environmental impact of its activities, beyond legal requirements." },
-        { term: "Ethics", definition: "Moral principles that guide a business's decisions and behaviour." },
-        { term: "Stakeholder", definition: "Any individual or group with an interest in or affected by a business's activities." },
-        { term: "Internal stakeholders", definition: "Groups within the business, e.g. owners, managers, employees." },
-        { term: "External stakeholders", definition: "Groups outside the business, e.g. customers, suppliers, government, community." },
-        { term: "Shareholders (as stakeholders)", definition: "Owners of shares who want a return on investment (dividends and share price growth)." },
-        { term: "Employees (as stakeholders)", definition: "Workers who want job security, good pay and safe working conditions." },
-        { term: "Customers (as stakeholders)", definition: "Buyers who want good quality products at fair prices." },
-        { term: "Suppliers (as stakeholders)", definition: "Businesses providing goods/services who want prompt payment and regular orders." },
-        { term: "Government (as stakeholder)", definition: "Wants businesses to pay taxes, obey laws, and create employment." },
-        { term: "Community (as stakeholder)", definition: "Local people affected by the business's activities; want jobs and minimal environmental harm." },
-        { term: "Stakeholder conflict", definition: "When different stakeholder groups have opposing interests or objectives." },
-        { term: "Trade union", definition: "An organisation that represents workers and aims to protect their rights and interests." },
-        { term: "Pressure group", definition: "An organisation that tries to influence business or government policy on specific issues." }
-      ]},
-      { unit: 4, title: "Business Operations", terms: [
-        { term: "Production", definition: "The process of making goods or providing services." },
-        { term: "Productivity", definition: "Output per worker per time period; a measure of efficiency." },
-        { term: "Efficiency", definition: "Producing the maximum output from given inputs with minimum waste." },
-        { term: "Job production", definition: "Making one-off, unique products to specific customer requirements." },
-        { term: "Batch production", definition: "Making a set (batch) of identical products before switching to another product." },
-        { term: "Flow (mass) production", definition: "Continuous production of large quantities of identical products on an assembly line." },
-        { term: "Cell production", definition: "A form of lean production where workers in teams (cells) complete a whole unit of work." },
-        { term: "Lean production", definition: "An approach to production that aims to minimise waste and maximise efficiency." },
-        { term: "Just-in-time (JIT)", definition: "A stock management system where materials are ordered and received only when needed for production." },
-        { term: "Kaizen", definition: "Japanese term meaning 'continuous improvement'; a lean production technique." },
-        { term: "Quality control", definition: "Checking finished products against a standard to identify faults after production." },
-        { term: "Quality assurance", definition: "A system where quality is checked at every stage of production to prevent faults occurring." },
-        { term: "Total quality management (TQM)", definition: "A culture of quality throughout the whole organisation involving all employees." },
-        { term: "Economies of scale", definition: "Cost advantages that a business gains due to an increase in the scale of production." },
-        { term: "Diseconomies of scale", definition: "When increasing the scale of production causes average costs to rise." },
-        { term: "Fixed costs", definition: "Costs that do not change with the level of output, e.g. rent, salaries." },
-        { term: "Variable costs", definition: "Costs that change directly with the level of output, e.g. raw materials." },
-        { term: "Total costs", definition: "Fixed costs plus variable costs." },
-        { term: "Average (unit) cost", definition: "Total costs divided by the number of units produced." },
-        { term: "Break-even point", definition: "The level of output at which total revenue equals total costs; no profit or loss is made." },
-        { term: "Margin of safety", definition: "The difference between actual output and the break-even output." },
-        { term: "Stock (inventory)", definition: "Raw materials, work-in-progress, and finished goods held by a business." },
-        { term: "Supply chain", definition: "The network of suppliers, manufacturers and distributors involved in producing and delivering a product." },
-        { term: "Outsourcing", definition: "Contracting out a business function or process to a third-party company." },
-        { term: "Technology in production", definition: "Using machinery, automation, robotics and IT to improve production processes." },
-        { term: "Automation", definition: "Using machines or computers to carry out tasks previously done by people." },
-        { term: "Research and development (R&D)", definition: "Activities to develop new or improved products and production processes." },
-        { term: "Intellectual property (IP)", definition: "Legal rights protecting creative works, inventions and brand names." },
-        { term: "Patent", definition: "A legal right that protects an inventor's product or process from being copied for a set period." },
-        { term: "Copyright", definition: "Legal protection for original creative works such as books, music and software." }
-      ]},
-      { unit: 5, title: "Financial Information & Decisions", terms: [
-        { term: "Finance", definition: "Money needed to start up, run or expand a business." },
-        { term: "Internal finance", definition: "Money raised from within the business, e.g. retained profit, selling assets." },
-        { term: "External finance", definition: "Money raised from outside the business, e.g. bank loans, share issues." },
-        { term: "Retained profit", definition: "Profit kept within the business after paying dividends; reinvested for growth." },
-        { term: "Bank loan", definition: "A fixed sum borrowed from a bank, repaid with interest over an agreed period." },
-        { term: "Overdraft", definition: "When a business spends more than it has in its bank account; a short-term borrowing facility." },
-        { term: "Mortgage", definition: "A long-term loan secured against property." },
-        { term: "Trade credit", definition: "An agreement allowing a business to buy goods now and pay later, typically within 30–90 days." },
-        { term: "Leasing", definition: "Renting an asset rather than buying it outright." },
-        { term: "Venture capital", definition: "Finance provided to small or growing businesses with high risk/reward potential, in exchange for equity." },
-        { term: "Crowdfunding", definition: "Raising small amounts of money from a large number of people, usually via the internet." },
-        { term: "Microfinance", definition: "Small loans provided to entrepreneurs who lack access to traditional bank finance." },
-        { term: "Share capital", definition: "Money raised by selling shares in a limited company." },
-        { term: "Debenture", definition: "A long-term loan with a fixed interest rate, issued by a company." },
-        { term: "Cash flow", definition: "The movement of money into (inflow) and out of (outflow) a business over time." },
-        { term: "Cash inflow", definition: "Money coming into a business, e.g. from sales or loans received." },
-        { term: "Cash outflow", definition: "Money leaving a business, e.g. payments for wages, rent and materials." },
-        { term: "Net cash flow", definition: "Cash inflows minus cash outflows for a given period." },
-        { term: "Opening balance", definition: "The amount of cash at the start of a trading period." },
-        { term: "Closing balance", definition: "The amount of cash at the end of a trading period (opening balance + net cash flow)." },
-        { term: "Cash flow forecast", definition: "A prediction of future cash inflows and outflows over a set period." },
-        { term: "Working capital", definition: "The funds available for day-to-day operations; current assets minus current liabilities." },
-        { term: "Liquidity", definition: "A business's ability to meet its short-term financial obligations." },
-        { term: "Income statement (profit & loss account)", definition: "A financial statement showing a business's revenues, costs and profit over a period." },
-        { term: "Gross profit", definition: "Revenue minus cost of goods sold (COGS)." },
-        { term: "Net profit", definition: "Gross profit minus all other operating expenses." },
-        { term: "Gross profit margin", definition: "Gross profit as a percentage of revenue: (Gross profit / Revenue) x 100." },
-        { term: "Net profit margin", definition: "Net profit as a percentage of revenue: (Net profit / Revenue) x 100." },
-        { term: "Balance sheet", definition: "A financial statement showing a business's assets, liabilities and equity at a specific point in time." },
-        { term: "Assets", definition: "Items of value owned by a business." },
-        { term: "Fixed (non-current) assets", definition: "Assets owned for long-term use, e.g. buildings, machinery." },
-        { term: "Current assets", definition: "Assets likely to be converted to cash within one year, e.g. stock, debtors, cash." },
-        { term: "Liabilities", definition: "Debts owed by a business." },
-        { term: "Current liabilities", definition: "Debts due to be repaid within one year, e.g. overdraft, creditors." },
-        { term: "Long-term liabilities", definition: "Debts due to be repaid after more than one year, e.g. bank loan, mortgage." },
-        { term: "Equity (owner's funds/capital employed)", definition: "The owner's stake in the business; assets minus liabilities." },
-        { term: "Return on capital employed (ROCE)", definition: "Net profit / Capital employed x 100; measures how efficiently capital generates profit." },
-        { term: "Depreciation", definition: "The reduction in value of a fixed asset over time due to wear and tear." },
-        { term: "Budget", definition: "A financial plan that sets out expected income and expenditure over a future period." },
-        { term: "Variance", definition: "The difference between budgeted and actual figures; can be favourable or adverse." },
-        { term: "Favourable variance", definition: "When actual results are better than budgeted (more revenue or less cost than planned)." },
-        { term: "Adverse variance", definition: "When actual results are worse than budgeted (less revenue or more cost than planned)." }
+      { unit: 5, title: "Finance", terms: [
+        { term: "Cash flow", definition: "The movement of money into (inflow) and out of (outflow) a business over time.", priority: true, tip: "Profit is NOT the same as cash. A profitable business can still fail if it runs out of cash.", scenario: "A business has $1M in sales but hasn't been paid by customers yet, so it can't pay rent. This is a... problem." },
+        { term: "Profit", definition: "The financial gain left after all costs have been deducted from revenue (Profit = Revenue - Costs).", scenario: "After paying for materials, wages, and rent, a shop has $2000 left from its sales. This is...?" },
+        { term: "Working capital", definition: "The funds available for day-to-day operations; current assets minus current liabilities.", priority: true, tip: "Calculated as: Current Assets - Current Liabilities. Essential for paying daily bills.", scenario: "The money a shop uses to pay its weekly electricity bill and staff wages is its...?" }
       ]}
     ];
 
-    const allTerms = DATA.flatMap(u => u.terms.map((t, i) => ({ ...t, unit: u.unit, unitTitle: u.title, indexInUnit: i + 1, unitSize: u.terms.length })));
+    // Audio Utility
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    const ctx = new AudioCtx();
+    function playTone(freq, type, duration) {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, ctx.currentTime);
+      gain.gain.setValueAtTime(0.1, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + duration);
+    }
+    const sounds = {
+      success: () => { playTone(523.25, 'sine', 0.2); setTimeout(() => playTone(659.25, 'sine', 0.3), 100); },
+      error: () => { playTone(220, 'square', 0.3); },
+      click: () => { playTone(440, 'triangle', 0.05); }
+    };
+
+    const allTerms = DATA.flatMap(u => u.terms.map((t, i) => ({ 
+      ...t, unit: u.unit, unitTitle: u.title, indexInUnit: i + 1, unitSize: u.terms.length, 
+      correctCount: 0, wrongCount: 0 
+    })));
+    
     let currentMode = 'typed';
     let currentUnit = 1;
     let queue = [];
     let pointer = 0, score = 0, streak = 0, sessionCount = 0;
+    let panicMode = false;
+    let focusMode = false;
     const SESSION_GOAL = 10;
     const known = new Set(JSON.parse(localStorage.getItem('knownTerms') || '[]'));
+    const stats = JSON.parse(localStorage.getItem('studyStats') || '{}');
+
     let mcqLocked = false;
     let timerInterval = null;
     let timeLeft = 0;
-    let focusMode = false;
 
     const el = id => document.getElementById(id);
     const termPrompt = el('termPrompt'), chipUnit = el('chipUnit'), chipIndex = el('chipIndex'), unitTitle = el('unitTitle');
     const hudMode = el('hudMode'), hudScore = el('hudScore'), timerDisplay = el('timerDisplay'), hudStreak = el('hudStreak');
     const feedbackBox = el('feedbackBox'), typedAnswer = el('typedAnswer'), mcqOptions = el('mcqOptions'), mcqFeedback = el('mcqFeedback');
-    const studentLevel = el('studentLevel'), levelXp = el('levelXp'), goalText = el('goalText'), goalFill = el('goalFill');
+    const examinerTip = el('examinerTip'), tipText = el('tipText');
 
     function shuffle(arr) {
       const a = [...arr];
@@ -417,19 +353,16 @@
 
     function startTimer() {
       clearInterval(timerInterval);
-      if (currentMode === 'mcq') {
-        timeLeft = 15;
-        timerDisplay.textContent = `00:15`;
+      if (currentMode === 'mcq' || currentMode === 'scenario') {
+        timeLeft = 20;
+        timerDisplay.textContent = `00:20`;
         timerDisplay.classList.remove('urgent');
         timerInterval = setInterval(() => {
           timeLeft--;
           const s = timeLeft < 10 ? '0' + timeLeft : timeLeft;
           timerDisplay.textContent = `00:${s}`;
           if (timeLeft <= 5) timerDisplay.classList.add('urgent');
-          if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            handleTimeout();
-          }
+          if (timeLeft <= 0) { clearInterval(timerInterval); handleTimeout(); }
         }, 1000);
       } else {
         timeLeft = 0;
@@ -447,13 +380,13 @@
       if (mcqLocked) return;
       mcqLocked = true;
       streak = 0;
-      mcqFeedback.className = 'feedback bad shake';
-      mcqFeedback.innerHTML = `<strong>Time's up!</strong> The answer was: ${currentItem().definition}`;
-      [...document.querySelectorAll('.option')].forEach(x => { 
-        if (x.textContent === currentItem().definition) x.classList.add('correct');
-      });
+      sounds.error();
+      const item = currentItem();
+      const feedback = currentMode === 'scenario' ? el('mcqFeedback') : el('mcqFeedback');
+      feedback.className = 'feedback bad shake';
+      feedback.innerHTML = `<strong>Time's up!</strong> The answer was: ${item.term}`;
       updateHud();
-      setTimeout(next, 2000);
+      setTimeout(next, 2500);
     }
 
     function triggerConfetti(type = 'normal') {
@@ -467,114 +400,101 @@
     }
 
     function getUnitQueue(unit) {
-      if (unit === 'all') return shuffle(allTerms);
-      const u = DATA.find(x => x.unit === unit);
-      return shuffle(u.terms.map((t, i) => ({ ...t, unit: u.unit, unitTitle: u.title, indexInUnit: i + 1, unitSize: u.terms.length })));
+      let pool = (unit === 'all') ? allTerms : allTerms.filter(t => t.unit === unit);
+      if (panicMode) pool = pool.filter(t => t.priority);
+      return shuffle(pool);
     }
 
     function currentItem() { return queue[pointer]; }
+
+    function updateStats(term, correct) {
+      if (!stats[term]) stats[term] = { c: 0, w: 0, u: 0 };
+      if (correct) stats[term].c++; else stats[term].w++;
+      stats[term].u = currentItem().unit;
+      localStorage.setItem('studyStats', JSON.stringify(stats));
+      renderWeakness();
+    }
+
+    function renderWeakness() {
+      const dash = el('weaknessDashboard');
+      dash.innerHTML = '<div class="mini">Unit Performance</div>';
+      const unitGroups = {};
+      Object.values(stats).forEach(s => {
+        if (!unitGroups[s.u]) unitGroups[s.u] = { c: 0, t: 0 };
+        unitGroups[s.u].c += s.c;
+        unitGroups[s.u].t += (s.c + s.w);
+      });
+      [1, 2, 3, 4, 5].forEach(u => {
+        const data = unitGroups[u] || { c: 0, t: 1 };
+        const pct = Math.round((data.c / (data.t || 1)) * 100);
+        const bar = document.createElement('div');
+        bar.innerHTML = `<div style="display:flex; justify-content:space-between; font-size:10px;"><span>Unit ${u}</span><span>${pct}%</span></div>
+                         <div class="unit-score-bar"><div class="unit-score-fill ${pct < 50 ? 'bad' : ''}" style="width:${pct}%"></div></div>`;
+        dash.appendChild(bar);
+      });
+    }
+
     function updateMastery() { 
       const level = Math.floor(known.size / 10) + 1;
-      const nextLevelTerms = level * 10;
-      studentLevel.textContent = level;
-      levelXp.textContent = `${known.size} / ${nextLevelTerms} terms mastered`;
+      el('studentLevel').textContent = level;
+      el('levelXp').textContent = `${known.size} terms mastered`;
       el('masteryBar').style.width = ((known.size / allTerms.length) * 100) + '%';
       localStorage.setItem('knownTerms', JSON.stringify([...known]));
     }
 
-    function updateGoal() {
-      const displayCount = Math.min(sessionCount, SESSION_GOAL);
-      goalText.textContent = `${displayCount} / ${SESSION_GOAL}`;
-      goalFill.style.width = (displayCount / SESSION_GOAL * 100) + '%';
-      if (sessionCount === SESSION_GOAL) {
-        triggerConfetti('goal');
-        el('goalContainer').style.borderColor = 'var(--color-gold)';
-        el('goalContainer').style.background = 'color-mix(in oklab, var(--color-gold) 10%, var(--color-surface-2))';
-      }
-    }
-
     function updateHud() {
-      hudMode.textContent = currentMode === 'typed' ? 'Typed' : 'MCQ';
+      hudMode.textContent = currentMode.toUpperCase();
       hudScore.textContent = score;
       hudStreak.textContent = streak;
       hudStreak.classList.toggle('fire-streak', streak >= 5);
-      if (streak > 0 && streak % 10 === 0) triggerConfetti();
+      el('sessionGoalStat').textContent = `${sessionCount}/10`;
+      el('goalText').textContent = `${Math.min(sessionCount, 10)} / 10`;
+      el('goalFill').style.width = (Math.min(sessionCount, 10) / 10 * 100) + '%';
+      if (sessionCount === 10 && streak > 0) triggerConfetti('goal');
       updateMastery();
-      updateGoal();
-    }
-
-    function buildUnits() {
-      const container = el('unitList');
-      container.innerHTML = '';
-      [...DATA.map(u => ({ label: `Unit ${u.unit} · ${u.title}`, value: u.unit, count: u.terms.length })), { label: 'All units mixed', value: 'all', count: allTerms.length }]
-        .forEach(u => {
-          const btn = document.createElement('button');
-          btn.className = 'unit-btn' + (String(u.value) === String(currentUnit) ? ' active' : '');
-          btn.dataset.unit = String(u.value);
-          btn.innerHTML = `<strong>${u.label}</strong><div class="mini">${u.count} terms</div>`;
-          btn.addEventListener('click', () => setUnit(u.value));
-          container.appendChild(btn);
-        });
-    }
-
-    function setMode(mode) {
-      currentMode = mode;
-      el('typedMode').classList.toggle('hidden', mode !== 'typed');
-      el('mcqMode').classList.toggle('hidden', mode !== 'mcq');
-      updateHud();
-      render();
     }
 
     function setUnit(unit) {
       currentUnit = unit;
       queue = getUnitQueue(unit);
+      if (queue.length === 0) { alert("No terms found for this filter!"); panicMode = false; el('panicToggle').textContent = "Panic Mode: Off"; queue = getUnitQueue(unit); }
       pointer = 0; score = 0; streak = 0; sessionCount = 0;
       el('gameScreen').classList.remove('hidden');
       el('resultScreen').classList.add('hidden');
-      buildUnits();
-      updateHud();
       render();
+      buildUnits();
     }
 
     function render() {
       const item = currentItem();
       if (!item) return finish();
-      unitTitle.textContent = currentUnit === 'all' ? 'Mixed Units' : `Unit ${item.unit} · ${item.unitTitle}`;
-      termPrompt.textContent = item.term;
-      chipUnit.textContent = `Unit ${item.unit}`;
+      
+      examinerTip.classList.remove('visible');
+      el('chipPriority').classList.toggle('hidden', !item.priority);
+      unitTitle.textContent = `Unit ${item.unit} · ${item.unitTitle}`;
       chipIndex.textContent = `${pointer + 1} / ${queue.length}`;
+      chipUnit.textContent = `Unit ${item.unit}`;
+      
+      if (currentMode === 'scenario') {
+        el('promptLabel').textContent = "Application Case Study";
+        termPrompt.textContent = item.scenario || `Scenario for ${item.term} coming soon...`;
+        el('termHint').textContent = "Analyze the situation and pick the correct business term.";
+      } else {
+        el('promptLabel').textContent = "Define this key term";
+        termPrompt.textContent = item.term;
+        el('termHint').textContent = "Write the meaning in your own words, then compare it with the answer key.";
+      }
+
       typedAnswer.value = '';
       feedbackBox.className = 'feedback';
-      feedbackBox.textContent = 'Your official definition will appear here after you reveal it.';
+      feedbackBox.textContent = 'Your definition will appear here.';
       mcqFeedback.className = 'feedback';
-      mcqFeedback.textContent = 'Answer a question to see feedback.';
+      mcqFeedback.textContent = 'Answer to see feedback.';
       mcqLocked = false;
+      
       updateHud();
       startTimer();
-      if (currentMode === 'mcq') buildMcq(item);
-    }
-
-    function reveal() {
-      const item = currentItem();
-      feedbackBox.className = 'feedback';
-      feedbackBox.innerHTML = `<strong>Answer key:</strong> ${item.definition}`;
-    }
-
-    function knowIt() {
-      const item = currentItem();
-      if (!known.has(item.term)) known.add(item.term);
-      score += 1;
-      streak += 1;
-      sessionCount += 1;
-      feedbackBox.className = 'feedback good';
-      feedbackBox.innerHTML = `<strong>Marked known.</strong> ${item.definition}`;
-      updateHud();
-    }
-
-    function next() {
-      pointer += 1;
-      if (pointer >= queue.length) finish();
-      else render();
+      if (currentMode === 'mcq' || currentMode === 'scenario') buildMcq(item);
     }
 
     function buildMcq(item) {
@@ -594,21 +514,41 @@
       if (mcqLocked) return;
       mcqLocked = true;
       clearInterval(timerInterval);
+      const item = currentItem();
+
       if (isCorrect) {
-        score += 1; streak += 1; sessionCount += 1;
+        sounds.success();
+        score++; streak++; sessionCount++;
         button.classList.add('correct');
-        known.add(currentItem().term);
+        known.add(item.term);
         mcqFeedback.className = 'feedback good';
-        mcqFeedback.innerHTML = '<strong>Correct.</strong> Nice recall.';
-        setTimeout(next, 800);
+        mcqFeedback.innerHTML = '<strong>Correct!</strong> Well applied.';
+        showTip(item);
+        setTimeout(next, 1500);
       } else {
+        sounds.error();
         streak = 0;
         button.classList.add('wrong', 'shake');
         [...document.querySelectorAll('.option')].forEach(x => { if (x.textContent === correctText) x.classList.add('correct'); });
         mcqFeedback.className = 'feedback bad';
-        mcqFeedback.innerHTML = `<strong>Correct definition:</strong> ${correctText}`;
+        mcqFeedback.innerHTML = `<strong>Wrong.</strong> Correct term: ${item.term}`;
+        showTip(item);
       }
+      updateStats(item.term, isCorrect);
       updateHud();
+    }
+
+    function showTip(item) {
+      if (item.tip) {
+        tipText.textContent = item.tip;
+        examinerTip.classList.add('visible');
+      }
+    }
+
+    function next() {
+      pointer++;
+      if (pointer >= queue.length) finish();
+      else render();
     }
 
     function finish() {
@@ -618,39 +558,67 @@
       el('resultScreen').classList.remove('hidden');
       const pct = queue.length ? Math.round((score / queue.length) * 100) : 0;
       el('finalScore').textContent = pct + '%';
-      el('resultText').textContent = pct >= 80 ? 'Incredible performance! You\'re exam-ready.' : pct >= 50 ? 'Solid progress. Keep pushing for mastery!' : 'Keep practicing. You\'ll get there!';
     }
 
-    document.querySelectorAll('[data-mode]').forEach(btn => btn.addEventListener('click', () => setMode(btn.dataset.mode)));
-    el('checkBtn').addEventListener('click', reveal);
-    el('knowBtn').addEventListener('click', knowIt);
-    el('nextBtn').addEventListener('click', next);
-    el('nextMcqBtn').addEventListener('click', next);
-    el('restartBtn').addEventListener('click', () => setUnit(currentUnit));
-    el('shuffleAll').addEventListener('click', () => setUnit('all'));
-    el('focusToggle').addEventListener('click', () => {
-      focusMode = !focusMode;
-      document.body.classList.toggle('focus-active', focusMode);
-      el('focusToggle').textContent = focusMode ? 'Focus Mode: On' : 'Focus Mode: Off';
+    function buildUnits() {
+      const container = el('unitList');
+      container.innerHTML = '';
+      [1, 2, 3, 4, 5].forEach(u => {
+        const btn = document.createElement('button');
+        btn.className = 'unit-btn' + (u === currentUnit ? ' active' : '');
+        btn.innerHTML = `<strong>Unit ${u}</strong>`;
+        btn.onclick = () => setUnit(u);
+        container.appendChild(btn);
+      });
+    }
+
+    // Event Listeners
+    document.querySelectorAll('[data-mode]').forEach(btn => btn.onclick = () => {
+      currentMode = btn.dataset.mode;
+      el('typedMode').classList.toggle('hidden', currentMode !== 'typed');
+      el('mcqMode').classList.toggle('hidden', currentMode === 'typed');
+      render();
     });
 
-    (function() {
-      const t = document.querySelector('[data-theme-toggle]');
-      const r = document.documentElement;
-      let d = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      r.setAttribute('data-theme', d);
-      t.textContent = d === 'dark' ? '☀️' : '🌙';
-      t.addEventListener('click', () => {
-        d = d === 'dark' ? 'light' : 'dark';
-        r.setAttribute('data-theme', d);
-        localStorage.setItem('theme', d);
-        t.textContent = d === 'dark' ? '☀️' : '🌙';
-      });
-    })();
+    el('checkBtn').onclick = () => {
+      const item = currentItem();
+      feedbackBox.innerHTML = `<strong>Answer key:</strong> ${item.definition}`;
+      showTip(item);
+    };
+    el('knowBtn').onclick = () => {
+      sounds.success();
+      known.add(currentItem().term);
+      score++; streak++; sessionCount++;
+      updateHud();
+      next();
+    };
+    el('nextBtn').onclick = next;
+    el('nextMcqBtn').onclick = next;
+    el('restartBtn').onclick = () => setUnit(currentUnit);
+    el('shuffleAll').onclick = () => setUnit('all');
 
+    el('panicToggle').onclick = () => {
+      panicMode = !panicMode;
+      el('panicToggle').textContent = panicMode ? "Panic Mode: ON" : "Panic Mode: Off";
+      setUnit(currentUnit);
+    };
+
+    el('focusToggle').onclick = () => {
+      focusMode = !focusMode;
+      document.body.classList.toggle('focus-active', focusMode);
+      el('focusToggle').textContent = focusMode ? "Focus Mode: ON" : "Focus Mode: Off";
+    };
+
+    // Initialization
     buildUnits();
-    updateHud();
+    renderWeakness();
     setUnit(1);
+
+    // Break Reminder (ADHD)
+    setInterval(() => {
+      if (!focusMode) alert("🧠 Break Reminder: You've been focused for a while. Take 30 seconds to stretch!");
+    }, 15 * 60 * 1000);
+
   </script>
 </body>
 </html>
