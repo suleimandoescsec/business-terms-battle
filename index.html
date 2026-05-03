@@ -339,6 +339,7 @@
         { term: "Nationalisation", definition: "When the government takes ownership of a private sector business.", scenario: "The government takes over a failing private railway company. This is...?" },
         { term: "Privatisation", definition: "When the government sells a public sector business to the private sector.", scenario: "A state-owned post office is sold to private investors. This is...?" },
         { term: "Multinational company (MNC)", definition: "A business that operates in more than one country.", priority: true, tip: "MNCs have factories or offices in multiple countries, not just selling to them.", scenario: "Nike has headquarters in the USA and factories in Indonesia. It is an...?" },
+        { term: "Internal (organic) growth", definition: "When a business expands its own operations by selling more products or opening new branches.", tip: "This is slower but safer than external growth (mergers).", scenario: "A local bakery opens three more shops in nearby towns using its own profits. This is...?" },
         { term: "Merger", definition: "When two businesses join together to form a new, single business.", scenario: "Company A and Company B combine to create Company C. This is a...?" },
         { term: "Takeover (acquisition)", definition: "When one business buys a controlling share in another business.", scenario: "Facebook bought Instagram. This was a...?" },
         { term: "Horizontal integration", definition: "Joining with a business at the same stage of production in the same industry.", scenario: "A car manufacturer buys another car manufacturer. This is...?" },
@@ -475,7 +476,10 @@
     let currentMode = 'typed';
     let currentUnit = 1;
     let queue = [];
-    let pointer = 0, score = 0, streak = 0, sessionCount = 0;
+    let pointer = 0;
+    let score = parseInt(localStorage.getItem('score') || '0');
+    let streak = parseInt(localStorage.getItem('streak') || '0');
+    let sessionCount = parseInt(localStorage.getItem('sessionCount') || '0');
     let panicMode = false;
     let focusMode = false;
     const SESSION_GOAL = 10;
@@ -530,6 +534,7 @@
       if (mcqLocked) return;
       mcqLocked = true;
       streak = 0;
+      localStorage.setItem('streak', '0');
       sounds.error();
       const item = currentItem();
       const isScenario = currentMode === 'scenario';
@@ -599,7 +604,7 @@
         if (!unitTotals[u]) return;
         const pct = Math.round((unitCounts[u] / unitTotals[u]) * 100);
         const bar = document.createElement('div');
-        bar.innerHTML = `<div style="display:flex; justify-content:space-between; font-size:10px;"><span>Unit ${u}</span><span>${unitCounts[u]}/${unitTotals[u]} (${pct}%)</span></div>
+        bar.innerHTML = `<div style="display:flex; justify-content:space-between; font-size:10px;"><span>Unit ${u}</span><span>${unitTotals[u]} Terms (${pct}%)</span></div>
                          <div class="unit-score-bar"><div class="unit-score-fill ${pct < 50 ? 'bad' : ''}" style="width:${pct}%"></div></div>`;
         dash.appendChild(bar);
       });
@@ -641,13 +646,15 @@
       }
       
       updateMastery();
+      localStorage.setItem('score', score);
+      localStorage.setItem('sessionCount', sessionCount);
     }
 
     function setUnit(unit) {
       currentUnit = unit;
       queue = getUnitQueue(unit);
       if (queue.length === 0) { alert("No terms found for this filter!"); panicMode = false; el('panicToggle').textContent = "Panic Mode: Off"; queue = getUnitQueue(unit); }
-      pointer = 0; score = 0;
+      pointer = 0;
       el('gameScreen').classList.remove('hidden');
       el('resultScreen').classList.add('hidden');
       render();
@@ -714,6 +721,9 @@
       if (isCorrect) {
         sounds.success();
         score++; streak++; sessionCount++;
+        localStorage.setItem('streak', streak);
+        localStorage.setItem('score', score);
+        localStorage.setItem('sessionCount', sessionCount);
         button.classList.add('correct');
         known.add(item.term);
         mcqFeedback.innerHTML = `
@@ -726,6 +736,7 @@
       } else {
         sounds.error();
         streak = 0;
+        localStorage.setItem('streak', '0');
         button.classList.add('wrong', 'shake');
         [...document.querySelectorAll('.option')].forEach(x => { if (x.textContent === correctText) x.classList.add('correct'); });
         mcqFeedback.className = 'feedback bad';
@@ -768,7 +779,8 @@
       [1, 2, 3, 4, 5].forEach(u => {
         const btn = document.createElement('button');
         btn.className = 'unit-btn' + (u === currentUnit ? ' active' : '');
-        btn.innerHTML = `<strong>Unit ${u}</strong>`;
+        const uData = DATA.find(x => x.unit === u) || { terms: [] };
+        btn.innerHTML = `<strong>Unit ${u}</strong><div style="font-size: 9px; opacity: 0.6;">${uData.terms.length} terms</div>`;
         btn.onclick = () => setUnit(u);
         container.appendChild(btn);
       });
@@ -796,6 +808,9 @@
       const item = currentItem();
       known.add(item.term);
       score++; streak++; sessionCount++;
+      localStorage.setItem('streak', streak);
+      localStorage.setItem('score', score);
+      localStorage.setItem('sessionCount', sessionCount);
       updateStats(item.term, true);
       updateHud();
       next();
