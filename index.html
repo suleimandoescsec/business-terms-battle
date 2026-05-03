@@ -193,6 +193,14 @@
 
         <div class="mini" style="margin-top: 20px;">Choose a unit</div>
         <div class="unit-list" id="unitList"></div>
+
+        <div class="mini" style="margin-top: 30px;">Data Management</div>
+        <div style="display:grid; gap:var(--space-2); margin-top:var(--space-2);">
+          <button class="pill" style="width:100%; text-align:center; font-size:12px;" id="exportData">📥 Backup Progress</button>
+          <button class="pill" style="width:100%; text-align:center; font-size:12px;" id="importDataBtn">📤 Restore Progress</button>
+          <input type="file" id="importFile" class="hidden" accept=".json">
+          <button class="pill" style="width:100%; text-align:center; font-size:12px; color:var(--color-error); border-color:var(--color-error);" id="resetData">🗑️ Reset All</button>
+        </div>
       </aside>
 
       <main class="panel main">
@@ -329,8 +337,8 @@
     let panicMode = false;
     let focusMode = false;
     const SESSION_GOAL = 10;
-    const known = new Set(JSON.parse(localStorage.getItem('knownTerms') || '[]'));
-    const stats = JSON.parse(localStorage.getItem('studyStats') || '{}');
+    let known = new Set(JSON.parse(localStorage.getItem('knownTerms') || '[]'));
+    let stats = JSON.parse(localStorage.getItem('studyStats') || '{}');
 
     let mcqLocked = false;
     let timerInterval = null;
@@ -607,6 +615,59 @@
       focusMode = !focusMode;
       document.body.classList.toggle('focus-active', focusMode);
       el('focusToggle').textContent = focusMode ? "Focus Mode: ON" : "Focus Mode: Off";
+    };
+
+    // Data Management
+    el('exportData').onclick = () => {
+      const data = {
+        known: [...known],
+        stats: stats,
+        theme: localStorage.getItem('theme'),
+        timestamp: new Date().toISOString()
+      };
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `business_battle_progress_${new Date().toLocaleDateString()}.json`;
+      a.click();
+    };
+
+    el('importDataBtn').onclick = () => el('importFile').click();
+
+    el('importFile').onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const data = JSON.parse(event.target.result);
+          if (data.known) {
+            known = new Set(data.known);
+            localStorage.setItem('knownTerms', JSON.stringify(data.known));
+          }
+          if (data.stats) {
+            stats = data.stats;
+            localStorage.setItem('studyStats', JSON.stringify(data.stats));
+          }
+          if (data.theme) {
+            localStorage.setItem('theme', data.theme);
+            document.documentElement.setAttribute('data-theme', data.theme);
+          }
+          alert("Progress restored successfully!");
+          location.reload();
+        } catch (err) {
+          alert("Error importing progress. Please check the file format.");
+        }
+      };
+      reader.readAsText(file);
+    };
+
+    el('resetData').onclick = () => {
+      if (confirm("⚠️ Are you sure? This will delete all your levels, mastery, and stats permanently.")) {
+        localStorage.clear();
+        location.reload();
+      }
     };
 
     // Initialization
