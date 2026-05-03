@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>business-terms-battle</title>
+  <title>Business Terms Battle | Exam Mode</title>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=clash-display@500,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
     :root, [data-theme="light"] {
       --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
@@ -22,16 +23,34 @@
       --font-display: 'Clash Display', 'Satoshi', sans-serif; --font-body: 'Satoshi', sans-serif;
     }
     [data-theme="dark"] {
-      --color-bg: #171614; --color-surface: #1c1b19; --color-surface-2: #201f1d; --color-surface-offset: #252320; --color-border: #393836;
-      --color-text: #e1dfda; --color-text-muted: #b2aea6; --color-text-faint: #827d76; --color-text-inverse: #171614;
-      --color-primary: #4f98a3; --color-primary-hover: #6eafb8; --color-success: #78b85a; --color-error: #d163a7; --color-gold: #edb336;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3); --shadow-md: 0 12px 32px rgba(0,0,0,0.35);
+      --color-bg: #0d0d0c; --color-surface: #141412; --color-surface-2: #1a1a18; --color-surface-offset: #21211f; --color-border: #2a2a28;
+      --color-text: #eceae5; --color-text-muted: #a19d95; --color-text-faint: #6e6b64; --color-text-inverse: #0d0d0c;
+      --color-primary: #5ec2cf; --color-primary-hover: #7fd0db; --color-success: #8cd664; --color-error: #e675bd; --color-gold: #ffc84d;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
     body {
       min-height: 100dvh; font-family: var(--font-body); font-size: var(--text-base); line-height: 1.6; color: var(--color-text);
-      background: radial-gradient(circle at top right, color-mix(in oklab, var(--color-primary) 10%, transparent), transparent 26%), var(--color-bg);
+      background: radial-gradient(circle at top right, color-mix(in oklab, var(--color-primary) 12%, transparent), transparent 30%), 
+                  radial-gradient(circle at bottom left, color-mix(in oklab, var(--color-gold) 8%, transparent), transparent 25%),
+                  var(--color-bg);
+      background-attachment: fixed;
     }
+    .panel { 
+      background: color-mix(in oklab, var(--color-surface) 80%, transparent); 
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent); 
+      border-radius: var(--radius-xl); 
+      box-shadow: var(--shadow-md); 
+    }
+    .action:active, .unit-btn:active, .mode-card:active { transform: scale(0.96); }
+    .fire-streak { animation: burn 0.8s infinite alternate; color: var(--color-gold) !important; text-shadow: 0 0 12px var(--color-gold); }
+    @keyframes burn { from { filter: brightness(1); transform: scale(1); } to { filter: brightness(1.5); transform: scale(1.1); } }
+    @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+    .shake { animation: shake 0.3s ease-in-out 2; }
+    .focus-active .sidebar, .focus-active .topbar, .focus-active .hero { opacity: 0.05; pointer-events: none; filter: blur(4px); }
+    .focus-active .main { grid-column: 1 / -1; max-width: 800px; margin: 0 auto; transform: translateY(40px); }
+    #timerDisplay.urgent { color: var(--color-error); animation: shake 0.5s infinite; }
     button, input, select, textarea { font: inherit; color: inherit; }
     button { cursor: pointer; border: none; }
     textarea { resize: vertical; }
@@ -87,6 +106,10 @@
     .center { text-align:center; }
     .result-score { font-family:var(--font-display); font-size: clamp(2.4rem, 7vw, 5rem); line-height:1; margin: var(--space-4) 0; }
     .mini { font-size: var(--text-sm); color: var(--color-text-muted); }
+    .level-badge { display: inline-block; padding: 2px 8px; background: var(--color-gold); color: black; border-radius: 4px; font-weight: bold; font-size: 10px; vertical-align: middle; margin-left: 8px; }
+    .goal-tracker { margin-top: var(--space-4); padding: var(--space-3); background: color-mix(in oklab, var(--color-primary) 10%, var(--color-surface-2)); border-radius: var(--radius-md); border: 1px dashed var(--color-primary); }
+    .goal-bar { height: 6px; background: var(--color-surface-offset); border-radius: 999px; overflow: hidden; margin-top: 6px; }
+    #goalFill { height: 100%; background: var(--color-primary); width: 0%; transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     @media (max-width: 920px) { .hero, .layout { grid-template-columns: 1fr; } .hud { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 640px) { .topbar { align-items:flex-start; flex-direction:column; } .stats { grid-template-columns: 1fr; } .hud { grid-template-columns: 1fr 1fr; } }
   </style>
@@ -105,6 +128,7 @@
       </div>
       <div class="controls">
         <button class="icon-btn" data-theme-toggle aria-label="Switch theme">🌙</button>
+        <button class="pill" id="focusToggle">Focus Mode: Off</button>
         <button class="pill" id="shuffleAll">Shuffle all</button>
       </div>
     </div>
@@ -127,7 +151,13 @@
 
     <section class="layout">
       <aside class="panel sidebar">
-        <div class="mini">Choose a unit</div>
+        <div class="mini">Your Progress</div>
+        <div class="stat" style="margin: 10px 0;">
+          <span class="mini">Student Level</span>
+          <strong id="studentLevel">1</strong>
+          <div class="mini" id="levelXp">0 / 10 terms mastered</div>
+        </div>
+        <div class="mini" style="margin-top: 20px;">Choose a unit</div>
         <div class="unit-list" id="unitList"></div>
       </aside>
 
@@ -141,8 +171,15 @@
             <div class="hud">
               <div class="tile"><span>Mode</span><strong id="hudMode">Typed</strong></div>
               <div class="tile"><span>Score</span><strong id="hudScore">0</strong></div>
-              <div class="tile"><span>Question</span><strong id="hudQ">1</strong></div>
+              <div class="tile"><span>Timer</span><strong id="timerDisplay">00:00</strong></div>
               <div class="tile"><span>Streak</span><strong id="hudStreak">0</strong></div>
+            </div>
+            <div class="goal-tracker" id="goalContainer">
+              <div style="display:flex; justify-content:space-between; font-size:12px;">
+                <span>Session Goal</span>
+                <span id="goalText">0 / 10</span>
+              </div>
+              <div class="goal-bar"><div id="goalFill"></div></div>
             </div>
           </div>
 
@@ -355,14 +392,19 @@
     let currentMode = 'typed';
     let currentUnit = 1;
     let queue = [];
-    let pointer = 0, score = 0, streak = 0;
-    const known = new Set();
+    let pointer = 0, score = 0, streak = 0, sessionCount = 0;
+    const SESSION_GOAL = 10;
+    const known = new Set(JSON.parse(localStorage.getItem('knownTerms') || '[]'));
     let mcqLocked = false;
+    let timerInterval = null;
+    let timeLeft = 0;
+    let focusMode = false;
 
     const el = id => document.getElementById(id);
     const termPrompt = el('termPrompt'), chipUnit = el('chipUnit'), chipIndex = el('chipIndex'), unitTitle = el('unitTitle');
-    const hudMode = el('hudMode'), hudScore = el('hudScore'), hudQ = el('hudQ'), hudStreak = el('hudStreak');
+    const hudMode = el('hudMode'), hudScore = el('hudScore'), timerDisplay = el('timerDisplay'), hudStreak = el('hudStreak');
     const feedbackBox = el('feedbackBox'), typedAnswer = el('typedAnswer'), mcqOptions = el('mcqOptions'), mcqFeedback = el('mcqFeedback');
+    const studentLevel = el('studentLevel'), levelXp = el('levelXp'), goalText = el('goalText'), goalFill = el('goalFill');
 
     function shuffle(arr) {
       const a = [...arr];
@@ -373,6 +415,57 @@
       return a;
     }
 
+    function startTimer() {
+      clearInterval(timerInterval);
+      if (currentMode === 'mcq') {
+        timeLeft = 15;
+        timerDisplay.textContent = `00:15`;
+        timerDisplay.classList.remove('urgent');
+        timerInterval = setInterval(() => {
+          timeLeft--;
+          const s = timeLeft < 10 ? '0' + timeLeft : timeLeft;
+          timerDisplay.textContent = `00:${s}`;
+          if (timeLeft <= 5) timerDisplay.classList.add('urgent');
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            handleTimeout();
+          }
+        }, 1000);
+      } else {
+        timeLeft = 0;
+        timerDisplay.textContent = `00:00`;
+        timerInterval = setInterval(() => {
+          timeLeft++;
+          const m = Math.floor(timeLeft / 60);
+          const s = timeLeft % 60;
+          timerDisplay.textContent = `${m < 10 ? '0' + m : m}:${s < 10 ? '0' + s : s}`;
+        }, 1000);
+      }
+    }
+
+    function handleTimeout() {
+      if (mcqLocked) return;
+      mcqLocked = true;
+      streak = 0;
+      mcqFeedback.className = 'feedback bad shake';
+      mcqFeedback.innerHTML = `<strong>Time's up!</strong> The answer was: ${currentItem().definition}`;
+      [...document.querySelectorAll('.option')].forEach(x => { 
+        if (x.textContent === currentItem().definition) x.classList.add('correct');
+      });
+      updateHud();
+      setTimeout(next, 2000);
+    }
+
+    function triggerConfetti(type = 'normal') {
+      const count = type === 'goal' ? 400 : 150;
+      confetti({
+        particleCount: count,
+        spread: type === 'goal' ? 120 : 70,
+        origin: { y: 0.6 },
+        colors: ['#01696f', '#d19900', '#437a22', '#ffc84d']
+      });
+    }
+
     function getUnitQueue(unit) {
       if (unit === 'all') return shuffle(allTerms);
       const u = DATA.find(x => x.unit === unit);
@@ -380,12 +473,34 @@
     }
 
     function currentItem() { return queue[pointer]; }
-    function updateMastery() { el('masteryBar').style.width = ((known.size / allTerms.length) * 100) + '%'; }
+    function updateMastery() { 
+      const level = Math.floor(known.size / 10) + 1;
+      const nextLevelTerms = level * 10;
+      studentLevel.textContent = level;
+      levelXp.textContent = `${known.size} / ${nextLevelTerms} terms mastered`;
+      el('masteryBar').style.width = ((known.size / allTerms.length) * 100) + '%';
+      localStorage.setItem('knownTerms', JSON.stringify([...known]));
+    }
+
+    function updateGoal() {
+      const displayCount = Math.min(sessionCount, SESSION_GOAL);
+      goalText.textContent = `${displayCount} / ${SESSION_GOAL}`;
+      goalFill.style.width = (displayCount / SESSION_GOAL * 100) + '%';
+      if (sessionCount === SESSION_GOAL) {
+        triggerConfetti('goal');
+        el('goalContainer').style.borderColor = 'var(--color-gold)';
+        el('goalContainer').style.background = 'color-mix(in oklab, var(--color-gold) 10%, var(--color-surface-2))';
+      }
+    }
+
     function updateHud() {
       hudMode.textContent = currentMode === 'typed' ? 'Typed' : 'MCQ';
       hudScore.textContent = score;
-      hudQ.textContent = pointer + 1;
       hudStreak.textContent = streak;
+      hudStreak.classList.toggle('fire-streak', streak >= 5);
+      if (streak > 0 && streak % 10 === 0) triggerConfetti();
+      updateMastery();
+      updateGoal();
     }
 
     function buildUnits() {
@@ -413,9 +528,7 @@
     function setUnit(unit) {
       currentUnit = unit;
       queue = getUnitQueue(unit);
-      pointer = 0;
-      score = 0;
-      streak = 0;
+      pointer = 0; score = 0; streak = 0; sessionCount = 0;
       el('gameScreen').classList.remove('hidden');
       el('resultScreen').classList.add('hidden');
       buildUnits();
@@ -437,6 +550,7 @@
       mcqFeedback.textContent = 'Answer a question to see feedback.';
       mcqLocked = false;
       updateHud();
+      startTimer();
       if (currentMode === 'mcq') buildMcq(item);
     }
 
@@ -451,9 +565,9 @@
       if (!known.has(item.term)) known.add(item.term);
       score += 1;
       streak += 1;
+      sessionCount += 1;
       feedbackBox.className = 'feedback good';
       feedbackBox.innerHTML = `<strong>Marked known.</strong> ${item.definition}`;
-      updateMastery();
       updateHud();
     }
 
@@ -479,34 +593,32 @@
     function answerMcq(button, isCorrect, correctText) {
       if (mcqLocked) return;
       mcqLocked = true;
+      clearInterval(timerInterval);
       if (isCorrect) {
-        score += 1;
-        streak += 1;
+        score += 1; streak += 1; sessionCount += 1;
         button.classList.add('correct');
         known.add(currentItem().term);
         mcqFeedback.className = 'feedback good';
         mcqFeedback.innerHTML = '<strong>Correct.</strong> Nice recall.';
+        setTimeout(next, 800);
       } else {
         streak = 0;
-        button.classList.add('wrong');
+        button.classList.add('wrong', 'shake');
         [...document.querySelectorAll('.option')].forEach(x => { if (x.textContent === correctText) x.classList.add('correct'); });
         mcqFeedback.className = 'feedback bad';
         mcqFeedback.innerHTML = `<strong>Correct definition:</strong> ${correctText}`;
       }
-      updateMastery();
       updateHud();
     }
 
     function finish() {
+      clearInterval(timerInterval);
+      triggerConfetti();
       el('gameScreen').classList.add('hidden');
       el('resultScreen').classList.remove('hidden');
       const pct = queue.length ? Math.round((score / queue.length) * 100) : 0;
       el('finalScore').textContent = pct + '%';
-      el('resultText').textContent = pct >= 80
-        ? 'Strong exam-ready recall. Try another unit or switch modes for speed practice.'
-        : pct >= 50
-        ? 'Good base. Repeat this unit and aim to convert unsure terms into known ones.'
-        : 'Start again and focus on the official wording. Repetition will help a lot.';
+      el('resultText').textContent = pct >= 80 ? 'Incredible performance! You\'re exam-ready.' : pct >= 50 ? 'Solid progress. Keep pushing for mastery!' : 'Keep practicing. You\'ll get there!';
     }
 
     document.querySelectorAll('[data-mode]').forEach(btn => btn.addEventListener('click', () => setMode(btn.dataset.mode)));
@@ -516,22 +628,28 @@
     el('nextMcqBtn').addEventListener('click', next);
     el('restartBtn').addEventListener('click', () => setUnit(currentUnit));
     el('shuffleAll').addEventListener('click', () => setUnit('all'));
+    el('focusToggle').addEventListener('click', () => {
+      focusMode = !focusMode;
+      document.body.classList.toggle('focus-active', focusMode);
+      el('focusToggle').textContent = focusMode ? 'Focus Mode: On' : 'Focus Mode: Off';
+    });
 
     (function() {
       const t = document.querySelector('[data-theme-toggle]');
       const r = document.documentElement;
-      let d = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      let d = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       r.setAttribute('data-theme', d);
       t.textContent = d === 'dark' ? '☀️' : '🌙';
       t.addEventListener('click', () => {
         d = d === 'dark' ? 'light' : 'dark';
         r.setAttribute('data-theme', d);
+        localStorage.setItem('theme', d);
         t.textContent = d === 'dark' ? '☀️' : '🌙';
       });
     })();
 
     buildUnits();
-    updateMastery();
+    updateHud();
     setUnit(1);
   </script>
 </body>
