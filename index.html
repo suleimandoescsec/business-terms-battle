@@ -463,7 +463,17 @@
       el('sessionGoalStat').textContent = `${sessionCount}/10`;
       el('goalText').textContent = `${Math.min(sessionCount, 10)} / 10`;
       el('goalFill').style.width = (Math.min(sessionCount, 10) / 10 * 100) + '%';
+      
       if (sessionCount === 10 && streak > 0) triggerConfetti('goal');
+      
+      // Pink Mode Unlock Logic
+      if (streak >= 20 && localStorage.getItem('pinkUnlocked') !== 'true') {
+        localStorage.setItem('pinkUnlocked', 'true');
+        triggerConfetti('goal');
+        sounds.success();
+        setTimeout(() => alert("🌸 LEGENDARY UNLOCK: Pink Mode is now available in your theme toggle!"), 500);
+      }
+      
       updateMastery();
     }
 
@@ -702,8 +712,17 @@
       applyTheme(d);
 
       t.onclick = () => {
-        const idx = (themes.indexOf(d) + 1) % themes.length;
-        d = themes[idx];
+        let idx = (themes.indexOf(d) + 1) % themes.length;
+        let nextTheme = themes[idx];
+
+        if (nextTheme === 'pink' && localStorage.getItem('pinkUnlocked') !== 'true') {
+          sounds.error();
+          alert("🔒 Pink Mode is LOCKED! Reach a 20-answer streak to unlock this legendary theme.");
+          idx = (idx + 1) % themes.length;
+          nextTheme = themes[idx];
+        }
+
+        d = nextTheme;
         applyTheme(d);
       };
     })();
