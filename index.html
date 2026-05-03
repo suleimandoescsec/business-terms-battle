@@ -170,8 +170,8 @@
         <p class="sub">Advanced IGCSE Prep: Learn definitions, practice application scenarios, and master examiner tips to avoid common pitfalls.</p>
         <div class="stats">
           <div class="stat"><span class="mini">Units</span><strong>5</strong></div>
-          <div class="stat"><span class="mini">Terms</span><strong>152</strong></div>
-          <div class="stat"><span class="mini">Goal</span><strong id="sessionGoalStat">0/10</strong></div>
+          <div class="stat"><span class="mini">Terms</span><strong id="totalTermsCount">0</strong></div>
+          <div class="stat"><span class="mini">Goal</span><strong id="sessionGoalStat">0 mastered</strong></div>
         </div>
         <div class="progress"><div id="masteryBar"></div></div>
       </div>
@@ -430,18 +430,18 @@
 
     function renderWeakness() {
       const dash = el('weaknessDashboard');
-      dash.innerHTML = '<div class="mini">Unit Performance</div>';
-      const unitGroups = {};
-      Object.values(stats).forEach(s => {
-        if (!unitGroups[s.u]) unitGroups[s.u] = { c: 0, t: 0 };
-        unitGroups[s.u].c += s.c;
-        unitGroups[s.u].t += (s.c + s.w);
+      dash.innerHTML = '<div class="mini">Unit Mastery</div>';
+      const unitCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+      const unitTotals = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+      allTerms.forEach(t => {
+        unitTotals[t.unit]++;
+        if (known.has(t.term)) unitCounts[t.unit]++;
       });
       [1, 2, 3, 4, 5].forEach(u => {
-        const data = unitGroups[u] || { c: 0, t: 1 };
-        const pct = Math.round((data.c / (data.t || 1)) * 100);
+        if (!unitTotals[u]) return;
+        const pct = Math.round((unitCounts[u] / unitTotals[u]) * 100);
         const bar = document.createElement('div');
-        bar.innerHTML = `<div style="display:flex; justify-content:space-between; font-size:10px;"><span>Unit ${u}</span><span>${pct}%</span></div>
+        bar.innerHTML = `<div style="display:flex; justify-content:space-between; font-size:10px;"><span>Unit ${u}</span><span>${unitCounts[u]}/${unitTotals[u]} (${pct}%)</span></div>
                          <div class="unit-score-bar"><div class="unit-score-fill ${pct < 50 ? 'bad' : ''}" style="width:${pct}%"></div></div>`;
         dash.appendChild(bar);
       });
@@ -455,16 +455,24 @@
       localStorage.setItem('knownTerms', JSON.stringify([...known]));
     }
 
+    let lastGoalReward = 0;
     function updateHud() {
       hudMode.textContent = currentMode.toUpperCase();
       hudScore.textContent = score;
       hudStreak.textContent = streak;
       hudStreak.classList.toggle('fire-streak', streak >= 5);
-      el('sessionGoalStat').textContent = `${sessionCount}/10`;
-      el('goalText').textContent = `${Math.min(sessionCount, 10)} / 10`;
-      el('goalFill').style.width = (Math.min(sessionCount, 10) / 10 * 100) + '%';
       
-      if (sessionCount === 10 && streak > 0) triggerConfetti('goal');
+      const currentGoalProgress = sessionCount % 10;
+      const displayGoal = (sessionCount > 0 && currentGoalProgress === 0) ? 10 : currentGoalProgress;
+      
+      el('sessionGoalStat').textContent = `${sessionCount} mastered`;
+      el('goalText').textContent = `${displayGoal} / 10`;
+      el('goalFill').style.width = (displayGoal / 10 * 100) + '%';
+      
+      if (sessionCount > 0 && sessionCount % 10 === 0 && sessionCount !== lastGoalReward) {
+        triggerConfetti('goal');
+        lastGoalReward = sessionCount;
+      }
       
       // Pink Mode Unlock Logic
       if (streak >= 20 && localStorage.getItem('pinkUnlocked') !== 'true') {
@@ -610,8 +618,10 @@
     };
     el('knowBtn').onclick = () => {
       sounds.success();
-      known.add(currentItem().term);
+      const item = currentItem();
+      known.add(item.term);
       score++; streak++; sessionCount++;
+      updateStats(item.term, true);
       updateHud();
       next();
     };
@@ -686,6 +696,7 @@
     };
 
     // Initialization
+    el('totalTermsCount').textContent = allTerms.length;
     buildUnits();
     renderWeakness();
     setUnit(1);
