@@ -165,6 +165,7 @@
         <button class="pill" id="panicToggle">Panic Mode: Off</button>
         <button class="pill" id="focusToggle">Focus Mode: Off</button>
         <button class="pill" id="shuffleAll">Shuffle all</button>
+        <button class="icon-btn" id="settingsBtn" title="AI Settings">⚙️</button>
       </div>
     </div>
 
@@ -249,6 +250,7 @@
               <textarea id="typedAnswer" placeholder="Type your definition here..."></textarea>
               <div class="btn-row">
                 <button class="action primary" id="checkBtn">Reveal answer</button>
+                <button class="action" id="aiCheckBtn">🤖 AI Check</button>
                 <button class="action" id="knowBtn">I knew this</button>
                 <button class="action" id="nextBtn">Next term</button>
               </div>
@@ -278,6 +280,20 @@
         </div>
       </main>
     </section>
+  </div>
+
+  <!-- AI Settings Modal -->
+  <div id="settingsModal" class="screen hidden" style="position:fixed; inset:0; background:rgba(0,0,0,0.5); backdrop-filter:blur(4px); z-index:100; display:grid; place-items:center; padding:var(--space-4);">
+    <div class="panel" style="width:100%; max-width:400px; padding:var(--space-6); position:relative;">
+      <h2 style="margin-bottom:var(--space-4); font-family:var(--font-display);">AI Settings</h2>
+      <div class="mini" style="margin-bottom:var(--space-2);">Gemini API Key</div>
+      <input type="password" id="apiKeyInput" placeholder="Enter your Gemini API Key..." style="width:100%; padding:var(--space-3); border-radius:var(--radius-md); border:1px solid var(--color-border); background:var(--color-surface-2); margin-bottom:var(--space-4);">
+      <div class="mini" style="margin-bottom:var(--space-4); line-height:1.4;">Get a free key from <a href="https://aistudio.google.com/" target="_blank" style="color:var(--color-primary);">Google AI Studio</a>. Your key is stored locally in your browser.</div>
+      <div class="btn-row" style="justify-content:flex-end;">
+        <button class="pill" id="closeSettings">Close</button>
+        <button class="action primary" id="saveSettings">Save Key</button>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -485,6 +501,7 @@
     const SESSION_GOAL = 10;
     let known = new Set(JSON.parse(localStorage.getItem('knownTerms') || '[]'));
     let stats = JSON.parse(localStorage.getItem('studyStats') || '{}');
+    let geminiKey = localStorage.getItem('geminiApiKey') || '';
 
     let mcqLocked = false;
     let timerInterval = null;
@@ -831,6 +848,100 @@
       document.body.classList.toggle('focus-active', focusMode);
       el('focusToggle').textContent = focusMode ? "Focus Mode: ON" : "Focus Mode: Off";
     };
+
+    // AI Logic
+    el('settingsBtn').onclick = () => {
+      el('apiKeyInput').value = geminiKey;
+      el('settingsModal').classList.remove('hidden');
+    };
+    el('closeSettings').onclick = () => el('settingsModal').classList.add('hidden');
+    el('saveSettings').onclick = () => {
+      geminiKey = el('apiKeyInput').value.trim();
+      localStorage.setItem('geminiApiKey', geminiKey);
+      el('settingsModal').classList.add('hidden');
+      alert("API Key saved!");
+    };
+
+    async function checkWithAI() {
+      const userAnswer = typedAnswer.value.trim();
+      if (!userAnswer) return alert("Please type an answer first!");
+      if (!geminiKey) {
+        alert("Please set your Gemini API Key in the settings (⚙️) first!");
+        el('settingsBtn').click();
+        return;
+      }
+
+      const item = currentItem();
+      const checkBtn = el('aiCheckBtn');
+      const originalText = checkBtn.textContent;
+      
+      checkBtn.textContent = "⌛ Checking...";
+      checkBtn.disabled = true;
+      feedbackBox.innerHTML = `<div class="feedback-status">🤖 AI is thinking...</div>`;
+      feedbackBox.className = "feedback";
+
+      try {
+        const prompt = `You are an IGCSE Business examiner. 
+Compare this student's definition for "${item.term}" with the official definition: "${item.definition}".
+The student wrote: "${userAnswer}"
+
+Analyze if it's "Right", "Partial", or "Wrong" based on IGCSE standards. 
+Reply ONLY in JSON format like this:
+{
+  "verdict": "Right/Partial/Wrong",
+  "explanation": "1-2 sentences explaining why and what's missing or if it's perfect.",
+  "isCorrect": true/false
+}`;
+
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }]
+          })
+        });
+
+        const data = await response.json();
+        const text = data.candidates[0].content.parts[0].text;
+        const cleanJson = text.replace(/```json|```/g, '').trim();
+        const result = JSON.parse(cleanJson);
+
+        feedbackBox.className = `feedback ${result.isCorrect ? 'good' : (result.verdict === 'Partial' ? '' : 'bad')}`;
+        feedbackBox.innerHTML = `
+          <div class="feedback-status">${result.isCorrect ? '✅' : (result.verdict === 'Partial' ? '⚠️' : '❌')} AI Verdict: ${result.verdict}</div>
+          <div class="feedback-divider"></div>
+          <div class="feedback-body">
+            ${result.explanation}
+            <div style="margin-top:10px; font-size:11px; opacity:0.7;">Official: ${item.definition}</div>
+          </div>
+        `;
+
+        if (result.isCorrect) {
+          sounds.success();
+          if (!known.has(item.term)) {
+            score++; streak++; sessionCount++;
+            known.add(item.term);
+            updateStats(item.term, true);
+          }
+        } else if (result.verdict === 'Wrong') {
+          sounds.error();
+          streak = 0;
+          updateStats(item.term, false);
+        }
+        
+        updateHud();
+        showTip(item);
+
+      } catch (err) {
+        console.error(err);
+        feedbackBox.innerHTML = `<div class="feedback-status">❌ Error</div><div class="feedback-body">Could not connect to AI. Check your API key or connection.</div>`;
+      } finally {
+        checkBtn.textContent = originalText;
+        checkBtn.disabled = false;
+      }
+    }
+
+    el('aiCheckBtn').onclick = checkWithAI;
 
     // Data Management
     el('exportData').onclick = () => {
