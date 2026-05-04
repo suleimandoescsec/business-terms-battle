@@ -897,7 +897,14 @@ Reply ONLY in JSON format like this:
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }]
+            contents: [{ parts: [{ text: prompt }] }],
+            safetySettings: [
+              { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
+              { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
+              { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
+              { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
+            ],
+            generationConfig: { response_mime_type: "application/json" }
           })
         });
 
@@ -907,13 +914,24 @@ Reply ONLY in JSON format like this:
         }
 
         const data = await response.json();
-        if (!data.candidates || !data.candidates[0]) {
-          throw new Error("No response from AI. Try again.");
+        
+        if (data.promptFeedback?.blockReason) {
+          throw new Error(`AI Blocked: ${data.promptFeedback.blockReason}. Try simplifying your answer.`);
+        }
+
+        if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+          const reason = data.candidates?.[0]?.finishReason || "Unknown";
+          throw new Error(`AI Failed to respond (Reason: ${reason}). Check your API usage or safety settings.`);
         }
 
         const text = data.candidates[0].content.parts[0].text;
-        const cleanJson = text.replace(/```json|```/g, '').trim();
-        const result = JSON.parse(cleanJson);
+        let result;
+        try {
+          result = JSON.parse(text.replace(/```json|```/g, '').trim());
+        } catch (e) {
+          console.error("JSON Parse Error:", text);
+          throw new Error("AI returned a messy answer. Try again.");
+        }
 
         feedbackBox.className = `feedback ${result.isCorrect ? 'good' : (result.verdict === 'Partial' ? '' : 'bad')}`;
         feedbackBox.innerHTML = `
