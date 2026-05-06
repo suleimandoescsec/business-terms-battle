@@ -508,6 +508,7 @@
     let geminiKey = localStorage.getItem('geminiApiKey') || '';
 
     let isPaused = false;
+    let autoNextTimeout = null;
     let mcqLocked = false;
     let timerInterval = null;
     let timeLeft = 0;
@@ -582,11 +583,14 @@
           ${isScenario ? 'The correct term was:' : 'The correct definition was:'}<br>
           <strong>${correctOption}</strong>
         </div>
+        <button class="pill" onclick="el('pauseToggle').click()" style="margin-top:10px; font-size:11px;">⏸️ Pause to write</button>
       `;
       
       showTip(item);
       updateHud();
-      setTimeout(next, 3000);
+      autoNextTimeout = setTimeout(() => {
+        if (!isPaused) next();
+      }, 3000);
     }
 
     function triggerConfetti(type = 'normal') {
@@ -762,9 +766,12 @@
           <div class="feedback-status">✅ Correct!</div>
           <div class="feedback-divider"></div>
           <div class="feedback-body">Well applied. That's exactly right.</div>
+          <button class="pill" onclick="el('pauseToggle').click()" style="margin-top:10px; font-size:11px;">⏸️ Pause to write</button>
         `;
         showTip(item);
-        setTimeout(next, 1500);
+        autoNextTimeout = setTimeout(() => {
+          if (!isPaused) next();
+        }, 1500);
       } else {
         sounds.error();
         streak = 0;
@@ -776,6 +783,7 @@
           <div class="feedback-status">❌ Wrong</div>
           <div class="feedback-divider"></div>
           <div class="feedback-body">The correct term is: <strong>${item.term}</strong></div>
+          <button class="pill" onclick="el('pauseToggle').click()" style="margin-top:10px; font-size:11px;">⏸️ Pause to write</button>
         `;
         showTip(item);
       }
@@ -866,6 +874,10 @@
 
     el('pauseToggle').onclick = () => {
       isPaused = !isPaused;
+      if (isPaused && autoNextTimeout) {
+        clearTimeout(autoNextTimeout);
+        autoNextTimeout = null;
+      }
       el('pauseToggle').textContent = isPaused ? "Pause: ON" : "Pause: Off";
       el('pauseOverlay').classList.toggle('hidden', !isPaused);
       // Optional: Blur the interactive parts of the game screen
