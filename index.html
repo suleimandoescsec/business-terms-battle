@@ -52,6 +52,7 @@
     .action:active, .unit-btn:active, .mode-card:active { transform: scale(0.96); }
     .fire-streak { animation: burn 0.8s infinite alternate; color: var(--color-gold) !important; text-shadow: 0 0 12px var(--color-gold); }
     @keyframes burn { from { filter: brightness(1); transform: scale(1); } to { filter: brightness(1.5); transform: scale(1.1); } }
+    @keyframes pulse { 0% { opacity: 0.7; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1); } 100% { opacity: 0.7; transform: scale(0.95); } }
     @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
     .shake { animation: shake 0.3s ease-in-out 2; }
     
@@ -215,9 +216,7 @@
 
       <main class="panel main">
         <div id="gameScreen" class="screen" style="position: relative;">
-          <div id="pauseOverlay" class="hidden" style="position: absolute; inset: 0; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px); z-index: 10; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-xl);">
-            <div class="panel" style="padding: var(--space-4) var(--space-8); font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-primary); box-shadow: var(--shadow-md);">PAUSED</div>
-          </div>
+          <div id="pauseIndicator" class="hidden" style="position: absolute; top: 10px; right: 10px; background: var(--color-primary); color: white; padding: 5px 15px; border-radius: 999px; font-weight: bold; z-index: 10; box-shadow: var(--shadow-sm); animation: pulse 2s infinite;">PAUSED</div>
           <div class="game-header">
             <div>
               <div class="mini" id="unitTitle">Unit</div>
@@ -583,7 +582,7 @@
           ${isScenario ? 'The correct term was:' : 'The correct definition was:'}<br>
           <strong>${correctOption}</strong>
         </div>
-        <button class="pill" onclick="el('pauseToggle').click()" style="margin-top:10px; font-size:11px;">⏸️ Pause to write</button>
+        <button class="action" onclick="el('pauseToggle').click()" style="margin-top:15px; width:100%; border-color:var(--color-primary); color:var(--color-primary);">⏸️ Pause to write definition</button>
       `;
       
       showTip(item);
@@ -696,10 +695,12 @@
       // Reset pause state on new question
       isPaused = false;
       el('pauseToggle').textContent = "Pause: Off";
-      el('pauseOverlay').classList.add('hidden');
-      const interactive = el('gameScreen').querySelectorAll('.answer-box, .mcq-grid, .btn-row');
-      interactive.forEach(node => node.style.filter = 'none');
-      interactive.forEach(node => node.style.pointerEvents = 'auto');
+      el('pauseIndicator').classList.add('hidden');
+      
+      const HUD = el('gameScreen').querySelector('.hud');
+      const Goal = el('gameScreen').querySelector('.goal-tracker');
+      if (HUD) HUD.style.opacity = '1';
+      if (Goal) Goal.style.opacity = '1';
 
       examinerTip.classList.remove('visible');
       el('chipPriority').classList.toggle('hidden', !item.priority);
@@ -766,7 +767,7 @@
           <div class="feedback-status">✅ Correct!</div>
           <div class="feedback-divider"></div>
           <div class="feedback-body">Well applied. That's exactly right.</div>
-          <button class="pill" onclick="el('pauseToggle').click()" style="margin-top:10px; font-size:11px;">⏸️ Pause to write</button>
+          <button class="action" onclick="el('pauseToggle').click()" style="margin-top:15px; width:100%; border-color:var(--color-primary); color:var(--color-primary);">⏸️ Pause to write definition</button>
         `;
         showTip(item);
         autoNextTimeout = setTimeout(() => {
@@ -783,7 +784,7 @@
           <div class="feedback-status">❌ Wrong</div>
           <div class="feedback-divider"></div>
           <div class="feedback-body">The correct term is: <strong>${item.term}</strong></div>
-          <button class="pill" onclick="el('pauseToggle').click()" style="margin-top:10px; font-size:11px;">⏸️ Pause to write</button>
+          <button class="action" onclick="el('pauseToggle').click()" style="margin-top:15px; width:100%; border-color:var(--color-primary); color:var(--color-primary);">⏸️ Pause to write definition</button>
         `;
         showTip(item);
       }
@@ -879,11 +880,13 @@
         autoNextTimeout = null;
       }
       el('pauseToggle').textContent = isPaused ? "Pause: ON" : "Pause: Off";
-      el('pauseOverlay').classList.toggle('hidden', !isPaused);
-      // Optional: Blur the interactive parts of the game screen
-      const interactive = el('gameScreen').querySelectorAll('.answer-box, .mcq-grid, .btn-row');
-      interactive.forEach(node => node.style.filter = isPaused ? 'blur(4px)' : 'none');
-      interactive.forEach(node => node.style.pointerEvents = isPaused ? 'none' : 'auto');
+      el('pauseIndicator').classList.toggle('hidden', !isPaused);
+      
+      // Dim only the non-essential parts, keep question/feedback readable
+      const HUD = el('gameScreen').querySelector('.hud');
+      const Goal = el('gameScreen').querySelector('.goal-tracker');
+      if (HUD) HUD.style.opacity = isPaused ? '0.3' : '1';
+      if (Goal) Goal.style.opacity = isPaused ? '0.3' : '1';
     };
 
     // AI Logic
