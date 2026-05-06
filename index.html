@@ -164,6 +164,7 @@
         <button class="icon-btn" data-theme-toggle aria-label="Switch theme">🌙</button>
         <button class="pill" id="panicToggle">Panic Mode: Off</button>
         <button class="pill" id="focusToggle">Focus Mode: Off</button>
+        <button class="pill" id="pauseToggle">Pause: Off</button>
         <button class="pill" id="shuffleAll">Shuffle all</button>
         <button class="icon-btn" id="settingsBtn" title="AI Settings">⚙️</button>
       </div>
@@ -213,7 +214,10 @@
       </aside>
 
       <main class="panel main">
-        <div id="gameScreen" class="screen">
+        <div id="gameScreen" class="screen" style="position: relative;">
+          <div id="pauseOverlay" class="hidden" style="position: absolute; inset: 0; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px); z-index: 10; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-xl);">
+            <div class="panel" style="padding: var(--space-4) var(--space-8); font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-primary); box-shadow: var(--shadow-md);">PAUSED</div>
+          </div>
           <div class="game-header">
             <div>
               <div class="mini" id="unitTitle">Unit</div>
@@ -503,6 +507,7 @@
     let stats = JSON.parse(localStorage.getItem('studyStats') || '{}');
     let geminiKey = localStorage.getItem('geminiApiKey') || '';
 
+    let isPaused = false;
     let mcqLocked = false;
     let timerInterval = null;
     let timeLeft = 0;
@@ -529,6 +534,7 @@
         timerDisplay.textContent = `00:20`;
         timerDisplay.classList.remove('urgent');
         timerInterval = setInterval(() => {
+          if (isPaused) return;
           timeLeft--;
           const s = timeLeft < 10 ? '0' + timeLeft : timeLeft;
           timerDisplay.textContent = `00:${s}`;
@@ -539,6 +545,7 @@
         timeLeft = 0;
         timerDisplay.textContent = `00:00`;
         timerInterval = setInterval(() => {
+          if (isPaused) return;
           timeLeft++;
           const m = Math.floor(timeLeft / 60);
           const s = timeLeft % 60;
@@ -682,6 +689,14 @@
       const item = currentItem();
       if (!item) return finish();
       
+      // Reset pause state on new question
+      isPaused = false;
+      el('pauseToggle').textContent = "Pause: Off";
+      el('pauseOverlay').classList.add('hidden');
+      const interactive = el('gameScreen').querySelectorAll('.answer-box, .mcq-grid, .btn-row');
+      interactive.forEach(node => node.style.filter = 'none');
+      interactive.forEach(node => node.style.pointerEvents = 'auto');
+
       examinerTip.classList.remove('visible');
       el('chipPriority').classList.toggle('hidden', !item.priority);
       unitTitle.textContent = `Unit ${item.unit} · ${item.unitTitle}`;
@@ -847,6 +862,16 @@
       focusMode = !focusMode;
       document.body.classList.toggle('focus-active', focusMode);
       el('focusToggle').textContent = focusMode ? "Focus Mode: ON" : "Focus Mode: Off";
+    };
+
+    el('pauseToggle').onclick = () => {
+      isPaused = !isPaused;
+      el('pauseToggle').textContent = isPaused ? "Pause: ON" : "Pause: Off";
+      el('pauseOverlay').classList.toggle('hidden', !isPaused);
+      // Optional: Blur the interactive parts of the game screen
+      const interactive = el('gameScreen').querySelectorAll('.answer-box, .mcq-grid, .btn-row');
+      interactive.forEach(node => node.style.filter = isPaused ? 'blur(4px)' : 'none');
+      interactive.forEach(node => node.style.pointerEvents = isPaused ? 'none' : 'auto');
     };
 
     // AI Logic
