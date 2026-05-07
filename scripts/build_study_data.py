@@ -232,7 +232,7 @@ def parse_new_style_mark_scheme_items(text: str, source_label: str) -> list[dict
                     "question_id": question_id,
                     "prompt": prompt,
                     "marks": marks,
-                    "working": clean_ws(" ".join(working_lines[:3])),
+                    "working": clean_ws(" ".join(working_lines)),
                     "answer_text": answer_text,
                     "mark_scheme": extract_mark_scheme_summary(body),
                 }
@@ -259,15 +259,12 @@ def body_lower(text: str) -> str:
 
 
 def extract_mark_scheme_summary(body: str) -> str:
-    bullets = [clean_ws(line.lstrip("•- ")) for line in body.splitlines() if clean_ws(line).startswith("•")]
-    if bullets:
-        return " ".join(bullets[:3])
-
-    body = re.sub(r"\bAO\d+\b.*?marks?", "", body, flags=re.I | re.S)
-    body = re.sub(r"Accept any other appropriate response\.?", "", body, flags=re.I)
-    body = re.sub(r"NB .*", "", body, flags=re.I)
-    sentences = [clean_ws(chunk) for chunk in re.split(r"(?<=[.])\s+", clean_ws(body)) if clean_ws(chunk)]
-    return " ".join(sentences[:3])
+    body = clean_ws(body)
+    # Remove leading question identifiers and AO markers (e.g., "1 (b) AO1 - 1 mark")
+    body = re.sub(r"^\d+\s*\([a-z]\)(?:\s*\([ivx]+\))?\s*AO\d+\s*-\s*\d+\s*marks?\s*", "", body, flags=re.I)
+    # Remove leading "Award X marks for..." or "Mark scheme" fluff
+    body = re.sub(r"^(?:Award\s+\d+\s+marks?\s+for.*?|Mark\s+scheme)\.?\s*", "", body, flags=re.I)
+    return body.strip()
 
 
 def parse_question_paper_mcqs(text: str) -> list[dict[str, object]]:
