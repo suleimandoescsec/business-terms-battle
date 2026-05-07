@@ -87,7 +87,7 @@
     .hero { display:grid; grid-template-columns: 1.3fr 0.9fr; gap: var(--space-4); margin-bottom: var(--space-6); }
     .panel { background: color-mix(in oklab, var(--color-surface) 92%, white 8%); border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent); border-radius: var(--radius-xl); box-shadow: var(--shadow-md); }
     .hero-card { padding: clamp(1.25rem, 2vw, 2rem); }
-    .stats { display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); margin-top: var(--space-5); }
+    .stats { display:grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: var(--space-3); margin-top: var(--space-5); }
     .stat { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); }
     .stat strong { display:block; font-size: var(--text-xl); font-family: var(--font-display); }
     .modes { padding: var(--space-5); display:grid; gap: var(--space-3); }
@@ -146,6 +146,26 @@
     .unit-score-fill { height: 100%; background: var(--color-primary); width: 0%; transition: width 1s ease; }
     .unit-score-fill.bad { background: var(--color-error); }
 
+    .study-hub { margin-top: var(--space-6); padding: var(--space-5); display: grid; gap: var(--space-4); }
+    .study-head { display:flex; justify-content:space-between; gap:var(--space-4); align-items:flex-start; flex-wrap:wrap; }
+    .study-head h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 2vw, 2.4rem); line-height: 1.05; }
+    .study-meta { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-3); min-width: min(100%, 320px); }
+    .study-stat { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); }
+    .study-stat strong { display:block; font-size: var(--text-xl); font-family: var(--font-display); }
+    .study-tabs { display:flex; gap: var(--space-2); flex-wrap:wrap; }
+    .study-tab.active { background: var(--color-primary); color: var(--color-text-inverse); border-color: transparent; }
+    .study-view { display:none; }
+    .study-view.active { display:grid; gap: var(--space-4); }
+    .study-grid { display:grid; gap: var(--space-4); }
+    .study-toolbar { display:flex; gap: var(--space-3); flex-wrap:wrap; align-items:center; }
+    .study-toolbar select { min-height:44px; padding: 0 var(--space-4); border-radius: 999px; background: var(--color-surface); border:1px solid color-mix(in oklab, var(--color-text) 12%, transparent); }
+    .playbook-grid, .vault-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-3); }
+    .playbook-card, .vault-card { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); display:grid; gap: var(--space-3); }
+    .playbook-card p { color: var(--color-text-muted); }
+    .vault-card h3 { font-family: var(--font-display); font-size: var(--text-lg); line-height: 1.1; }
+    .vault-assets { display:flex; gap: var(--space-2); flex-wrap:wrap; }
+    .vault-link { text-decoration:none; }
+
     @media (max-width: 920px) { .hero, .layout { grid-template-columns: 1fr; } .hud { grid-template-columns: repeat(2, 1fr); } }
   </style>
 </head>
@@ -173,10 +193,12 @@
 
     <section class="hero">
       <div class="panel hero-card">
-        <p class="sub">Advanced IGCSE Prep: Learn definitions, practice application scenarios, and master examiner tips to avoid common pitfalls.</p>
+        <p class="sub">Advanced IGCSE prep for Kamilla: revise definitions, formulas, past-paper questions, and examiner habits from the uploaded Edexcel material in one place.</p>
         <div class="stats">
           <div class="stat"><span class="mini">Units</span><strong>5</strong></div>
           <div class="stat"><span class="mini">Terms</span><strong id="totalTermsCount">0</strong></div>
+          <div class="stat"><span class="mini">Formulae</span><strong id="formulaCountStat">0</strong></div>
+          <div class="stat"><span class="mini">Papers</span><strong id="paperCountStat">0</strong></div>
           <div class="stat"><span class="mini">Goal</span><strong id="sessionGoalStat">0 mastered</strong></div>
         </div>
         <div class="progress"><div id="masteryBar"></div></div>
@@ -272,7 +294,7 @@
             <strong>💡 Examiner Tip:</strong> <span id="tipText"></span>
           </div>
 
-          <div class="footer-note">Tip: Focus on "High Priority" terms for the most common exam topics.</div>
+          <div class="footer-note">Tip: Focus on "High Priority" terms first, then use the full exam hub below for formulas, paper drills, and source PDFs.</div>
         </div>
 
         <div id="resultScreen" class="screen hidden center">
@@ -282,6 +304,86 @@
           <div class="btn-row" style="justify-content:center; margin-top:1rem;"><button class="action primary" id="restartBtn">Play again</button></div>
         </div>
       </main>
+    </section>
+
+    <section class="panel study-hub">
+      <div class="study-head">
+        <div>
+          <div class="mini">Kamilla's Exam Hub</div>
+          <h2>Study Everything From The Updated Material</h2>
+          <p class="sub">This layer turns the uploaded formula sheet, mark schemes, and past papers into revision tools without removing the original term trainer.</p>
+        </div>
+        <div class="study-meta">
+          <div class="study-stat"><span class="mini">Paper drills</span><strong id="paperDrillCount">0</strong></div>
+          <div class="study-stat"><span class="mini">Source files</span><strong id="resourceCount">0</strong></div>
+        </div>
+      </div>
+
+      <div class="study-tabs">
+        <button class="pill study-tab active" data-study-view="formula">Formula Lab</button>
+        <button class="pill study-tab" data-study-view="paper">Paper Drill</button>
+        <button class="pill study-tab" data-study-view="playbook">Examiner Playbook</button>
+        <button class="pill study-tab" data-study-view="vault">Past Paper Vault</button>
+      </div>
+
+      <section class="study-view active" data-study-panel="formula">
+        <div class="study-grid">
+          <div class="prompt">
+            <div class="label" id="formulaSectionLabel">Formula Lab</div>
+            <h2 id="formulaPromptTitle">Loading formulas...</h2>
+            <p id="formulaPromptHint">Recall the formula before you reveal it.</p>
+            <div class="chips">
+              <span class="chip" id="formulaIndexChip">0 / 0</span>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button class="action primary" id="revealFormulaBtn">Reveal formula</button>
+            <button class="action" id="nextFormulaBtn">Next formula</button>
+            <button class="action" id="shuffleFormulasBtn">Shuffle formulas</button>
+          </div>
+          <div class="feedback" id="formulaFeedback">Formula notes will appear here.</div>
+        </div>
+      </section>
+
+      <section class="study-view" data-study-panel="paper">
+        <div class="study-toolbar">
+          <select id="paperDrillFilter" aria-label="Filter paper drill type">
+            <option value="all">All drill types</option>
+            <option value="mcq">MCQ</option>
+            <option value="definition">Definitions</option>
+            <option value="calculation">Calculations</option>
+            <option value="short_answer">Short answers</option>
+          </select>
+          <button class="pill" id="shufflePaperDrillsBtn">Shuffle drills</button>
+        </div>
+        <div class="prompt">
+          <div class="label" id="paperDrillMeta">Paper Drill</div>
+          <h2 id="paperDrillPrompt">Loading extracted paper questions...</h2>
+          <p id="paperDrillHint">Attempt the question before you reveal the mark scheme.</p>
+          <div class="chips">
+            <span class="chip" id="paperDrillTypeChip">type</span>
+            <span class="chip" id="paperDrillMarksChip">0 marks</span>
+            <span class="chip" id="paperDrillIndexChip">0 / 0</span>
+          </div>
+        </div>
+        <div class="mcq-grid" id="paperDrillOptions"></div>
+        <div id="paperDrillTypedWrap" class="answer-box hidden">
+          <textarea id="paperDrillAnswer" placeholder="Write your answer before revealing the mark scheme..."></textarea>
+        </div>
+        <div class="btn-row">
+          <button class="action primary" id="showPaperAnswerBtn">Reveal mark scheme</button>
+          <button class="action" id="nextPaperDrillBtn">Next paper drill</button>
+        </div>
+        <div class="feedback" id="paperDrillFeedback">Mark scheme guidance will appear here.</div>
+      </section>
+
+      <section class="study-view" data-study-panel="playbook">
+        <div class="playbook-grid" id="examinerPlaybookList"></div>
+      </section>
+
+      <section class="study-view" data-study-panel="vault">
+        <div class="vault-grid" id="paperVaultList"></div>
+      </section>
     </section>
   </div>
 
@@ -299,6 +401,7 @@
     </div>
   </div>
 
+  <script src="study-data.js"></script>
   <script>
     const DATA = [
       { unit: 1, title: "Business Activity", terms: [
@@ -1106,5 +1209,6 @@ Reply ONLY in JSON format like this:
     })();
 
   </script>
+  <script src="study-hub.js"></script>
 </body>
 </html>
