@@ -264,6 +264,13 @@ def extract_mark_scheme_summary(body: str) -> str:
     body = re.sub(r"^\d+\s*\([a-z]\)(?:\s*\([ivx]+\))?\s*AO\d+\s*-\s*\d+\s*marks?\s*", "", body, flags=re.I)
     # Remove leading "Award X marks for..." or "Mark scheme" fluff
     body = re.sub(r"^(?:Award\s+\d+\s+marks?\s+for.*?|Mark\s+scheme)\.?\s*", "", body, flags=re.I)
+    
+    # Restore spacing for readability in UI
+    body = body.replace("•", "\n• ")
+    body = re.sub(r"\s+(AO[1-4]\s*(?:=|-|–)?\s*\d+\s*marks?)", r"\n\n\1\n", body, flags=re.I)
+    body = re.sub(r"\s+(Level\s+\d+\s+\d+-\d+\s*(?:marks?)?)", r"\n\n\1\n", body, flags=re.I)
+    body = re.sub(r"\s+(Indicative content)", r"\n\n\1\n", body, flags=re.I)
+    
     return body.strip()
 
 

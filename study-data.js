@@ -1,5 +1,5 @@
 window.STUDY_DATA = {
-  "generatedAt": 1778174547.6528883,
+  "generatedAt": 1778177248.004101,
   "formulas": [
     {
       "section": "Revenue, Costs & Profit",
@@ -449,7 +449,7 @@ window.STUDY_DATA = {
       "question_id": "1 (b)",
       "prompt": "Define the term profit",
       "marks": 1,
-      "mark_scheme": "a correct definition of profit. • Total revenue – total costs (1). (1)"
+      "mark_scheme": "a correct definition of profit. \n•  Total revenue – total costs (1). (1)"
     },
     {
       "type": "definition",
@@ -457,7 +457,7 @@ window.STUDY_DATA = {
       "question_id": "1 (c)",
       "prompt": "Define the term non-current liabilities",
       "marks": 1,
-      "mark_scheme": "a correct definition of non-current liabilities. • Debts that are payable after 12 months (1). (1)"
+      "mark_scheme": "a correct definition of non-current liabilities. \n•  Debts that are payable after 12 months (1). (1)"
     },
     {
       "type": "short_answer",
@@ -465,7 +465,7 @@ window.STUDY_DATA = {
       "question_id": "1 (d)",
       "prompt": "State one reason why NOF segments its target market by income",
       "marks": 1,
-      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for a reason why NOF segments its target market by income. • NOF can sell higher priced organic products to people staying at the farm (1). Accept any other appropriate response. (1)"
+      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for a reason why NOF segments its target market by income. \n•  NOF can sell higher priced organic products to people staying at the farm (1). Accept any other appropriate response. (1)"
     },
     {
       "type": "short_answer",
@@ -473,7 +473,7 @@ window.STUDY_DATA = {
       "question_id": "2 (b)",
       "prompt": "State one reason why NOF might use other retailers to sell its products",
       "marks": 1,
-      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a valid reason of using retailers in the context of the business. • NOF is able to sell its organic farmed produce to other outlets giving it a wider market (1). Accept any other appropriate response. (1)"
+      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a valid reason of using retailers in the context of the business. \n•  NOF is able to sell its organic farmed produce to other outlets giving it a wider market (1). Accept any other appropriate response. (1)"
     },
     {
       "type": "short_answer",
@@ -481,7 +481,7 @@ window.STUDY_DATA = {
       "question_id": "2 (c)",
       "prompt": "Explain one benefit to a business of using secondary market research",
       "marks": 3,
-      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for identification of a benefit to a business of using secondary market research, plus 2 further marks for explaining this benefit for a business, for a maximum of 3 marks. • Businesses save money by not carrying out the research themselves (1) as the information is freely accessible on the internet (1) and they can access a large amount of information at no cost (1). NB Answers that list three benefits with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3) 4BS1/01 Summer 2021"
+      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for identification of a benefit to a business of using secondary market research, plus 2 further marks for explaining this benefit for a business, for a maximum of 3 marks. \n•  Businesses save money by not carrying out the research themselves (1) as the information is freely accessible on the internet (1) and they can access a large amount of information at no cost (1). NB Answers that list three benefits with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3) 4BS1/01 Summer 2021"
     },
     {
       "type": "short_answer",
@@ -489,7 +489,7 @@ window.STUDY_DATA = {
       "question_id": "2 (d)",
       "prompt": "Explain one limitation of a cash flow forecast when making business decisions",
       "marks": 3,
-      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for identification of a limitation of a cash flow forecast, plus 2 further marks for explaining this limitation, for a maximum of 3 marks. • A limitation is that it is a forecast not actual figure (1). The forecast does not show what happens if goods are not sold (1) or provide a contingency plan if this occurs (1). NB Answers that list three limitations with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for identification of a limitation of a cash flow forecast, plus 2 further marks for explaining this limitation, for a maximum of 3 marks. \n•  A limitation is that it is a forecast not actual figure (1). The forecast does not show what happens if goods are not sold (1) or provide a contingency plan if this occurs (1). NB Answers that list three limitations with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -497,7 +497,7 @@ window.STUDY_DATA = {
       "question_id": "2 (e)",
       "prompt": "Explain one benefit to a business of using crowdfunding as a source of finance",
       "marks": 3,
-      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for the identification of a benefit of using crowdfunding as a source of finance, plus 2 further marks for explaining that benefit, for a maximum of 3 marks. • Crowdfunding can be a fast way to raise finance (1) from many small investors (1) when no other lender may be available (1) NB Answers that list three benefits with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3) 4BS1/01 Summer 2021"
+      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for the identification of a benefit of using crowdfunding as a source of finance, plus 2 further marks for explaining that benefit, for a maximum of 3 marks. \n•  Crowdfunding can be a fast way to raise finance (1) from many small investors (1) when no other lender may be available (1) NB Answers that list three benefits with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3) 4BS1/01 Summer 2021"
     },
     {
       "type": "mcq",
@@ -601,7 +601,7 @@ window.STUDY_DATA = {
       "question_id": "1 (b)",
       "prompt": "Define the term primary sector.",
       "marks": 1,
-      "mark_scheme": "a correct definition of primary sector. • The extraction of raw materials from the earth (1). (1)"
+      "mark_scheme": "a correct definition of primary sector. \n•  The extraction of raw materials from the earth (1). (1)"
     },
     {
       "type": "definition",
@@ -609,7 +609,7 @@ window.STUDY_DATA = {
       "question_id": "1 (c)",
       "prompt": "Define the term diseconomies of scale.",
       "marks": 1,
-      "mark_scheme": "a correct definition of diseconomies of scale. • When the average unit cost increases due to the growth of a business (1). (1)"
+      "mark_scheme": "a correct definition of diseconomies of scale. \n•  When the average unit cost increases due to the growth of a business (1). (1)"
     },
     {
       "type": "short_answer",
@@ -617,7 +617,7 @@ window.STUDY_DATA = {
       "question_id": "1 (d)",
       "prompt": "State one factor TBTS should consider when selecting its manufacturers.",
       "marks": 1,
-      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for a factor TBTS should consider when selecting its manufacturers in the context of TBTS. • TBTS should select manufacturers that produce toys in an environmentally friendly way (1). NB Do not accept a factor that is not in the context of TBTS Accept any other appropriate response. (1)"
+      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for a factor TBTS should consider when selecting its manufacturers in the context of TBTS. \n•  TBTS should select manufacturers that produce toys in an environmentally friendly way (1). NB Do not accept a factor that is not in the context of TBTS Accept any other appropriate response. (1)"
     },
     {
       "type": "calculation",
@@ -635,7 +635,7 @@ window.STUDY_DATA = {
       "question_id": "1 (f)",
       "prompt": "Explain one advantage of being a sole trader.",
       "marks": 3,
-      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for identification of an advantage of being a sole trader, plus 2 further marks for explaining the advantage, for a maximum of 3 marks. • Sole traders have full control of their business (1) this means they can run the business how they want (1) without having to consult with anyone when making decisions (1) NB Answers that list three advantages with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for identification of an advantage of being a sole trader, plus 2 further marks for explaining the advantage, for a maximum of 3 marks. \n•  Sole traders have full control of their business (1) this means they can run the business how they want (1) without having to consult with anyone when making decisions (1) NB Answers that list three advantages with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -643,7 +643,7 @@ window.STUDY_DATA = {
       "question_id": "2 (b)",
       "prompt": "State one reason why TBTS might segment its market",
       "marks": 1,
-      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a valid reason TBTS might segment the market in the context of TBTS • TBTS will be able to aim its toys appropriately to different age groups (1) NB Do not accept a reason that is not in the context of TBTS Accept any other appropriate response (1)"
+      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a valid reason TBTS might segment the market in the context of TBTS \n•  TBTS will be able to aim its toys appropriately to different age groups (1) NB Do not accept a reason that is not in the context of TBTS Accept any other appropriate response (1)"
     },
     {
       "type": "short_answer",
@@ -651,7 +651,7 @@ window.STUDY_DATA = {
       "question_id": "2 (c)",
       "prompt": "Explain one benefit to a business of having a flat organisational structure.",
       "marks": 3,
-      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for identification of a benefit to a business of having a flat organisational structure, plus 2 further marks for explaining this benefit for a business, for a maximum of 3 marks • Businesses will have fewer levels (1) so lines of communication are shorter (1) leading to quicker decision-making (1) NB Answers that list three benefits with no explanation will get 1 mark only Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for identification of a benefit to a business of having a flat organisational structure, plus 2 further marks for explaining this benefit for a business, for a maximum of 3 marks \n•  Businesses will have fewer levels (1) so lines of communication are shorter (1) leading to quicker decision-making (1) NB Answers that list three benefits with no explanation will get 1 mark only Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -659,7 +659,7 @@ window.STUDY_DATA = {
       "question_id": "2 (d)",
       "prompt": "Explain one method a small business may use to increase its profit.",
       "marks": 3,
-      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for identification of a method of increasing profit, plus 2 further marks for explaining this method, for a maximum of 3 marks. • Cutting costs (1) such as reducing the number of employees (1) which could increase profit if revenue stays the same (1) NB Answers that list three methods with no explanation will get 1 mark only Accept any other appropriate response (3)"
+      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for identification of a method of increasing profit, plus 2 further marks for explaining this method, for a maximum of 3 marks. \n•  Cutting costs (1) such as reducing the number of employees (1) which could increase profit if revenue stays the same (1) NB Answers that list three methods with no explanation will get 1 mark only Accept any other appropriate response (3)"
     },
     {
       "type": "short_answer",
@@ -667,7 +667,7 @@ window.STUDY_DATA = {
       "question_id": "2 (e)",
       "prompt": "Explain one benefit to a business of using the Boston Matrix.",
       "marks": 3,
-      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for the identification of a benefit of using the Boston Matrix, plus 2 further marks for explaining that benefit, for a maximum of 3 marks. • The Boston Matrix helps a business to balance its product portfolio (1) showing if they have too many similar products (1) and can lead to identifying when they need to introduce a new product (1) NB Answers that list three benefits with no explanation will get 1 mark only Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for the identification of a benefit of using the Boston Matrix, plus 2 further marks for explaining that benefit, for a maximum of 3 marks. \n•  The Boston Matrix helps a business to balance its product portfolio (1) showing if they have too many similar products (1) and can lead to identifying when they need to introduce a new product (1) NB Answers that list three benefits with no explanation will get 1 mark only Accept any other appropriate response. (3)"
     },
     {
       "type": "calculation",
@@ -781,7 +781,7 @@ window.STUDY_DATA = {
       "question_id": "1 (b)",
       "prompt": "Define the term robotics.",
       "marks": 1,
-      "mark_scheme": "a correct definition of robotics. • Robots carry out manufacturing process with no human involvement (1) (1)"
+      "mark_scheme": "a correct definition of robotics. \n•  Robots carry out manufacturing process with no human involvement (1) (1)"
     },
     {
       "type": "definition",
@@ -789,7 +789,7 @@ window.STUDY_DATA = {
       "question_id": "1 (c)",
       "prompt": "Define the term capital intensive production",
       "marks": 1,
-      "mark_scheme": "a correct definition of capital intensive production. • Production methods that use machinery more than labour (1) (1)"
+      "mark_scheme": "a correct definition of capital intensive production. \n•  Production methods that use machinery more than labour (1) (1)"
     },
     {
       "type": "short_answer",
@@ -797,7 +797,7 @@ window.STUDY_DATA = {
       "question_id": "1 (d)",
       "prompt": "State one extension strategy PPS could use to extend the life cycle of the pet accessories.",
       "marks": 1,
-      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for an extension strategy PPS could use to extend the life cycle of its pet accessories. • PPS could change the design of a dog jacket (1) • PPS could redesign UK dog collars (1) NB Do not accept an extension strategy that is not in the context of PPS. Accept any other appropriate response. (1)"
+      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for an extension strategy PPS could use to extend the life cycle of its pet accessories. \n•  PPS could change the design of a dog jacket (1) \n•  PPS could redesign UK dog collars (1) NB Do not accept an extension strategy that is not in the context of PPS. Accept any other appropriate response. (1)"
     },
     {
       "type": "calculation",
@@ -807,7 +807,7 @@ window.STUDY_DATA = {
       "marks": 3,
       "working": "1 (f) A01 - 3 marks for explaining the reason, for a maximum of 3 explanation will get 1 mark only.",
       "answer_text": "",
-      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for a reason why businesses have a human resource function, plus 2 further marks for explaining the reason, for a maximum of 3 marks. • To recruit employees (1) by identifying a vacancy in the business (1) and finding the right person for that vacancy (1) NB Answers that list three reasons with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for a reason why businesses have a human resource function, plus 2 further marks for explaining the reason, for a maximum of 3 marks. \n•  To recruit employees (1) by identifying a vacancy in the business (1) and finding the right person for that vacancy (1) NB Answers that list three reasons with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -815,7 +815,7 @@ window.STUDY_DATA = {
       "question_id": "2 (b)",
       "prompt": "State one reason why PPS motivates its employees.",
       "marks": 1,
-      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a valid reason why PPS motivates its employees • As the employees are motivated in what they are doing the dogs staying overnight will receive good care (1) NB Do not accept a reason that is not in the context of PPS. Accept any other appropriate response. (1)"
+      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a valid reason why PPS motivates its employees \n•  As the employees are motivated in what they are doing the dogs staying overnight will receive good care (1) NB Do not accept a reason that is not in the context of PPS. Accept any other appropriate response. (1)"
     },
     {
       "type": "short_answer",
@@ -823,7 +823,7 @@ window.STUDY_DATA = {
       "question_id": "2 (c)",
       "prompt": "Explain one impact on a business of ineffective communication.",
       "marks": 3,
-      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for identification of an impact to a business of ineffective communication, plus 2 further marks for explaining this impact, for a maximum of 3 marks. • This can create misunderstanding between owners and employees (1) as employees may not be clear of what they are supposed to be doing (1) and this could lead to errors being made (1) NB Answers that list three impacts with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for identification of an impact to a business of ineffective communication, plus 2 further marks for explaining this impact, for a maximum of 3 marks. \n•  This can create misunderstanding between owners and employees (1) as employees may not be clear of what they are supposed to be doing (1) and this could lead to errors being made (1) NB Answers that list three impacts with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -831,7 +831,7 @@ window.STUDY_DATA = {
       "question_id": "2 (d)",
       "prompt": "Explain one advantage to a business of having a decentralised organisation.",
       "marks": 3,
-      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for an advantage to a business of having a decentralised organisation, plus 2 further marks for explaining this advantage, for a maximum of 3 marks. • The business can react to changes quicker (1) because they do not need to run decisions through many layers (1) leading to decisions being made that meet the needs of local customers (1) NB Answers that list three advantage with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for an advantage to a business of having a decentralised organisation, plus 2 further marks for explaining this advantage, for a maximum of 3 marks. \n•  The business can react to changes quicker (1) because they do not need to run decisions through many layers (1) leading to decisions being made that meet the needs of local customers (1) NB Answers that list three advantage with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -839,7 +839,7 @@ window.STUDY_DATA = {
       "question_id": "2 (e)",
       "prompt": "Explain one benefit to a business of using seasonal employees.",
       "marks": 3,
-      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for a benefit of using seasonal employees, plus 2 further marks for explaining that benefit, for a maximum of 3 marks. • This gives the business flexibility with its workforce (1) by having more employees at busier times (1) allowing them to meet the demands of customers at certain times of the year (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for a benefit of using seasonal employees, plus 2 further marks for explaining that benefit, for a maximum of 3 marks. \n•  This gives the business flexibility with its workforce (1) by having more employees at busier times (1) allowing them to meet the demands of customers at certain times of the year (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "calculation",
@@ -953,7 +953,7 @@ window.STUDY_DATA = {
       "question_id": "1 (b)",
       "prompt": "Define the term trade bloc.",
       "marks": 1,
-      "mark_scheme": "a correct definition of trade bloc. • A group of countries that work together to benefit from trade free of barriers (1) (1)"
+      "mark_scheme": "a correct definition of trade bloc. \n•  A group of countries that work together to benefit from trade free of barriers (1) (1)"
     },
     {
       "type": "definition",
@@ -961,7 +961,7 @@ window.STUDY_DATA = {
       "question_id": "1 (c)",
       "prompt": "Define the term job production.",
       "marks": 1,
-      "mark_scheme": "a correct definition of job production. • The one-off production of a customised product to meet a customers’ specific needs (1) (1)"
+      "mark_scheme": "a correct definition of job production. \n•  The one-off production of a customised product to meet a customers’ specific needs (1) (1)"
     },
     {
       "type": "short_answer",
@@ -969,7 +969,7 @@ window.STUDY_DATA = {
       "question_id": "1 (d)",
       "prompt": "State one reason why Four Fitness would pay its employees more than the minimum wage.",
       "marks": 1,
-      "mark_scheme": "a reason Four Fitness would pay its employees higher than minimum wage. • Its gym instructors are highly qualified and skilled (1) NB Do not accept a reason that is not in the context of Four Fitness. Accept any other appropriate response. (1)"
+      "mark_scheme": "a reason Four Fitness would pay its employees higher than minimum wage. \n•  Its gym instructors are highly qualified and skilled (1) NB Do not accept a reason that is not in the context of Four Fitness. Accept any other appropriate response. (1)"
     },
     {
       "type": "calculation",
@@ -987,7 +987,7 @@ window.STUDY_DATA = {
       "question_id": "1 (f)",
       "prompt": "Explain one impact to a business of providing fringe benefits to employees.",
       "marks": 3,
-      "mark_scheme": "an impact to a business of providing fringe benefits to employees, plus 2 further marks for explaining the impact, for a maximum of 3 marks. • Lower staff turnover (1) which reduces recruitment costs (1) as they will not need to find new employees (1) NB Answers that list three impacts with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "an impact to a business of providing fringe benefits to employees, plus 2 further marks for explaining the impact, for a maximum of 3 marks. \n•  Lower staff turnover (1) which reduces recruitment costs (1) as they will not need to find new employees (1) NB Answers that list three impacts with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -995,7 +995,7 @@ window.STUDY_DATA = {
       "question_id": "2 (b)",
       "prompt": "State one reason why branding is important to Four Fitness.",
       "marks": 1,
-      "mark_scheme": "a valid reason why branding is important to Four Fitness. • It makes the highly experienced gym instructors stand out against its competitors (1) NB Do not accept a reason that is not in the context of Four Fitness. Accept any other appropriate response. (1)"
+      "mark_scheme": "a valid reason why branding is important to Four Fitness. \n•  It makes the highly experienced gym instructors stand out against its competitors (1) NB Do not accept a reason that is not in the context of Four Fitness. Accept any other appropriate response. (1)"
     },
     {
       "type": "short_answer",
@@ -1003,7 +1003,7 @@ window.STUDY_DATA = {
       "question_id": "2 (c)",
       "prompt": "Explain one advantage to a business of using total quality management.",
       "marks": 3,
-      "mark_scheme": "identification of an advantage to a business of using total quality management, plus 2 further marks for explaining this advantage, for a maximum of 3 marks. • Increased customer satisfaction (1) as managing quality is the responsibility of all employees (1) so they will be fully trained to complete their role effectively and consistently (1) NB Answers that list three advantages with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "identification of an advantage to a business of using total quality management, plus 2 further marks for explaining this advantage, for a maximum of 3 marks. \n•  Increased customer satisfaction (1) as managing quality is the responsibility of all employees (1) so they will be fully trained to complete their role effectively and consistently (1) NB Answers that list three advantages with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1011,7 +1011,7 @@ window.STUDY_DATA = {
       "question_id": "2 (d)",
       "prompt": "Explain one problem a business might face as a result of ineffective communication.",
       "marks": 3,
-      "mark_scheme": "a problem a business might face as a result of ineffective communication, plus 2 further marks for explaining this problem, for a maximum of 3 marks. • Employees may become demotivated as they do not understand what they have to do (1) leading to lower levels of productivity (1) and increased costs for the business (1) NB Answers that list three problems with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "a problem a business might face as a result of ineffective communication, plus 2 further marks for explaining this problem, for a maximum of 3 marks. \n•  Employees may become demotivated as they do not understand what they have to do (1) leading to lower levels of productivity (1) and increased costs for the business (1) NB Answers that list three problems with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1019,7 +1019,7 @@ window.STUDY_DATA = {
       "question_id": "2 (e)",
       "prompt": "Explain one disadvantage to a small business of borrowing money from a bank.",
       "marks": 3,
-      "mark_scheme": "a disadvantage to a small business of borrowing money from a bank, plus 2 further marks for explaining that disadvantage, for a maximum of 3 marks. • Borrowing from a bank means the business has to pay back the loan with interest (1) which will increase its costs (1) leading to a reduction in profit (1) NB Answers that list three disadvantages with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "a disadvantage to a small business of borrowing money from a bank, plus 2 further marks for explaining that disadvantage, for a maximum of 3 marks. \n•  Borrowing from a bank means the business has to pay back the loan with interest (1) which will increase its costs (1) leading to a reduction in profit (1) NB Answers that list three disadvantages with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "calculation",
@@ -1037,7 +1037,7 @@ window.STUDY_DATA = {
       "question_id": "1 (b)",
       "prompt": "Define the term profit.",
       "marks": 1,
-      "mark_scheme": "a correct definition of profit • The amount remaining when total costs are deducted from total revenue (1) (1)"
+      "mark_scheme": "a correct definition of profit \n•  The amount remaining when total costs are deducted from total revenue (1) (1)"
     },
     {
       "type": "definition",
@@ -1045,7 +1045,7 @@ window.STUDY_DATA = {
       "question_id": "1 (c)",
       "prompt": "Define the term span of control.",
       "marks": 1,
-      "mark_scheme": "a correct definition of span of control. • The number of workers controlled by one manager (1) (1)"
+      "mark_scheme": "a correct definition of span of control. \n•  The number of workers controlled by one manager (1) (1)"
     },
     {
       "type": "short_answer",
@@ -1053,7 +1053,7 @@ window.STUDY_DATA = {
       "question_id": "1 (d)",
       "prompt": "State one likely variable cost for AWG.",
       "marks": 1,
-      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for one variable cost for AWG • AWG will have to pay for the cost of wool used to make the jumpers (1) NB Do not accept a variable cost that is not in the context of AWG. Accept any appropriate response. (1)"
+      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for one variable cost for AWG \n•  AWG will have to pay for the cost of wool used to make the jumpers (1) NB Do not accept a variable cost that is not in the context of AWG. Accept any appropriate response. (1)"
     },
     {
       "type": "calculation",
@@ -1063,7 +1063,7 @@ window.STUDY_DATA = {
       "marks": 3,
       "working": "1 (f) A01 - 3 marks further marks for explaining the benefit, for a maximum of 3 marks. explanation will get 1 mark only.",
       "answer_text": "",
-      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for identification of a benefit to a business that operates as a sole trader, plus 2 further marks for explaining the benefit, for a maximum of 3 marks. • Independence of the owner (1) which means they can make decision without reference to anyone else (1) eliminating any conflicts or disagreements within the business (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any appropriate response. (3)"
+      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for identification of a benefit to a business that operates as a sole trader, plus 2 further marks for explaining the benefit, for a maximum of 3 marks. \n•  Independence of the owner (1) which means they can make decision without reference to anyone else (1) eliminating any conflicts or disagreements within the business (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1071,7 +1071,7 @@ window.STUDY_DATA = {
       "question_id": "2 (b)",
       "prompt": "State one task of an AWG employee working in the human resources department.",
       "marks": 1,
-      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for the identification of a valid task of an AWG employee working in the human resources department • The AWG employee working in the human resources department may be responsible for arranging the training of new employees to use the sewing machines (1) NB Do not accept a task that is not in the context of AWG Accept any appropriate response. (1)"
+      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for the identification of a valid task of an AWG employee working in the human resources department \n•  The AWG employee working in the human resources department may be responsible for arranging the training of new employees to use the sewing machines (1) NB Do not accept a task that is not in the context of AWG Accept any appropriate response. (1)"
     },
     {
       "type": "short_answer",
@@ -1079,7 +1079,7 @@ window.STUDY_DATA = {
       "question_id": "2 (c)",
       "prompt": "Explain one benefit of globalisation to a small business.",
       "marks": 3,
-      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for identification of a benefit of globalisation to a small business, plus 2 further marks for explaining this benefit, for a maximum of 3 marks. • A small business can reach a larger audience of customers (1) because it can sell its products into new countries (1) leading to increased revenue and profitability for the business (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any appropriate response. (3)"
+      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for identification of a benefit of globalisation to a small business, plus 2 further marks for explaining this benefit, for a maximum of 3 marks. \n•  A small business can reach a larger audience of customers (1) because it can sell its products into new countries (1) leading to increased revenue and profitability for the business (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1087,7 +1087,7 @@ window.STUDY_DATA = {
       "question_id": "2 (d)",
       "prompt": "Explain one method of below-the-line promotion a business may use to retain its customers.",
       "marks": 3,
-      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for identification of a method of below-the-line promotion a business could use, plus 2 further marks for explaining this method, for a maximum of 3 marks. • Existing customers may be offered sales promotions/discounts (1) with the aim of enticing customers to buy at a lower price (1) and therefore encourage repeat sales by its customers (1) NB Answers that list three methods with no explanation will get 1 mark only. Accept any appropriate response. (3)"
+      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for identification of a method of below-the-line promotion a business could use, plus 2 further marks for explaining this method, for a maximum of 3 marks. \n•  Existing customers may be offered sales promotions/discounts (1) with the aim of enticing customers to buy at a lower price (1) and therefore encourage repeat sales by its customers (1) NB Answers that list three methods with no explanation will get 1 mark only. Accept any appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1095,7 +1095,7 @@ window.STUDY_DATA = {
       "question_id": "2 (e)",
       "prompt": "Explain one benefit to a business of using market segmentation to target its customers.",
       "marks": 3,
-      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for the identification of a benefit to a business of using market segmentation to target its customers, plus 2 further marks for explaining that benefit, for a maximum of 3 marks. • To identify customers with similar characteristics (1) in order to develop a product or service which meets those customers' needs (1) leading to an increase in sales and consumer loyalty (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any appropriate response. (3)"
+      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for the identification of a benefit to a business of using market segmentation to target its customers, plus 2 further marks for explaining that benefit, for a maximum of 3 marks. \n•  To identify customers with similar characteristics (1) in order to develop a product or service which meets those customers' needs (1) leading to an increase in sales and consumer loyalty (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any appropriate response. (3)"
     },
     {
       "type": "calculation",
@@ -1113,7 +1113,7 @@ window.STUDY_DATA = {
       "question_id": "1 (b)",
       "prompt": "Define the term stakeholder.",
       "marks": 1,
-      "mark_scheme": "a correct definition of stakeholder. • Anyone with an interest in or who is affected by a business (1)"
+      "mark_scheme": "a correct definition of stakeholder. \n•  Anyone with an interest in or who is affected by a business (1)"
     },
     {
       "type": "definition",
@@ -1121,7 +1121,7 @@ window.STUDY_DATA = {
       "question_id": "1 (c)",
       "prompt": "Define the term social enterprise.",
       "marks": 1,
-      "mark_scheme": "a correct definition of a social enterprise. • An organisation whose main objective is to be a benefit to society (1) (1)"
+      "mark_scheme": "a correct definition of a social enterprise. \n•  An organisation whose main objective is to be a benefit to society (1) (1)"
     },
     {
       "type": "short_answer",
@@ -1129,7 +1129,7 @@ window.STUDY_DATA = {
       "question_id": "1 (d)",
       "prompt": "State one non-current asset that Saha is likely to have.",
       "marks": 1,
-      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for a non-current asset that Saha may have. • Saha is likely to have machinery which is used to manufacture the robots used in the hospitals (1) • Saha is likely to have vehicles that are used to deliver robots to the restaurants and hotels (1) NB Do not accept a non-current asset that is not in the context of Saha Accept any other appropriate response. (1)"
+      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for a non-current asset that Saha may have. \n•  Saha is likely to have machinery which is used to manufacture the robots used in the hospitals (1) \n•  Saha is likely to have vehicles that are used to deliver robots to the restaurants and hotels (1) NB Do not accept a non-current asset that is not in the context of Saha Accept any other appropriate response. (1)"
     },
     {
       "type": "calculation",
@@ -1147,7 +1147,7 @@ window.STUDY_DATA = {
       "question_id": "1 (f)",
       "prompt": "Explain one advantage to a business of having limited liability.",
       "marks": 3,
-      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for an advantage to a business of having limited liability plus 2 further marks for explaining the advantage, for a maximum of 3 marks. • As the business exists as a separate legal entity (1) if the business goes into debt (1) this means the business owners are protected from losing their personal assets (1) • The business may raise large amounts of finance through selling shares (1) as investors only risk losing the value of their shares if the business fails (1) therefore the added finance will help the business to expand (1) NB No marks are awarded for a definition. Answers that list three advantages to a business of having limited liability with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3)"
+      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for an advantage to a business of having limited liability plus 2 further marks for explaining the advantage, for a maximum of 3 marks. \n•  As the business exists as a separate legal entity (1) if the business goes into debt (1) this means the business owners are protected from losing their personal assets (1) \n•  The business may raise large amounts of finance through selling shares (1) as investors only risk losing the value of their shares if the business fails (1) therefore the added finance will help the business to expand (1) NB No marks are awarded for a definition. Answers that list three advantages to a business of having limited liability with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1155,7 +1155,7 @@ window.STUDY_DATA = {
       "question_id": "2 (b)",
       "prompt": "State one task that an employee working in the production department at Saha might do.",
       "marks": 1,
-      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a valid task that an employee in the production department might do, in the context of the business. • The employee may work on the production line fitting batteries to the robots (1) • The employee may be responsible for the final quality testing of each robot before they are delivered to restaurants (1) NB Do not accept a task that is not in the context of Saha Accept any other appropriate response. (1)"
+      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a valid task that an employee in the production department might do, in the context of the business. \n•  The employee may work on the production line fitting batteries to the robots (1) \n•  The employee may be responsible for the final quality testing of each robot before they are delivered to restaurants (1) NB Do not accept a task that is not in the context of Saha Accept any other appropriate response. (1)"
     },
     {
       "type": "short_answer",
@@ -1163,7 +1163,7 @@ window.STUDY_DATA = {
       "question_id": "2 (c)",
       "prompt": "Explain one disadvantage for a business of using flow production to produce its goods.",
       "marks": 3,
-      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for one disadvantage to a business of using flow production, plus 2 further marks for explaining the reason, for a maximum of 3 marks. • The employees may get bored on the production line (1) as job roles are likely to be monotonous (1) leading to poorly motivated employees/high labour turnover (1) • The production facility may be inflexible (1) as the goods produced are standardised/similar (1) which may prevent the business from tailoring its products to individual tastes of its customers (1) NB No marks are awarded for a definition. Answers that list three disadvantages of a business using flow production with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for one disadvantage to a business of using flow production, plus 2 further marks for explaining the reason, for a maximum of 3 marks. \n•  The employees may get bored on the production line (1) as job roles are likely to be monotonous (1) leading to poorly motivated employees/high labour turnover (1) \n•  The production facility may be inflexible (1) as the goods produced are standardised/similar (1) which may prevent the business from tailoring its products to individual tastes of its customers (1) NB No marks are awarded for a definition. Answers that list three disadvantages of a business using flow production with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1171,7 +1171,7 @@ window.STUDY_DATA = {
       "question_id": "2 (d)",
       "prompt": "Explain one method of above the line promotion a business may use to increase its sales revenue.",
       "marks": 3,
-      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for an above the line promotion method a business might use to increase its sales revenue, plus 2 further marks for explaining this method, for a maximum of 3 marks. • A business may use television advertising (1) as this form of advertising may be viewed by a wide audience (1) leading to increased awareness of the product (1) • A business could use billboards (1) which can be seen by many people as they drive in their cars or walk in busy areas (1) leading to increased brand recognition of the products (1) NB No marks are awarded for a definition. Answers that list three above the line promotion methods a business might use to sell more products, with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for an above the line promotion method a business might use to increase its sales revenue, plus 2 further marks for explaining this method, for a maximum of 3 marks. \n•  A business may use television advertising (1) as this form of advertising may be viewed by a wide audience (1) leading to increased awareness of the product (1) \n•  A business could use billboards (1) which can be seen by many people as they drive in their cars or walk in busy areas (1) leading to increased brand recognition of the products (1) NB No marks are awarded for a definition. Answers that list three above the line promotion methods a business might use to sell more products, with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1179,7 +1179,7 @@ window.STUDY_DATA = {
       "question_id": "2 (e)",
       "prompt": "Explain one reason why the proximity to materials is important to a business when locating to a new factory.",
       "marks": 3,
-      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for a reason why proximity of material is important to a business when locating to a new factory, plus 2 further marks for explaining the reason, for a maximum of 3 marks. • Locating close to materials may reduce delivery costs (1) as the material only has to travel a short distance to the new factory (1) which reduces total cost/increases the profitability of the business (1) • Access to materials which are close to the new factory may save time (1) because if the business runs out of inventory (1) it could be delivered quickly and prevent delays in production (1) NB No marks are awarded for a definition. Answers that list three reasons why proximity of material is important, with no explanation will get a maximum of 1 mark Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for a reason why proximity of material is important to a business when locating to a new factory, plus 2 further marks for explaining the reason, for a maximum of 3 marks. \n•  Locating close to materials may reduce delivery costs (1) as the material only has to travel a short distance to the new factory (1) which reduces total cost/increases the profitability of the business (1) \n•  Access to materials which are close to the new factory may save time (1) because if the business runs out of inventory (1) it could be delivered quickly and prevent delays in production (1) NB No marks are awarded for a definition. Answers that list three reasons why proximity of material is important, with no explanation will get a maximum of 1 mark Accept any other appropriate response. (3)"
     },
     {
       "type": "calculation",
@@ -1197,7 +1197,7 @@ window.STUDY_DATA = {
       "question_id": "1 (b)",
       "prompt": "Define the term primary sector.",
       "marks": 1,
-      "mark_scheme": "a correct definition of primary sector. • Businesses involved in the extraction of raw materials (1)"
+      "mark_scheme": "a correct definition of primary sector. \n•  Businesses involved in the extraction of raw materials (1)"
     },
     {
       "type": "definition",
@@ -1205,7 +1205,7 @@ window.STUDY_DATA = {
       "question_id": "1 (c)",
       "prompt": "Define the term shareholder.",
       "marks": 1,
-      "mark_scheme": "a correct definition of a shareholder. • Anyone who buys a share in a business (1) (1)"
+      "mark_scheme": "a correct definition of a shareholder. \n•  Anyone who buys a share in a business (1) (1)"
     },
     {
       "type": "short_answer",
@@ -1213,7 +1213,7 @@ window.STUDY_DATA = {
       "question_id": "1 (d)",
       "prompt": "State one benefit to Ocean Vibes of using competition pricing.",
       "marks": 1,
-      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for a benefit to Ocean Vibes of using competition pricing. • Ocean Vibes may attract sales from other boat tour businesses (1) NB Do not accept a benefit that is not in the context of Ocean Vibes Accept any other appropriate response. (1)"
+      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for a benefit to Ocean Vibes of using competition pricing. \n•  Ocean Vibes may attract sales from other boat tour businesses (1) NB Do not accept a benefit that is not in the context of Ocean Vibes Accept any other appropriate response. (1)"
     },
     {
       "type": "calculation",
@@ -1231,7 +1231,7 @@ window.STUDY_DATA = {
       "question_id": "1 (f)",
       "prompt": "Explain one advantage to an individual of being a sole trader.",
       "marks": 3,
-      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for an advantage to an individual of being a sole trader plus 2 further marks for explaining the advantage for a maximum of 3 marks. • The individual has complete control over the business (1) as they make all the decisions for the business (1) therefore decisions for the business can be made quickly (1) • The individual keeps all the profits (1) as they have no partners/shareholders within the business (1) which means that they can increase their personal wealth (1) NB No marks are awarded for a definition. Answers that list three advantages to an individual of being a sole trader with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3)"
+      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for an advantage to an individual of being a sole trader plus 2 further marks for explaining the advantage for a maximum of 3 marks. \n•  The individual has complete control over the business (1) as they make all the decisions for the business (1) therefore decisions for the business can be made quickly (1) \n•  The individual keeps all the profits (1) as they have no partners/shareholders within the business (1) which means that they can increase their personal wealth (1) NB No marks are awarded for a definition. Answers that list three advantages to an individual of being a sole trader with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1239,7 +1239,7 @@ window.STUDY_DATA = {
       "question_id": "2 (b)",
       "prompt": "State one method of primary research Ocean Vibes may use.",
       "marks": 1,
-      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a method of primary research Ocean Vibes may use • Dolphin tour customer survey (1) • Scientist focus group (1) NB Do not accept a method that is not in the context of Ocean Vibes Accept any other appropriate response. (1)"
+      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a method of primary research Ocean Vibes may use \n•  Dolphin tour customer survey (1) \n•  Scientist focus group (1) NB Do not accept a method that is not in the context of Ocean Vibes Accept any other appropriate response. (1)"
     },
     {
       "type": "short_answer",
@@ -1247,7 +1247,7 @@ window.STUDY_DATA = {
       "question_id": "2 (c)",
       "prompt": "Explain one advantage to a business of having high market share.",
       "marks": 3,
-      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for one advantage to a business of having a high market share, plus 2 further marks for explaining the reason, for a maximum of 3 marks. • The business is likely to have loyal customers (1) as the business is performing better than competitors in terms of sales volume/revenue (1) leading to higher potential profitability (1) • Higher market share can generate higher sales (1) this would allow the business to benefit from economies of scale (1) reducing the total costs of the business (1) NB No marks are awarded for a definition. Answers that list three advantages of a business having a high market share with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for one advantage to a business of having a high market share, plus 2 further marks for explaining the reason, for a maximum of 3 marks. \n•  The business is likely to have loyal customers (1) as the business is performing better than competitors in terms of sales volume/revenue (1) leading to higher potential profitability (1) \n•  Higher market share can generate higher sales (1) this would allow the business to benefit from economies of scale (1) reducing the total costs of the business (1) NB No marks are awarded for a definition. Answers that list three advantages of a business having a high market share with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1255,7 +1255,7 @@ window.STUDY_DATA = {
       "question_id": "2 (d)",
       "prompt": "Explain one advantage to a business of using e- commerce to sell its products.",
       "marks": 3,
-      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for an advantage to a business of using e-commerce to sell its products, plus 2 further marks for explaining this advantage, for a maximum of 3 marks. • A business may reduce its costs (1) as it may not have to pay for a retail store/office (1) leading to increased levels of profit for the business (1) • More customers will use an online business rather than going to a store (1) this will increase the revenue of the business (1) leading to increased market share (1) NB No marks are awarded for a definition. Answers that list three advantages of using e- commerce to sell its products with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for an advantage to a business of using e-commerce to sell its products, plus 2 further marks for explaining this advantage, for a maximum of 3 marks. \n•  A business may reduce its costs (1) as it may not have to pay for a retail store/office (1) leading to increased levels of profit for the business (1) \n•  More customers will use an online business rather than going to a store (1) this will increase the revenue of the business (1) leading to increased market share (1) NB No marks are awarded for a definition. Answers that list three advantages of using e- commerce to sell its products with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1263,7 +1263,7 @@ window.STUDY_DATA = {
       "question_id": "2 (e)",
       "prompt": "Explain one reason why shareholders would be interested in the financial documents of a business.",
       "marks": 3,
-      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for a reason why shareholders would be interested in the financial documents of a business, plus 2 further marks for explaining the reason, for a maximum of 3 marks. • Shareholders may review the financial documents to assess if the business is making a profit (1) as the shareholder is interested in gaining a return on their investment (1) which may help them to decide to either sell their shares or buy more shares in the business (1) • To compare the financial performance of the business (1) in order to identify cost savings (1) which can help to improve the profitability of the business (1) NB No marks are awarded for a definition. Answers that list three reasons why shareholders would be interested in the financial documents of a business, with no explanation will get a maximum of 1 mark Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for a reason why shareholders would be interested in the financial documents of a business, plus 2 further marks for explaining the reason, for a maximum of 3 marks. \n•  Shareholders may review the financial documents to assess if the business is making a profit (1) as the shareholder is interested in gaining a return on their investment (1) which may help them to decide to either sell their shares or buy more shares in the business (1) \n•  To compare the financial performance of the business (1) in order to identify cost savings (1) which can help to improve the profitability of the business (1) NB No marks are awarded for a definition. Answers that list three reasons why shareholders would be interested in the financial documents of a business, with no explanation will get a maximum of 1 mark Accept any other appropriate response. (3)"
     },
     {
       "type": "calculation",
@@ -1377,7 +1377,7 @@ window.STUDY_DATA = {
       "question_id": "1 (b)",
       "prompt": "Define the term job production",
       "marks": 1,
-      "mark_scheme": "a correct definition of job production. • When an item is made and finished before the next one is started (1) (1)"
+      "mark_scheme": "a correct definition of job production. \n•  When an item is made and finished before the next one is started (1) (1)"
     },
     {
       "type": "definition",
@@ -1385,7 +1385,7 @@ window.STUDY_DATA = {
       "question_id": "1 (c)",
       "prompt": "Define the term diseconomies of scale",
       "marks": 1,
-      "mark_scheme": "a correct definition of diseconomies of scale. • Rising average costs as units increase (1) (1)"
+      "mark_scheme": "a correct definition of diseconomies of scale. \n•  Rising average costs as units increase (1) (1)"
     },
     {
       "type": "short_answer",
@@ -1393,7 +1393,7 @@ window.STUDY_DATA = {
       "question_id": "1 (d)",
       "prompt": "State one method Can Culleretes could use to collect quantitative market research.",
       "marks": 1,
-      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for a method Can Culleretes could use to collect quantitative market research in the context of Can Culleretes. • Can Culleretes could use a questionnaire to get feedback on its new menu from its customers (1) NB: Do not accept a method that is not in the context of Can Culleretes. Accept any other appropriate response. (1)"
+      "mark_scheme": "1 (d) A02 - 1 mark Award 1 mark for a method Can Culleretes could use to collect quantitative market research in the context of Can Culleretes. \n•  Can Culleretes could use a questionnaire to get feedback on its new menu from its customers (1) NB: Do not accept a method that is not in the context of Can Culleretes. Accept any other appropriate response. (1)"
     },
     {
       "type": "calculation",
@@ -1411,7 +1411,7 @@ window.STUDY_DATA = {
       "question_id": "1 (f)",
       "prompt": "Explain one benefit to a business of improving communication with its employees.",
       "marks": 3,
-      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for identification of a benefit to a business if it improves communication with employees, plus 2 further marks for explaining the benefit, for a maximum of 3 marks. • Employees will have a clear understanding of what has to be done (1) this could mean that fewer mistakes will be made (1) leading to an increase in productivity of employees (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "1 (f) A01 - 3 marks Award 1 mark for identification of a benefit to a business if it improves communication with employees, plus 2 further marks for explaining the benefit, for a maximum of 3 marks. \n•  Employees will have a clear understanding of what has to be done (1) this could mean that fewer mistakes will be made (1) leading to an increase in productivity of employees (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1419,7 +1419,7 @@ window.STUDY_DATA = {
       "question_id": "2 (b)",
       "prompt": "State one way Can Culleretes might add value to its business.",
       "marks": 1,
-      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a valid way Can Culleretes might add value in the context of Can Culleretes. • Can Culleretes can use high quality organic vegetables in its Mediterranean food (1) NB: Do not accept a method that is not in the context of Can Culleretes. Accept any other appropriate response. (1)"
+      "mark_scheme": "2 (b) A02 - 1 mark Award 1 mark for a valid way Can Culleretes might add value in the context of Can Culleretes. \n•  Can Culleretes can use high quality organic vegetables in its Mediterranean food (1) NB: Do not accept a method that is not in the context of Can Culleretes. Accept any other appropriate response. (1)"
     },
     {
       "type": "short_answer",
@@ -1427,7 +1427,7 @@ window.STUDY_DATA = {
       "question_id": "2 (c)",
       "prompt": "Explain one method a business could use to encourage repeat purchase of its products",
       "marks": 3,
-      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for identification of a method a business could use to encourage repeat purchase of its products, plus 2 further marks for explaining this method, for a maximum of 3 marks. • Issue loyalty cards (1) which could be used to offer special discounts (1) leading to customers being motivated to return to the business rather than its competitors (1) NB Answers that list three methods with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (c) A01 - 3 marks Award 1 mark for identification of a method a business could use to encourage repeat purchase of its products, plus 2 further marks for explaining this method, for a maximum of 3 marks. \n•  Issue loyalty cards (1) which could be used to offer special discounts (1) leading to customers being motivated to return to the business rather than its competitors (1) NB Answers that list three methods with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1435,7 +1435,7 @@ window.STUDY_DATA = {
       "question_id": "2 (d)",
       "prompt": "Explain one disadvantage of using personal savings as a source of finance for a business.",
       "marks": 3,
-      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for identification of a disadvantage of using personal savings as a source of finance, plus 2 further marks for explaining this disadvantage, for a maximum of 3 marks. • Money to deal with an emergency may not be available (1) so there is no backup if things go wrong (1) meaning that it may be necessary to find another source of finance (1) NB Answers that list three disadvantages with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (d) A01 - 3 marks Award 1 mark for identification of a disadvantage of using personal savings as a source of finance, plus 2 further marks for explaining this disadvantage, for a maximum of 3 marks. \n•  Money to deal with an emergency may not be available (1) so there is no backup if things go wrong (1) meaning that it may be necessary to find another source of finance (1) NB Answers that list three disadvantages with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "short_answer",
@@ -1443,7 +1443,7 @@ window.STUDY_DATA = {
       "question_id": "2 (e)",
       "prompt": "Explain one benefit for a business of motivating its employees.",
       "marks": 3,
-      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for the identification of a benefit of motivating employees, plus 2 further marks for explaining that benefit, for a maximum of 3 marks. • Retention of employees (1) avoids spending time and money on recruitment (1) allowing the business to concentrate elsewhere (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
+      "mark_scheme": "2 (e) A01 - 3 marks Award 1 mark for the identification of a benefit of motivating employees, plus 2 further marks for explaining that benefit, for a maximum of 3 marks. \n•  Retention of employees (1) avoids spending time and money on recruitment (1) allowing the business to concentrate elsewhere (1) NB Answers that list three benefits with no explanation will get 1 mark only. Accept any other appropriate response. (3)"
     },
     {
       "type": "calculation",
