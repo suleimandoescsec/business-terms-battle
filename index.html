@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="pageTitle">Revision Hub Pro | Better than SaveMyExams</title>
+  <title id="pageTitle">Revision Hub Pro | Comprehensive Grade 9 Content</title>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=clash-display@500,600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
@@ -36,7 +36,6 @@
     body { min-height: 100vh; font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.5; }
     .app { max-width: 1400px; margin: 0 auto; padding: 2rem; }
     
-    /* Layout */
     .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; }
     .brand { display: flex; align-items: center; gap: 1rem; }
     .logo { width: 48px; height: 48px; background: var(--color-primary); color: var(--color-text-inverse); border-radius: 12px; display: grid; place-items: center; font-weight: bold; font-size: 1.5rem; }
@@ -64,7 +63,7 @@
     .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
     .unit-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; }
     .unit-list { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
-    .unit-item { padding: 1rem; background: var(--color-surface-2); border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer; text-align: left; }
+    .unit-item { padding: 1rem; background: var(--color-surface-2); border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer; text-align: left; font-size: 0.9rem; }
     .unit-item:hover { background: var(--color-surface-offset); }
     .unit-item.active { border-color: var(--color-gold); background: color-mix(in oklab, var(--color-gold) 5%, var(--color-surface-2)); font-weight: 600; }
 
@@ -89,7 +88,6 @@
     .feedback-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-family: var(--font-display); font-size: 1.25rem; }
     .feedback-body { line-height: 1.7; color: var(--color-text-muted); }
 
-    /* Subject Overlay */
     #subjectOverlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); z-index: 2000; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; color: white; }
     .overlay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; width: 100%; margin-top: 3rem; }
     .sub-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 3rem 2rem; border-radius: 24px; cursor: pointer; transition: all 0.3s; text-align: center; }
@@ -97,14 +95,11 @@
     .sub-card h2 { font-family: var(--font-display); margin: 1rem 0; }
     .sub-card p { opacity: 0.6; font-size: 0.9rem; }
 
-    /* Hidden Utilities */
     .hidden { display: none !important; }
     
-    /* Premium Animations */
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .animate { animation: slideUp 0.4s ease forwards; }
 
-    /* Better than SaveMyExams Notes */
     .study-notes { margin-top: 1.5rem; display: grid; gap: 1rem; }
     .note-item { padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid var(--color-gold); background: var(--color-surface-offset); }
     .note-item strong { color: var(--color-gold); display: block; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.25rem; }
@@ -114,22 +109,22 @@
 <body>
   <div id="subjectOverlay" class="hidden">
     <h1 style="font-family: var(--font-display); font-size: 3rem;">Revision Hub Pro</h1>
-    <p style="opacity: 0.7;">Select your Grade 9 roadmap. Better than any study guide.</p>
+    <p style="opacity: 0.7;">Select your Grade 9 roadmap. Massive curriculum expansion loaded.</p>
     <div class="overlay-grid">
       <div class="sub-card" onclick="initSubject('business')">
         <div style="font-size: 4rem;">📈</div>
         <h2>Business P2</h2>
-        <p>Comprehensive units, calculation drills, and examiner secrets.</p>
+        <p>Comprehensive 7-unit syllabus. Every formula & case study.</p>
       </div>
       <div class="sub-card" onclick="initSubject('chemistry')">
         <div style="font-size: 4rem;">⚛️</div>
         <h2>Chemistry</h2>
-        <p>Modular deep-dives, periodic Mastery, and reaction rates.</p>
+        <p>Periodic Table, Rates, Organic & Bonding deep-dives.</p>
       </div>
       <div class="sub-card" onclick="initSubject('english')">
         <div style="font-size: 4rem;">📝</div>
         <h2>English P1</h2>
-        <p>Language device analysis, PEEL structures, and grade 9 vocabulary.</p>
+        <p>Language devices, structural analysis & analysis frameworks.</p>
       </div>
     </div>
   </div>
@@ -153,7 +148,7 @@
       <section class="hero animate">
         <div class="card hero-main">
           <h1 id="heroTitle">Business Paper 2 Revision</h1>
-          <p id="heroSub">Advanced IGCSE Mastery Hub. We cover every term, every formula, and every common examiner trick.</p>
+          <p id="heroSub">Advanced IGCSE Mastery Hub. Massive database of syllabus terms & examiner secrets.</p>
           <div class="stats-grid">
             <div class="stat-box"><span>Terms</span><strong id="statTerms">0</strong></div>
             <div class="stat-box"><span>Units</span><strong id="statUnits">0</strong></div>
@@ -226,7 +221,6 @@
     </main>
   </div>
 
-  <!-- AI Settings Modal -->
   <div id="aiModal" class="hidden" style="position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:3000; display:grid; place-items:center; padding:2rem;">
     <div class="card" style="width:100%; max-width:450px;">
       <h2 style="margin-bottom: 1rem;">AI Setup</h2>
@@ -243,48 +237,81 @@
     const SUBJECTS = {
       business: {
         title: "Business Paper 2 Revision",
-        sub: "The definitive guide to Edexcel/CIE Business Paper 2. Every concept mastered.",
+        sub: "The definitive guide to Edexcel/CIE Business Paper 2. Massive 7-Unit syllabus database.",
         units: [
           { id: 1, title: "Business Activity", terms: [
             { term: "Opportunity Cost", definition: "The next best alternative given up when making a choice.", points: ["Vital for evaluating government spending.", "Always mention 'next best alternative'."], secret: "Examiners love it when you link this to resource allocation." },
             { term: "Factors of Production", definition: "Land, Labour, Capital, and Enterprise.", points: ["Land: Natural resources", "Labour: Human effort", "Capital: Man-made machines", "Enterprise: Risk-taking"], secret: "Identify 'Enterprise' as the driving force that combines the others." },
-            { term: "Specialisation", definition: "When a person, business or country focuses on a narrow range of tasks.", points: ["Increases efficiency.", "Leads to lower unit costs."], secret: "Link this to economies of scale for extra marks." }
+            { term: "Specialisation", definition: "When a person, business or country focuses on a narrow range of tasks.", points: ["Increases efficiency.", "Leads to lower unit costs."], secret: "Link this to economies of scale for extra marks." },
+            { term: "Added Value", definition: "The difference between the cost of purchasing raw materials and the price the finished goods are sold for.", points: ["Price - Cost of materials.", "Not the same as profit."], secret: "Branding and quality are the best ways to add value." }
           ]},
-          { id: 2, title: "Marketing", terms: [
+          { id: 2, title: "Marketing & The 4Ps", terms: [
             { term: "Niche Marketing", definition: "Identifying and exploiting a small, well-defined segment of a larger market.", points: ["Less competition.", "Can charge premium prices."], secret: "Highlight that it's risky because the market size is small." },
-            { term: "Mass Marketing", definition: "Selling the same product to the whole market with no targeting.", points: ["High volume sales.", "Lower unit costs."], secret: "Mention that branding is crucial for mass marketing success." },
-            { term: "Market Segmentation", definition: "Dividing a market into groups of buyers with similar needs.", points: ["Geographic, Demographic, Psychographic.", "Helps tailor the marketing mix."], secret: "Examiners look for 'Targeting' as the next logical step after segmentation." }
+            { term: "Mass Marketing", definition: "Selling the same product to the whole market with no targeting.", points: ["High volume sales.", "Lower unit costs."], secret: "Branding is crucial for mass marketing success." },
+            { term: "Market Segmentation", definition: "Dividing a market into groups of buyers with similar needs.", points: ["Geographic, Demographic, Psychographic.", "Helps tailor the marketing mix."], secret: "Examiners look for 'Targeting' as the next logical step after segmentation." },
+            { term: "Skimming Pricing", definition: "Setting a high price initially when a new product is launched.", points: ["Used for unique products (e.g. iPhones).", "Targets 'early adopters'."], secret: "Mention that competitors will soon enter, forcing prices down." },
+            { term: "Penetration Pricing", definition: "Setting a low price initially to gain market share quickly.", points: ["Builds brand loyalty early.", "Common for FMCG products."], secret: "Risky if the business can't handle high initial demand." }
           ]},
           { id: 3, title: "Human Resources", terms: [
             { term: "Autocratic Leadership", definition: "A leadership style where managers make all decisions without consulting others.", points: ["Quick decision-making.", "Clear hierarchy."], secret: "Effective in a crisis, but bad for long-term motivation." },
-            { term: "Democratic Leadership", definition: "Managers involve employees in the decision-making process.", points: ["Improves morale.", "Utilises worker skills."], secret: "Often leads to better decision quality but slower implementation." }
+            { term: "Democratic Leadership", definition: "Managers involve employees in the decision-making process.", points: ["Improves morale.", "Utilises worker skills."], secret: "Often leads to better decision quality but slower implementation." },
+            { term: "Laissez-faire", definition: "Managers set objectives but allow employees to make their own decisions.", points: ["High trust.", "Good for creative industries."], secret: "Can lead to lack of direction if workers aren't highly skilled." },
+            { term: "Piece Rate", definition: "Paying workers for each unit of output produced.", points: ["Direct incentive for productivity.", "Can lead to poor quality."], secret: "Quality control is essential when using piece rates." }
+          ]},
+          { id: 4, title: "Operations Management", terms: [
+            { term: "Job Production", definition: "Producing unique, one-off items tailored to customer requirements.", points: ["High quality/customisation.", "High unit costs."], secret: "Link to skilled labor and high selling prices." },
+            { term: "Flow Production", definition: "Continuous production of identical products on an assembly line.", points: ["Huge economies of scale.", "Low unit cost."], secret: "Capital intensive; requires massive initial investment." },
+            { term: "Just In Time (JIT)", definition: "A production method where materials arrive only when needed.", points: ["Reduces storage costs.", "Improves cash flow."], secret: "Relies heavily on reliable suppliers. One delay stops the whole factory." }
+          ]},
+          { id: 5, title: "Finance & Accounts", terms: [
+            { term: "Break-Even Point", definition: "The level of output where total revenue equals total costs.", points: ["Total Revenue = Total Cost.", "No profit or loss."], secret: "Formula: Fixed Costs / Contribution per unit." },
+            { term: "Contribution per Unit", definition: "Selling Price minus Variable Cost.", points: ["How much each item 'contributes' to fixed costs."], secret: "Vital for deciding whether to accept a special order." },
+            { term: "Gross Profit Margin", definition: "Gross Profit as a percentage of Revenue.", points: ["(Gross Profit / Revenue) x 100.", "Measures production efficiency."], secret: "If this is falling, the business may be facing rising material costs." }
           ]}
         ]
       },
       chemistry: {
         title: "Modular Chemistry Hub",
-        sub: "Atomic theory, kinetics, and periodic mastery for Grade 9 students.",
+        sub: "Massive curriculum update. Atomic structure, Bonding, Rates & Organic Chem.",
         units: [
           { id: 1, title: "Atomic Structure", terms: [
-            { term: "Atomic Number", definition: "The number of protons in the nucleus of an atom.", points: ["Unique to each element.", "Defines the position on the periodic table."], secret: "Remember: Atoms are neutral, so Protons = Electrons." },
-            { term: "Mass Number", definition: "The total number of protons and neutrons in an atom's nucleus.", points: ["Neutrons = Mass Number - Atomic Number."], secret: "Isotopes have different mass numbers but the same atomic number." }
+            { term: "Atomic Number", definition: "The number of protons in the nucleus of an atom.", points: ["Unique to each element.", "Defines the position on the periodic table."], secret: "Protons = Electrons in a neutral atom." },
+            { term: "Mass Number", definition: "The total number of protons and neutrons in an atom's nucleus.", points: ["Neutrons = Mass Number - Atomic Number."], secret: "Isotopes have different mass numbers but the same atomic number." },
+            { term: "Relative Atomic Mass (Ar)", definition: "The weighted average mass of the isotopes of an element compared to 1/12th of Carbon-12.", points: ["Takes abundance into account.", "Has no units."], secret: "Calculation: (% abundance x mass) + (% abundance x mass) / 100." }
           ]},
-          { id: 2, title: "Periodic Table Mastery", terms: [
-            { term: "Group 1 (Alkali Metals)", definition: "Metals that are highly reactive, soft, and have low density.", points: ["React with water to form hydroxides.", "Reactivity increases down the group."], secret: "Explain reactivity by the distance of the outer electron from the nucleus." },
-            { term: "Group 7 (Halogens)", definition: "Non-metals that are reactive and have 7 outer electrons.", points: ["Reactivity decreases down the group.", "Exist as diatomic molecules (F2, Cl2)."], secret: "Focus on 'Electron Affinity' for high-level answers." }
+          { id: 2, title: "Chemical Bonding", terms: [
+            { term: "Ionic Bond", definition: "The electrostatic attraction between oppositely charged ions.", points: ["Occurs between metals and non-metals.", "Involves electron transfer."], secret: "Resulting lattice has high melting points due to strong bonds." },
+            { term: "Covalent Bond", definition: "A shared pair of electrons between two non-metal atoms.", points: ["Forms simple molecules or giant structures.", "Strong electrostatic attraction between nucleus and shared electrons."], secret: "Noble gas configuration is the goal of sharing." },
+            { term: "Metallic Bond", definition: "The attraction between positive metal ions and a sea of delocalised electrons.", points: ["Enables conductivity.", "Makes metals malleable."], secret: "Delocalised electrons can carry charge through the structure." }
+          ]},
+          { id: 3, title: "Rates of Reaction", terms: [
+            { term: "Activation Energy", definition: "The minimum amount of energy required for a collision to be successful.", points: ["Represented as Ea on energy profiles.", "Catalysts provide an alternative path with lower Ea."], secret: "Increasing temperature gives more particles energy > Ea." },
+            { term: "Catalyst", definition: "A substance that speeds up a reaction without being used up.", points: ["Lowering activation energy.", "Increases the frequency of successful collisions."], secret: "They remain chemically unchanged at the end." }
+          ]},
+          { id: 4, title: "Organic Chemistry", terms: [
+            { term: "Hydrocarbon", definition: "A compound made of hydrogen and carbon atoms ONLY.", points: ["Alkanes and Alkenes are examples.", "Fractional distillation separates them."], secret: "Remember the 'ONLY' for full marks." },
+            { term: "Homologous Series", definition: "A family of compounds with the same general formula and similar chemical properties.", points: ["Trend in physical properties (e.g. boiling point).", "Same functional group."], secret: "Alkanes (CnH2n+2) are the simplest series." },
+            { term: "Isomer", definition: "Molecules with the same molecular formula but different structural formulas.", points: ["Different arrangements of atoms.", "Can have different properties."], secret: "Branching often lowers the boiling point." }
           ]}
         ]
       },
       english: {
         title: "English Language P1",
-        sub: "Analysis, PEEL structures, and the devices that win Grade 9 marks.",
+        sub: "The Grade 9 Analysis Toolbox. Devices, Nuance & Frameworks.",
         units: [
           { id: 1, title: "Language Devices", terms: [
-            { term: "Sibilance", definition: "Repetition of the 's' or 'sh' sound in close proximity.", points: ["Creates a hissing, sinister, or calming effect.", "Draws attention to specific imagery."], secret: "Never just name it; explain the *exact mood* it creates in the context." },
-            { term: "Pathetic Fallacy", definition: "Attributing human emotions to the weather or nature to reflect the mood.", points: ["Storms = Conflict/Anger.", "Sunshine = Hope/Peace."], secret: "It's a subset of personification. Use the specific term for higher marks." }
+            { term: "Sibilance", definition: "Repetition of the 's' or 'sh' sound in close proximity.", points: ["Creates a hissing, sinister, or calming effect.", "Draws attention to specific imagery."], secret: "Never just name it; explain the *exact mood* it creates." },
+            { term: "Pathetic Fallacy", definition: "Attributing human emotions to the weather or nature to reflect the mood.", points: ["Storms = Conflict/Anger.", "Sunshine = Hope/Peace."], secret: "It's a specific subset of personification. Use the term for higher marks." },
+            { term: "Semantic Field", definition: "A group of words that relate to a specific theme or topic.", points: ["Creates a consistent atmosphere.", "Reinforces central themes (e.g. war, religion)."], secret: "Identify the *field* (e.g. a semantic field of violence) and explain its effect on the reader." }
           ]},
           { id: 2, title: "Structural Analysis", terms: [
-            { term: "Juxtaposition", definition: "Placing two contrasting ideas side-by-side to highlight differences.", points: ["Creates tension.", "Focuses the reader on a specific theme."], secret: "Look for shifts in tone or setting as examples of juxtaposition." }
+            { term: "Juxtaposition", definition: "Placing two contrasting ideas side-by-side to highlight differences.", points: ["Creates tension.", "Focuses the reader on a specific theme."], secret: "Look for shifts in tone or setting as examples." },
+            { term: "Foreshadowing", definition: "A hint or warning given by the author about what is to come later in the story.", points: ["Creates suspense.", "Makes the ending feel earned."], secret: "Link it to the *prolepsis* (looking forward) for top marks." },
+            { term: "Narrative Perspective", definition: "The point of view from which a story is told.", points: ["First-person (unreliable?), Third-person omniscient.", "Affects reader distance from characters."], secret: "Analyze *why* the author chose this specific lens." }
+          ]},
+          { id: 3, title: "Analysis Frameworks", terms: [
+            { term: "PEEL Paragraph", definition: "Point, Evidence, Explanation, Link.", points: ["Structure for analytical writing.", "Ensures every point is backed up."], secret: "The 'Link' must go back to the *question* or a *wider theme*." },
+            { term: "Zooming In", definition: "Analyzing a specific word or short phrase after a general observation.", points: ["Connotations, Nuances, Sound effects.", "Shows deep engagement with the text."], secret: "Focus on verbs and adjectives for the best 'zoom'." }
           ]}
         ]
       }
@@ -343,16 +370,13 @@
     function render() {
       const item = state.queue[state.pointer];
       if (!item) return finish();
-
       el('promptText').textContent = item.term;
       el('promptCounter').textContent = `${state.pointer + 1} / ${state.queue.length}`;
       el('promptLabel').textContent = `Unit ${state.unit}: ${SUBJECTS[state.subject].units.find(u => u.id === state.unit).title}`;
-      
       el('answerInput').value = '';
       el('feedbackPanel').classList.add('hidden');
       el('typedMode').classList.toggle('hidden', state.mode !== 'typed');
       el('mcqMode').classList.toggle('hidden', state.mode !== 'mcq');
-      
       if (state.mode === 'mcq') buildMcq(item);
       updateMastery();
     }
@@ -368,12 +392,8 @@
         btn.className = 'mode-btn';
         btn.textContent = opt;
         btn.onclick = () => {
-          if (opt === item.definition) { 
-            state.score++; state.known.add(item.term); 
-            btn.style.borderColor = 'var(--color-success)';
-          } else {
-            btn.style.borderColor = 'var(--color-error)';
-          }
+          if (opt === item.definition) { state.score++; state.known.add(item.term); btn.style.borderColor = 'var(--color-success)'; }
+          else { btn.style.borderColor = 'var(--color-error)'; }
           setTimeout(next, 1000);
         };
         grid.appendChild(btn);
@@ -410,7 +430,6 @@
       el('feedbackPanel').classList.remove('hidden');
       el('feedbackTitle').textContent = "📖 Official Definition";
       el('feedbackText').textContent = item.definition;
-      
       const notes = el('studyNotes');
       notes.innerHTML = '';
       item.points.forEach(p => {
@@ -426,12 +445,7 @@
       notes.appendChild(s);
     };
 
-    el('continueBtn').onclick = () => {
-      state.score++; 
-      state.known.add(state.queue[state.pointer].term);
-      next();
-    };
-
+    el('continueBtn').onclick = () => { state.score++; state.known.add(state.queue[state.pointer].term); next(); };
     el('knownBtn').onclick = () => { state.score++; state.known.add(state.queue[state.pointer].term); next(); };
     el('nextBtn').onclick = next;
     el('subjectBtn').onclick = () => el('subjectOverlay').classList.remove('hidden');
@@ -448,7 +462,6 @@
       render();
     });
 
-    // AI Logic
     el('aiSettingsBtn').onclick = () => el('aiModal').classList.remove('hidden');
     el('closeAi').onclick = () => el('aiModal').classList.add('hidden');
     el('saveAi').onclick = () => {
@@ -464,7 +477,6 @@
       const userAns = el('answerInput').value;
       el('feedbackPanel').classList.remove('hidden');
       el('feedbackTitle').textContent = "🤖 AI Grading...";
-      
       try {
         const prompt = `Grade this IGCSE student answer for "${item.term}". Official definition: "${item.definition}". User: "${userAns}". Return ONLY JSON: {"verdict": "Grade 9/7/5/Fail", "feedback": "1 sentence why"}`;
         const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${state.geminiKey}`, {
@@ -476,9 +488,7 @@
         const json = JSON.parse(data.candidates[0].content.parts[0].text.replace(/```json|```/g, ''));
         el('feedbackTitle').textContent = `🤖 AI Verdict: ${json.verdict}`;
         el('feedbackText').textContent = json.feedback;
-      } catch (e) {
-        el('feedbackText').textContent = "AI error. Check your key.";
-      }
+      } catch (e) { el('feedbackText').textContent = "AI error. Check your key."; }
     }
     el('aiBtn').onclick = aiCheck;
 
