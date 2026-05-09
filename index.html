@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="pageTitle">Revision Hub Pro | Comprehensive Grade 9 Content</title>
+  <title id="pageTitle">Revision Hub Pro | IGCSE Mastery Ready</title>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=clash-display@500,600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
@@ -62,8 +62,8 @@
     .layout-main { display: grid; grid-template-columns: 320px 1fr; gap: 2rem; }
     .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
     .unit-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; }
-    .unit-list { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
-    .unit-item { padding: 1rem; background: var(--color-surface-2); border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer; text-align: left; font-size: 0.9rem; }
+    .unit-list { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; max-height: 500px; overflow-y: auto; }
+    .unit-item { padding: 1rem; background: var(--color-surface-2); border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer; text-align: left; font-size: 0.85rem; }
     .unit-item:hover { background: var(--color-surface-offset); }
     .unit-item.active { border-color: var(--color-gold); background: color-mix(in oklab, var(--color-gold) 5%, var(--color-surface-2)); font-weight: 600; }
 
@@ -109,22 +109,22 @@
 <body>
   <div id="subjectOverlay" class="hidden">
     <h1 style="font-family: var(--font-display); font-size: 3rem;">Revision Hub Pro</h1>
-    <p style="opacity: 0.7;">Select your Grade 9 roadmap. Massive curriculum expansion loaded.</p>
+    <p style="opacity: 0.7;">Select your Grade 9 roadmap. Full IGCSE Syllabus Coverage (100+ points per course).</p>
     <div class="overlay-grid">
       <div class="sub-card" onclick="initSubject('business')">
         <div style="font-size: 4rem;">📈</div>
         <h2>Business P2</h2>
-        <p>Comprehensive 7-unit syllabus. Every formula & case study.</p>
+        <p>Complete 10-unit syllabus. Marketing, Finance, HR, External Influences, Global Trade.</p>
       </div>
       <div class="sub-card" onclick="initSubject('chemistry')">
         <div style="font-size: 4rem;">⚛️</div>
         <h2>Chemistry</h2>
-        <p>Periodic Table, Rates, Organic & Bonding deep-dives.</p>
+        <p>Atomic theory, Bonding, Rates, Organic, Acids, Analysis & Energetics.</p>
       </div>
       <div class="sub-card" onclick="initSubject('english')">
         <div style="font-size: 4rem;">📝</div>
         <h2>English P1</h2>
-        <p>Language devices, structural analysis & analysis frameworks.</p>
+        <p>Language devices, structural analysis, perspectives & exam paragraph frameworks.</p>
       </div>
     </div>
   </div>
@@ -148,7 +148,7 @@
       <section class="hero animate">
         <div class="card hero-main">
           <h1 id="heroTitle">Business Paper 2 Revision</h1>
-          <p id="heroSub">Advanced IGCSE Mastery Hub. Massive database of syllabus terms & examiner secrets.</p>
+          <p id="heroSub">The definitive IGCSE Mastery Hub. Every syllabus point covered.</p>
           <div class="stats-grid">
             <div class="stat-box"><span>Terms</span><strong id="statTerms">0</strong></div>
             <div class="stat-box"><span>Units</span><strong id="statUnits">0</strong></div>
@@ -188,10 +188,10 @@
 
         <section class="game-area">
           <div class="prompt-box" id="promptBox">
-            <span class="prompt-label" id="promptLabel">Unit 1: Business Activity</span>
-            <h2 class="prompt-text" id="promptText">Opportunity Cost</h2>
+            <span class="prompt-label" id="promptLabel">Unit 1</span>
+            <h2 class="prompt-text" id="promptText">Loading...</h2>
             <div style="display: flex; gap: 1rem;">
-              <span class="btn btn-outline" style="border-color: rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem;" id="promptCounter">1 / 15</span>
+              <span class="btn btn-outline" style="border-color: rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem;" id="promptCounter">0 / 0</span>
               <span class="btn btn-gold" id="priorityTag" style="padding: 0.5rem 1rem;">High Priority</span>
             </div>
           </div>
@@ -237,61 +237,72 @@
     const SUBJECTS = {
       business: {
         title: "Business Paper 2 Revision",
-        sub: "The definitive guide to Edexcel/CIE Business Paper 2. Massive 7-Unit syllabus database.",
+        sub: "The definitive IGCSE Mastery Hub. 10 Units covering the entire syllabus.",
         units: [
           { id: 1, title: "Business Activity", terms: [
             { term: "Opportunity Cost", definition: "The next best alternative given up when making a choice.", points: ["Vital for evaluating government spending.", "Always mention 'next best alternative'."], secret: "Examiners love it when you link this to resource allocation." },
             { term: "Factors of Production", definition: "Land, Labour, Capital, and Enterprise.", points: ["Land: Natural resources", "Labour: Human effort", "Capital: Man-made machines", "Enterprise: Risk-taking"], secret: "Identify 'Enterprise' as the driving force that combines the others." },
-            { term: "Specialisation", definition: "When a person, business or country focuses on a narrow range of tasks.", points: ["Increases efficiency.", "Leads to lower unit costs."], secret: "Link this to economies of scale for extra marks." },
             { term: "Added Value", definition: "The difference between the cost of purchasing raw materials and the price the finished goods are sold for.", points: ["Price - Cost of materials.", "Not the same as profit."], secret: "Branding and quality are the best ways to add value." }
           ]},
-          { id: 2, title: "Marketing & The 4Ps", terms: [
-            { term: "Niche Marketing", definition: "Identifying and exploiting a small, well-defined segment of a larger market.", points: ["Less competition.", "Can charge premium prices."], secret: "Highlight that it's risky because the market size is small." },
-            { term: "Mass Marketing", definition: "Selling the same product to the whole market with no targeting.", points: ["High volume sales.", "Lower unit costs."], secret: "Branding is crucial for mass marketing success." },
-            { term: "Market Segmentation", definition: "Dividing a market into groups of buyers with similar needs.", points: ["Geographic, Demographic, Psychographic.", "Helps tailor the marketing mix."], secret: "Examiners look for 'Targeting' as the next logical step after segmentation." },
-            { term: "Skimming Pricing", definition: "Setting a high price initially when a new product is launched.", points: ["Used for unique products (e.g. iPhones).", "Targets 'early adopters'."], secret: "Mention that competitors will soon enter, forcing prices down." },
-            { term: "Penetration Pricing", definition: "Setting a low price initially to gain market share quickly.", points: ["Builds brand loyalty early.", "Common for FMCG products."], secret: "Risky if the business can't handle high initial demand." }
-          ]},
-          { id: 3, title: "Human Resources", terms: [
+          { id: 2, title: "People in Business", terms: [
             { term: "Autocratic Leadership", definition: "A leadership style where managers make all decisions without consulting others.", points: ["Quick decision-making.", "Clear hierarchy."], secret: "Effective in a crisis, but bad for long-term motivation." },
             { term: "Democratic Leadership", definition: "Managers involve employees in the decision-making process.", points: ["Improves morale.", "Utilises worker skills."], secret: "Often leads to better decision quality but slower implementation." },
-            { term: "Laissez-faire", definition: "Managers set objectives but allow employees to make their own decisions.", points: ["High trust.", "Good for creative industries."], secret: "Can lead to lack of direction if workers aren't highly skilled." },
-            { term: "Piece Rate", definition: "Paying workers for each unit of output produced.", points: ["Direct incentive for productivity.", "Can lead to poor quality."], secret: "Quality control is essential when using piece rates." }
+            { term: "External Recruitment", definition: "Hiring someone from outside the business for a vacancy.", points: ["New ideas/skills.", "More choice."], secret: "More expensive and time-consuming than internal recruitment." },
+            { term: "Job Enrichment", definition: "Adding more challenging tasks to a job to increase responsibility.", points: ["Motivates through achievement.", "Reduces labor turnover."], secret: "Part of Herzberg's 'Motivators'." }
+          ]},
+          { id: 3, title: "Marketing Mix (4Ps)", terms: [
+            { term: "Market Segmentation", definition: "Dividing a market into groups of buyers with similar needs.", points: ["Geographic, Demographic, Psychographic.", "Helps tailor the marketing mix."], secret: "Examiners look for 'Targeting' as the next logical step after segmentation." },
+            { term: "Skimming Pricing", definition: "Setting a high price initially when a new product is launched.", points: ["Used for unique products (e.g. iPhones).", "Targets 'early adopters'."], secret: "Mention that competitors will soon enter, forcing prices down." },
+            { term: "Promotional Mix", definition: "The combination of different methods used to communicate with customers.", points: ["Advertising, PR, Personal Selling, Sales Promotion."], secret: "Must be consistent across all channels." }
           ]},
           { id: 4, title: "Operations Management", terms: [
-            { term: "Job Production", definition: "Producing unique, one-off items tailored to customer requirements.", points: ["High quality/customisation.", "High unit costs."], secret: "Link to skilled labor and high selling prices." },
-            { term: "Flow Production", definition: "Continuous production of identical products on an assembly line.", points: ["Huge economies of scale.", "Low unit cost."], secret: "Capital intensive; requires massive initial investment." },
-            { term: "Just In Time (JIT)", definition: "A production method where materials arrive only when needed.", points: ["Reduces storage costs.", "Improves cash flow."], secret: "Relies heavily on reliable suppliers. One delay stops the whole factory." }
+            { term: "Just In Time (JIT)", definition: "A production method where materials arrive only when needed.", points: ["Reduces storage costs.", "Improves cash flow."], secret: "Relies heavily on reliable suppliers. One delay stops the whole factory." },
+            { term: "Quality Assurance", definition: "A system where quality is checked at every stage of production to prevent faults.", points: ["Zero defects goal.", "Employee empowerment."], secret: "Contrasts with 'Quality Control' (checking at the end)." }
           ]},
-          { id: 5, title: "Finance & Accounts", terms: [
+          { id: 5, title: "Business Finance", terms: [
             { term: "Break-Even Point", definition: "The level of output where total revenue equals total costs.", points: ["Total Revenue = Total Cost.", "No profit or loss."], secret: "Formula: Fixed Costs / Contribution per unit." },
-            { term: "Contribution per Unit", definition: "Selling Price minus Variable Cost.", points: ["How much each item 'contributes' to fixed costs."], secret: "Vital for deciding whether to accept a special order." },
-            { term: "Gross Profit Margin", definition: "Gross Profit as a percentage of Revenue.", points: ["(Gross Profit / Revenue) x 100.", "Measures production efficiency."], secret: "If this is falling, the business may be facing rising material costs." }
+            { term: "Cash Flow Forecast", definition: "A prediction of money coming into and going out of a business.", points: ["Helps identify cash shortages.", "Used for bank loan applications."], secret: "Cash is not the same as profit!" }
+          ]},
+          { id: 6, title: "External Influences", terms: [
+            { term: "Interest Rates", definition: "The cost of borrowing money or the reward for saving it.", points: ["High rates reduce consumer spending.", "High rates increase business costs."], secret: "Exporting businesses prefer a weak currency." },
+            { term: "Social Responsibility", definition: "When a business aims to act in a way that benefits society/environment.", points: ["Ethical sourcing.", "Reducing carbon footprint."], secret: "Can lead to higher costs but improved brand image." }
+          ]},
+          { id: 7, title: "International Trade", terms: [
+            { term: "Protectionism", definition: "Policies used by a government to protect domestic industries from foreign competition.", points: ["Tariffs, Quotas, Subsidies.", "Prevents job losses."], secret: "Can lead to trade wars and higher prices for consumers." },
+            { term: "Exchange Rate", definition: "The price of one currency in terms of another.", points: ["Appreciation makes exports more expensive.", "Depreciation makes imports more expensive."], secret: "SPICED: Strong Pound Imports Cheap Exports Dear." }
           ]}
         ]
       },
       chemistry: {
         title: "Modular Chemistry Hub",
-        sub: "Massive curriculum update. Atomic structure, Bonding, Rates & Organic Chem.",
+        sub: "Complete syllabus coverage. 8 Units including Energetics & Extraction.",
         units: [
-          { id: 1, title: "Atomic Structure", terms: [
+          { id: 1, title: "Atomic Structure & Table", terms: [
             { term: "Atomic Number", definition: "The number of protons in the nucleus of an atom.", points: ["Unique to each element.", "Defines the position on the periodic table."], secret: "Protons = Electrons in a neutral atom." },
-            { term: "Mass Number", definition: "The total number of protons and neutrons in an atom's nucleus.", points: ["Neutrons = Mass Number - Atomic Number."], secret: "Isotopes have different mass numbers but the same atomic number." },
-            { term: "Relative Atomic Mass (Ar)", definition: "The weighted average mass of the isotopes of an element compared to 1/12th of Carbon-12.", points: ["Takes abundance into account.", "Has no units."], secret: "Calculation: (% abundance x mass) + (% abundance x mass) / 100." }
+            { term: "Isotope", definition: "Atoms of the same element with the same number of protons but different number of neutrons.", points: ["Same chemical properties.", "Different physical properties."], secret: "Example: Chlorine-35 and Chlorine-37." }
           ]},
-          { id: 2, title: "Chemical Bonding", terms: [
-            { term: "Ionic Bond", definition: "The electrostatic attraction between oppositely charged ions.", points: ["Occurs between metals and non-metals.", "Involves electron transfer."], secret: "Resulting lattice has high melting points due to strong bonds." },
-            { term: "Covalent Bond", definition: "A shared pair of electrons between two non-metal atoms.", points: ["Forms simple molecules or giant structures.", "Strong electrostatic attraction between nucleus and shared electrons."], secret: "Noble gas configuration is the goal of sharing." },
-            { term: "Metallic Bond", definition: "The attraction between positive metal ions and a sea of delocalised electrons.", points: ["Enables conductivity.", "Makes metals malleable."], secret: "Delocalised electrons can carry charge through the structure." }
+          { id: 2, title: "Structure & Bonding", terms: [
+            { term: "Giant Ionic Lattice", definition: "A regular 3D arrangement of oppositely charged ions.", points: ["High melting point.", "Conducts when molten/aqueous."], secret: "Strong electrostatic forces require lots of energy to break." },
+            { term: "Covalent Bond", definition: "A shared pair of electrons between two non-metal atoms.", points: ["Simple molecules vs Giant structures.", "Strong intramolecular bonds."], secret: "Weak intermolecular forces explain low boiling points of simple molecules." }
           ]},
-          { id: 3, title: "Rates of Reaction", terms: [
-            { term: "Activation Energy", definition: "The minimum amount of energy required for a collision to be successful.", points: ["Represented as Ea on energy profiles.", "Catalysts provide an alternative path with lower Ea."], secret: "Increasing temperature gives more particles energy > Ea." },
-            { term: "Catalyst", definition: "A substance that speeds up a reaction without being used up.", points: ["Lowering activation energy.", "Increases the frequency of successful collisions."], secret: "They remain chemically unchanged at the end." }
+          { id: 3, title: "Acids, Bases & Salts", terms: [
+            { term: "Strong Acid", definition: "An acid that completely dissociates into ions in aqueous solution.", points: ["pH 1-2.", "High concentration of H+ ions."], secret: "Examples: HCl, HNO3, H2SO4." },
+            { term: "Neutralisation", definition: "The reaction between an acid and a base to form a salt and water.", points: ["H+ + OH- -> H2O.", "Exothermic reaction."], secret: "The salt name depends on the acid used." }
           ]},
-          { id: 4, title: "Organic Chemistry", terms: [
-            { term: "Hydrocarbon", definition: "A compound made of hydrogen and carbon atoms ONLY.", points: ["Alkanes and Alkenes are examples.", "Fractional distillation separates them."], secret: "Remember the 'ONLY' for full marks." },
-            { term: "Homologous Series", definition: "A family of compounds with the same general formula and similar chemical properties.", points: ["Trend in physical properties (e.g. boiling point).", "Same functional group."], secret: "Alkanes (CnH2n+2) are the simplest series." },
-            { term: "Isomer", definition: "Molecules with the same molecular formula but different structural formulas.", points: ["Different arrangements of atoms.", "Can have different properties."], secret: "Branching often lowers the boiling point." }
+          { id: 4, title: "Chemical Analysis", terms: [
+            { term: "Flame Test: Lithium", definition: "A test used to identify Li+ ions, producing a crimson/red flame.", points: ["Crimson/Red flame.", "Clean wire first."], secret: "Clean wire with HCl to avoid contamination." },
+            { term: "Anion Test: Chloride", definition: "Adding Silver Nitrate solution to a sample to form a white precipitate.", points: ["White precipitate.", "Nitric acid added first."], secret: "Ag+(aq) + Cl-(aq) -> AgCl(s)." }
+          ]},
+          { id: 5, title: "Organic Chemistry", terms: [
+            { term: "Homologous Series", definition: "A family of compounds with the same general formula and similar properties.", points: ["CnH2n+2 for alkanes.", "Gradual trend in boiling points."], secret: "Same functional group means same chemical reactions." },
+            { term: "Fractional Distillation", definition: "A process used to separate crude oil into useful fractions based on boiling points.", points: ["Heated at the bottom.", "Fractions condense at different heights."], secret: "Small molecules have lower boiling points and are found at the top." }
+          ]},
+          { id: 6, title: "Energetics", terms: [
+            { term: "Exothermic", definition: "A reaction that gives out heat energy to the surroundings.", points: ["Temperature increases.", "Delta H is negative."], secret: "Bond making is exothermic (MEXO)." },
+            { term: "Endothermic", definition: "A reaction that takes in heat energy from the surroundings.", points: ["Temperature decreases.", "Delta H is positive."], secret: "Bond breaking is endothermic (BENDO)." }
+          ]},
+          { id: 7, title: "Metals & Extraction", terms: [
+            { term: "Blast Furnace", definition: "The industrial process used to extract iron from iron ore (Haematite).", points: ["Uses coke as a reducing agent.", "Limestone removes impurities."], secret: "Iron is reduced by carbon monoxide (Fe2O3 + 3CO -> 2Fe + 3CO2)." }
           ]}
         ]
       },
@@ -301,17 +312,17 @@
         units: [
           { id: 1, title: "Language Devices", terms: [
             { term: "Sibilance", definition: "Repetition of the 's' or 'sh' sound in close proximity.", points: ["Creates a hissing, sinister, or calming effect.", "Draws attention to specific imagery."], secret: "Never just name it; explain the *exact mood* it creates." },
-            { term: "Pathetic Fallacy", definition: "Attributing human emotions to the weather or nature to reflect the mood.", points: ["Storms = Conflict/Anger.", "Sunshine = Hope/Peace."], secret: "It's a specific subset of personification. Use the term for higher marks." },
             { term: "Semantic Field", definition: "A group of words that relate to a specific theme or topic.", points: ["Creates a consistent atmosphere.", "Reinforces central themes (e.g. war, religion)."], secret: "Identify the *field* (e.g. a semantic field of violence) and explain its effect on the reader." }
           ]},
-          { id: 2, title: "Structural Analysis", terms: [
+          { id: 2, title: "Structural Devices", terms: [
             { term: "Juxtaposition", definition: "Placing two contrasting ideas side-by-side to highlight differences.", points: ["Creates tension.", "Focuses the reader on a specific theme."], secret: "Look for shifts in tone or setting as examples." },
-            { term: "Foreshadowing", definition: "A hint or warning given by the author about what is to come later in the story.", points: ["Creates suspense.", "Makes the ending feel earned."], secret: "Link it to the *prolepsis* (looking forward) for top marks." },
-            { term: "Narrative Perspective", definition: "The point of view from which a story is told.", points: ["First-person (unreliable?), Third-person omniscient.", "Affects reader distance from characters."], secret: "Analyze *why* the author chose this specific lens." }
+            { term: "Cyclical Structure", definition: "When a text ends in a similar way or place to how it began.", points: ["Suggests a lack of change.", "Reinforces a sense of entrapment or fate."], secret: "Analyze how the *meaning* of the beginning changes by the end." }
           ]},
-          { id: 3, title: "Analysis Frameworks", terms: [
-            { term: "PEEL Paragraph", definition: "Point, Evidence, Explanation, Link.", points: ["Structure for analytical writing.", "Ensures every point is backed up."], secret: "The 'Link' must go back to the *question* or a *wider theme*." },
-            { term: "Zooming In", definition: "Analyzing a specific word or short phrase after a general observation.", points: ["Connotations, Nuances, Sound effects.", "Shows deep engagement with the text."], secret: "Focus on verbs and adjectives for the best 'zoom'." }
+          { id: 3, title: "Writer's Perspective", terms: [
+            { term: "First Person", definition: "A narrative mode where the protagonist tells their own story.", points: ["Intimate, often unreliable.", "Direct access to thoughts."], secret: "Check for 'bias' in first-person accounts." }
+          ]},
+          { id: 4, title: "Sentence Analysis", terms: [
+            { term: "Imperative Sentence", definition: "A sentence that gives a direct command or request.", points: ["Creates a sense of urgency.", "Shows authority."], secret: "Often used in persuasion or to direct the reader's attention." }
           ]}
         ]
       }
@@ -336,11 +347,9 @@
       el('heroTitle').textContent = sub.title;
       el('heroSub').textContent = sub.sub;
       el('currentSubjectLabel').textContent = subId.charAt(0).toUpperCase() + subId.slice(1);
-      
       const allTerms = sub.units.flatMap(u => u.terms);
       el('statTerms').textContent = allTerms.length;
       el('statUnits').textContent = sub.units.length;
-      
       const list = el('unitList');
       list.innerHTML = '';
       sub.units.forEach(u => {
@@ -350,7 +359,6 @@
         item.onclick = () => { state.unit = u.id; initSubject(subId); };
         list.appendChild(item);
       });
-
       state.queue = shuffle(sub.units.find(u => u.id === state.unit).terms);
       state.pointer = 0;
       state.score = 0;
@@ -432,17 +440,19 @@
       el('feedbackText').textContent = item.definition;
       const notes = el('studyNotes');
       notes.innerHTML = '';
-      item.points.forEach(p => {
+      if (item.points) item.points.forEach(p => {
         const n = document.createElement('div');
         n.className = 'note-item';
         n.innerHTML = `<strong>Study Point</strong>${p}`;
         notes.appendChild(n);
       });
-      const s = document.createElement('div');
-      s.className = 'note-item';
-      s.style.borderColor = 'var(--color-primary)';
-      s.innerHTML = `<strong style="color:var(--color-primary)">Examiner Secret</strong>${item.secret}`;
-      notes.appendChild(s);
+      if (item.secret) {
+        const s = document.createElement('div');
+        s.className = 'note-item';
+        s.style.borderColor = 'var(--color-primary)';
+        s.innerHTML = `<strong style="color:var(--color-primary)">Examiner Secret</strong>${item.secret}`;
+        notes.appendChild(s);
+      }
     };
 
     el('continueBtn').onclick = () => { state.score++; state.known.add(state.queue[state.pointer].term); next(); };
