@@ -49,26 +49,12 @@
       border-radius: var(--radius-xl); 
       box-shadow: var(--shadow-md); 
     }
-    .action:active, .unit-btn:active, .mode-card:active { transform: scale(0.96); }
+    .action:active, .unit-btn:active, .mode-card:active, .subject-card:active { transform: scale(0.96); }
     .fire-streak { animation: burn 0.8s infinite alternate; color: var(--color-gold) !important; text-shadow: 0 0 12px var(--color-gold); }
     @keyframes burn { from { filter: brightness(1); transform: scale(1); } to { filter: brightness(1.5); transform: scale(1.1); } }
     @keyframes pulse { 0% { opacity: 0.7; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1); } 100% { opacity: 0.7; transform: scale(0.95); } }
     @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
     .shake { animation: shake 0.3s ease-in-out 2; }
-    
-    /* Zen Background for Focus Mode */
-    @keyframes zen {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .focus-active {
-      background: linear-gradient(-45deg, #0d0d0c, #1a1a18, #01696f, #0d0d0c);
-      background-size: 400% 400%;
-      animation: zen 15s ease infinite;
-    }
-    .focus-active .sidebar, .focus-active .topbar, .focus-active .hero { opacity: 0.02; pointer-events: none; filter: blur(8px); }
-    .focus-active .main { grid-column: 1 / -1; max-width: 800px; margin: 0 auto; transform: translateY(40px); }
     
     #timerDisplay.urgent { color: var(--color-error); animation: shake 0.5s infinite; }
     button, input, select, textarea { font: inherit; color: inherit; }
@@ -84,6 +70,24 @@
     .controls { display:flex; gap: var(--space-3); flex-wrap:wrap; align-items:center; }
     .icon-btn, .pill, .action { min-height:44px; padding: 0 var(--space-4); border-radius: 999px; background: var(--color-surface); border:1px solid color-mix(in oklab, var(--color-text) 12%, transparent); box-shadow: var(--shadow-sm); }
     .action.primary { background: var(--color-primary); color: var(--color-text-inverse); border-color: transparent; }
+    
+    /* Subject Selector Modal */
+    #subjectOverlay { 
+      position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 1000; 
+      display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem;
+    }
+    .subject-grid { 
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1000px; width: 100%; margin-top: 2rem;
+    }
+    .subject-card { 
+      background: var(--color-surface); padding: 2rem; border-radius: var(--radius-xl); border: 2px solid transparent; text-align: center; cursor: pointer;
+      display: flex; flex-direction: column; align-items: center; gap: 1rem; transition: transform 0.3s, border-color 0.3s;
+    }
+    .subject-card:hover { transform: translateY(-10px); border-color: var(--color-primary); }
+    .subject-card.active { border-color: var(--color-gold); background: color-mix(in oklab, var(--color-gold) 5%, var(--color-surface)); }
+    .subject-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+    .subject-card h3 { font-family: var(--font-display); font-size: var(--text-lg); }
+
     .hero { display:grid; grid-template-columns: 1.3fr 0.9fr; gap: var(--space-4); margin-bottom: var(--space-6); }
     .panel { background: color-mix(in oklab, var(--color-surface) 92%, white 8%); border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent); border-radius: var(--radius-xl); box-shadow: var(--shadow-md); }
     .hero-card { padding: clamp(1.25rem, 2vw, 2rem); }
@@ -124,17 +128,16 @@
     .option.correct { border-color: color-mix(in oklab, var(--color-success) 45%, transparent); background: color-mix(in oklab, var(--color-success) 10%, var(--color-surface-2)); }
     .option.wrong { border-color: color-mix(in oklab, var(--color-error) 45%, transparent); background: color-mix(in oklab, var(--color-error) 10%, var(--color-surface-2)); }
     
-    /* Subject Switcher Styling */
-    .subject-picker { 
+    /* Subject Picker Top Styling */
+    .top-subject-btn { 
       background: var(--color-surface); 
       border: 1px solid var(--color-border); 
       border-radius: 999px; 
-      padding: 0 1rem; 
+      padding: 0 1.2rem; 
       height: 44px; 
-      font-weight: 600;
+      font-weight: 700;
       color: var(--color-primary);
-      outline: none;
-      cursor: pointer;
+      display: flex; align-items: center; gap: 0.5rem;
     }
 
     .footer-note { margin-top: var(--space-4); color: var(--color-text-muted); font-size: var(--text-sm); }
@@ -143,7 +146,6 @@
     .screen.hidden { display:none; }
     .center { text-align:center; }
     .result-score { font-family:var(--font-display); font-size: clamp(2.4rem, 7vw, 5rem); line-height:1; margin: var(--space-4) 0; }
-    .mini { font-size: var(--text-sm); color: var(--color-text-muted); }
     
     .study-hub { margin-top: var(--space-6); padding: var(--space-5); display: grid; gap: var(--space-4); }
     .study-tabs { display:flex; gap: var(--space-2); flex-wrap:wrap; }
@@ -151,30 +153,50 @@
     .study-view { display:none; }
     .study-view.active { display:grid; gap: var(--space-4); }
     
-    @media (max-width: 920px) { .hero, .layout { grid-template-columns: 1fr; } .hud { grid-template-columns: repeat(2, 1fr); } }
+    .vault-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-4); }
+    .vault-card { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border: 1px solid var(--color-border); }
+
+    @media (max-width: 920px) { .hero, .layout { grid-template-columns: 1fr; } .hud { grid-template-columns: repeat(2, 1fr); } .subject-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
+  <div id="subjectOverlay" class="hidden">
+    <h1 style="color: white; font-family: var(--font-display);">Choose your subject</h1>
+    <p style="color: rgba(255,255,255,0.7); margin-top: 0.5rem;">Select a course to start your revision session.</p>
+    <div class="subject-grid">
+      <div class="subject-card" onclick="initSubject('business')">
+        <div class="subject-icon">💼</div>
+        <h3>Business Paper 2</h3>
+        <p class="mini">Investigating Large Businesses</p>
+      </div>
+      <div class="subject-card" onclick="initSubject('chemistry')">
+        <div class="subject-icon">🧪</div>
+        <h3>Modular Chemistry</h3>
+        <p class="mini">Atoms, Ions, and Bonding</p>
+      </div>
+      <div class="subject-card" onclick="initSubject('english')">
+        <div class="subject-icon">📚</div>
+        <h3>English Language P1</h3>
+        <p class="mini">Language Device Mastery</p>
+      </div>
+    </div>
+  </div>
+
   <div class="app">
     <div class="topbar">
       <div class="brand">
         <div class="logo" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14"/><path d="M7 12h10"/><path d="M9 17h6"/><path d="M12 4v16"/></svg>
         </div>
-        <div>
-          <select id="subjectSwitcher" class="subject-picker">
-            <option value="business">Business Paper 2</option>
-            <option value="chemistry">Modular Chemistry</option>
-            <option value="english">English Language P1</option>
-          </select>
-        </div>
+        <button class="top-subject-btn" id="subjectTrigger">
+          <span id="activeSubjectLabel">Business Paper 2</span> ▾
+        </button>
       </div>
       <div class="controls">
         <button class="icon-btn" data-theme-toggle aria-label="Switch theme">🌙</button>
         <button class="pill" id="panicToggle">Panic Mode: Off</button>
         <button class="pill" id="focusToggle">Focus Mode: Off</button>
         <button class="pill" id="pauseToggle">Pause: Off</button>
-        <button class="pill" id="shuffleAll">Shuffle all</button>
         <button class="icon-btn" id="settingsBtn" title="AI Settings">⚙️</button>
       </div>
     </div>
@@ -186,8 +208,6 @@
         <div class="stats">
           <div class="stat"><span class="mini">Units</span><strong id="unitCountStat">0</strong></div>
           <div class="stat"><span class="mini">Terms</span><strong id="totalTermsCount">0</strong></div>
-          <div class="stat"><span class="mini">Formulae</span><strong id="formulaCountStat">0</strong></div>
-          <div class="stat"><span class="mini">Papers</span><strong id="paperCountStat">0</strong></div>
           <div class="stat"><span class="mini">Mastered</span><strong id="sessionGoalStat">0</strong></div>
         </div>
         <div class="progress"><div id="masteryBar"></div></div>
@@ -338,6 +358,10 @@
       </section>
 
       <section class="study-view" data-study-panel="vault">
+        <div id="vaultEmptyNotice" class="feedback" style="margin-bottom: 20px;">
+          <div class="feedback-status">🧪 Course Material Sync</div>
+          <div class="feedback-body" id="vaultStatusText">Past papers and official mark schemes are currently loaded for Business. Chemistry and English resources will appear once the respective PDF data is uploaded to the system.</div>
+        </div>
         <div class="vault-grid" id="paperVaultList"></div>
       </section>
     </section>
@@ -359,8 +383,9 @@
   <script>
     const SUBJECTS = {
       business: {
+        label: "Business Paper 2",
         title: "Business Paper 2 Revision",
-        sub: "Focus exclusively on Paper 2 past papers and corresponding marking schemes.",
+        sub: "Investigating Large Businesses: focuses on unit-by-unit definitions and exam drills.",
         hubSub: "Business Paper 2 Past Papers & Marking Schemes",
         data: [
           { unit: 1, title: "Business Activity", terms: [
@@ -415,8 +440,9 @@
         ]
       },
       chemistry: {
+        label: "Modular Chemistry",
         title: "Modular Chemistry Revision",
-        sub: "Advanced IGCSE prep: revise Modular Chemistry definitions, formulas, and past-paper questions.",
+        sub: "Focus on atoms, molecules, ions, and chemical bonding units.",
         hubSub: "Modular Chemistry Revision Hub",
         data: [
           { unit: 1, title: "Modular Chemistry", terms: [
@@ -429,8 +455,9 @@
         ]
       },
       english: {
+        label: "English Language P1",
         title: "English Language Paper 1 Revision",
-        sub: "Advanced IGCSE prep: revise English Language Paper 1 language devices and past-paper questions.",
+        sub: "Master language devices, emotive terminology, and critical analysis.",
         hubSub: "English Language Paper 1 Revision Hub",
         data: [
           { unit: 1, title: "Language Devices", terms: [
@@ -439,15 +466,15 @@
             { term: "Simile", definition: "A figure of speech involving the comparison of one thing with another thing of a different kind, using 'like' or 'as'." },
             { term: "Personification", definition: "The attribution of a personal nature or human characteristics to something non-human." },
             { term: "Hyperbole", definition: "Exaggerated statements or claims not meant to be taken literally." },
-            { term: "Pathetic fallacy", definition: "The attribution of human feelings and responses to inanimate things or animals, especially in art and literature." },
-            { term: "Juxtaposition", definition: "The fact of two things being seen or placed close together with contrasting effect." },
+            { term: "Pathetic fallacy", definition: "The attribution of human feelings and responses to inanimate things or animals." },
+            { term: "Juxtaposition", definition: "Two things being seen or placed close together with contrasting effect." },
             { term: "Oxymoron", definition: "A figure of speech in which apparently contradictory terms appear in conjunction." },
-            { term: "Imagery", definition: "Visually descriptive or figurative language, especially in a literary work." },
-            { term: "Rhetorical question", definition: "A question asked in order to create a dramatic effect or to make a point rather than to get an answer." },
+            { term: "Imagery", definition: "Visually descriptive or figurative language." },
+            { term: "Rhetorical question", definition: "A question asked in order to create a dramatic effect or to make a point." },
             { term: "Repetition", definition: "The action of repeating something that has already been said or written." },
-            { term: "Rule of three", definition: "A writing principle that suggests that a trio of events or characters is more humorous, satisfying, or effective than other numbers." },
-            { term: "Alliteration", definition: "The occurrence of the same letter or sound at the beginning of adjacent or closely connected words." },
-            { term: "Sibilance", definition: "A figure of speech in which a hissing sound is created within a group of words through the repetition of 's' sounds." },
+            { term: "Rule of three", definition: "A trio of events or characters is more humorous, satisfying, or effective." },
+            { term: "Alliteration", definition: "The same letter or sound at the beginning of adjacent or closely connected words." },
+            { term: "Sibilance", definition: "Hissing sound created within a group of words through the repetition of 's' sounds." },
             { term: "Symbolism", definition: "The use of symbols to represent ideas or qualities." }
           ]}
         ]
@@ -467,8 +494,9 @@
       
       el('mainTitle').textContent = sub.title;
       el('mainSub').textContent = sub.sub;
-      el('hubSubjectTitle').textContent = sub.hubSubjectTitle || sub.title;
+      el('hubSubjectTitle').textContent = sub.title;
       el('hubSubjectSub').textContent = sub.hubSub;
+      el('activeSubjectLabel').textContent = sub.label;
       el('pageTitle').textContent = sub.title + " | Exam Mode";
       
       allTerms = DATA.flatMap(u => u.terms.map((t, i) => ({ 
@@ -492,13 +520,22 @@
       
       setUnit(DATA[0].unit);
       renderWeakness();
+      
+      // Update Vault Status
+      if (subject === 'business') {
+        el('vaultStatusText').textContent = "Past papers and official mark schemes are currently loaded for Business.";
+        el('paperVaultList').classList.remove('hidden');
+      } else {
+        el('vaultStatusText').textContent = `${sub.label} past papers and official mark schemes will appear here once the respective PDF data is uploaded to the system. Currently focusing on modular definitions.`;
+        el('paperVaultList').classList.add('hidden');
+      }
+
+      el('subjectOverlay').classList.add('hidden');
       if (window.Hub) window.Hub.init();
     }
 
-    el('subjectSwitcher').onchange = (e) => {
-      initSubject(e.target.value);
-    };
-
+    el('subjectTrigger').onclick = () => el('subjectOverlay').classList.toggle('hidden');
+    
     // Shared Logic
     let currentMode = 'typed';
     let currentUnit = 1;
@@ -511,8 +548,6 @@
     let timeLeft = 0;
     let mcqLocked = false;
     let known = new Set();
-    let stats = {};
-    let geminiKey = localStorage.getItem('geminiApiKey') || '';
 
     function shuffle(arr) {
       const a = [...arr];
@@ -531,25 +566,20 @@
       streak = 0;
       el('gameScreen').classList.remove('hidden');
       el('resultScreen').classList.add('hidden');
-      
-      // Update unit buttons active state
       document.querySelectorAll('.unit-btn').forEach((btn, idx) => {
-        btn.classList.toggle('active', (DATA[idx] && DATA[idx].unit === unit) || (unit === 'all' && idx === -1));
+        btn.classList.toggle('active', (DATA[idx] && DATA[idx].unit === unit));
       });
-      
       render();
     }
 
     function render() {
       const item = queue[pointer];
       if (!item) return finish();
-      
       el('unitTitle').textContent = `Unit ${item.unit} · ${item.unitTitle}`;
       el('termPrompt').textContent = currentMode === 'scenario' ? (item.scenario || item.term) : item.term;
       el('chipUnit').textContent = `Unit ${item.unit}`;
       el('chipIndex').textContent = `${pointer + 1} / ${queue.length}`;
       el('chipPriority').classList.toggle('hidden', !item.priority);
-      
       el('typedAnswer').value = '';
       el('feedbackBox').className = 'feedback';
       el('feedbackBox').textContent = 'Your definition will appear here.';
@@ -557,7 +587,6 @@
       el('mcqFeedback').textContent = 'Answer to see feedback.';
       el('examinerTip').classList.remove('visible');
       mcqLocked = false;
-      
       updateHud();
       startTimer();
       if (currentMode === 'mcq' || currentMode === 'scenario') buildMcq(item);
@@ -568,16 +597,14 @@
       el('hudScore').textContent = score;
       el('hudStreak').textContent = streak + (streak >= 5 ? ' 🔥' : '');
       el('masteryBar').style.width = ((known.size / Math.max(1, allTerms.length)) * 100) + '%';
+      el('sessionGoalStat').textContent = known.size;
     }
 
     function buildMcq(item) {
       const isScenario = currentMode === 'scenario';
-      const distractors = shuffle(allTerms.filter(t => t.term !== item.term))
-        .slice(0, 3)
-        .map(t => isScenario ? t.term : t.definition);
+      const distractors = shuffle(allTerms.filter(t => t.term !== item.term)).slice(0, 3).map(t => isScenario ? t.term : t.definition);
       const correctOption = isScenario ? item.term : item.definition;
       const options = shuffle([correctOption, ...distractors]);
-      
       el('mcqOptions').innerHTML = '';
       options.forEach(opt => {
         const btn = document.createElement('button');
@@ -592,9 +619,8 @@
       if (mcqLocked) return;
       mcqLocked = true;
       clearInterval(timerInterval);
-      
       if (isCorrect) {
-        score++; streak++;
+        score++; streak++; known.add(queue[pointer].term);
         btn.classList.add('correct');
         el('mcqFeedback').className = 'feedback good';
         el('mcqFeedback').innerHTML = `<div class="feedback-status">✅ Correct!</div><div class="feedback-body">Well done.</div>`;
@@ -605,12 +631,7 @@
         el('mcqFeedback').className = 'feedback bad';
         el('mcqFeedback').innerHTML = `<div class="feedback-status">❌ Wrong</div><div class="feedback-body">The correct answer was provided.</div>`;
       }
-      
-      if (queue[pointer].tip) {
-        el('tipText').textContent = queue[pointer].tip;
-        el('examinerTip').classList.add('visible');
-      }
-      
+      if (queue[pointer].tip) { el('tipText').textContent = queue[pointer].tip; el('examinerTip').classList.add('visible'); }
       updateHud();
       setTimeout(next, 2000);
     }
@@ -653,7 +674,6 @@
 
     // Init first subject
     initSubject('business');
-    if (window.Hub) window.Hub.init();
 
     // Controls
     document.querySelectorAll('[data-mode]').forEach(btn => btn.onclick = () => {
@@ -681,7 +701,6 @@
       el('pauseIndicator').classList.toggle('hidden', !isPaused);
     };
 
-    // Theme toggle (Simplified)
     document.querySelector('[data-theme-toggle]').onclick = () => {
       const current = document.documentElement.getAttribute('data-theme');
       const next = current === 'light' ? 'dark' : (current === 'dark' ? 'pink' : 'light');
