@@ -562,7 +562,39 @@
       el('subjectTitle').textContent = sub.title;
       el('subjectDesc').textContent = sub.desc;
       
-      DATA = sub.units.map(u => ({
+      // Dynamically load ALL extracted paper questions into units
+      const isChem = subjectId === 'chemistry';
+      const isEnglish = subjectId === 'english';
+      
+      let subjectDrills = [];
+      if (window.STUDY_DATA && window.STUDY_DATA.paperDrills) {
+        subjectDrills = window.STUDY_DATA.paperDrills.filter(item => {
+          const src = (item.source || "").toUpperCase();
+          if (isChem) return src.includes('4WCH');
+          if (isEnglish) return src.includes('4EA1');
+          return src.includes('4BS1');
+        });
+      }
+
+      const drillsBySource = {};
+      subjectDrills.forEach(d => {
+        if (!drillsBySource[d.source]) drillsBySource[d.source] = [];
+        drillsBySource[d.source].push({
+          term: d.prompt,
+          definition: d.mark_scheme || d.answer_text || d.working || d.correct_option || "See Mark Scheme",
+          priority: d.marks >= 4,
+          tip: d.marks ? `${d.marks} Mark${d.marks > 1 ? 's' : ''}` : ""
+        });
+      });
+
+      const dynamicUnits = Object.keys(drillsBySource).map((source, idx) => ({
+        unit: idx + 1,
+        title: source,
+        terms: drillsBySource[source]
+      }));
+
+      // Use dynamic units if available, fallback to hardcoded
+      const activeUnits = dynamicUnits.length > 0 ? dynamicUnits : sub.units.map(u => ({
         unit: u.id,
         title: u.title,
         terms: u.terms.map(t => ({
@@ -571,6 +603,8 @@
           tip: t.secret || (t.points ? t.points.join(' ') : '')
         }))
       }));
+
+      DATA = activeUnits;
       
       allTerms = DATA.flatMap(u => u.terms.map((t, i) => ({ 
         ...t, unit: u.unit, unitTitle: u.title, indexInUnit: i + 1, unitSize: u.terms.length, 
