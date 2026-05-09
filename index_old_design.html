@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -160,22 +160,10 @@
     .subject-card:hover { background: rgba(255,255,255,0.1); border-color: var(--color-gold); transform: translateY(-10px); }
     .subject-card h3 { font-family: var(--font-display); font-size: 1.5rem; margin: 16px 0 8px; color: white; }
     
-    .hub-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
-    .hub-tabs .pill.active { background: var(--color-primary); color: var(--color-text-inverse); border-color: transparent; }
+    .hub-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
     .vault-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
     .vault-card { background: var(--color-surface-2); padding: 20px; border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: left; }
-    .vault-assets { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
-    .vault-assets a { display: inline-block; text-decoration: none; font-size: 12px; }
-    .drill-filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
-    .drill-filters .pill { font-size: var(--text-xs); padding: 0 var(--space-3); min-height: 36px; }
-    .drill-filters .pill.active { background: var(--color-primary); color: var(--color-text-inverse); border-color: transparent; }
-    .drill-timer { display: flex; align-items: center; gap: 8px; padding: var(--space-2) var(--space-4); background: var(--color-surface-offset); border-radius: 999px; font-family: var(--font-display); font-size: var(--text-sm); }
-    .drill-timer span { font-size: 10px; color: var(--color-text-muted); }
-    #drillTimerDisplay { font-weight: 700; transition: color 0.3s; }
-    #drillTimerDisplay.urgent { color: var(--color-error); animation: shake 0.4s infinite; }
-    .ms-bullet { display: block; padding: 4px 0; border-bottom: 1px solid color-mix(in oklab, var(--color-text) 6%, transparent); line-height: 1.5; }
-    .ms-bullet:last-child { border-bottom: none; }
-    .ms-bullet::before { content: '• '; color: var(--color-primary); font-weight: 700; }
+    .vault-assets a { display: inline-block; margin-top: 8px; margin-right: 8px; text-decoration: none; font-size: 12px; }
 
   </style>
 </head>
@@ -186,19 +174,19 @@
     <p style="opacity: 0.7; max-width: 600px; margin-top: 1rem; color: white;">The ultimate ADHD-friendly prep tool. Level up your understanding with active recall and exam-style drills.</p>
     <div class="subject-grid">
       <div class="subject-card" onclick="selectSubject('business')">
-        <div style="font-size: 3rem;">📈</div>
-        <h3>Business P2</h3>
-        <p style="font-size: 0.8rem; opacity: 0.6; color: white;">Case Study Mastery<br>Grade 9 Optimized</p>
+        <div style="font-size: 3rem;">≡ƒôê</div>
+        <h3>Business P1 & P2</h3>
+        <p style="font-size: 0.8rem; opacity: 0.6; color: white;">10 Units ┬╖ 152 Terms<br>Grade 9 Optimized</p>
       </div>
       <div class="subject-card" onclick="selectSubject('chemistry')">
-        <div style="font-size: 3rem;">⚛️</div>
+        <div style="font-size: 3rem;">ΓÜ¢∩╕Å</div>
         <h3>Chemistry</h3>
-        <p style="font-size: 0.8rem; opacity: 0.6; color: white;">8 Units · Syllabus Drills<br>Organic & Atomic Focus</p>
+        <p style="font-size: 0.8rem; opacity: 0.6; color: white;">8 Units ┬╖ Syllabus Drills<br>Organic & Atomic Focus</p>
       </div>
       <div class="subject-card" onclick="selectSubject('english')">
-        <div style="font-size: 3rem;">📝</div>
+        <div style="font-size: 3rem;">≡ƒô¥</div>
         <h3>English Language</h3>
-        <p style="font-size: 0.8rem; opacity: 0.6; color: white;">3 Units · Analysis Hub<br>4EA1 Grade 9 Prep</p>
+        <p style="font-size: 0.8rem; opacity: 0.6; color: white;">3 Units ┬╖ Analysis Hub<br>4EA1 Grade 9 Prep</p>
       </div>
     </div>
   </div>
@@ -215,13 +203,13 @@
         </div>
       </div>
       <div class="controls">
-        <button class="icon-btn" data-theme-toggle aria-label="Switch theme">🌙</button>
+        <button class="icon-btn" data-theme-toggle aria-label="Switch theme">≡ƒîÖ</button>
         <button class="pill" onclick="el('subjectOverlay').classList.remove('hidden')">Switch Course</button>
         <button class="pill" id="panicToggle">Panic Mode: Off</button>
         <button class="pill" id="focusToggle">Focus Mode: Off</button>
         <button class="pill" id="pauseToggle">Pause: Off</button>
         <button class="pill" id="shuffleAll">Shuffle all</button>
-        <button class="icon-btn" id="settingsBtn" title="AI Settings">⚙️</button>
+        <button class="icon-btn" id="settingsBtn" title="AI Settings">ΓÜÖ∩╕Å</button>
       </div>
     </div>
 
@@ -236,10 +224,10 @@
         <div class="progress"><div id="masteryBar"></div></div>
       </div>
       <div class="panel modes" style="padding: var(--space-4);">
-        <button class="mode-card active" data-mode="typed"><div><strong>Definition Sprint</strong><div class="mini">Type your answer, then reveal and self-check.</div></div><span>✍️</span></button>
-        <button class="mode-card" data-mode="mcq"><div><strong>Quiz Clash</strong><div class="mini">Pick the correct definition against the clock.</div></div><span>⚡</span></button>
-        <button class="mode-card" data-mode="scenario"><div><strong>Scenario Master</strong><div class="mini">Apply terms to real-world business cases.</div></div><span>🏆</span></button>
-        <button class="mode-card" data-mode="hub"><div><strong>Study Hub</strong><div class="mini">Formulas, papers, and vault</div></div><span>🏛️</span></button>
+        <button class="mode-card active" data-mode="typed"><div><strong>Definition Sprint</strong><div class="mini">Type your answer, then reveal and self-check.</div></div><span>Γ£ì∩╕Å</span></button>
+        <button class="mode-card" data-mode="mcq"><div><strong>Quiz Clash</strong><div class="mini">Pick the correct definition against the clock.</div></div><span>ΓÜí</span></button>
+        <button class="mode-card" data-mode="scenario"><div><strong>Scenario Master</strong><div class="mini">Apply terms to real-world business cases.</div></div><span>≡ƒÅå</span></button>
+        <button class="mode-card" data-mode="hub"><div><strong>Study Hub</strong><div class="mini">Formulas, papers, and vault</div></div><span>≡ƒÅ¢∩╕Å</span></button>
       </div>
     </section>
 
@@ -262,10 +250,10 @@
 
         <div class="mini" style="margin-top: 30px;">Data Management</div>
         <div style="display:grid; gap:var(--space-2); margin-top:var(--space-2);">
-          <button class="pill" style="width:100%; text-align:center; font-size:12px;" id="exportData">📥 Backup Progress</button>
-          <button class="pill" style="width:100%; text-align:center; font-size:12px;" id="importDataBtn">📤 Restore Progress</button>
+          <button class="pill" style="width:100%; text-align:center; font-size:12px;" id="exportData">≡ƒôÑ Backup Progress</button>
+          <button class="pill" style="width:100%; text-align:center; font-size:12px;" id="importDataBtn">≡ƒôñ Restore Progress</button>
           <input type="file" id="importFile" class="hidden" accept=".json">
-          <button class="pill" style="width:100%; text-align:center; font-size:12px; color:var(--color-error); border-color:var(--color-error);" id="resetData">🗑️ Reset All</button>
+          <button class="pill" style="width:100%; text-align:center; font-size:12px; color:var(--color-error); border-color:var(--color-error);" id="resetData">≡ƒùæ∩╕Å Reset All</button>
         </div>
       </aside>
 
@@ -299,7 +287,7 @@
             <div class="chips">
               <span class="chip" id="chipUnit">Unit 1</span>
               <span class="chip" id="chipIndex">1 / 29</span>
-              <span class="chip priority hidden" id="chipPriority" style="background:var(--color-gold); color:white;">🔥 High Priority</span>
+              <span class="chip priority hidden" id="chipPriority" style="background:var(--color-gold); color:white;">≡ƒöÑ High Priority</span>
             </div>
           </div>
 
@@ -308,7 +296,7 @@
               <textarea id="typedAnswer" placeholder="Type your definition here..."></textarea>
               <div class="btn-row">
                 <button class="action primary" id="checkBtn">Reveal answer</button>
-                <button class="action" id="aiCheckBtn">🤖 AI Check</button>
+                <button class="action" id="aiCheckBtn">≡ƒñû AI Check</button>
                 <button class="action" id="knowBtn">I knew this</button>
                 <button class="action" id="nextBtn">Next term</button>
               </div>
@@ -324,7 +312,7 @@
           </div>
 
           <div id="examinerTip" class="examiner-tip">
-            <strong>💡 Examiner Tip:</strong> <span id="tipText"></span>
+            <strong>≡ƒÆí Examiner Tip:</strong> <span id="tipText"></span>
           </div>
 
           <div class="footer-note">Tip: Focus on "High Priority" terms for the most common exam topics.</div>
@@ -333,20 +321,16 @@
         <div class="screen hidden" id="hubScreen">
           <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1.5rem;">Study Hub</h2>
           <div class="hub-tabs">
-            <button class="pill active" data-study-view="formula">📐 Formula Lab</button>
-            <button class="pill" data-study-view="paper">📄 Paper Drill</button>
-            <button class="pill" data-study-view="vault">📦 Vault</button>
+            <button class="pill active" data-study-view="formula">Formula Lab</button>
+            <button class="pill" data-study-view="paper">Paper Drill</button>
+            <button class="pill" data-study-view="vault">Vault</button>
           </div>
 
-          <!-- ── Formula Lab ─────────────────────────── -->
           <div data-study-panel="formula" class="hidden">
             <div class="prompt">
               <div class="label" id="formulaSectionLabel">Formula Lab</div>
               <h2 id="formulaPromptTitle">Loading...</h2>
-              <div class="chips">
-                <span class="chip" id="formulaIndexChip">0 / 0</span>
-              </div>
-              <p id="formulaPromptHint" style="margin-top:0.5rem; color:var(--color-text-muted); font-size:var(--text-sm);"></p>
+              <div class="chips"><span class="chip" id="formulaIndexChip">0 / 0</span></div>
             </div>
             <div class="btn-row">
               <button class="action primary" id="revealFormulaBtn">Reveal Formula</button>
@@ -356,50 +340,27 @@
             <div class="feedback" id="formulaFeedback" style="margin-top:2rem;"></div>
           </div>
 
-          <!-- ── Paper Drill ──────────────────────────── -->
           <div data-study-panel="paper" class="hidden">
-            <!-- Type filter bar -->
-            <div class="drill-filters">
-              <button class="pill active" id="drillFilterAll">All Types</button>
-              <button class="pill" id="drillFilterMcq">MCQ</button>
-              <button class="pill" id="drillFilterDefinition">Definition</button>
-              <button class="pill" id="drillFilterCalc">Calculation</button>
-              <button class="pill" id="drillFilterShort">Short Answer</button>
-            </div>
-
             <div class="prompt">
-              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
-                <div class="label" id="paperDrillMeta">Paper Drill</div>
-                <div class="drill-timer">
-                  <span>⏱ Time</span>
-                  <strong id="drillTimerDisplay">00:00</strong>
-                </div>
-              </div>
-              <h2 id="paperDrillPrompt" style="font-size:1.35rem; line-height:1.3;">Loading...</h2>
-              <div class="chips" style="margin-top:0.75rem;">
-                <span class="chip" id="paperDrillTypeChip">type</span>
-                <span class="chip" id="paperDrillMarksChip">marks</span>
+              <div class="label" id="paperDrillMeta">Paper Drill</div>
+              <h2 id="paperDrillPrompt" style="font-size:1.5rem;">Loading...</h2>
+              <div class="chips">
+                <span class="chip" id="paperDrillTypeChip">MCQ</span>
+                <span class="chip" id="paperDrillMarksChip">1 Mark</span>
                 <span class="chip" id="paperDrillIndexChip">0 / 0</span>
               </div>
-              <p id="paperDrillHint" style="margin-top:0.5rem; color:var(--color-text-muted); font-size:var(--text-sm);"></p>
             </div>
-
-            <div id="paperDrillOptions" class="mcq-grid" style="margin-top:1rem;"></div>
-
-            <div id="paperDrillTypedWrap" class="hidden" style="margin-top:1rem;">
-              <textarea id="paperDrillAnswer" placeholder="Write your full answer here — plan it properly before revealing the mark scheme."></textarea>
+            <div id="paperDrillOptions" class="mcq-grid"></div>
+            <div id="paperDrillTypedWrap" class="hidden" style="margin-top: 1rem;">
+              <textarea id="paperDrillAnswer" placeholder="Type your answer based on the prompt..."></textarea>
             </div>
-
             <div class="btn-row" style="margin-top:1.5rem;">
               <button class="action primary" id="showPaperAnswerBtn">Reveal Mark Scheme</button>
-              <button class="action" id="nextPaperDrillBtn">Next Drill →</button>
-              <button class="action" id="shufflePaperDrillsBtn">🔀 Reshuffle</button>
+              <button class="action" id="nextPaperDrillBtn">Next Drill</button>
             </div>
-
-            <div class="feedback" id="paperDrillFeedback" style="margin-top:2rem; white-space:pre-wrap; font-size:var(--text-sm); line-height:1.6;"></div>
+            <div class="feedback" id="paperDrillFeedback" style="margin-top:2rem;"></div>
           </div>
 
-          <!-- ── Vault ────────────────────────────────── -->
           <div data-study-panel="vault" class="hidden">
             <div class="vault-grid" id="paperVaultList"></div>
           </div>
@@ -435,35 +396,39 @@
   <script>
     const SUBJECTS = {
       business: {
-        tag: "IGCSE Business P2",
-        title: "Business P2 Masterclass",
-        desc: "Paper 2 (Investigating Large Businesses) – application, data response, and evaluation. Past-paper drills from real mark schemes.",
+        tag: "IGCSE Business P1 & P2",
+        title: "Business Masterclass",
+        desc: "Comprehensive mastery of Paper 1 and Paper 2. Focus on application, definitions, and examiner secrets.",
         units: [
-          { id: 1, title: "People in Business", terms: [
+          { id: 1, title: "Business Activity", terms: [
+            { term: "Opportunity Cost", definition: "The next best alternative given up when making a choice.", points: ["Vital for evaluating government spending.", "Always mention 'next best alternative'."], secret: "Examiners love it when you link this to resource allocation." },
+            { term: "Factors of Production", definition: "Land, Labour, Capital, and Enterprise.", points: ["Land: Natural resources", "Labour: Human effort", "Capital: Man-made machines", "Enterprise: Risk-taking"], secret: "Identify 'Enterprise' as the driving force that combines the others." },
+            { term: "Added Value", definition: "The difference between the cost of purchasing raw materials and the price the finished goods are sold for.", points: ["Price - Cost of materials.", "Not the same as profit."], secret: "Branding and quality are the best ways to add value." }
+          ]},
+          { id: 2, title: "People in Business", terms: [
             { term: "Autocratic Leadership", definition: "A leadership style where managers make all decisions without consulting others.", points: ["Quick decision-making.", "Clear hierarchy."], secret: "Effective in a crisis, but bad for long-term motivation." },
             { term: "Democratic Leadership", definition: "Managers involve employees in the decision-making process.", points: ["Improves morale.", "Utilises worker skills."], secret: "Often leads to better decision quality but slower implementation." },
-            { term: "Job Enrichment", definition: "Adding more challenging tasks to a job to increase responsibility.", points: ["Motivates through achievement.", "Reduces labour turnover."], secret: "Part of Herzberg's Motivators — always name the theory." }
+            { term: "Job Enrichment", definition: "Adding more challenging tasks to a job to increase responsibility.", points: ["Motivates through achievement.", "Reduces labor turnover."], secret: "Part of Herzberg's 'Motivators'." }
           ]},
-          { id: 2, title: "Marketing Mix", terms: [
+          { id: 3, title: "Marketing Mix", terms: [
             { term: "Market Segmentation", definition: "Dividing a market into groups of buyers with similar needs.", points: ["Geographic, Demographic, Psychographic.", "Helps tailor the marketing mix."], secret: "Examiners look for 'Targeting' as the next logical step after segmentation." },
-            { term: "Skimming Pricing", definition: "Setting a high price initially when a new product is launched.", points: ["Used for unique products.", "Targets early adopters."], secret: "Mention that competitors will soon enter, forcing prices down." }
+            { term: "Skimming Pricing", definition: "Setting a high price initially when a new product is launched.", points: ["Used for unique products (e.g. iPhones).", "Targets 'early adopters'."], secret: "Mention that competitors will soon enter, forcing prices down." }
           ]},
-          { id: 3, title: "Operations", terms: [
-            { term: "Just In Time (JIT)", definition: "A production method where materials arrive only when needed.", points: ["Reduces storage costs.", "Improves cash flow."], secret: "Relies on reliable suppliers — one delay stops the whole factory." },
-            { term: "Quality Assurance", definition: "A system where quality is checked at every stage of production to prevent faults.", points: ["Zero defects goal.", "Employee empowerment."], secret: "Contrasts with Quality Control (checking only at the end)." }
+          { id: 4, title: "Operations", terms: [
+            { term: "Just In Time (JIT)", definition: "A production method where materials arrive only when needed.", points: ["Reduces storage costs.", "Improves cash flow."], secret: "Relies heavily on reliable suppliers. One delay stops the whole factory." },
+            { term: "Quality Assurance", definition: "A system where quality is checked at every stage of production to prevent faults.", points: ["Zero defects goal.", "Employee empowerment."], secret: "Contrasts with 'Quality Control' (checking at the end)." }
           ]},
-          { id: 4, title: "Finance", terms: [
-            { term: "Break-Even Point", definition: "The level of output where total revenue equals total costs.", points: ["Total Revenue = Total Cost.", "No profit or loss."], secret: "Formula: Fixed Costs ÷ Contribution per unit." },
-            { term: "Cash Flow Forecast", definition: "A prediction of money coming into and going out of a business over a future period.", points: ["Identifies cash shortages.", "Used for bank loan applications."], secret: "Cash is NOT the same as profit — say this explicitly." },
-            { term: "Gross Profit Margin", definition: "Gross Profit ÷ Revenue × 100.", points: ["Shows trading efficiency.", "High GPM = strong pricing power."], secret: "Always show your working for calculation questions." }
+          { id: 5, title: "Finance", terms: [
+            { term: "Break-Even Point", definition: "The level of output where total revenue equals total costs.", points: ["Total Revenue = Total Cost.", "No profit or loss."], secret: "Formula: Fixed Costs / Contribution per unit." },
+            { term: "Cash Flow Forecast", definition: "A prediction of money coming into and going out of a business.", points: ["Helps identify cash shortages.", "Used for bank loan applications."], secret: "Cash is not the same as profit!" }
           ]},
-          { id: 5, title: "Global Business", terms: [
-            { term: "Multinational Corporation (MNC)", definition: "A business that has operations in more than one country.", points: ["Access to larger markets.", "Lower production costs."], secret: "Discuss both benefits (jobs) AND drawbacks (tax avoidance) for host countries." },
-            { term: "Exchange Rate", definition: "The price of one currency expressed in terms of another.", points: ["SPICED: Strong Pound → Imports Cheap, Exports Dear.", "WPIDEC: Weak Pound → Imports Dear, Exports Cheap."], secret: "Always use SPICED/WPIDEC to explain impact on revenue." }
+          { id: 6, title: "Global Business (P2)", terms: [
+            { term: "Multinational Corporation (MNC)", definition: "A business that has operations in more than one country.", points: ["Access to larger markets.", "Lower production costs."], secret: "Discuss both benefits (jobs) and drawbacks (tax avoidance) for host countries." },
+            { term: "Exchange Rate", definition: "The price of one currency in terms of another.", points: ["SPICED: Strong Pound Imports Cheap Exports Dear.", "WPIDEC: Weak Pound Imports Dear Exports Cheap."], secret: "Always use SPICED/WPIDEC to explain the impact on sales." }
           ]},
-          { id: 6, title: "External Influences", terms: [
-            { term: "Business Cycle", definition: "The regular pattern of ups and downs in the level of economic activity.", points: ["Stages: Boom, Recession, Slump, Recovery.", "Impacts consumer spending and confidence."], secret: "Identify which stage the case-study business is currently in." },
-            { term: "Sustainability", definition: "Methods of production that do not compromise the ability of future generations to meet their own needs.", points: ["Recycling and renewable energy.", "Enhances brand image and reduces costs."], secret: "Connect to Social Objectives for 6–9 mark evaluation questions." }
+          { id: 7, title: "External Influences (P2)", terms: [
+            { term: "Business Cycle", definition: "The regular patterns of ups and downs in the level of economic activity.", points: ["Boom, Recession, Slump, Recovery.", "Impacts consumer spending."], secret: "Identify which stage the business in the case study is currently in." },
+            { term: "Sustainability", definition: "Methods of production that do not compromise the ability of future generations to meet their needs.", points: ["Recycling and renewable energy.", "Enhances brand image."], secret: "Connect this to 'Social Objectives' for 6-9 mark questions." }
           ]}
         ]
       },
@@ -597,56 +562,15 @@
       el('subjectTitle').textContent = sub.title;
       el('subjectDesc').textContent = sub.desc;
       
-      // 1. Load Hardcoded Units
-      const hardcodedUnits = sub.units.map(u => ({
+      DATA = sub.units.map(u => ({
         unit: u.id,
         title: u.title,
         terms: u.terms.map(t => ({
           ...t,
-          priority: true,
+          priority: t.points ? true : false,
           tip: t.secret || (t.points ? t.points.join(' ') : '')
         }))
       }));
-
-      // 2. Load Dynamic Drills from window.STUDY_DATA
-      const isChem = subjectId === 'chemistry';
-      const isEnglish = subjectId === 'english';
-      let dynamicUnits = [];
-
-      if (window.STUDY_DATA && window.STUDY_DATA.paperDrills) {
-        const subjectDrills = window.STUDY_DATA.paperDrills.filter(item => {
-          const src = (item.source || "").toUpperCase();
-          if (isChem) return src.includes('4WCH');
-          if (isEnglish) return src.includes('4EA1');
-          
-          // Strict Business P2 filter
-          if (src.includes('4BS1')) {
-            return src.includes('_02') || src.includes('_2') || src.includes(' P2') || src.includes('PAPER 2');
-          }
-          return false;
-        });
-
-        // Group drills by source (e.g., "4BS1_01_2023_Jan")
-        const grouped = {};
-        subjectDrills.forEach(d => {
-          if (!grouped[d.source]) grouped[d.source] = [];
-          grouped[d.source].push({
-            term: d.prompt,
-            definition: d.mark_scheme || d.answer_text || d.answer_letter || "Check Mark Scheme",
-            priority: (d.marks || 0) >= 4,
-            tip: d.marks ? `${d.marks} Mark${d.marks > 1 ? 's' : ''}` : "Past Paper Question",
-            scenario: d.prompt // Scenario mode can use the prompt too
-          });
-        });
-
-        dynamicUnits = Object.keys(grouped).map((source, idx) => ({
-          unit: hardcodedUnits.length + idx + 1,
-          title: source.replace(/_/g, ' ').replace('MS', ''),
-          terms: grouped[source]
-        }));
-      }
-
-      DATA = [...hardcodedUnits, ...dynamicUnits];
       
       allTerms = DATA.flatMap(u => u.terms.map((t, i) => ({ 
         ...t, unit: u.unit, unitTitle: u.title, indexInUnit: i + 1, unitSize: u.terms.length, 
@@ -725,13 +649,13 @@
       }
 
       feedback.innerHTML = `
-        <div class="feedback-status">⏱️ Time's up!</div>
+        <div class="feedback-status">ΓÅ▒∩╕Å Time's up!</div>
         <div class="feedback-divider"></div>
         <div class="feedback-body">
           ${isScenario ? 'The correct term was:' : 'The correct definition was:'}<br>
           <strong>${correctOption}</strong>
         </div>
-        <button class="action" onclick="el('pauseToggle').click()" style="margin-top:15px; width:100%; border-color:var(--color-primary); color:var(--color-primary);">⏸️ Pause to write definition</button>
+        <button class="action" onclick="el('pauseToggle').click()" style="margin-top:15px; width:100%; border-color:var(--color-primary); color:var(--color-primary);">ΓÅ╕∩╕Å Pause to write definition</button>
       `;
       
       showTip(item);
@@ -801,7 +725,7 @@
     function updateHud() {
       hudMode.textContent = currentMode.toUpperCase();
       hudScore.textContent = score;
-      hudStreak.textContent = streak + (streak >= 5 ? ' 🔥' : '');
+      hudStreak.textContent = streak + (streak >= 5 ? ' ≡ƒöÑ' : '');
       hudStreak.classList.toggle('fire-streak', streak >= 5);
       
       const currentGoalProgress = sessionCount % 10;
@@ -821,7 +745,7 @@
         localStorage.setItem('pinkUnlocked', 'true');
         triggerConfetti('goal');
         sounds.success();
-        setTimeout(() => alert("🌸 LEGENDARY UNLOCK: Sakura Mode is now available in your theme toggle!"), 500);
+        setTimeout(() => alert("≡ƒî╕ LEGENDARY UNLOCK: Sakura Mode is now available in your theme toggle!"), 500);
       }
       
       updateMastery();
@@ -863,7 +787,7 @@
 
       examinerTip.classList.remove('visible');
       el('chipPriority').classList.toggle('hidden', !item.priority);
-      unitTitle.textContent = `Unit ${item.unit} · ${item.unitTitle}`;
+      unitTitle.textContent = `Unit ${item.unit} ┬╖ ${item.unitTitle}`;
       chipIndex.textContent = `${pointer + 1} / ${queue.length}`;
       chipUnit.textContent = `Unit ${item.unit}`;
       
@@ -921,10 +845,10 @@
         button.classList.add('correct');
         known.add(item.term);
         mcqFeedback.innerHTML = `
-          <div class="feedback-status">✅ Correct!</div>
+          <div class="feedback-status">Γ£à Correct!</div>
           <div class="feedback-divider"></div>
           <div class="feedback-body">Well applied. That's exactly right.</div>
-          <button class="action" onclick="el('pauseToggle').click()" style="margin-top:15px; width:100%; border-color:var(--color-primary); color:var(--color-primary);">⏸️ Pause to write definition</button>
+          <button class="action" onclick="el('pauseToggle').click()" style="margin-top:15px; width:100%; border-color:var(--color-primary); color:var(--color-primary);">ΓÅ╕∩╕Å Pause to write definition</button>
         `;
         showTip(item);
         autoNextTimeout = setTimeout(() => {
@@ -938,10 +862,10 @@
         [...document.querySelectorAll('.option')].forEach(x => { if (x.textContent === correctText) x.classList.add('correct'); });
         mcqFeedback.className = 'feedback bad';
         mcqFeedback.innerHTML = `
-          <div class="feedback-status">❌ Wrong</div>
+          <div class="feedback-status">Γ¥î Wrong</div>
           <div class="feedback-divider"></div>
           <div class="feedback-body">The correct term is: <strong>${item.term}</strong></div>
-          <button class="action" onclick="el('pauseToggle').click()" style="margin-top:15px; width:100%; border-color:var(--color-primary); color:var(--color-primary);">⏸️ Pause to write definition</button>
+          <button class="action" onclick="el('pauseToggle').click()" style="margin-top:15px; width:100%; border-color:var(--color-primary); color:var(--color-primary);">ΓÅ╕∩╕Å Pause to write definition</button>
         `;
         showTip(item);
       }
@@ -969,16 +893,6 @@
       el('resultScreen').classList.remove('hidden');
       const pct = queue.length ? Math.round((score / queue.length) * 100) : 0;
       el('finalScore').textContent = pct + '%';
-    }
-
-    function showHub() {
-      el('gameScreen').classList.add('hidden');
-      el('resultScreen').classList.add('hidden');
-      el('hubScreen').classList.remove('hidden');
-      currentMode = 'hub';
-      if (window.Hub && typeof window.Hub.init === 'function') {
-        window.Hub.init(currentSubject);
-      }
     }
 
     function buildUnits() {
@@ -1014,7 +928,7 @@
     el('checkBtn').onclick = () => {
       const item = currentItem();
       feedbackBox.innerHTML = `
-        <div class="feedback-status">📖 Definition</div>
+        <div class="feedback-status">≡ƒôû Definition</div>
         <div class="feedback-divider"></div>
         <div class="feedback-body">${item.definition}</div>
       `;
@@ -1081,7 +995,7 @@
       const userAnswer = typedAnswer.value.trim();
       if (!userAnswer) return alert("Please type an answer first!");
       if (!geminiKey) {
-        alert("Please set your Gemini API Key in the settings (⚙️) first!");
+        alert("Please set your Gemini API Key in the settings (ΓÜÖ∩╕Å) first!");
         el('settingsBtn').click();
         return;
       }
@@ -1090,9 +1004,9 @@
       const checkBtn = el('aiCheckBtn');
       const originalText = checkBtn.textContent;
       
-      checkBtn.textContent = "⌛ Checking...";
+      checkBtn.textContent = "Γî¢ Checking...";
       checkBtn.disabled = true;
-      feedbackBox.innerHTML = `<div class="feedback-status">🤖 AI is thinking...</div>`;
+      feedbackBox.innerHTML = `<div class="feedback-status">≡ƒñû AI is thinking...</div>`;
       feedbackBox.className = "feedback";
 
       try {
@@ -1149,7 +1063,7 @@ Reply ONLY in JSON format like this:
 
         feedbackBox.className = `feedback ${result.isCorrect ? 'good' : (result.verdict === 'Partial' ? '' : 'bad')}`;
         feedbackBox.innerHTML = `
-          <div class="feedback-status">${result.isCorrect ? '✅' : (result.verdict === 'Partial' ? '⚠️' : '❌')} AI Verdict: ${result.verdict}</div>
+          <div class="feedback-status">${result.isCorrect ? 'Γ£à' : (result.verdict === 'Partial' ? 'ΓÜá∩╕Å' : 'Γ¥î')} AI Verdict: ${result.verdict}</div>
           <div class="feedback-divider"></div>
           <div class="feedback-body">
             ${result.explanation}
@@ -1177,7 +1091,7 @@ Reply ONLY in JSON format like this:
 
       } catch (err) {
         console.error(err);
-        feedbackBox.innerHTML = `<div class="feedback-status">❌ Error</div><div class="feedback-body">${err.message}</div>`;
+        feedbackBox.innerHTML = `<div class="feedback-status">Γ¥î Error</div><div class="feedback-body">${err.message}</div>`;
       } finally {
         checkBtn.textContent = originalText;
         checkBtn.disabled = false;
@@ -1237,7 +1151,7 @@ Reply ONLY in JSON format like this:
     };
 
     el('resetData').onclick = () => {
-      if (confirm("⚠️ Are you sure? This will delete all your levels, mastery, and stats for this subject permanently.")) {
+      if (confirm("ΓÜá∩╕Å Are you sure? This will delete all your levels, mastery, and stats for this subject permanently.")) {
         localStorage.removeItem(`score_${currentSubject}`);
         localStorage.removeItem(`streak_${currentSubject}`);
         localStorage.removeItem(`sessionCount_${currentSubject}`);
@@ -1250,7 +1164,7 @@ Reply ONLY in JSON format like this:
     // Break Reminder (ADHD)
     setInterval(() => {
       if (!focusMode && !isPaused && el('gameScreen') && !el('gameScreen').classList.contains('hidden')) {
-        alert("🧠 Break Reminder: You've been focused for a while. Take 30 seconds to stretch!");
+        alert("≡ƒºá Break Reminder: You've been focused for a while. Take 30 seconds to stretch!");
       }
     }, 15 * 60 * 1000);
 
@@ -1259,7 +1173,7 @@ Reply ONLY in JSON format like this:
       const t = document.querySelector('[data-theme-toggle]');
       const r = document.documentElement;
       const themes = ['light', 'dark', 'pink'];
-      const icons = { light: '☀️', dark: '🌙', pink: '🌸' };
+      const icons = { light: 'ΓÿÇ∩╕Å', dark: '≡ƒîÖ', pink: '≡ƒî╕' };
       let d = localStorage.getItem('theme') || 'light';
       
       const applyTheme = (theme) => {
@@ -1276,7 +1190,7 @@ Reply ONLY in JSON format like this:
 
         if (nextTheme === 'pink' && localStorage.getItem('pinkUnlocked') !== 'true') {
           sounds.error();
-          alert("🔒 Sakura Mode is LOCKED! Reach a 20-answer streak to unlock this legendary theme.");
+          alert("≡ƒöÆ Sakura Mode is LOCKED! Reach a 20-answer streak to unlock this legendary theme.");
           idx = (idx + 1) % themes.length;
           nextTheme = themes[idx];
         }
