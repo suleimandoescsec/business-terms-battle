@@ -1,5 +1,5 @@
 window.STUDY_DATA = {
-  "generatedAt": 1778339735.5021818,
+  "generatedAt": 1778343814.8683803,
   "formulas": [
     {
       "section": "Revenue, Costs & Profit",
@@ -225,149 +225,6 @@ window.STUDY_DATA = {
     }
   ],
   "paperCollections": [
-    {
-      "id": "4WCH1_1C_20260122",
-      "title": "4WCH1 · 1C · 20260122",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH1",
-      "session": "20260122",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4wch1-1c-rms-20260122.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH2_1C_20260122",
-      "title": "4WCH2 · 1C · 20260122",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH2",
-      "session": "20260122",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4wch2-1c-rms-20260122.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH2_1C_20251118",
-      "title": "4WCH2 · 1C · 20251118",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH2",
-      "session": "20251118",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4wch2-1c-que-20251118.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH1_1C_20251112",
-      "title": "4WCH1 · 1C · 20251112",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH1",
-      "session": "20251112",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4wch1-1c-que-20251112.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH1_1C_20250821",
-      "title": "4WCH1 · 1C · 20250821",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH1",
-      "session": "20250821",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4wch1-1c-rms-20250821.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH1_1CR_20250821",
-      "title": "4WCH1 · 1CR · 20250821",
-      "subtitle": "Chemistry 1CR",
-      "paper_code": "4WCH1",
-      "session": "20250821",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4wch1-1cr-rms-20250821.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH2_1C_20250821",
-      "title": "4WCH2 · 1C · 20250821",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH2",
-      "session": "20250821",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4wch2-1c-rms-20250821.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH2_1CR_20250821",
-      "title": "4WCH2 · 1CR · 20250821",
-      "subtitle": "Chemistry 1CR",
-      "paper_code": "4WCH2",
-      "session": "20250821",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4wch2-1cr-rms-20250821.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH2_1C_20250614",
-      "title": "4WCH2 · 1C · 20250614",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH2",
-      "session": "20250614",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4wch2-1c-que-20250614.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH2_1CR_20250614",
-      "title": "4WCH2 · 1CR · 20250614",
-      "subtitle": "Chemistry 1CR",
-      "paper_code": "4WCH2",
-      "session": "20250614",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4wch2-1cr-que-20250614.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH1_1C_20250520",
-      "title": "4WCH1 · 1C · 20250520",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH1",
-      "session": "20250520",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4wch1-1c-que-20250520.pdf"
-        }
-      ]
-    },
     {
       "id": "4BS1_01_1125",
       "title": "4BS1/01 · November 2025",
@@ -613,6 +470,376 @@ window.STUDY_DATA = {
       ]
     },
     {
+      "id": "4BS1_02_2021_M2",
+      "title": "4BS1/02 · 2021 M2",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2021_M2",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-msc-20210211.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2024_Winter",
+      "title": "4BS1/02 · 2024 Winter",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2024_Winter",
+      "assets": [
+        {
+          "label": "Examiner Report",
+          "url": "4bs1-02-pef-20240125.pdf"
+        },
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20241120.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20240125.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2025_Winter",
+      "title": "4BS1/02 · 2025 Winter",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2025_Winter",
+      "assets": [
+        {
+          "label": "Examiner Report",
+          "url": "4bs1-02-pef-20250123.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20250123.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2020_Winter",
+      "title": "4BS1/02 · 2020 Winter",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2020_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20201117.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2021_Summer",
+      "title": "4BS1/02 · 2021 Summer",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2021_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20210511.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20210604.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2021_Winter",
+      "title": "4BS1/02 · 2021 Winter",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2021_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20211126.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2023_Summer",
+      "title": "4BS1/02 · 2023 Summer",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2023_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20230613.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20230824.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2023_Winter",
+      "title": "4BS1/02 · 2023 Winter",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2023_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20231122.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2024_Summer",
+      "title": "4BS1/02 · 2024 Summer",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2024_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20240604.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20240822.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2022_M2",
+      "title": "4BS1/02 · 2022 M2",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2022_M2",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20220224.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02R_2021_M2",
+      "title": "4BS1/02R · 2021 M2",
+      "subtitle": "Business Paper 02R",
+      "paper_code": "4BS1",
+      "session": "2021_M2",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02r-msc-20210211.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02R_2020_Winter",
+      "title": "4BS1/02R · 2020 Winter",
+      "subtitle": "Business Paper 02R",
+      "paper_code": "4BS1",
+      "session": "2020_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02r-que-20201117.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02R_2023_Summer",
+      "title": "4BS1/02R · 2023 Summer",
+      "subtitle": "Business Paper 02R",
+      "paper_code": "4BS1",
+      "session": "2023_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02r-que-20230613.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02r-rms-20230824.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02R_2024_Summer",
+      "title": "4BS1/02R · 2024 Summer",
+      "subtitle": "Business Paper 02R",
+      "paper_code": "4BS1",
+      "session": "2024_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02r-que-20240604.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02r-rms-20240822.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH1_1C_2025_Summer",
+      "title": "4WCH1/1C · 2025 Summer",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH1",
+      "session": "2025_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch1-1c-que-20250520.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4wch1-1c-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH1_1C_2025_Winter",
+      "title": "4WCH1/1C · 2025 Winter",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH1",
+      "session": "2025_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch1-1c-que-20251112.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH1_1C_2026_Winter",
+      "title": "4WCH1/1C · 2026 Winter",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH1",
+      "session": "2026_Winter",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch1-1c-rms-20260122.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH1_1CR_2025_Summer",
+      "title": "4WCH1/1CR · 2025 Summer",
+      "subtitle": "Chemistry Paper 1CR",
+      "paper_code": "4WCH1",
+      "session": "2025_Summer",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch1-1cr-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1C_2025_Summer",
+      "title": "4WCH2/1C · 2025 Summer",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH2",
+      "session": "2025_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch2-1c-que-20250614.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4wch2-1c-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1C_2025_Winter",
+      "title": "4WCH2/1C · 2025 Winter",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH2",
+      "session": "2025_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch2-1c-que-20251118.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1C_2026_Winter",
+      "title": "4WCH2/1C · 2026 Winter",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH2",
+      "session": "2026_Winter",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch2-1c-rms-20260122.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1CR_2025_Summer",
+      "title": "4WCH2/1CR · 2025 Summer",
+      "subtitle": "Chemistry Paper 1CR",
+      "paper_code": "4WCH2",
+      "session": "2025_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch2-1cr-que-20250614.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4wch2-1cr-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "title": "4bs1-june-2022-ms-paper-2-edexcel-igcse-business",
+      "subtitle": "PDF",
+      "assets": [
+        {
+          "label": "Open PDF",
+          "url": "4bs1-june-2022-ms-paper-2-edexcel-igcse-business.pdf"
+        }
+      ]
+    },
+    {
+      "title": "4bs1-june-2022-ms-paper-2r-edexcel-igcse-business",
+      "subtitle": "PDF",
+      "assets": [
+        {
+          "label": "Open PDF",
+          "url": "4bs1-june-2022-ms-paper-2r-edexcel-igcse-business.pdf"
+        }
+      ]
+    },
+    {
+      "title": "4bs1-june-2022-qp-paper-2-edexcel-igcse-business",
+      "subtitle": "PDF",
+      "assets": [
+        {
+          "label": "Open PDF",
+          "url": "4bs1-june-2022-qp-paper-2-edexcel-igcse-business.pdf"
+        }
+      ]
+    },
+    {
+      "title": "4bs1-june-2022-qp-paper-2r-edexcel-igcse-business",
+      "subtitle": "PDF",
+      "assets": [
+        {
+          "label": "Open PDF",
+          "url": "4bs1-june-2022-qp-paper-2r-edexcel-igcse-business.pdf"
+        }
+      ]
+    },
+    {
       "title": "4wch1-1cr-que-20250520[1]",
       "subtitle": "PDF",
       "assets": [
@@ -644,67 +871,6 @@ window.STUDY_DATA = {
     }
   ],
   "paperDrills": [
-    {
-      "type": "mcq",
-      "source": "4WCH1 · June 2025",
-      "question_id": "1 (a)",
-      "prompt": "Which technique is used to separate a mixture of dyes?",
-      "marks": 1,
-      "answer_letter": "D",
-      "answer_text": "Chromatography",
-      "options": ["Filtration", "Distillation", "Crystallisation", "Chromatography"],
-      "correct_option": "Chromatography"
-    },
-    {
-      "type": "mcq",
-      "source": "4WCH1 · June 2025",
-      "question_id": "1 (c)",
-      "prompt": "Which of these is the correct formula for calculating the Rf value?",
-      "marks": 1,
-      "answer_letter": "A",
-      "answer_text": "Distance moved by spot / distance moved by solvent",
-      "options": [
-        "Distance moved by spot / distance moved by solvent",
-        "Distance moved by solvent / distance moved by spot",
-        "Distance moved by spot × distance moved by solvent",
-        "Distance moved by spot + distance moved by solvent"
-      ],
-      "correct_option": "Distance moved by spot / distance moved by solvent"
-    },
-    {
-      "type": "mcq",
-      "source": "4WCH1 · Nov 2025",
-      "question_id": "2 (a)",
-      "prompt": "Which particle has the smallest relative mass?",
-      "marks": 1,
-      "answer_letter": "B",
-      "answer_text": "Electron",
-      "options": ["Proton", "Electron", "Neutron", "Nucleus"],
-      "correct_option": "Electron"
-    },
-    {
-      "type": "mcq",
-      "source": "4WCH1 · Nov 2025",
-      "question_id": "2 (b)",
-      "prompt": "What is the charge of a proton?",
-      "marks": 1,
-      "answer_letter": "C",
-      "answer_text": "+1",
-      "options": ["-1", "0", "+1", "+2"],
-      "correct_option": "+1"
-    },
-    {
-      "type": "mcq",
-      "source": "4WCH2 · June 2025",
-      "question_id": "1 (v)",
-      "prompt": "Which type of bonding is found in sodium chloride?",
-      "marks": 1,
-      "answer_letter": "A",
-      "answer_text": "Ionic",
-      "options": ["Ionic", "Covalent", "Metallic", "Intermolecular"],
-      "correct_option": "Ionic"
-    },
-
     {
       "type": "definition",
       "source": "4BS1/01 · June 2021",

@@ -39,12 +39,12 @@ window.Hub = (function () {
     if (node) node.textContent = value;
   }
 
-  function initialiseStats() {
-    const paperSets = data.paperCollections.filter((item) => item.paper_code).length;
-    setText("formulaCountStat", String(data.formulas.length));
+  function initialiseStats(collections, drills, formulas) {
+    const paperSets = collections.filter((item) => item.paper_code).length;
+    setText("formulaCountStat", String(formulas.length));
     setText("paperCountStat", String(paperSets));
-    setText("paperDrillCount", String(data.paperDrills.length));
-    const resourceCount = data.paperCollections.reduce((total, item) => total + ((item.assets || []).length), 0);
+    setText("paperDrillCount", String(drills.length));
+    const resourceCount = collections.reduce((total, item) => total + ((item.assets || []).length), 0);
     setText("resourceCount", String(resourceCount));
   }
 
@@ -282,11 +282,11 @@ window.Hub = (function () {
     });
   }
 
-  function renderPaperVault() {
+  function renderPaperVault(collections) {
     const container = byId("paperVaultList");
     if (!container) return;
     container.innerHTML = "";
-    data.paperCollections.forEach((item) => {
+    collections.forEach((item) => {
       const card = document.createElement("article");
       card.className = "vault-card";
       const assets = (item.assets || [])
@@ -327,15 +327,46 @@ window.Hub = (function () {
     }
   }
 
-  function init() {
-    initialiseStats();
+  function init(subject = 'business') {
+    const isChem = subject === 'chemistry';
+    const isEnglish = subject === 'english';
+    
+    const filteredCollections = data.paperCollections.filter(item => {
+      if (!item.paper_code) return true;
+      const code = item.paper_code.toUpperCase();
+      if (isChem) return code.includes('4WCH');
+      if (isEnglish) return code.includes('4EA1');
+      return code.includes('4BS1');
+    });
+
+    const filteredDrills = data.paperDrills.filter(item => {
+      const src = (item.source || "").toUpperCase();
+      if (isChem) return src.includes('4WCH');
+      if (isEnglish) return src.includes('4EA1');
+      return src.includes('4BS1');
+    });
+
+    const filteredFormulas = data.formulas.filter(item => {
+      const section = (item.section || "").toLowerCase();
+      const isChemFormula = section.includes('ion') || section.includes('mole') || section.includes('chemistry');
+      if (isChem) return isChemFormula;
+      return !isChemFormula;
+    });
+
+    state.formulaQueue = shuffle(filteredFormulas);
+    state.paperQueue = shuffle(filteredDrills);
+    state.formulaIndex = 0;
+    state.paperIndex = 0;
+
+    initialiseStats(filteredCollections, filteredDrills, filteredFormulas);
     initialiseStudyTabs();
     initialiseButtons();
-    state.paperQueue = getPaperQueue();
     renderFormulaCard();
     renderPaperDrill();
     renderPlaybook();
-    renderPaperVault();
+    renderPaperVault(filteredCollections);
     showStudyView("formula");
+  }
+
   return { init };
 })();

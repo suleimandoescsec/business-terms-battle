@@ -364,9 +364,9 @@
     const el = id => document.getElementById(id);
     const SUBJECTS = {
       business: {
-        tag: "IGCSE Business P2",
+        tag: "IGCSE Business P1 & P2",
         title: "Business Masterclass",
-        desc: "Advanced Paper 2 mastery. Focus on application, definitions, and examiner secrets.",
+        desc: "Comprehensive mastery of Paper 1 and Paper 2. Focus on application, definitions, and examiner secrets.",
         units: [
           { id: 1, title: "Business Activity", terms: [
             { term: "Opportunity Cost", definition: "The next best alternative given up when making a choice.", points: ["Vital for evaluating government spending.", "Always mention 'next best alternative'."], secret: "Examiners love it when you link this to resource allocation." },
@@ -389,6 +389,14 @@
           { id: 5, title: "Finance", terms: [
             { term: "Break-Even Point", definition: "The level of output where total revenue equals total costs.", points: ["Total Revenue = Total Cost.", "No profit or loss."], secret: "Formula: Fixed Costs / Contribution per unit." },
             { term: "Cash Flow Forecast", definition: "A prediction of money coming into and going out of a business.", points: ["Helps identify cash shortages.", "Used for bank loan applications."], secret: "Cash is not the same as profit!" }
+          ]},
+          { id: 6, title: "Global Business (P2)", terms: [
+            { term: "Multinational Corporation (MNC)", definition: "A business that has operations in more than one country.", points: ["Access to larger markets.", "Lower production costs."], secret: "Discuss both benefits (jobs) and drawbacks (tax avoidance) for host countries." },
+            { term: "Exchange Rate", definition: "The price of one currency in terms of another.", points: ["SPICED: Strong Pound Imports Cheap Exports Dear.", "WPIDEC: Weak Pound Imports Dear Exports Cheap."], secret: "Always use SPICED/WPIDEC to explain the impact on sales." }
+          ]},
+          { id: 7, title: "External Influences (P2)", terms: [
+            { term: "Business Cycle", definition: "The regular patterns of ups and downs in the level of economic activity.", points: ["Boom, Recession, Slump, Recovery.", "Impacts consumer spending."], secret: "Identify which stage the business in the case study is currently in." },
+            { term: "Sustainability", definition: "Methods of production that do not compromise the ability of future generations to meet their needs.", points: ["Recycling and renewable energy.", "Enhances brand image."], secret: "Connect this to 'Social Objectives' for 6-9 mark questions." }
           ]}
         ]
       },
@@ -404,6 +412,15 @@
           { id: 2, title: "Atomic Structure", terms: [
             { term: "Isotope", definition: "Atoms of the same element with the same number of protons but different number of neutrons.", points: ["Same chemical properties.", "Different physical properties."], secret: "Always mention 'same protons' and 'different neutrons' for full marks." },
             { term: "Relative Atomic Mass (Ar)", definition: "Weighted average mass of an atom compared to 1/12th of Carbon-12.", points: ["Takes into account isotope abundance.", "Ar = (mass x %) + (mass x %) / 100."], secret: "Calculate using the percentage abundance of each isotope." }
+          ]},
+          { id: 3, title: "Organic Chemistry", terms: [
+            { term: "Homologous Series", definition: "A family of compounds with the same general formula and similar chemical properties.", points: ["Trend in physical properties.", "Same functional group."], secret: "Mention 'gradual change in physical properties' for high marks." },
+            { term: "Isomerism", definition: "Molecules with the same molecular formula but different structural formulas.", points: ["Different arrangement of atoms.", "Can have different physical properties."], secret: "Draw them out to spot the difference clearly." },
+            { term: "Saturated", definition: "A molecule containing only single carbon-carbon bonds.", points: ["Alkanes are saturated.", "Will not decolourise bromine water."], secret: "Compare to 'Unsaturated' (contains double bonds)." }
+          ]},
+          { id: 4, title: "Chemical Tests", terms: [
+            { term: "Flame Test: Lithium", definition: "Red flame", points: ["Li+ ion presence.", "Use a nichrome wire loop."], secret: "Ensure the wire is cleaned in HCl first." },
+            { term: "Test for Carbonates", definition: "Add dilute acid and test the gas evolved with limewater.", points: ["Limewater turns cloudy.", "CO2 gas is produced."], secret: "Fizzing/Effervescence is the key observation." }
           ]}
         ]
       },
@@ -616,7 +633,7 @@
     function showHub() {
       el('gameScreen').classList.add('hidden');
       el('hubScreen').classList.remove('hidden');
-      if(window.Hub) window.Hub.init();
+      if(window.Hub) window.Hub.init(state.subject);
     }
 
     function saveKnown() { localStorage.setItem('battle_known', JSON.stringify([...state.known])); }

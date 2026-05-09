@@ -383,6 +383,30 @@ def parse_filename_metadata(normalized_name: str) -> dict[str, str]:
         # Try Chemistry format: 4wch1-1c-rms-20250821.pdf
         match = re.match(r"(?P<code>4wch\d)-(?P<paper>1cr?)-(?P<asset>rms|que)-(?P<session>\d{8})\.pdf", normalized_name, re.I)
         if not match:
+            # Try new Business format: 4bs1-02-que-20201117.pdf
+            match = re.match(r"(?P<code>4bs1)-(?P<paper>\d{2}r?)-(?P<asset>que|rms|msc|pef|rms)-(?P<session>\d{8})\.pdf", normalized_name, re.I)
+        
+        if not match:
+            # Try descriptive Business format: 4bs1-june-2022-ms-paper-2-edexcel-igcse-business.pdf
+            match = re.match(r"4bs1-(?P<month>[a-z]+)-(?P<year>\d{4})-(?P<asset>ms|qp|que|rms)-paper-(?P<paper>\d{2}r?)-.*\.pdf", normalized_name, re.I)
+            if match:
+                code = "4BS1"
+                paper = match.group("paper").upper()
+                asset = match.group("asset").lower()
+                month_str = match.group("month").capitalize()
+                year = match.group("year")
+                title = f"{code}/{paper} · {month_str} {year}"
+                return {
+                    "kind": "paper",
+                    "group_id": f"{code}_{paper}_{year}_{month_str}",
+                    "title": title,
+                    "subtitle": PAPER_TITLES.get(paper, f"Business Paper {paper}"),
+                    "asset_label": "Mark Scheme" if asset in ("ms", "rms", "msc") else "Question Paper",
+                    "session": f"{year}_{month_str}",
+                    "paper_code": code,
+                }
+
+        if not match:
             return {
                 "kind": "resource",
                 "title": normalized_name.removesuffix(".pdf"),
@@ -392,16 +416,44 @@ def parse_filename_metadata(normalized_name: str) -> dict[str, str]:
         code = match.group("code").upper()
         paper = match.group("paper").upper()
         asset = match.group("asset").lower()
-        session_raw = match.group("session")
         
-        title = f"{code} · {paper} · {session_raw}"
+        # Determine asset label
+        asset_label = "Question Paper"
+        if asset in ("rms", "ms", "msc"):
+            asset_label = "Mark Scheme"
+        elif asset == "pef":
+            asset_label = "Examiner Report"
+            
+        # Extract year and series for grouping
+        session_raw = match.group("session")
+        year = session_raw[:4]
+        
+        # If it's an 8-digit date (e.g. 20250123), group by series
+        if len(session_raw) == 8:
+            month = int(session_raw[4:6])
+            if month in (5, 6, 8):
+                series = "Summer"
+            elif month in (10, 11, 1, 12):
+                series = "Winter"
+            else:
+                series = f"M{month}"
+        else:
+            # Handle legacy 4-digit session (MMYY)
+            series = session_raw
+            
+        group_id = f"{code}_{paper}_{year}_{series}"
+        title = f"{code}/{paper} · {year} {series}"
+        
+        is_chem = code.startswith("4WCH")
+        default_subtitle = f"Chemistry Paper {paper}" if is_chem else f"Business Paper {paper}"
+        
         return {
             "kind": "paper",
-            "group_id": f"{code}_{paper}_{session_raw}",
+            "group_id": group_id,
             "title": title,
-            "subtitle": PAPER_TITLES.get(paper, f"Chemistry {paper}"),
-            "asset_label": "Mark Scheme" if "rms" in asset else "Question Paper",
-            "session": session_raw,
+            "subtitle": PAPER_TITLES.get(paper, default_subtitle),
+            "asset_label": asset_label,
+            "session": f"{year}_{series}",
             "paper_code": code,
         }
 
@@ -518,7 +570,22 @@ def build_paper_drills(deduped_paths: dict[str, Path]) -> list[dict[str, object]
             else:
                 # 4wch1-1c-rms-20250821.pdf
                 parts = normalized_name.split("-")
-                group_key = "-".join(parts[:2] + parts[3:])
+                # Group by code, paper, and the year/month part of the session
+                # If session is 20250520 (May) or 20250821 (MS for May), they should pair.
+                # Common pattern: May series (05/06) MS released in Aug (08).
+                # Nov series (10/11) MS released in Jan (01).
+                session_raw = parts[3].removesuffix(".pdf")
+                year = session_raw[:4]
+                month = int(session_raw[4:6])
+                
+                if month in (5, 6, 8):
+                    series = "Summer"
+                elif month in (10, 11, 1, 12):
+                    series = "Winter"
+                else:
+                    series = f"M{month}"
+                
+                group_key = f"{parts[0]}-{parts[1]}-{year}-{series}"
                 asset_key = "MS" if "rms" in parts[2] else "QU"
             groups.setdefault(group_key, {})[asset_key] = path
 
