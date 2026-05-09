@@ -1,5 +1,5 @@
 window.STUDY_DATA = {
-  "generatedAt": 1778177248.004101,
+  "generatedAt": 1778339735.5021818,
   "formulas": [
     {
       "section": "Revenue, Costs & Profit",
@@ -174,13 +174,204 @@ window.STUDY_DATA = {
       "name": "Mark-Up Percentage",
       "formula": "Mark-Up (%) = (Profit per Unit ÷ Cost per Unit) × 100",
       "notes": "Express as %"
+    },
+    {
+      "section": "Ion Charges",
+      "name": "Sulfate",
+      "formula": "SO4 2-",
+      "notes": "Formed from sulfuric acid"
+    },
+    {
+      "section": "Ion Charges",
+      "name": "Nitrate",
+      "formula": "NO3 -",
+      "notes": "Formed from nitric acid"
+    },
+    {
+      "section": "Ion Charges",
+      "name": "Carbonate",
+      "formula": "CO3 2-",
+      "notes": "Reacts with acids to give CO2"
+    },
+    {
+      "section": "Ion Charges",
+      "name": "Ammonium",
+      "formula": "NH4 +",
+      "notes": "The only common positive complex ion"
+    },
+    {
+      "section": "Ion Charges",
+      "name": "Hydroxide",
+      "formula": "OH -",
+      "notes": "Makes a solution alkaline"
+    },
+    {
+      "section": "Mole Formulas",
+      "name": "Moles (Solids)",
+      "formula": "Moles = Mass / Mr",
+      "notes": "Mass in grams"
+    },
+    {
+      "section": "Mole Formulas",
+      "name": "Moles (Solutions)",
+      "formula": "Moles = Conc × Vol",
+      "notes": "Volume in dm3"
+    },
+    {
+      "section": "Mole Formulas",
+      "name": "Moles (Gases)",
+      "formula": "Moles = Vol / 24",
+      "notes": "Volume in dm3 at RTP"
     }
   ],
   "paperCollections": [
     {
+      "id": "4WCH1_1C_20260122",
+      "title": "4WCH1 · 1C · 20260122",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH1",
+      "session": "20260122",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch1-1c-rms-20260122.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1C_20260122",
+      "title": "4WCH2 · 1C · 20260122",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH2",
+      "session": "20260122",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch2-1c-rms-20260122.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1C_20251118",
+      "title": "4WCH2 · 1C · 20251118",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH2",
+      "session": "20251118",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch2-1c-que-20251118.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH1_1C_20251112",
+      "title": "4WCH1 · 1C · 20251112",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH1",
+      "session": "20251112",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch1-1c-que-20251112.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH1_1C_20250821",
+      "title": "4WCH1 · 1C · 20250821",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH1",
+      "session": "20250821",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch1-1c-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH1_1CR_20250821",
+      "title": "4WCH1 · 1CR · 20250821",
+      "subtitle": "Chemistry 1CR",
+      "paper_code": "4WCH1",
+      "session": "20250821",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch1-1cr-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1C_20250821",
+      "title": "4WCH2 · 1C · 20250821",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH2",
+      "session": "20250821",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch2-1c-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1CR_20250821",
+      "title": "4WCH2 · 1CR · 20250821",
+      "subtitle": "Chemistry 1CR",
+      "paper_code": "4WCH2",
+      "session": "20250821",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch2-1cr-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1C_20250614",
+      "title": "4WCH2 · 1C · 20250614",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH2",
+      "session": "20250614",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch2-1c-que-20250614.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1CR_20250614",
+      "title": "4WCH2 · 1CR · 20250614",
+      "subtitle": "Chemistry 1CR",
+      "paper_code": "4WCH2",
+      "session": "20250614",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch2-1cr-que-20250614.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH1_1C_20250520",
+      "title": "4WCH1 · 1C · 20250520",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH1",
+      "session": "20250520",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch1-1c-que-20250520.pdf"
+        }
+      ]
+    },
+    {
       "id": "4BS1_01_1125",
       "title": "4BS1/01 · November 2025",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "1125",
       "assets": [
@@ -193,7 +384,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01_0625",
       "title": "4BS1/01 · June 2025",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "0625",
       "assets": [
@@ -210,7 +401,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01_1124",
       "title": "4BS1/01 · November 2024",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "1124",
       "assets": [
@@ -223,7 +414,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01_0624",
       "title": "4BS1/01 · June 2024",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "0624",
       "assets": [
@@ -240,7 +431,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01_1123",
       "title": "4BS1/01 · November 2023",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "1123",
       "assets": [
@@ -257,7 +448,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01_0623",
       "title": "4BS1/01 · June 2023",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "0623",
       "assets": [
@@ -270,7 +461,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01R_0622",
       "title": "4BS1/01 · June 2022 · Regional",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "0622",
       "assets": [
@@ -283,7 +474,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01_0622",
       "title": "4BS1/01 · June 2022",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "0622",
       "assets": [
@@ -300,7 +491,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01_1121",
       "title": "4BS1/01 · November 2021",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "1121",
       "assets": [
@@ -313,7 +504,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01_0621",
       "title": "4BS1/01 · June 2021",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "0621",
       "assets": [
@@ -326,7 +517,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01R_1120",
       "title": "4BS1/01 · November 2020 · Regional",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "1120",
       "assets": [
@@ -343,7 +534,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01_1120",
       "title": "4BS1/01 · November 2020",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "1120",
       "assets": [
@@ -356,7 +547,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01R_0619",
       "title": "4BS1/01 · June 2019 · Regional",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "0619",
       "assets": [
@@ -373,7 +564,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01_0619",
       "title": "4BS1/01 · June 2019",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "0619",
       "assets": [
@@ -390,7 +581,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_01_SAM",
       "title": "4BS1/01 · Sample Assessment",
-      "subtitle": "Paper 1: Investigating Small Businesses",
+      "subtitle": "Business Paper 1: Investigating Small Businesses",
       "paper_code": "4BS1/01",
       "session": "SAM",
       "assets": [
@@ -407,7 +598,7 @@ window.STUDY_DATA = {
     {
       "id": "4BS1_02_SAM",
       "title": "4BS1/02 · Sample Assessment",
-      "subtitle": "Paper 2: Investigating Large Businesses",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
       "paper_code": "4BS1/02",
       "session": "SAM",
       "assets": [
@@ -418,6 +609,16 @@ window.STUDY_DATA = {
         {
           "label": "Question Paper",
           "url": "4BS1_02_SAM_QU.pdf"
+        }
+      ]
+    },
+    {
+      "title": "4wch1-1cr-que-20250520[1]",
+      "subtitle": "PDF",
+      "assets": [
+        {
+          "label": "Open PDF",
+          "url": "4wch1-1cr-que-20250520[1].pdf"
         }
       ]
     },
@@ -443,6 +644,67 @@ window.STUDY_DATA = {
     }
   ],
   "paperDrills": [
+    {
+      "type": "mcq",
+      "source": "4WCH1 · June 2025",
+      "question_id": "1 (a)",
+      "prompt": "Which technique is used to separate a mixture of dyes?",
+      "marks": 1,
+      "answer_letter": "D",
+      "answer_text": "Chromatography",
+      "options": ["Filtration", "Distillation", "Crystallisation", "Chromatography"],
+      "correct_option": "Chromatography"
+    },
+    {
+      "type": "mcq",
+      "source": "4WCH1 · June 2025",
+      "question_id": "1 (c)",
+      "prompt": "Which of these is the correct formula for calculating the Rf value?",
+      "marks": 1,
+      "answer_letter": "A",
+      "answer_text": "Distance moved by spot / distance moved by solvent",
+      "options": [
+        "Distance moved by spot / distance moved by solvent",
+        "Distance moved by solvent / distance moved by spot",
+        "Distance moved by spot × distance moved by solvent",
+        "Distance moved by spot + distance moved by solvent"
+      ],
+      "correct_option": "Distance moved by spot / distance moved by solvent"
+    },
+    {
+      "type": "mcq",
+      "source": "4WCH1 · Nov 2025",
+      "question_id": "2 (a)",
+      "prompt": "Which particle has the smallest relative mass?",
+      "marks": 1,
+      "answer_letter": "B",
+      "answer_text": "Electron",
+      "options": ["Proton", "Electron", "Neutron", "Nucleus"],
+      "correct_option": "Electron"
+    },
+    {
+      "type": "mcq",
+      "source": "4WCH1 · Nov 2025",
+      "question_id": "2 (b)",
+      "prompt": "What is the charge of a proton?",
+      "marks": 1,
+      "answer_letter": "C",
+      "answer_text": "+1",
+      "options": ["-1", "0", "+1", "+2"],
+      "correct_option": "+1"
+    },
+    {
+      "type": "mcq",
+      "source": "4WCH2 · June 2025",
+      "question_id": "1 (v)",
+      "prompt": "Which type of bonding is found in sodium chloride?",
+      "marks": 1,
+      "answer_letter": "A",
+      "answer_text": "Ionic",
+      "options": ["Ionic", "Covalent", "Metallic", "Intermolecular"],
+      "correct_option": "Ionic"
+    },
+
     {
       "type": "definition",
       "source": "4BS1/01 · June 2021",

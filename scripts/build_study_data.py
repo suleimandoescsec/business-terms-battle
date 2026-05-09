@@ -12,9 +12,12 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = ROOT / "study-data.js"
 
 PAPER_TITLES = {
-    "01": "Paper 1: Investigating Small Businesses",
-    "02": "Paper 2: Investigating Large Businesses",
+    "01": "Business Paper 1: Investigating Small Businesses",
+    "02": "Business Paper 2: Investigating Large Businesses",
+    "1C": "Chemistry Paper 1",
+    "2C": "Chemistry Paper 2",
 }
+
 
 RESOURCE_TITLES = {
     "IGCSE_Business_Key_Terms_Quiz.pdf": "Key Terms Quiz PDF",
@@ -44,6 +47,12 @@ LEGACY_ANSWER_RE = re.compile(
     r"\d+\([a-z]\)\s*\((?P<part>[ivx]+)\)\s+AO\d\s+1\s+mark\s+(?P<letter>[A-D])\s+(?P<text>.*?)(?=\(\d+\)|Question\s+number|Question\s+Number|$)",
     re.S | re.I,
 )
+CHEM_GRID_RE = re.compile(
+    r"(?P<id>(?:\d+\s*)?\([a-z]\)(?:\s*\([ivx]+\))?)\s*(?P<body>.*?)(?=(?:(?:\d+\s*)?\([a-z]\)(?:\s*\([ivx]+\))?)|\Z)",
+    re.S | re.I,
+)
+
+
 
 
 def clean_ws(value: str) -> str:
@@ -171,16 +180,49 @@ def parse_formula_exam_tips(text: str) -> list[str]:
 
 def parse_new_style_mark_scheme_items(text: str, source_label: str) -> list[dict[str, object]]:
     items: list[dict[str, object]] = []
-
-    for match in NEW_STYLE_BLOCK_RE.finditer(text):
-        prompt = clean_ws(match.group("prompt"))
-        body = match.group("body")
-        question_match = re.search(r"(\d+\s*\([a-z]\)(?:\s*\([ivx]+\))?)", body, re.I)
-        question_id = clean_ws(question_match.group(1)) if question_match else source_label
-        marks_match = re.search(r"(\d+)\s*marks?", body, re.I)
+    
+    is_chem = "4WCH" in source_label.upper()
+    regex = CHEM_GRID_RE if is_chem else NEW_STYLE_BLOCK_RE
+    
+    for match in regex.finditer(text):
+        if is_chem:
+            question_id = clean_ws(match.group("id"))
+            body = match.group("body")
+            # For Chem, the first line of body is often the 'answer' or 'prompt summary'
+            lines = [l for l in body.splitlines() if clean_ws(l)]
+            if not lines: continue
+            prompt = f"Question {question_id} from {source_label}"
+            body_text = "\n".join(lines)
+        else:
+            prompt = clean_ws(match.group("prompt"))
+            body = match.group("body")
+            question_match = re.search(r"(\d+\s*\([a-z]\)(?:\s*\([ivx]+\))?)", body, re.I)
+            question_id = clean_ws(question_match.group(1)) if question_match else source_label
+            body_text = body
+        
+        marks_match = re.search(r"(\d+)\s*marks?", body_text, re.I)
         marks = int(marks_match.group(1)) if marks_match else 1
-        body_clean = clean_ws(body)
+        body_clean = clean_ws(body_text)
+        
+        # Detect MCQ in Chem grid
+        if is_chem:
+            mcq_match = re.search(r"\b([A-D])\s+[-–—]\s+(.*?)(?:\s+\d+|\Z)", body_text, re.S)
+            if mcq_match:
+                items.append({
+                    "type": "mcq",
+                    "source": source_label,
+                    "question_id": question_id,
+                    "prompt": f"Identify the correct statement/value for {question_id}",
+                    "marks": 1,
+                    "answer_letter": mcq_match.group(1).upper(),
+                    "answer_text": clean_ws(mcq_match.group(2))
+                })
+                continue
+
+        # Existing detection logic...
         prompt_lower = prompt.lower()
+        body_lower_text = body_lower(body_clean)
+
 
         if "the only correct answer is" in body_lower(body_clean):
             answer_match = re.search(
@@ -338,13 +380,33 @@ def parse_filename_metadata(normalized_name: str) -> dict[str, str]:
 
     match = re.match(r"4BS1_(?P<paper>\d{2})(?P<region>R?)_(?P<session>SAM|\d{4})_(?P<asset>MS|QU)\.pdf", normalized_name)
     if not match:
+        # Try Chemistry format: 4wch1-1c-rms-20250821.pdf
+        match = re.match(r"(?P<code>4wch\d)-(?P<paper>1cr?)-(?P<asset>rms|que)-(?P<session>\d{8})\.pdf", normalized_name, re.I)
+        if not match:
+            return {
+                "kind": "resource",
+                "title": normalized_name.removesuffix(".pdf"),
+                "category": "PDF",
+            }
+        
+        code = match.group("code").upper()
+        paper = match.group("paper").upper()
+        asset = match.group("asset").lower()
+        session_raw = match.group("session")
+        
+        title = f"{code} · {paper} · {session_raw}"
         return {
-            "kind": "resource",
-            "title": normalized_name.removesuffix(".pdf"),
-            "category": "PDF",
+            "kind": "paper",
+            "group_id": f"{code}_{paper}_{session_raw}",
+            "title": title,
+            "subtitle": PAPER_TITLES.get(paper, f"Chemistry {paper}"),
+            "asset_label": "Mark Scheme" if "rms" in asset else "Question Paper",
+            "session": session_raw,
+            "paper_code": code,
         }
 
     paper = match.group("paper")
+
     region = match.group("region")
     session = match.group("session")
     asset = match.group("asset")
@@ -449,9 +511,17 @@ def merge_new_style_mcqs(mark_scheme_items: list[dict[str, object]], question_it
 def build_paper_drills(deduped_paths: dict[str, Path]) -> list[dict[str, object]]:
     groups: dict[str, dict[str, Path]] = {}
     for normalized_name, path in deduped_paths.items():
-        if normalized_name.startswith("4BS1_") and normalized_name.endswith(".pdf"):
-            group_key = normalized_name.rsplit("_", 1)[0]
-            groups.setdefault(group_key, {})[normalized_name.rsplit("_", 1)[1].removesuffix(".pdf")] = path
+        if (normalized_name.startswith("4BS1_") or normalized_name.startswith("4wch")) and normalized_name.endswith(".pdf"):
+            if normalized_name.startswith("4BS1_"):
+                group_key = normalized_name.rsplit("_", 1)[0]
+                asset_key = normalized_name.rsplit("_", 1)[1].removesuffix(".pdf")
+            else:
+                # 4wch1-1c-rms-20250821.pdf
+                parts = normalized_name.split("-")
+                group_key = "-".join(parts[:2] + parts[3:])
+                asset_key = "MS" if "rms" in parts[2] else "QU"
+            groups.setdefault(group_key, {})[asset_key] = path
+
 
     drill_items: list[dict[str, object]] = []
     seen: set[tuple[str, str, str]] = set()
@@ -543,7 +613,21 @@ def build_dataset(root: Path = ROOT) -> dict[str, object]:
 
 
 def write_study_data(dataset: dict[str, object], output_path: Path = OUTPUT_PATH) -> None:
+    # Add hardcoded Chemistry formula lab for Grade 9 mastery
+    chem_formulas = [
+        {"section": "Ion Charges", "name": "Sulfate", "formula": "SO4 2-", "notes": "Formed from sulfuric acid"},
+        {"section": "Ion Charges", "name": "Nitrate", "formula": "NO3 -", "notes": "Formed from nitric acid"},
+        {"section": "Ion Charges", "name": "Carbonate", "formula": "CO3 2-", "notes": "Reacts with acids to give CO2"},
+        {"section": "Ion Charges", "name": "Ammonium", "formula": "NH4 +", "notes": "The only common positive complex ion"},
+        {"section": "Ion Charges", "name": "Hydroxide", "formula": "OH -", "notes": "Makes a solution alkaline"},
+        {"section": "Mole Formulas", "name": "Moles (Solids)", "formula": "Moles = Mass / Mr", "notes": "Mass in grams"},
+        {"section": "Mole Formulas", "name": "Moles (Solutions)", "formula": "Moles = Conc × Vol", "notes": "Volume in dm3"},
+        {"section": "Mole Formulas", "name": "Moles (Gases)", "formula": "Moles = Vol / 24", "notes": "Volume in dm3 at RTP"},
+    ]
+    dataset["formulas"].extend(chem_formulas)
+    
     payload = json.dumps(dataset, ensure_ascii=False, indent=2)
+
     output_path.write_text(f"window.STUDY_DATA = {payload};\n", encoding="utf-8")
 
 
