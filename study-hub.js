@@ -349,8 +349,10 @@ window.Hub = (function () {
     const filteredFormulas = data.formulas.filter(item => {
       const section = (item.section || "").toLowerCase();
       const isChemFormula = section.includes('ion') || section.includes('mole') || section.includes('chemistry');
+      const isEnglishFormula = section.includes('analysis');
       if (isChem) return isChemFormula;
-      return !isChemFormula;
+      if (isEnglish) return isEnglishFormula;
+      return !isChemFormula && !isEnglishFormula;
     });
 
     state.formulaQueue = shuffle(filteredFormulas);

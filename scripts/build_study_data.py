@@ -82,7 +82,9 @@ def clean_option_text(value: str) -> str:
 
 
 def normalize_pdf_name(name: str) -> str:
-    return re.sub(r" \(\d+\)(?=\.pdf$)", "", name)
+    name = re.sub(r" \(\d+\)(?=\.pdf$)", "", name)
+    name = re.sub(r"\[\d+\](?=\.pdf$)", "", name)
+    return name
 
 
 def read_pdf_text(path: Path) -> str:
@@ -325,6 +327,18 @@ def parse_new_style_mark_scheme_items(text: str, source_label: str) -> list[dict
                     "mark_scheme": extract_mark_scheme_summary(body),
                 }
             )
+            continue
+
+        items.append(
+            {
+                "type": "extended_answer",
+                "source": source_label,
+                "question_id": question_id,
+                "prompt": prompt,
+                "marks": marks,
+                "mark_scheme": extract_mark_scheme_summary(body),
+            }
+        )
 
     return items
 
@@ -617,26 +631,40 @@ def merge_new_style_mcqs(mark_scheme_items: list[dict[str, object]], question_it
 def build_paper_drills(deduped_paths: dict[str, Path]) -> list[dict[str, object]]:
     groups: dict[str, dict[str, Path]] = {}
     for normalized_name, path in deduped_paths.items():
-        if (normalized_name.startswith(("4BS1_", "4wch", "4ea1"))) and normalized_name.endswith(".pdf"):
+        if (normalized_name.lower().startswith(("4bs1", "4wch", "4ea1"))) and normalized_name.endswith(".pdf"):
             if normalized_name.startswith("4BS1_"):
                 group_key = normalized_name.rsplit("_", 1)[0]
                 asset_key = normalized_name.rsplit("_", 1)[1].removesuffix(".pdf")
+            elif normalized_name.startswith("4bs1-") and "paper-" in normalized_name.lower():
+                match = re.match(r"4bs1-(?P<month>[a-z]+)-(?P<year>\d{4})-(?P<asset>ms|qp|que|rms)-paper-(?P<paper>\d{2}r?)-.*\.pdf", normalized_name, re.I)
+                if match:
+                    month = match.group("month").capitalize()
+                    year = match.group("year")
+                    paper = match.group("paper").upper()
+                    group_key = f"4BS1-{paper}-{year}-{month}"
+                    asset = match.group("asset").lower()
+                    asset_key = "MS" if asset in ("ms", "rms", "msc") else "QU"
+                    groups.setdefault(group_key, {})[asset_key] = path
+                continue
             else:
-                # 4wch1-1c-rms-20250821.pdf or 4ea1-01-que-20200305.pdf
+                # 4wch1-1c-rms-20250821.pdf or 4ea1-01-que-20200305.pdf or 4bs1-02-que-20201117.pdf
                 parts = normalized_name.split("-")
-                session_raw = parts[3].removesuffix(".pdf")
-                year = session_raw[:4]
-                month = int(session_raw[4:6]) if len(session_raw) >= 6 else 0
-                
-                if month in (5, 6, 8):
-                    series = "Summer"
-                elif month in (10, 11, 1, 12):
-                    series = "Winter"
+                if len(parts) >= 4:
+                    session_raw = parts[3].removesuffix(".pdf")
+                    year = session_raw[:4]
+                    month = int(session_raw[4:6]) if len(session_raw) >= 6 else 0
+                    
+                    if month in (5, 6, 8):
+                        series = "Summer"
+                    elif month in (10, 11, 1, 12):
+                        series = "Winter"
+                    else:
+                        series = f"M{month}"
+                    
+                    group_key = f"{parts[0]}-{parts[1]}-{year}-{series}"
+                    asset_key = "MS" if any(x in parts[2].lower() for x in ("rms", "msc", "ms")) else "QU"
                 else:
-                    series = f"M{month}"
-                
-                group_key = f"{parts[0]}-{parts[1]}-{year}-{series}"
-                asset_key = "MS" if any(x in parts[2].lower() for x in ("rms", "msc", "ms")) else "QU"
+                    continue
             groups.setdefault(group_key, {})[asset_key] = path
 
 
@@ -708,8 +736,12 @@ def build_examiner_playbook(formula_tips: list[str]) -> list[dict[str, str]]:
 
 
 def build_dataset(root: Path = ROOT) -> dict[str, object]:
-    # Search root and english/ folder
-    pdf_paths = sorted(list(root.glob("*.pdf")) + list((root / "english").glob("*.pdf")))
+    # Search specific folders only
+    pdf_paths = sorted(
+        list((root / "english").rglob("*.pdf")) +
+        list((root / "chem_temp").rglob("*.pdf")) +
+        list((root / "buiness").rglob("*.pdf"))
+    )
     deduped_paths = dedupe_pdf_paths(pdf_paths)
 
     formula_path = next(
