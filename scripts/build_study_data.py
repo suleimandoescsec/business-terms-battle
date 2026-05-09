@@ -16,6 +16,8 @@ PAPER_TITLES = {
     "02": "Business Paper 2: Investigating Large Businesses",
     "1C": "Chemistry Paper 1",
     "2C": "Chemistry Paper 2",
+    "01_4EA1": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+    "02_4EA1": "English Language A Paper 2: Poetry and Prose Texts and Imaginative Writing",
 }
 
 
@@ -49,6 +51,12 @@ LEGACY_ANSWER_RE = re.compile(
 )
 CHEM_GRID_RE = re.compile(
     r"(?P<id>(?:\d+\s*)?\([a-z]\)(?:\s*\([ivx]+\))?)\s*(?P<body>.*?)(?=(?:(?:\d+\s*)?\([a-z]\)(?:\s*\([ivx]+\))?)|\Z)",
+    re.S | re.I,
+)
+
+# English-specific blocks often start with "Question Number" and then "Indicative content"
+ENGLISH_BLOCK_RE = re.compile(
+    r"Question\s+Number\s+(?P<id>\d+)\s+(?P<body>.*?)(?=(?:\s+Question\s+Number\s+)|\Z)",
     re.S | re.I,
 )
 
@@ -182,13 +190,24 @@ def parse_new_style_mark_scheme_items(text: str, source_label: str) -> list[dict
     items: list[dict[str, object]] = []
     
     is_chem = "4WCH" in source_label.upper()
-    regex = CHEM_GRID_RE if is_chem else NEW_STYLE_BLOCK_RE
+    is_english = "4EA1" in source_label.upper()
+    
+    if is_english:
+        regex = ENGLISH_BLOCK_RE
+    elif is_chem:
+        regex = CHEM_GRID_RE
+    else:
+        regex = NEW_STYLE_BLOCK_RE
     
     for match in regex.finditer(text):
-        if is_chem:
+        if is_english:
+            question_id = match.group("id")
+            body = match.group("body")
+            prompt = f"English Language Question {question_id} from {source_label}"
+            body_text = body
+        elif is_chem:
             question_id = clean_ws(match.group("id"))
             body = match.group("body")
-            # For Chem, the first line of body is often the 'answer' or 'prompt summary'
             lines = [l for l in body.splitlines() if clean_ws(l)]
             if not lines: continue
             prompt = f"Question {question_id} from {source_label}"
@@ -200,7 +219,9 @@ def parse_new_style_mark_scheme_items(text: str, source_label: str) -> list[dict
             question_id = clean_ws(question_match.group(1)) if question_match else source_label
             body_text = body
         
-        marks_match = re.search(r"(\d+)\s*marks?", body_text, re.I)
+        marks_match = re.search(r"\((\d+)\)\s*marks?", body_text, re.I)
+        if not marks_match:
+             marks_match = re.search(r"(\d+)\s*marks?", body_text, re.I)
         marks = int(marks_match.group(1)) if marks_match else 1
         body_clean = clean_ws(body_text)
         
@@ -221,8 +242,6 @@ def parse_new_style_mark_scheme_items(text: str, source_label: str) -> list[dict
 
         # Existing detection logic...
         prompt_lower = prompt.lower()
-        body_lower_text = body_lower(body_clean)
-
 
         if "the only correct answer is" in body_lower(body_clean):
             answer_match = re.search(
@@ -276,6 +295,20 @@ def parse_new_style_mark_scheme_items(text: str, source_label: str) -> list[dict
                     "marks": marks,
                     "working": clean_ws(" ".join(working_lines)),
                     "answer_text": answer_text,
+                    "mark_scheme": extract_mark_scheme_summary(body),
+                }
+            )
+            continue
+
+        # English analysis or short answer
+        if is_english:
+            items.append(
+                {
+                    "type": "analysis" if marks >= 10 else "short_answer",
+                    "source": source_label,
+                    "question_id": question_id,
+                    "prompt": prompt,
+                    "marks": marks,
                     "mark_scheme": extract_mark_scheme_summary(body),
                 }
             )
@@ -383,8 +416,11 @@ def parse_filename_metadata(normalized_name: str) -> dict[str, str]:
         # Try Chemistry format: 4wch1-1c-rms-20250821.pdf
         match = re.match(r"(?P<code>4wch\d)-(?P<paper>1cr?)-(?P<asset>rms|que)-(?P<session>\d{8})\.pdf", normalized_name, re.I)
         if not match:
+            # Try English format: 4ea1-01-que-20200305.pdf
+            match = re.match(r"(?P<code>4ea1)-(?P<paper>\d{2}r?)-(?P<asset>que|rms|msc|pef)-(?P<session>\d{8})\.pdf", normalized_name, re.I)
+        if not match:
             # Try new Business format: 4bs1-02-que-20201117.pdf
-            match = re.match(r"(?P<code>4bs1)-(?P<paper>\d{2}r?)-(?P<asset>que|rms|msc|pef|rms)-(?P<session>\d{8})\.pdf", normalized_name, re.I)
+            match = re.match(r"(?P<code>4bs1)-(?P<paper>\d{2}r?)-(?P<asset>que|rms|msc|pef)-(?P<session>\d{8})\.pdf", normalized_name, re.I)
         
         if not match:
             # Try descriptive Business format: 4bs1-june-2022-ms-paper-2-edexcel-igcse-business.pdf
@@ -445,13 +481,19 @@ def parse_filename_metadata(normalized_name: str) -> dict[str, str]:
         title = f"{code}/{paper} · {year} {series}"
         
         is_chem = code.startswith("4WCH")
-        default_subtitle = f"Chemistry Paper {paper}" if is_chem else f"Business Paper {paper}"
+        is_english = code.startswith("4EA1")
+        if is_chem:
+             default_subtitle = PAPER_TITLES.get(paper, f"Chemistry Paper {paper}")
+        elif is_english:
+             default_subtitle = PAPER_TITLES.get(f"{paper}_4EA1", f"English Language A Paper {paper}")
+        else:
+             default_subtitle = PAPER_TITLES.get(paper, f"Business Paper {paper}")
         
         return {
             "kind": "paper",
             "group_id": group_id,
             "title": title,
-            "subtitle": PAPER_TITLES.get(paper, default_subtitle),
+            "subtitle": default_subtitle,
             "asset_label": asset_label,
             "session": f"{year}_{series}",
             "paper_code": code,
@@ -494,7 +536,8 @@ def build_paper_collections(deduped_paths: dict[str, Path]) -> list[dict[str, ob
 
     for normalized_name, path in sorted(deduped_paths.items()):
         metadata = parse_filename_metadata(normalized_name)
-        url = path.name
+        # Use path relative to root for URL
+        url = str(path.relative_to(ROOT)).replace("\\", "/")
         if metadata["kind"] == "paper":
             group = collections.setdefault(
                 metadata["group_id"],
@@ -529,6 +572,11 @@ def session_sort_key(session: str) -> tuple[int, int]:
     if session == "SAM":
         return (0, 0)
     try:
+        # Handle 2025_Summer format
+        if "_" in session:
+            year, series = session.split("_")
+            series_rank = {"Summer": 2, "Winter": 1}.get(series, 0)
+            return (int(year), series_rank)
         return (int(session[2:]), int(session[:2]))
     except ValueError:
         return (0, 0)
@@ -543,19 +591,25 @@ def merge_new_style_mcqs(mark_scheme_items: list[dict[str, object]], question_it
             merged.append(item)
             continue
         if question_index >= len(question_items):
+            merged.append(item)
             continue
         question = question_items[question_index]
         question_index += 1
         answer_letter = str(item["answer_letter"])
         answer_index = ord(answer_letter) - ord("A")
-        merged.append(
-            {
-                **item,
-                "prompt": question["prompt"],
-                "options": question["options"],
-                "correct_option": question["options"][answer_index],
-            }
-        )
+        
+        options = question.get("options", [])
+        if answer_index < len(options):
+             merged.append(
+                {
+                    **item,
+                    "prompt": question["prompt"],
+                    "options": options,
+                    "correct_option": options[answer_index],
+                }
+            )
+        else:
+            merged.append(item)
 
     return merged
 
@@ -563,20 +617,16 @@ def merge_new_style_mcqs(mark_scheme_items: list[dict[str, object]], question_it
 def build_paper_drills(deduped_paths: dict[str, Path]) -> list[dict[str, object]]:
     groups: dict[str, dict[str, Path]] = {}
     for normalized_name, path in deduped_paths.items():
-        if (normalized_name.startswith("4BS1_") or normalized_name.startswith("4wch")) and normalized_name.endswith(".pdf"):
+        if (normalized_name.startswith(("4BS1_", "4wch", "4ea1"))) and normalized_name.endswith(".pdf"):
             if normalized_name.startswith("4BS1_"):
                 group_key = normalized_name.rsplit("_", 1)[0]
                 asset_key = normalized_name.rsplit("_", 1)[1].removesuffix(".pdf")
             else:
-                # 4wch1-1c-rms-20250821.pdf
+                # 4wch1-1c-rms-20250821.pdf or 4ea1-01-que-20200305.pdf
                 parts = normalized_name.split("-")
-                # Group by code, paper, and the year/month part of the session
-                # If session is 20250520 (May) or 20250821 (MS for May), they should pair.
-                # Common pattern: May series (05/06) MS released in Aug (08).
-                # Nov series (10/11) MS released in Jan (01).
                 session_raw = parts[3].removesuffix(".pdf")
                 year = session_raw[:4]
-                month = int(session_raw[4:6])
+                month = int(session_raw[4:6]) if len(session_raw) >= 6 else 0
                 
                 if month in (5, 6, 8):
                     series = "Summer"
@@ -586,7 +636,7 @@ def build_paper_drills(deduped_paths: dict[str, Path]) -> list[dict[str, object]
                     series = f"M{month}"
                 
                 group_key = f"{parts[0]}-{parts[1]}-{year}-{series}"
-                asset_key = "MS" if "rms" in parts[2] else "QU"
+                asset_key = "MS" if any(x in parts[2].lower() for x in ("rms", "msc", "ms")) else "QU"
             groups.setdefault(group_key, {})[asset_key] = path
 
 
@@ -658,7 +708,8 @@ def build_examiner_playbook(formula_tips: list[str]) -> list[dict[str, str]]:
 
 
 def build_dataset(root: Path = ROOT) -> dict[str, object]:
-    pdf_paths = sorted(root.glob("*.pdf"))
+    # Search root and english/ folder
+    pdf_paths = sorted(list(root.glob("*.pdf")) + list((root / "english").glob("*.pdf")))
     deduped_paths = dedupe_pdf_paths(pdf_paths)
 
     formula_path = next(
@@ -691,7 +742,17 @@ def write_study_data(dataset: dict[str, object], output_path: Path = OUTPUT_PATH
         {"section": "Mole Formulas", "name": "Moles (Solutions)", "formula": "Moles = Conc × Vol", "notes": "Volume in dm3"},
         {"section": "Mole Formulas", "name": "Moles (Gases)", "formula": "Moles = Vol / 24", "notes": "Volume in dm3 at RTP"},
     ]
+    
+    english_toolbox = [
+        {"section": "Analysis Toolbox", "name": "Juxtaposition", "formula": "Placing two contrasting ideas side-by-side.", "notes": "Highlights intensity and focuses reader on specific themes."},
+        {"section": "Analysis Toolbox", "name": "Sibilance", "formula": "Repetition of 's' or 'sh' sounds.", "notes": "Creates hissing, sinister, or calming effects."},
+        {"section": "Analysis Toolbox", "name": "Pathetic Fallacy", "formula": "Weather/nature reflecting human emotions.", "notes": "A subset of personification used for atmospheric enhancement."},
+        {"section": "Analysis Toolbox", "name": "Polysyndeton", "formula": "Repetition of conjunctions in close succession.", "notes": "Creates a sense of overwhelm or infinite variety."},
+        {"section": "Analysis Toolbox", "name": "Anaphora", "formula": "Repetition of a word/phrase at the start of clauses.", "notes": "Builds rhythm and emphasises a specific point."},
+    ]
+    
     dataset["formulas"].extend(chem_formulas)
+    dataset["formulas"].extend(english_toolbox)
     
     payload = json.dumps(dataset, ensure_ascii=False, indent=2)
 

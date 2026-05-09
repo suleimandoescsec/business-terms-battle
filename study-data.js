@@ -1,5 +1,5 @@
 window.STUDY_DATA = {
-  "generatedAt": 1778343814.8683803,
+  "generatedAt": 1778343896.0891383,
   "formulas": [
     {
       "section": "Revenue, Costs & Profit",
@@ -222,9 +222,730 @@ window.STUDY_DATA = {
       "name": "Moles (Gases)",
       "formula": "Moles = Vol / 24",
       "notes": "Volume in dm3 at RTP"
+    },
+    {
+      "section": "Analysis Toolbox",
+      "name": "Juxtaposition",
+      "formula": "Placing two contrasting ideas side-by-side.",
+      "notes": "Highlights intensity and focuses reader on specific themes."
+    },
+    {
+      "section": "Analysis Toolbox",
+      "name": "Sibilance",
+      "formula": "Repetition of 's' or 'sh' sounds.",
+      "notes": "Creates hissing, sinister, or calming effects."
+    },
+    {
+      "section": "Analysis Toolbox",
+      "name": "Pathetic Fallacy",
+      "formula": "Weather/nature reflecting human emotions.",
+      "notes": "A subset of personification used for atmospheric enhancement."
+    },
+    {
+      "section": "Analysis Toolbox",
+      "name": "Polysyndeton",
+      "formula": "Repetition of conjunctions in close succession.",
+      "notes": "Creates a sense of overwhelm or infinite variety."
+    },
+    {
+      "section": "Analysis Toolbox",
+      "name": "Anaphora",
+      "formula": "Repetition of a word/phrase at the start of clauses.",
+      "notes": "Builds rhythm and emphasises a specific point."
     }
   ],
   "paperCollections": [
+    {
+      "id": "4WCH1_1C_2026_Winter",
+      "title": "4WCH1/1C · 2026 Winter",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH1",
+      "session": "2026_Winter",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch1-1c-rms-20260122.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1C_2026_Winter",
+      "title": "4WCH2/1C · 2026 Winter",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH2",
+      "session": "2026_Winter",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch2-1c-rms-20260122.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH1_1C_2025_Summer",
+      "title": "4WCH1/1C · 2025 Summer",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH1",
+      "session": "2025_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch1-1c-que-20250520.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4wch1-1c-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH1_1CR_2025_Summer",
+      "title": "4WCH1/1CR · 2025 Summer",
+      "subtitle": "Chemistry Paper 1CR",
+      "paper_code": "4WCH1",
+      "session": "2025_Summer",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4wch1-1cr-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1C_2025_Summer",
+      "title": "4WCH2/1C · 2025 Summer",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH2",
+      "session": "2025_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch2-1c-que-20250614.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4wch2-1c-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1CR_2025_Summer",
+      "title": "4WCH2/1CR · 2025 Summer",
+      "subtitle": "Chemistry Paper 1CR",
+      "paper_code": "4WCH2",
+      "session": "2025_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch2-1cr-que-20250614.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4wch2-1cr-rms-20250821.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2025_Winter",
+      "title": "4BS1/02 · 2025 Winter",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2025_Winter",
+      "assets": [
+        {
+          "label": "Examiner Report",
+          "url": "4bs1-02-pef-20250123.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20250123.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2025_Winter",
+      "title": "4EA1/01 · 2025 Winter",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2025_Winter",
+      "assets": [
+        {
+          "label": "Examiner Report",
+          "url": "english/4ea1-01-pef-20250123.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-rms-20250123.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH1_1C_2025_Winter",
+      "title": "4WCH1/1C · 2025 Winter",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH1",
+      "session": "2025_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch1-1c-que-20251112.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4WCH2_1C_2025_Winter",
+      "title": "4WCH2/1C · 2025 Winter",
+      "subtitle": "Chemistry Paper 1",
+      "paper_code": "4WCH2",
+      "session": "2025_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4wch2-1c-que-20251118.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2024_Summer",
+      "title": "4BS1/02 · 2024 Summer",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2024_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20240604.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20240822.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02R_2024_Summer",
+      "title": "4BS1/02R · 2024 Summer",
+      "subtitle": "Business Paper 02R",
+      "paper_code": "4BS1",
+      "session": "2024_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02r-que-20240604.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02r-rms-20240822.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2024_Summer",
+      "title": "4EA1/01 · 2024 Summer",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2024_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01-que-20240524.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-rms-20240822.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01R_2024_Summer",
+      "title": "4EA1/01R · 2024 Summer",
+      "subtitle": "English Language A Paper 01R",
+      "paper_code": "4EA1",
+      "session": "2024_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01r-que-20240524.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01r-rms-20240822.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2024_Winter",
+      "title": "4BS1/02 · 2024 Winter",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2024_Winter",
+      "assets": [
+        {
+          "label": "Examiner Report",
+          "url": "4bs1-02-pef-20240125.pdf"
+        },
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20241120.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20240125.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2024_Winter",
+      "title": "4EA1/01 · 2024 Winter",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2024_Winter",
+      "assets": [
+        {
+          "label": "Examiner Report",
+          "url": "english/4ea1-01-pef-20240125.pdf"
+        },
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01-que-20241106.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-rms-20240125.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2023_Summer",
+      "title": "4BS1/02 · 2023 Summer",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2023_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20230613.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20230824.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02R_2023_Summer",
+      "title": "4BS1/02R · 2023 Summer",
+      "subtitle": "Business Paper 02R",
+      "paper_code": "4BS1",
+      "session": "2023_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02r-que-20230613.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02r-rms-20230824.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01R_2023_Summer",
+      "title": "4EA1/01R · 2023 Summer",
+      "subtitle": "English Language A Paper 01R",
+      "paper_code": "4EA1",
+      "session": "2023_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01r-que-20230606.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01r-rms-20230824.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2023_Winter",
+      "title": "4BS1/02 · 2023 Winter",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2023_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20231122.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2023_Winter",
+      "title": "4EA1/01 · 2023 Winter",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2023_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01-que-20230113.pdf"
+        },
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01-que-20231108.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01R_2023_Winter",
+      "title": "4EA1/01R · 2023 Winter",
+      "subtitle": "English Language A Paper 01R",
+      "paper_code": "4EA1",
+      "session": "2023_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01r-que-20230113.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2023_M3",
+      "title": "4EA1/01 · 2023 M3",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2023_M3",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-rms-20230302.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01R_2023_M3",
+      "title": "4EA1/01R · 2023 M3",
+      "subtitle": "English Language A Paper 01R",
+      "paper_code": "4EA1",
+      "session": "2023_M3",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01r-rms-20230302.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2022_Summer",
+      "title": "4EA1/01 · 2022 Summer",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2022_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01-que-20220519.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-rms-20220825.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01R_2022_Summer",
+      "title": "4EA1/01R · 2022 Summer",
+      "subtitle": "English Language A Paper 01R",
+      "paper_code": "4EA1",
+      "session": "2022_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01r-que-20220519.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01r-rms-20220825.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2022_Winter",
+      "title": "4EA1/01 · 2022 Winter",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2022_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01-que-20220114.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01R_2022_Winter",
+      "title": "4EA1/01R · 2022 Winter",
+      "subtitle": "English Language A Paper 01R",
+      "paper_code": "4EA1",
+      "session": "2022_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01r-que-20220114.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2022_M2",
+      "title": "4BS1/02 · 2022 M2",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2022_M2",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20220224.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2022_M2",
+      "title": "4EA1/01 · 2022 M2",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2022_M2",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-rms-20220224.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2022_M3",
+      "title": "4EA1/01 · 2022 M3",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2022_M3",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-rms-20220303.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01R_2022_M3",
+      "title": "4EA1/01R · 2022 M3",
+      "subtitle": "English Language A Paper 01R",
+      "paper_code": "4EA1",
+      "session": "2022_M3",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01r-rms-20220303.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2021_Summer",
+      "title": "4BS1/02 · 2021 Summer",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2021_Summer",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20210511.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-rms-20210604.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2021_Summer",
+      "title": "4EA1/01 · 2021 Summer",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2021_Summer",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-rms-20210604.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2021_Winter",
+      "title": "4BS1/02 · 2021 Winter",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2021_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20211126.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2021_Winter",
+      "title": "4EA1/01 · 2021 Winter",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2021_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01-que-20211102.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2021_M2",
+      "title": "4BS1/02 · 2021 M2",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2021_M2",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02-msc-20210211.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02R_2021_M2",
+      "title": "4BS1/02R · 2021 M2",
+      "subtitle": "Business Paper 02R",
+      "paper_code": "4BS1",
+      "session": "2021_M2",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "4bs1-02r-msc-20210211.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2021_M2",
+      "title": "4EA1/01 · 2021 M2",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2021_M2",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-msc-20210211.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2021_M4",
+      "title": "4EA1/01 · 2021 M4",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2021_M4",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01-que-20210427.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01R_2021_M2",
+      "title": "4EA1/01R · 2021 M2",
+      "subtitle": "English Language A Paper 01R",
+      "paper_code": "4EA1",
+      "session": "2021_M2",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01r-msc-20210211.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02_2020_Winter",
+      "title": "4BS1/02 · 2020 Winter",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2020_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02-que-20201117.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02R_2020_Winter",
+      "title": "4BS1/02R · 2020 Winter",
+      "subtitle": "Business Paper 02R",
+      "paper_code": "4BS1",
+      "session": "2020_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "4bs1-02r-que-20201117.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2020_Winter",
+      "title": "4EA1/01 · 2020 Winter",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2020_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01-que-20201103.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01R_2020_Winter",
+      "title": "4EA1/01R · 2020 Winter",
+      "subtitle": "English Language A Paper 01R",
+      "paper_code": "4EA1",
+      "session": "2020_Winter",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01r-que-20201103.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01_2020_M3",
+      "title": "4EA1/01 · 2020 M3",
+      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
+      "paper_code": "4EA1",
+      "session": "2020_M3",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01-que-20200305 (1).pdf"
+        }
+      ]
+    },
+    {
+      "id": "4EA1_01R_2020_M3",
+      "title": "4EA1/01R · 2020 M3",
+      "subtitle": "English Language A Paper 01R",
+      "paper_code": "4EA1",
+      "session": "2020_M3",
+      "assets": [
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01r-que-20200305.pdf"
+        }
+      ]
+    },
     {
       "id": "4BS1_01_1125",
       "title": "4BS1/01 · November 2025",
@@ -466,336 +1187,6 @@ window.STUDY_DATA = {
         {
           "label": "Question Paper",
           "url": "4BS1_02_SAM_QU.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02_2021_M2",
-      "title": "4BS1/02 · 2021 M2",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2021_M2",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4bs1-02-msc-20210211.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02_2024_Winter",
-      "title": "4BS1/02 · 2024 Winter",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2024_Winter",
-      "assets": [
-        {
-          "label": "Examiner Report",
-          "url": "4bs1-02-pef-20240125.pdf"
-        },
-        {
-          "label": "Question Paper",
-          "url": "4bs1-02-que-20241120.pdf"
-        },
-        {
-          "label": "Mark Scheme",
-          "url": "4bs1-02-rms-20240125.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02_2025_Winter",
-      "title": "4BS1/02 · 2025 Winter",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2025_Winter",
-      "assets": [
-        {
-          "label": "Examiner Report",
-          "url": "4bs1-02-pef-20250123.pdf"
-        },
-        {
-          "label": "Mark Scheme",
-          "url": "4bs1-02-rms-20250123.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02_2020_Winter",
-      "title": "4BS1/02 · 2020 Winter",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2020_Winter",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4bs1-02-que-20201117.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02_2021_Summer",
-      "title": "4BS1/02 · 2021 Summer",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2021_Summer",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4bs1-02-que-20210511.pdf"
-        },
-        {
-          "label": "Mark Scheme",
-          "url": "4bs1-02-rms-20210604.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02_2021_Winter",
-      "title": "4BS1/02 · 2021 Winter",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2021_Winter",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4bs1-02-que-20211126.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02_2023_Summer",
-      "title": "4BS1/02 · 2023 Summer",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2023_Summer",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4bs1-02-que-20230613.pdf"
-        },
-        {
-          "label": "Mark Scheme",
-          "url": "4bs1-02-rms-20230824.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02_2023_Winter",
-      "title": "4BS1/02 · 2023 Winter",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2023_Winter",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4bs1-02-que-20231122.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02_2024_Summer",
-      "title": "4BS1/02 · 2024 Summer",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2024_Summer",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4bs1-02-que-20240604.pdf"
-        },
-        {
-          "label": "Mark Scheme",
-          "url": "4bs1-02-rms-20240822.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02_2022_M2",
-      "title": "4BS1/02 · 2022 M2",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2022_M2",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4bs1-02-rms-20220224.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02R_2021_M2",
-      "title": "4BS1/02R · 2021 M2",
-      "subtitle": "Business Paper 02R",
-      "paper_code": "4BS1",
-      "session": "2021_M2",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4bs1-02r-msc-20210211.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02R_2020_Winter",
-      "title": "4BS1/02R · 2020 Winter",
-      "subtitle": "Business Paper 02R",
-      "paper_code": "4BS1",
-      "session": "2020_Winter",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4bs1-02r-que-20201117.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02R_2023_Summer",
-      "title": "4BS1/02R · 2023 Summer",
-      "subtitle": "Business Paper 02R",
-      "paper_code": "4BS1",
-      "session": "2023_Summer",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4bs1-02r-que-20230613.pdf"
-        },
-        {
-          "label": "Mark Scheme",
-          "url": "4bs1-02r-rms-20230824.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02R_2024_Summer",
-      "title": "4BS1/02R · 2024 Summer",
-      "subtitle": "Business Paper 02R",
-      "paper_code": "4BS1",
-      "session": "2024_Summer",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4bs1-02r-que-20240604.pdf"
-        },
-        {
-          "label": "Mark Scheme",
-          "url": "4bs1-02r-rms-20240822.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH1_1C_2025_Summer",
-      "title": "4WCH1/1C · 2025 Summer",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH1",
-      "session": "2025_Summer",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4wch1-1c-que-20250520.pdf"
-        },
-        {
-          "label": "Mark Scheme",
-          "url": "4wch1-1c-rms-20250821.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH1_1C_2025_Winter",
-      "title": "4WCH1/1C · 2025 Winter",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH1",
-      "session": "2025_Winter",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4wch1-1c-que-20251112.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH1_1C_2026_Winter",
-      "title": "4WCH1/1C · 2026 Winter",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH1",
-      "session": "2026_Winter",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4wch1-1c-rms-20260122.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH1_1CR_2025_Summer",
-      "title": "4WCH1/1CR · 2025 Summer",
-      "subtitle": "Chemistry Paper 1CR",
-      "paper_code": "4WCH1",
-      "session": "2025_Summer",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4wch1-1cr-rms-20250821.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH2_1C_2025_Summer",
-      "title": "4WCH2/1C · 2025 Summer",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH2",
-      "session": "2025_Summer",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4wch2-1c-que-20250614.pdf"
-        },
-        {
-          "label": "Mark Scheme",
-          "url": "4wch2-1c-rms-20250821.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH2_1C_2025_Winter",
-      "title": "4WCH2/1C · 2025 Winter",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH2",
-      "session": "2025_Winter",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4wch2-1c-que-20251118.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH2_1C_2026_Winter",
-      "title": "4WCH2/1C · 2026 Winter",
-      "subtitle": "Chemistry Paper 1",
-      "paper_code": "4WCH2",
-      "session": "2026_Winter",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "4wch2-1c-rms-20260122.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4WCH2_1CR_2025_Summer",
-      "title": "4WCH2/1CR · 2025 Summer",
-      "subtitle": "Chemistry Paper 1CR",
-      "paper_code": "4WCH2",
-      "session": "2025_Summer",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "4wch2-1cr-que-20250614.pdf"
-        },
-        {
-          "label": "Mark Scheme",
-          "url": "4wch2-1cr-rms-20250821.pdf"
         }
       ]
     },
@@ -1882,6 +2273,33 @@ window.STUDY_DATA = {
       "working": "3 (c) A02 - 2 marks 4 500 ÷ 19 220 x 100 (1) = 23.41 (1)",
       "answer_text": "23.41",
       "mark_scheme": "3 (c) A02 - 2 marks 4 500 ÷ 19 220 x 100 (1) = 23.41 (1) Award 1 mark for correctly substituting numbers into formula. Award full marks for correct numerical answer without working. (2)"
+    },
+    {
+      "type": "mcq",
+      "source": "4BS1/01 · November 2020 · Regional",
+      "question_id": "1 (a) (ii)",
+      "prompt": "Answer Mark 1 (a) (i) AO1 = 1 mark The only correct answer is D – Personal satisfaction A is not correct because it is a financial business objective Bis not correct because it is a financial business objective Cis not correct because it is a financial business objective (1) Question Number",
+      "marks": 1,
+      "answer_letter": "A",
+      "answer_text": "Rising star Bis not correct because it is a process carried out for health and safety at work Cis not correct because it is in relation to branding Dis not correct because it is part of the product life cycle"
+    },
+    {
+      "type": "mcq",
+      "source": "4BS1/01 · November 2020 · Regional",
+      "question_id": "1 (a) (iv)",
+      "prompt": "Answer Mark 1 (a) (iii) AO1 = 1 mark The only correct answer is B - Bonus A is not correct because it is a financial method of motivation that is not added to a basic wage Cis not correct because it is a non-financial method of motivation that is not added to a basic wage Dis not correct because it is a method of payment where workers get paid for each item produced (1) Question Number",
+      "marks": 1,
+      "answer_letter": "A",
+      "answer_text": "Growth Bis not correct because this is phase 4 on figure 1 Cis not correct because this is phase 1 on figure 1 Dis not correct because this is phase 3 on figure 1"
+    },
+    {
+      "type": "mcq",
+      "source": "4BS1/01 · November 2020 · Regional",
+      "question_id": "1 (a) (vi)",
+      "prompt": "Answer Mark 1 (a) (v) AO2 = 1 mark The only correct answer is B - 150% A is not correct because this is profit per item Cis not correct because this is selling price per course + cost per item Dis not correct because this is selling price per course/ cost per item x100 (1) Question Number",
+      "marks": 1,
+      "answer_letter": "D",
+      "answer_text": "9 675.90 JPY A is not correct because this is the cost of the course Bis not correct because this is the exchange rate of the JPY Cis not correct because this is the cost of the course multiplied by 148"
     },
     {
       "type": "mcq",
