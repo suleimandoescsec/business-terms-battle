@@ -1,4 +1,4 @@
-(function () {
+window.Hub = (function () {
   const data = window.STUDY_DATA || {
     formulas: [],
     paperCollections: [],
@@ -337,11 +337,5 @@
     renderPlaybook();
     renderPaperVault();
     showStudyView("formula");
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  return { init };
 })();
