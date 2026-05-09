@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="pageTitle">Revision Hub | Exam Mode</title>
+  <title id="pageTitle">Revision Hub Pro | Better than SaveMyExams</title>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=clash-display@500,600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
@@ -15,539 +15,321 @@
       --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
       --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
       --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
-      --color-bg: #f7f6f2; --color-surface: #f9f8f5; --color-surface-2: #fbfbf9; --color-surface-offset: #edeae5; --color-border: #d4d1ca;
-      --color-text: #28251d; --color-text-muted: #6e6b64; --color-text-faint: #97948d; --color-text-inverse: #f9f8f4;
-      --color-primary: #01696f; --color-primary-hover: #0c4e54; --color-success: #437a22; --color-error: #a12c7b; --color-gold: #d19900;
-      --radius-sm: 0.5rem; --radius-md: 0.9rem; --radius-lg: 1.2rem; --radius-xl: 1.6rem;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.06); --shadow-md: 0 12px 32px rgba(0,0,0,0.08);
-      --font-display: 'Clash Display', 'Satoshi', system-ui, -apple-system, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; --font-body: 'Satoshi', system-ui, -apple-system, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      --color-bg: #f3f4f6; --color-surface: #ffffff; --color-surface-2: #f9fafb; --color-surface-offset: #f3f4f6; --color-border: #e5e7eb;
+      --color-text: #111827; --color-text-muted: #4b5563; --color-text-faint: #9ca3af; --color-text-inverse: #ffffff;
+      --color-primary: #0f172a; --color-primary-hover: #1e293b; --color-success: #10b981; --color-error: #ef4444; --color-gold: #f59e0b;
+      --radius-sm: 0.375rem; --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05); --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      --font-display: 'Clash Display', 'Satoshi', system-ui; --font-body: 'Satoshi', system-ui;
     }
     [data-theme="dark"] {
-      --color-bg: #0d0d0c; --color-surface: #141412; --color-surface-2: #1a1a18; --color-surface-offset: #21211f; --color-border: #2a2a28;
-      --color-text: #eceae5; --color-text-muted: #a19d95; --color-text-faint: #6e6b64; --color-text-inverse: #0d0d0c;
-      --color-primary: #5ec2cf; --color-primary-hover: #7fd0db; --color-success: #8cd664; --color-error: #e675bd; --color-gold: #ffc84d;
+      --color-bg: #0f172a; --color-surface: #1e293b; --color-surface-2: #334155; --color-surface-offset: #1e293b; --color-border: #334155;
+      --color-text: #f8fafc; --color-text-muted: #94a3b8; --color-text-faint: #64748b; --color-text-inverse: #0f172a;
+      --color-primary: #f8fafc; --color-primary-hover: #ffffff; --color-success: #34d399; --color-error: #f87171; --color-gold: #fbbf24;
     }
     [data-theme="pink"] {
-      --color-bg: #ffdee3; --color-surface: #fff0f2; --color-surface-2: #fff5f6; --color-surface-offset: #ffd1d8; --color-border: #f8c2ca;
-      --color-text: #4a152c; --color-text-muted: #8a3a5a; --color-text-faint: #b36b8a; --color-text-inverse: #ffffff;
-      --color-primary: #d63384; --color-primary-hover: #b8226b; --color-success: #437a22; --color-error: #a12c7b; --color-gold: #d19900;
+      --color-bg: #fff1f2; --color-surface: #ffffff; --color-surface-2: #fff1f2; --color-surface-offset: #ffe4e6; --color-border: #fecdd3;
+      --color-text: #881337; --color-text-muted: #9f1239; --color-text-faint: #be123c; --color-text-inverse: #ffffff;
+      --color-primary: #e11d48; --color-primary-hover: #be123c;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
-    body {
-      min-height: 100dvh; font-family: var(--font-body); font-size: var(--text-base); line-height: 1.6; color: var(--color-text);
-      background: radial-gradient(circle at top right, color-mix(in oklab, var(--color-primary) 12%, transparent), transparent 30%), 
-                  radial-gradient(circle at bottom left, color-mix(in oklab, var(--color-gold) 8%, transparent), transparent 25%),
-                  var(--color-bg);
-      background-attachment: fixed;
-      overflow-x: hidden;
-    }
-    .panel { 
-      background: color-mix(in oklab, var(--color-surface) 80%, transparent); 
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent); 
-      border-radius: var(--radius-xl); 
-      box-shadow: var(--shadow-md); 
-    }
-    .action:active, .unit-btn:active, .mode-card:active, .subject-card:active { transform: scale(0.96); }
-    .fire-streak { animation: burn 0.8s infinite alternate; color: var(--color-gold) !important; text-shadow: 0 0 12px var(--color-gold); }
-    @keyframes burn { from { filter: brightness(1); transform: scale(1); } to { filter: brightness(1.5); transform: scale(1.1); } }
-    @keyframes pulse { 0% { opacity: 0.7; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1); } 100% { opacity: 0.7; transform: scale(0.95); } }
-    @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-    .shake { animation: shake 0.3s ease-in-out 2; }
+    * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.3s, border-color 0.3s; }
+    body { min-height: 100vh; font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.5; }
+    .app { max-width: 1400px; margin: 0 auto; padding: 2rem; }
     
-    #timerDisplay.urgent { color: var(--color-error); animation: shake 0.5s infinite; }
-    button, input, select, textarea { font: inherit; color: inherit; }
-    button { cursor: pointer; border: none; }
-    textarea { resize: vertical; }
-    .app { max-width: 1180px; margin: 0 auto; padding: var(--space-4); position: relative; z-index: 1; }
-    .topbar { display:flex; justify-content:space-between; align-items:center; gap:var(--space-4); margin-bottom: var(--space-6); }
-    .brand { display:flex; align-items:center; gap: var(--space-3); }
-    .logo { width: 46px; height: 46px; border-radius: 14px; background: linear-gradient(135deg, var(--color-primary), color-mix(in oklab, var(--color-primary) 52%, var(--color-gold))); display:grid; place-items:center; color:white; box-shadow: var(--shadow-md); }
-    .logo svg { width: 26px; height: 26px; }
-    h1 { font-family: var(--font-display); font-size: var(--text-2xl); line-height:1; letter-spacing:-0.03em; }
-    .sub { color: var(--color-text-muted); max-width: 58ch; }
-    .controls { display:flex; gap: var(--space-3); flex-wrap:wrap; align-items:center; }
-    .icon-btn, .pill, .action { min-height:44px; padding: 0 var(--space-4); border-radius: 999px; background: var(--color-surface); border:1px solid color-mix(in oklab, var(--color-text) 12%, transparent); box-shadow: var(--shadow-sm); }
-    .action.primary { background: var(--color-primary); color: var(--color-text-inverse); border-color: transparent; }
+    /* Layout */
+    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; }
+    .brand { display: flex; align-items: center; gap: 1rem; }
+    .logo { width: 48px; height: 48px; background: var(--color-primary); color: var(--color-text-inverse); border-radius: 12px; display: grid; place-items: center; font-weight: bold; font-size: 1.5rem; }
     
-    /* Subject Selector Modal */
-    #subjectOverlay { 
-      position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 1000; 
-      display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem;
-    }
-    .subject-grid { 
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1000px; width: 100%; margin-top: 2rem;
-    }
-    .subject-card { 
-      background: var(--color-surface); padding: 2rem; border-radius: var(--radius-xl); border: 2px solid transparent; text-align: center; cursor: pointer;
-      display: flex; flex-direction: column; align-items: center; gap: 1rem; transition: transform 0.3s, border-color 0.3s;
-    }
-    .subject-card:hover { transform: translateY(-10px); border-color: var(--color-primary); }
-    .subject-card.active { border-color: var(--color-gold); background: color-mix(in oklab, var(--color-gold) 5%, var(--color-surface)); }
-    .subject-icon { font-size: 3rem; margin-bottom: 0.5rem; }
-    .subject-card h3 { font-family: var(--font-display); font-size: var(--text-lg); }
+    .subject-trigger { background: var(--color-surface); border: 1px solid var(--color-border); padding: 0.75rem 1.5rem; border-radius: 999px; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; box-shadow: var(--shadow-sm); }
+    .subject-trigger:hover { border-color: var(--color-gold); }
 
-    .hero { display:grid; grid-template-columns: 1.3fr 0.9fr; gap: var(--space-4); margin-bottom: var(--space-6); }
-    .panel { background: color-mix(in oklab, var(--color-surface) 92%, white 8%); border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent); border-radius: var(--radius-xl); box-shadow: var(--shadow-md); }
-    .hero-card { padding: clamp(1.25rem, 2vw, 2rem); }
-    .stats { display:grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: var(--space-3); margin-top: var(--space-5); }
-    .stat { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); }
-    .stat strong { display:block; font-size: var(--text-xl); font-family: var(--font-display); }
-    .modes { padding: var(--space-5); display:grid; gap: var(--space-3); }
-    .mode-card { text-align:left; padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); display:flex; justify-content:space-between; align-items:center; gap: var(--space-3); }
-    .layout { display:grid; grid-template-columns: 300px 1fr; gap: var(--space-4); }
-    .sidebar, .main { padding: var(--space-4); }
-    .unit-list { display:grid; gap: var(--space-2); margin-top: var(--space-4); }
-    .unit-btn { width:100%; text-align:left; padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid transparent; }
-    .unit-btn.active { background: color-mix(in oklab, var(--color-primary) 12%, var(--color-surface-2)); border-color: color-mix(in oklab, var(--color-primary) 35%, transparent); }
-    .game-header { display:flex; justify-content:space-between; gap:var(--space-3); align-items:flex-start; flex-wrap:wrap; margin-bottom: var(--space-4); }
-    .hud { display:grid; grid-template-columns: repeat(4, minmax(100px, 1fr)); gap: var(--space-3); }
-    .hud .tile { padding: var(--space-3); background: var(--color-surface-2); border-radius: var(--radius-lg); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); }
-    .hud span { display:block; color: var(--color-text-muted); font-size: var(--text-sm); }
-    .hud strong { font-family: var(--font-display); font-size: var(--text-lg); }
-    .prompt { padding: var(--space-5); background: linear-gradient(180deg, color-mix(in oklab, var(--color-primary) 7%, var(--color-surface)), var(--color-surface)); border-radius: var(--radius-xl); border:1px solid color-mix(in oklab, var(--color-primary) 18%, transparent); margin-bottom: var(--space-4); }
-    .prompt .label { color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: var(--space-2); }
-    .prompt h2 { font-size: clamp(1.6rem, 2.5vw, 2.6rem); line-height:1.05; font-family: var(--font-display); margin-bottom: var(--space-3); }
-    .prompt p { color: var(--color-text-muted); max-width: 65ch; }
-    .answer-box { display:grid; gap: var(--space-3); margin-bottom: var(--space-4); }
-    textarea { width:100%; min-height: 140px; padding: var(--space-4); border-radius: var(--radius-lg); border:1px solid var(--color-border); background: var(--color-surface-2); }
-    .btn-row { display:flex; flex-wrap:wrap; gap: var(--space-3); }
-    .feedback { padding: var(--space-5); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); min-height:100px; display: flex; flex-direction: column; justify-content: center; }
-    .feedback.good { border-color: color-mix(in oklab, var(--color-success) 40%, transparent); background: color-mix(in oklab, var(--color-success) 10%, var(--color-surface-2)); }
-    .feedback.bad { border-color: color-mix(in oklab, var(--color-error) 35%, transparent); background: color-mix(in oklab, var(--color-error) 8%, var(--color-surface-2)); }
-    .feedback-status { font-family: var(--font-display); font-size: var(--text-lg); display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-1); }
-    .feedback-divider { height: 1px; width: 100%; background: currentColor; opacity: 0.15; margin: var(--space-2) 0; }
-    .feedback-body { font-size: var(--text-sm); line-height: 1.4; opacity: 0.9; white-space: pre-wrap; }
-    .chips { display:flex; gap: var(--space-2); flex-wrap:wrap; margin-top: var(--space-3); }
-    .chip { padding: 0.4rem 0.7rem; border-radius:999px; font-size: var(--text-sm); background: var(--color-surface-offset); }
-    .chip.priority { background: var(--color-error); color: white; }
-    .hidden { display:none !important; }
-    .mcq-grid { display:grid; gap: var(--space-3); margin-top: var(--space-3); }
-    .option { text-align:left; padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent); }
-    .option.correct { border-color: color-mix(in oklab, var(--color-success) 45%, transparent); background: color-mix(in oklab, var(--color-success) 10%, var(--color-surface-2)); }
-    .option.wrong { border-color: color-mix(in oklab, var(--color-error) 45%, transparent); background: color-mix(in oklab, var(--color-error) 10%, var(--color-surface-2)); }
-    
-    /* Subject Picker Top Styling */
-    .top-subject-btn { 
-      background: var(--color-surface); 
-      border: 1px solid var(--color-border); 
-      border-radius: 999px; 
-      padding: 0 1.2rem; 
-      height: 44px; 
-      font-weight: 700;
-      color: var(--color-primary);
-      display: flex; align-items: center; gap: 0.5rem;
-    }
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+    .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-md); }
+    .hero-main h1 { font-family: var(--font-display); font-size: var(--text-2xl); letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .hero-main p { color: var(--color-text-muted); font-size: var(--text-lg); max-width: 50ch; margin-bottom: 2rem; }
 
-    .footer-note { margin-top: var(--space-4); color: var(--color-text-muted); font-size: var(--text-sm); }
-    .progress { height: 12px; width:100%; border-radius:999px; background: var(--color-surface-offset); overflow:hidden; margin-top: var(--space-4); }
-    .progress > div { height:100%; background: linear-gradient(90deg, var(--color-primary), color-mix(in oklab, var(--color-primary) 40%, var(--color-gold))); width:0%; transition: width .25s ease; }
-    .screen.hidden { display:none; }
-    .center { text-align:center; }
-    .result-score { font-family:var(--font-display); font-size: clamp(2.4rem, 7vw, 5rem); line-height:1; margin: var(--space-4) 0; }
-    
-    .study-hub { margin-top: var(--space-6); padding: var(--space-5); display: grid; gap: var(--space-4); }
-    .study-tabs { display:flex; gap: var(--space-2); flex-wrap:wrap; }
-    .study-tab.active { background: var(--color-primary); color: var(--color-text-inverse); border-color: transparent; }
-    .study-view { display:none; }
-    .study-view.active { display:grid; gap: var(--space-4); }
-    
-    .vault-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-4); }
-    .vault-card { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border: 1px solid var(--color-border); }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .stat-box { padding: 1.5rem; background: var(--color-surface-2); border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
+    .stat-box span { color: var(--color-text-muted); font-size: 0.875rem; display: block; margin-bottom: 0.5rem; }
+    .stat-box strong { font-family: var(--font-display); font-size: 2rem; display: block; }
 
-    @media (max-width: 920px) { .hero, .layout { grid-template-columns: 1fr; } .hud { grid-template-columns: repeat(2, 1fr); } .subject-grid { grid-template-columns: 1fr; } }
+    .mode-selector { display: flex; flex-direction: column; gap: 1rem; }
+    .mode-btn { background: var(--color-surface-2); border: 1px solid var(--color-border); padding: 1.5rem; border-radius: var(--radius-lg); display: flex; align-items: center; gap: 1.5rem; text-align: left; cursor: pointer; transition: all 0.2s; }
+    .mode-btn:hover { border-color: var(--color-gold); transform: translateX(5px); }
+    .mode-btn.active { border-color: var(--color-gold); background: color-mix(in oklab, var(--color-gold) 5%, var(--color-surface-2)); }
+    .mode-icon { width: 50px; height: 50px; background: var(--color-surface); border-radius: 10px; display: grid; place-items: center; font-size: 1.5rem; box-shadow: var(--shadow-sm); }
+
+    .layout-main { display: grid; grid-template-columns: 320px 1fr; gap: 2rem; }
+    .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+    .unit-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; }
+    .unit-list { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+    .unit-item { padding: 1rem; background: var(--color-surface-2); border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer; text-align: left; }
+    .unit-item:hover { background: var(--color-surface-offset); }
+    .unit-item.active { border-color: var(--color-gold); background: color-mix(in oklab, var(--color-gold) 5%, var(--color-surface-2)); font-weight: 600; }
+
+    .game-area { display: flex; flex-direction: column; gap: 2rem; }
+    .prompt-box { background: var(--color-primary); color: var(--color-text-inverse); padding: 3rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+    .prompt-box::after { content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); transform: rotate(30deg); }
+    .prompt-label { font-size: 0.875rem; opacity: 0.7; margin-bottom: 1rem; display: block; text-transform: uppercase; letter-spacing: 0.1em; }
+    .prompt-text { font-family: var(--font-display); font-size: 3rem; line-height: 1.1; margin-bottom: 2rem; }
+    
+    .answer-section { display: grid; gap: 1.5rem; }
+    .answer-input { width: 100%; min-height: 180px; padding: 1.5rem; border-radius: var(--radius-lg); border: 2px solid var(--color-border); font-size: 1.1rem; background: var(--color-surface); }
+    .answer-input:focus { outline: none; border-color: var(--color-gold); }
+    
+    .action-bar { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { padding: 1rem 2rem; border-radius: 999px; font-weight: 700; border: none; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem; }
+    .btn-primary { background: var(--color-primary); color: var(--color-text-inverse); }
+    .btn-gold { background: var(--color-gold); color: white; }
+    .btn-outline { background: transparent; border: 2px solid var(--color-border); }
+    .btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+    .feedback-panel { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2rem; min-height: 150px; }
+    .feedback-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-family: var(--font-display); font-size: 1.25rem; }
+    .feedback-body { line-height: 1.7; color: var(--color-text-muted); }
+
+    /* Subject Overlay */
+    #subjectOverlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); z-index: 2000; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; color: white; }
+    .overlay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; width: 100%; margin-top: 3rem; }
+    .sub-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 3rem 2rem; border-radius: 24px; cursor: pointer; transition: all 0.3s; text-align: center; }
+    .sub-card:hover { background: rgba(255,255,255,0.1); border-color: var(--color-gold); transform: translateY(-10px); }
+    .sub-card h2 { font-family: var(--font-display); margin: 1rem 0; }
+    .sub-card p { opacity: 0.6; font-size: 0.9rem; }
+
+    /* Hidden Utilities */
+    .hidden { display: none !important; }
+    
+    /* Premium Animations */
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate { animation: slideUp 0.4s ease forwards; }
+
+    /* Better than SaveMyExams Notes */
+    .study-notes { margin-top: 1.5rem; display: grid; gap: 1rem; }
+    .note-item { padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid var(--color-gold); background: var(--color-surface-offset); }
+    .note-item strong { color: var(--color-gold); display: block; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.25rem; }
+
   </style>
 </head>
 <body>
   <div id="subjectOverlay" class="hidden">
-    <h1 style="color: white; font-family: var(--font-display);">Choose your subject</h1>
-    <p style="color: rgba(255,255,255,0.7); margin-top: 0.5rem;">Select a course to start your revision session.</p>
-    <div class="subject-grid">
-      <div class="subject-card" onclick="initSubject('business')">
-        <div class="subject-icon">💼</div>
-        <h3>Business Paper 2</h3>
-        <p class="mini">Investigating Large Businesses</p>
+    <h1 style="font-family: var(--font-display); font-size: 3rem;">Revision Hub Pro</h1>
+    <p style="opacity: 0.7;">Select your Grade 9 roadmap. Better than any study guide.</p>
+    <div class="overlay-grid">
+      <div class="sub-card" onclick="initSubject('business')">
+        <div style="font-size: 4rem;">📈</div>
+        <h2>Business P2</h2>
+        <p>Comprehensive units, calculation drills, and examiner secrets.</p>
       </div>
-      <div class="subject-card" onclick="initSubject('chemistry')">
-        <div class="subject-icon">🧪</div>
-        <h3>Modular Chemistry</h3>
-        <p class="mini">Atoms, Ions, and Bonding</p>
+      <div class="sub-card" onclick="initSubject('chemistry')">
+        <div style="font-size: 4rem;">⚛️</div>
+        <h2>Chemistry</h2>
+        <p>Modular deep-dives, periodic Mastery, and reaction rates.</p>
       </div>
-      <div class="subject-card" onclick="initSubject('english')">
-        <div class="subject-icon">📚</div>
-        <h3>English Language P1</h3>
-        <p class="mini">Language Device Mastery</p>
+      <div class="sub-card" onclick="initSubject('english')">
+        <div style="font-size: 4rem;">📝</div>
+        <h2>English P1</h2>
+        <p>Language device analysis, PEEL structures, and grade 9 vocabulary.</p>
       </div>
     </div>
   </div>
 
   <div class="app">
-    <div class="topbar">
+    <header class="topbar">
       <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14"/><path d="M7 12h10"/><path d="M9 17h6"/><path d="M12 4v16"/></svg>
-        </div>
-        <button class="top-subject-btn" id="subjectTrigger">
-          <span id="activeSubjectLabel">Business Paper 2</span> ▾
+        <div class="logo">R</div>
+        <button class="subject-trigger" id="subjectBtn">
+          <span id="currentSubjectLabel">Business Paper 2</span> ▾
         </button>
       </div>
-      <div class="controls">
-        <button class="icon-btn" data-theme-toggle aria-label="Switch theme">🌙</button>
-        <button class="pill" id="panicToggle">Panic Mode: Off</button>
-        <button class="pill" id="focusToggle">Focus Mode: Off</button>
-        <button class="pill" id="pauseToggle">Pause: Off</button>
-        <button class="icon-btn" id="settingsBtn" title="AI Settings">⚙️</button>
+      <div class="controls" style="display: flex; gap: 1rem;">
+        <button class="btn btn-outline" id="themeBtn">🌙</button>
+        <button class="btn btn-outline" id="aiSettingsBtn">🤖 AI Setup</button>
+        <button class="btn btn-primary" id="startSession">Start Shuffle</button>
       </div>
-    </div>
+    </header>
 
-    <section class="hero">
-      <div class="panel hero-card">
-        <h1 id="mainTitle">Revision Hub</h1>
-        <p class="sub" id="mainSub">Choose a subject to start your exam-drill session.</p>
-        <div class="stats">
-          <div class="stat"><span class="mini">Units</span><strong id="unitCountStat">0</strong></div>
-          <div class="stat"><span class="mini">Terms</span><strong id="totalTermsCount">0</strong></div>
-          <div class="stat"><span class="mini">Mastered</span><strong id="sessionGoalStat">0</strong></div>
-        </div>
-        <div class="progress"><div id="masteryBar"></div></div>
-      </div>
-      <div class="panel modes">
-        <button class="mode-card" data-mode="typed"><div><strong>Definition Sprint</strong><div class="mini">Type your answer, then reveal and self-check.</div></div><span>✍️</span></button>
-        <button class="mode-card" data-mode="mcq"><div><strong>Speed Recall</strong><div class="mini">Pick the correct definition against the clock.</div></div><span>⚡</span></button>
-        <button class="mode-card" data-mode="scenario"><div><strong>Scenario Master</strong><div class="mini">Apply terms to real-world cases.</div></div><span>🏆</span></button>
-      </div>
-    </section>
-
-    <section class="layout">
-      <aside class="panel sidebar">
-        <div class="mini">Your Progress</div>
-        <div class="stat" style="margin: 10px 0;">
-          <span class="mini">Student Level</span>
-          <strong id="studentLevel">1</strong>
-          <div class="mini" id="levelXp">0 terms mastered</div>
-        </div>
-        
-        <div class="weakness-dashboard" id="weaknessDashboard">
-          <div class="mini">Unit Performance</div>
-        </div>
-
-        <div class="mini" style="margin-top: 20px;">Choose a unit</div>
-        <div class="unit-list" id="unitList"></div>
-
-        <div class="mini" style="margin-top: 30px;">Data Management</div>
-        <div style="display:grid; gap:var(--space-2); margin-top:var(--space-2);">
-          <button class="pill" style="width:100%; text-align:center; font-size:12px;" id="exportData">📥 Backup Progress</button>
-          <button class="pill" style="width:100%; text-align:center; font-size:12px;" id="importDataBtn">📤 Restore Progress</button>
-          <input type="file" id="importFile" class="hidden" accept=".json">
-          <button class="pill" style="width:100%; text-align:center; font-size:12px; color:var(--color-error); border-color:var(--color-error);" id="resetData">🗑️ Reset All</button>
-        </div>
-      </aside>
-
-      <main class="panel main">
-        <div id="gameScreen" class="screen" style="position: relative;">
-          <div id="pauseIndicator" class="hidden" style="position: absolute; top: 10px; right: 10px; background: var(--color-primary); color: white; padding: 5px 15px; border-radius: 999px; font-weight: bold; z-index: 10; box-shadow: var(--shadow-sm); animation: pulse 2s infinite;">PAUSED</div>
-          <div class="game-header">
-            <div>
-              <div class="mini" id="unitTitle">Unit</div>
-              <div class="sub" id="modeSubtitle">Study by unit or shuffle everything together.</div>
-            </div>
-            <div class="hud">
-              <div class="tile"><span>Mode</span><strong id="hudMode">Typed</strong></div>
-              <div class="tile"><span>Score</span><strong id="hudScore">0</strong></div>
-              <div class="tile"><span>Timer</span><strong id="timerDisplay">00:00</strong></div>
-              <div class="tile"><span>Streak</span><strong id="hudStreak">0</strong></div>
-            </div>
-          </div>
-
-          <div class="prompt">
-            <div class="label" id="promptLabel">Define this key term</div>
-            <h2 id="termPrompt">Term</h2>
-            <p id="termHint">Write the meaning in your own words, then compare it with the answer key.</p>
-            <div class="chips">
-              <span class="chip" id="chipUnit">Unit 1</span>
-              <span class="chip" id="chipIndex">1 / 1</span>
-              <span class="chip priority hidden" id="chipPriority">High Priority</span>
-            </div>
-          </div>
-
-          <div id="typedMode">
-            <div class="answer-box">
-              <textarea id="typedAnswer" placeholder="Type your definition here..."></textarea>
-              <div class="btn-row">
-                <button class="action primary" id="checkBtn">Reveal answer</button>
-                <button class="action" id="aiCheckBtn">🤖 AI Check</button>
-                <button class="action" id="knowBtn">I knew this</button>
-                <button class="action" id="nextBtn">Next term</button>
-              </div>
-            </div>
-            <div class="feedback" id="feedbackBox">Your official definition will appear here.</div>
-          </div>
-
-          <div id="mcqMode" class="hidden">
-            <div class="mini">Choose the best definition.</div>
-            <div class="mcq-grid" id="mcqOptions"></div>
-            <div class="feedback" id="mcqFeedback">Answer to see feedback.</div>
-            <div class="btn-row" style="margin-top:1rem;"><button class="action" id="nextMcqBtn">Next question</button></div>
-          </div>
-
-          <div id="examinerTip" class="examiner-tip">
-            <strong>💡 Examiner Tip:</strong> <span id="tipText"></span>
+    <main>
+      <section class="hero animate">
+        <div class="card hero-main">
+          <h1 id="heroTitle">Business Paper 2 Revision</h1>
+          <p id="heroSub">Advanced IGCSE Mastery Hub. We cover every term, every formula, and every common examiner trick.</p>
+          <div class="stats-grid">
+            <div class="stat-box"><span>Terms</span><strong id="statTerms">0</strong></div>
+            <div class="stat-box"><span>Units</span><strong id="statUnits">0</strong></div>
+            <div class="stat-box"><span>Mastery</span><strong id="statMastery">0%</strong></div>
           </div>
         </div>
-
-        <div id="resultScreen" class="screen hidden center">
-          <div class="mini">Session complete</div>
-          <div class="result-score" id="finalScore">0%</div>
-          <div class="btn-row" style="justify-content:center; margin-top:1rem;"><button class="action primary" id="restartBtn">Play again</button></div>
-        </div>
-      </main>
-    </section>
-
-    <section class="panel study-hub">
-      <div class="study-head">
-        <div>
-          <div class="mini">Exam Hub</div>
-          <h2 id="hubSubjectTitle">Study Resources</h2>
-          <p class="sub" id="hubSubjectSub">Extracted past papers, mark schemes, and formulas.</p>
-        </div>
-        <div class="study-meta">
-          <div class="study-stat"><span class="mini">Paper drills</span><strong id="paperDrillCount">0</strong></div>
-          <div class="study-stat"><span class="mini">Source files</span><strong id="resourceCount">0</strong></div>
-        </div>
-      </div>
-
-      <div class="study-tabs">
-        <button class="pill study-tab active" data-study-view="formula">Formula Lab</button>
-        <button class="pill study-tab" data-study-view="paper">Paper Drill</button>
-        <button class="pill study-tab" data-study-view="vault">Past Paper Vault</button>
-      </div>
-
-      <section class="study-view active" data-study-panel="formula">
-        <div class="study-grid">
-          <div class="prompt">
-            <div class="label">Formula Lab</div>
-            <h2 id="formulaPromptTitle">Loading...</h2>
-            <div class="chips"><span class="chip" id="formulaIndexChip">0 / 0</span></div>
-          </div>
-          <div class="btn-row">
-            <button class="action primary" id="revealFormulaBtn">Reveal formula</button>
-            <button class="action" id="nextFormulaBtn">Next formula</button>
-          </div>
-          <div class="feedback" id="formulaFeedback">Formula notes will appear here.</div>
+        <div class="mode-selector">
+          <button class="mode-btn active" data-mode="typed">
+            <div class="mode-icon">✍️</div>
+            <div><strong>Active Recall</strong><div style="font-size: 0.875rem; opacity: 0.6;">Type and compare with mark scheme.</div></div>
+          </button>
+          <button class="mode-btn" data-mode="mcq">
+            <div class="mode-icon">⚡</div>
+            <div><strong>Speed Recall</strong><div style="font-size: 0.875rem; opacity: 0.6;">Pick the correct answer against time.</div></div>
+          </button>
+          <button class="mode-btn" data-mode="scenario">
+            <div class="mode-icon">🎯</div>
+            <div><strong>Exam Application</strong><div style="font-size: 0.875rem; opacity: 0.6;">Real exam scenarios & case studies.</div></div>
+          </button>
         </div>
       </section>
 
-      <section class="study-view" data-study-panel="paper">
-        <div class="prompt">
-          <div class="label" id="paperDrillMeta">Paper Drill</div>
-          <h2 id="paperDrillPrompt">Loading...</h2>
-          <div class="chips">
-            <span class="chip" id="paperDrillTypeChip">type</span>
-            <span class="chip" id="paperDrillMarksChip">0 marks</span>
-            <span class="chip" id="paperDrillIndexChip">0 / 0</span>
+      <div class="layout-main animate">
+        <aside class="sidebar">
+          <div class="unit-card">
+            <strong style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.6; letter-spacing: 0.05em;">Syllabus Units</strong>
+            <div class="unit-list" id="unitList"></div>
           </div>
-        </div>
-        <div class="mcq-grid" id="paperDrillOptions"></div>
-        <div id="paperDrillTypedWrap" class="answer-box hidden"><textarea id="paperDrillAnswer"></textarea></div>
-        <div class="btn-row">
-          <button class="action primary" id="showPaperAnswerBtn">Reveal mark scheme</button>
-          <button class="action" id="nextPaperDrillBtn">Next drill</button>
-        </div>
-        <div class="feedback" id="paperDrillFeedback">Mark scheme guidance will appear here.</div>
-      </section>
+          <div class="unit-card">
+            <strong style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.6; letter-spacing: 0.05em;">Progress</strong>
+            <div style="margin-top: 1rem;">
+              <div style="display:flex; justify-content:space-between; font-size:0.875rem; margin-bottom:0.5rem;"><span>Session Mastery</span><span id="sessionMasteryText">0%</span></div>
+              <div style="height:8px; background:var(--color-surface-offset); border-radius:999px; overflow:hidden;"><div id="masteryBar" style="width:0%; height:100%; background:var(--color-gold);"></div></div>
+            </div>
+          </div>
+        </aside>
 
-      <section class="study-view" data-study-panel="vault">
-        <div id="vaultEmptyNotice" class="feedback" style="margin-bottom: 20px;">
-          <div class="feedback-status">🧪 Course Material Sync</div>
-          <div class="feedback-body" id="vaultStatusText">Past papers and official mark schemes are currently loaded for Business. Chemistry and English resources will appear once the respective PDF data is uploaded to the system.</div>
-        </div>
-        <div class="vault-grid" id="paperVaultList"></div>
-      </section>
-    </section>
+        <section class="game-area">
+          <div class="prompt-box" id="promptBox">
+            <span class="prompt-label" id="promptLabel">Unit 1: Business Activity</span>
+            <h2 class="prompt-text" id="promptText">Opportunity Cost</h2>
+            <div style="display: flex; gap: 1rem;">
+              <span class="btn btn-outline" style="border-color: rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem;" id="promptCounter">1 / 15</span>
+              <span class="btn btn-gold" id="priorityTag" style="padding: 0.5rem 1rem;">High Priority</span>
+            </div>
+          </div>
+
+          <div class="answer-section" id="typedMode">
+            <textarea class="answer-input" id="answerInput" placeholder="Define this term as accurately as possible..."></textarea>
+            <div class="action-bar">
+              <button class="btn btn-primary" id="revealBtn">Reveal Answer</button>
+              <button class="btn btn-gold" id="aiBtn">🤖 AI Grade (Beta)</button>
+              <button class="btn btn-outline" id="knownBtn">I Know This</button>
+              <button class="btn btn-outline" id="nextBtn">Skip</button>
+            </div>
+          </div>
+
+          <div class="answer-section hidden" id="mcqMode">
+            <div id="mcqGrid" style="display: grid; gap: 1rem;"></div>
+          </div>
+
+          <div class="feedback-panel hidden" id="feedbackPanel">
+            <div class="feedback-head" id="feedbackTitle">📖 Official Definition</div>
+            <div class="feedback-body" id="feedbackText"></div>
+            <div class="study-notes" id="studyNotes"></div>
+            <button class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;" id="continueBtn">Continue to Next</button>
+          </div>
+        </section>
+      </div>
+    </main>
   </div>
 
   <!-- AI Settings Modal -->
-  <div id="settingsModal" class="screen hidden" style="position:fixed; inset:0; background:rgba(0,0,0,0.5); backdrop-filter:blur(4px); z-index:100; display:grid; place-items:center; padding:var(--space-4);">
-    <div class="panel" style="width:100%; max-width:400px; padding:var(--space-6); position:relative;">
-      <h2 style="margin-bottom:var(--space-4); font-family:var(--font-display);">AI Settings</h2>
-      <input type="password" id="apiKeyInput" placeholder="Enter Gemini API Key..." style="width:100%; padding:var(--space-3); border-radius:var(--radius-md); border:1px solid var(--color-border); background:var(--color-surface-2); margin-bottom:var(--space-4);">
-      <div class="btn-row" style="justify-content:flex-end;">
-        <button class="pill" id="closeSettings">Close</button>
-        <button class="action primary" id="saveSettings">Save Key</button>
+  <div id="aiModal" class="hidden" style="position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:3000; display:grid; place-items:center; padding:2rem;">
+    <div class="card" style="width:100%; max-width:450px;">
+      <h2 style="margin-bottom: 1rem;">AI Setup</h2>
+      <p style="margin-bottom: 1.5rem; opacity: 0.7;">Enter your Gemini API Key to enable Grade 9 AI feedback.</p>
+      <input type="password" id="apiKeyInput" placeholder="Enter key..." style="width:100%; padding:1rem; border-radius:10px; border:1px solid var(--color-border); margin-bottom: 1.5rem;">
+      <div style="display:flex; gap:1rem; justify-content: flex-end;">
+        <button class="btn btn-outline" id="closeAi">Close</button>
+        <button class="btn btn-primary" id="saveAi">Save Key</button>
       </div>
     </div>
   </div>
 
-  <script src="study-data.js"></script>
   <script>
     const SUBJECTS = {
       business: {
-        label: "Business Paper 2",
         title: "Business Paper 2 Revision",
-        sub: "Investigating Large Businesses: focuses on unit-by-unit definitions and exam drills.",
-        hubSub: "Business Paper 2 Past Papers & Marking Schemes",
-        data: [
-          { unit: 1, title: "Business Activity", terms: [
-            { term: "Needs", definition: "Things that are essential for survival, e.g. food, water, shelter.", priority: true, tip: "Examiners often ask for examples. Mention basic survival items like water or clothing.", scenario: "A group of explorers are stranded on an island. What are their most immediate requirements called?" },
-            { term: "Wants", definition: "Things that people desire but are not essential for survival.", scenario: "Sarah already has a working phone but wants the latest iPhone model. This desire is a...?" },
-            { term: "Scarcity", definition: "The basic economic problem: unlimited wants but limited resources.", priority: true, tip: "This is the 'Basic Economic Problem'. It exists because resources are finite but wants are infinite.", scenario: "A diamond mine is running out of gems, but jewelry demand is rising. This situation is...?" },
-            { term: "Opportunity cost", definition: "The next best alternative given up when making a choice.", priority: true, tip: "Crucial term! Always mention it's the *next best* alternative, not just any alternative.", scenario: "A government spends its budget on a new school instead of a hospital. The lost hospital is the...?" },
-            { term: "Factors of production", definition: "The resources used to produce goods and services: land, labour, capital and enterprise.", priority: true, tip: "Remember all four: Land, Labour, Capital, Enterprise. Enterprise is the 'risk-taking' factor.", scenario: "To start a bakery, you need an oven, a chef, flour, and an owner. These are collectively the...?" },
-            { term: "Land", definition: "All natural resources used in production, e.g. oil, forests, water." },
-            { term: "Labour", definition: "The human effort (physical and mental) used in production." },
-            { term: "Capital", definition: "Man-made resources used in production, e.g. machinery, tools, buildings." },
-            { term: "Enterprise", definition: "The willingness to take risks and organise the other factors of production." },
-            { term: "Entrepreneur", definition: "A person who takes the risk of setting up and running a business.", priority: true },
-            { term: "Added value", definition: "The difference between the selling price of a product and the cost of materials used to make it.", priority: true, tip: "Calculated as: Selling Price - Cost of Materials." }
+        sub: "The definitive guide to Edexcel/CIE Business Paper 2. Every concept mastered.",
+        units: [
+          { id: 1, title: "Business Activity", terms: [
+            { term: "Opportunity Cost", definition: "The next best alternative given up when making a choice.", points: ["Vital for evaluating government spending.", "Always mention 'next best alternative'."], secret: "Examiners love it when you link this to resource allocation." },
+            { term: "Factors of Production", definition: "Land, Labour, Capital, and Enterprise.", points: ["Land: Natural resources", "Labour: Human effort", "Capital: Man-made machines", "Enterprise: Risk-taking"], secret: "Identify 'Enterprise' as the driving force that combines the others." },
+            { term: "Specialisation", definition: "When a person, business or country focuses on a narrow range of tasks.", points: ["Increases efficiency.", "Leads to lower unit costs."], secret: "Link this to economies of scale for extra marks." }
           ]},
-          { unit: 2, title: "Business Structure", terms: [
-            { term: "Sole trader", definition: "A business owned and run by one person who is personally responsible for all debts.", priority: true, tip: "Sole traders have UNLIMITED liability." },
-            { term: "Partnership", definition: "A business owned by two or more people who share responsibility, profits and losses." },
-            { term: "Private limited company (Ltd)", definition: "A company owned by shareholders whose liability is limited; shares cannot be sold to the public.", priority: true },
-            { term: "Public limited company (PLC)", definition: "A company whose shares are traded on a stock exchange and can be bought by the public.", priority: true },
-            { term: "Limited liability", definition: "Where the financial responsibility of owners is limited to the amount they invested.", priority: true },
-            { term: "Unlimited liability", definition: "Where the owner is personally responsible for all business debts.", priority: true },
-            { term: "Multinational company (MNC)", definition: "A business that operates in more than one country.", priority: true }
+          { id: 2, title: "Marketing", terms: [
+            { term: "Niche Marketing", definition: "Identifying and exploiting a small, well-defined segment of a larger market.", points: ["Less competition.", "Can charge premium prices."], secret: "Highlight that it's risky because the market size is small." },
+            { term: "Mass Marketing", definition: "Selling the same product to the whole market with no targeting.", points: ["High volume sales.", "Lower unit costs."], secret: "Mention that branding is crucial for mass marketing success." },
+            { term: "Market Segmentation", definition: "Dividing a market into groups of buyers with similar needs.", points: ["Geographic, Demographic, Psychographic.", "Helps tailor the marketing mix."], secret: "Examiners look for 'Targeting' as the next logical step after segmentation." }
           ]},
-          { unit: 3, title: "Objectives & Stakeholders", terms: [
-            { term: "Profit", definition: "The financial gain left after all costs have been deducted from revenue (Profit = Revenue - Costs).", priority: true },
-            { term: "Revenue (turnover)", definition: "The total income received by a business from selling goods or services.", priority: true },
-            { term: "Market share", definition: "The proportion of total market sales held by one business.", priority: true },
-            { term: "Stakeholder", definition: "Any individual or group with an interest in or affected by a business's activities.", priority: true },
-            { term: "Stakeholder conflict", definition: "When different stakeholder groups have opposing interests or objectives.", priority: true }
-          ]},
-          { unit: 4, title: "Business Operations", terms: [
-            { term: "Productivity", definition: "Output per worker per time period; a measure of efficiency.", priority: true },
-            { term: "Efficiency", definition: "Producing the maximum output from given inputs with minimum waste.", priority: true },
-            { term: "Job production", definition: "Making one-off, unique products to specific customer requirements.", priority: true },
-            { term: "Flow (mass) production", definition: "Continuous production of large quantities of identical products on an assembly line.", priority: true },
-            { term: "Lean production", definition: "An approach to production that aims to minimise waste and maximise efficiency.", priority: true },
-            { term: "Just-in-time (JIT)", definition: "A stock management system where materials are ordered and received only when needed.", priority: true },
-            { term: "Quality assurance", definition: "A system where quality is checked at every stage of production to prevent faults.", priority: true },
-            { term: "Economies of scale", definition: "Cost advantages that a business gains due to an increase in the scale of production.", priority: true },
-            { term: "Fixed costs", definition: "Costs that do not change with the level of output, e.g. rent.", priority: true },
-            { term: "Variable costs", definition: "Costs that change directly with the level of output, e.g. raw materials.", priority: true },
-            { term: "Break-even point", definition: "The level of output at which total revenue equals total costs.", priority: true }
-          ]},
-          { unit: 5, title: "Financial Information", terms: [
-            { term: "Cash flow", definition: "The movement of money into (inflow) and out of (outflow) a business over time.", priority: true },
-            { term: "Overdraft", definition: "When a business spends more than it has in its bank account.", priority: true },
-            { term: "Working capital", definition: "The funds available for day-to-day operations; current assets minus current liabilities.", priority: true },
-            { term: "Income statement", definition: "A financial statement showing a business's revenues, costs and profit over a period.", priority: true },
-            { term: "Balance sheet", definition: "A financial statement showing a business's assets, liabilities and equity.", priority: true }
+          { id: 3, title: "Human Resources", terms: [
+            { term: "Autocratic Leadership", definition: "A leadership style where managers make all decisions without consulting others.", points: ["Quick decision-making.", "Clear hierarchy."], secret: "Effective in a crisis, but bad for long-term motivation." },
+            { term: "Democratic Leadership", definition: "Managers involve employees in the decision-making process.", points: ["Improves morale.", "Utilises worker skills."], secret: "Often leads to better decision quality but slower implementation." }
           ]}
         ]
       },
       chemistry: {
-        label: "Modular Chemistry",
-        title: "Modular Chemistry Revision",
-        sub: "Focus on atoms, molecules, ions, and chemical bonding units.",
-        hubSub: "Modular Chemistry Revision Hub",
-        data: [
-          { unit: 1, title: "Modular Chemistry", terms: [
-            { term: "Atom", definition: "The smallest part of an element that can exist." },
-            { term: "Molecule", definition: "Two or more atoms covalently bonded together." },
-            { term: "Ion", definition: "An atom or group of atoms with a positive or negative charge." },
-            { term: "Isotope", definition: "Atoms of the same element with the same number of protons but different numbers of neutrons." },
-            { term: "Covalent bond", definition: "A shared pair of electrons between non-metal atoms." }
+        title: "Modular Chemistry Hub",
+        sub: "Atomic theory, kinetics, and periodic mastery for Grade 9 students.",
+        units: [
+          { id: 1, title: "Atomic Structure", terms: [
+            { term: "Atomic Number", definition: "The number of protons in the nucleus of an atom.", points: ["Unique to each element.", "Defines the position on the periodic table."], secret: "Remember: Atoms are neutral, so Protons = Electrons." },
+            { term: "Mass Number", definition: "The total number of protons and neutrons in an atom's nucleus.", points: ["Neutrons = Mass Number - Atomic Number."], secret: "Isotopes have different mass numbers but the same atomic number." }
+          ]},
+          { id: 2, title: "Periodic Table Mastery", terms: [
+            { term: "Group 1 (Alkali Metals)", definition: "Metals that are highly reactive, soft, and have low density.", points: ["React with water to form hydroxides.", "Reactivity increases down the group."], secret: "Explain reactivity by the distance of the outer electron from the nucleus." },
+            { term: "Group 7 (Halogens)", definition: "Non-metals that are reactive and have 7 outer electrons.", points: ["Reactivity decreases down the group.", "Exist as diatomic molecules (F2, Cl2)."], secret: "Focus on 'Electron Affinity' for high-level answers." }
           ]}
         ]
       },
       english: {
-        label: "English Language P1",
-        title: "English Language Paper 1 Revision",
-        sub: "Master language devices, emotive terminology, and critical analysis.",
-        hubSub: "English Language Paper 1 Revision Hub",
-        data: [
-          { unit: 1, title: "Language Devices", terms: [
-            { term: "Emotive language", definition: "Words used to evoke a strong emotional reaction from the reader." },
-            { term: "Metaphor", definition: "A figure of speech in which a word or phrase is applied to an object or action to which it is not literally applicable." },
-            { term: "Simile", definition: "A figure of speech involving the comparison of one thing with another thing of a different kind, using 'like' or 'as'." },
-            { term: "Personification", definition: "The attribution of a personal nature or human characteristics to something non-human." },
-            { term: "Hyperbole", definition: "Exaggerated statements or claims not meant to be taken literally." },
-            { term: "Pathetic fallacy", definition: "The attribution of human feelings and responses to inanimate things or animals." },
-            { term: "Juxtaposition", definition: "Two things being seen or placed close together with contrasting effect." },
-            { term: "Oxymoron", definition: "A figure of speech in which apparently contradictory terms appear in conjunction." },
-            { term: "Imagery", definition: "Visually descriptive or figurative language." },
-            { term: "Rhetorical question", definition: "A question asked in order to create a dramatic effect or to make a point." },
-            { term: "Repetition", definition: "The action of repeating something that has already been said or written." },
-            { term: "Rule of three", definition: "A trio of events or characters is more humorous, satisfying, or effective." },
-            { term: "Alliteration", definition: "The same letter or sound at the beginning of adjacent or closely connected words." },
-            { term: "Sibilance", definition: "Hissing sound created within a group of words through the repetition of 's' sounds." },
-            { term: "Symbolism", definition: "The use of symbols to represent ideas or qualities." }
+        title: "English Language P1",
+        sub: "Analysis, PEEL structures, and the devices that win Grade 9 marks.",
+        units: [
+          { id: 1, title: "Language Devices", terms: [
+            { term: "Sibilance", definition: "Repetition of the 's' or 'sh' sound in close proximity.", points: ["Creates a hissing, sinister, or calming effect.", "Draws attention to specific imagery."], secret: "Never just name it; explain the *exact mood* it creates in the context." },
+            { term: "Pathetic Fallacy", definition: "Attributing human emotions to the weather or nature to reflect the mood.", points: ["Storms = Conflict/Anger.", "Sunshine = Hope/Peace."], secret: "It's a subset of personification. Use the specific term for higher marks." }
+          ]},
+          { id: 2, title: "Structural Analysis", terms: [
+            { term: "Juxtaposition", definition: "Placing two contrasting ideas side-by-side to highlight differences.", points: ["Creates tension.", "Focuses the reader on a specific theme."], secret: "Look for shifts in tone or setting as examples of juxtaposition." }
           ]}
         ]
       }
     };
 
-    let currentSubject = 'business';
-    let DATA = SUBJECTS[currentSubject].data;
-    let allTerms = [];
+    let state = {
+      subject: 'business',
+      mode: 'typed',
+      unit: 1,
+      queue: [],
+      pointer: 0,
+      score: 0,
+      known: new Set(),
+      geminiKey: localStorage.getItem('geminiKey') || ''
+    };
 
     const el = id => document.getElementById(id);
-    
-    function initSubject(subject) {
-      currentSubject = subject;
-      const sub = SUBJECTS[subject];
-      DATA = sub.data;
+
+    function initSubject(subId) {
+      state.subject = subId;
+      const sub = SUBJECTS[subId];
+      el('heroTitle').textContent = sub.title;
+      el('heroSub').textContent = sub.sub;
+      el('currentSubjectLabel').textContent = subId.charAt(0).toUpperCase() + subId.slice(1);
       
-      el('mainTitle').textContent = sub.title;
-      el('mainSub').textContent = sub.sub;
-      el('hubSubjectTitle').textContent = sub.title;
-      el('hubSubjectSub').textContent = sub.hubSub;
-      el('activeSubjectLabel').textContent = sub.label;
-      el('pageTitle').textContent = sub.title + " | Exam Mode";
+      const allTerms = sub.units.flatMap(u => u.terms);
+      el('statTerms').textContent = allTerms.length;
+      el('statUnits').textContent = sub.units.length;
       
-      allTerms = DATA.flatMap(u => u.terms.map((t, i) => ({ 
-        ...t, unit: u.unit, unitTitle: u.title, indexInUnit: i + 1, unitSize: u.terms.length, 
-        correctCount: 0, wrongCount: 0 
-      })));
-      
-      el('unitCountStat').textContent = DATA.length;
-      el('totalTermsCount').textContent = allTerms.length;
-      
-      // Rebuild unit list
-      const container = el('unitList');
-      container.innerHTML = '';
-      DATA.forEach(u => {
-        const btn = document.createElement('button');
-        btn.className = 'unit-btn';
-        btn.innerHTML = `<strong>Unit ${u.unit}</strong><div style="font-size: 9px; opacity: 0.6;">${u.terms.length} terms</div>`;
-        btn.onclick = () => setUnit(u.unit);
-        container.appendChild(btn);
+      const list = el('unitList');
+      list.innerHTML = '';
+      sub.units.forEach(u => {
+        const item = document.createElement('div');
+        item.className = 'unit-item' + (u.id === state.unit ? ' active' : '');
+        item.textContent = u.title;
+        item.onclick = () => { state.unit = u.id; initSubject(subId); };
+        list.appendChild(item);
       });
-      
-      setUnit(DATA[0].unit);
-      renderWeakness();
-      
-      // Update Vault Status
-      if (subject === 'business') {
-        el('vaultStatusText').textContent = "Past papers and official mark schemes are currently loaded for Business.";
-        el('paperVaultList').classList.remove('hidden');
-      } else {
-        el('vaultStatusText').textContent = `${sub.label} past papers and official mark schemes will appear here once the respective PDF data is uploaded to the system. Currently focusing on modular definitions.`;
-        el('paperVaultList').classList.add('hidden');
-      }
 
+      state.queue = shuffle(sub.units.find(u => u.id === state.unit).terms);
+      state.pointer = 0;
+      state.score = 0;
       el('subjectOverlay').classList.add('hidden');
-      if (window.Hub) window.Hub.init();
+      render();
     }
-
-    el('subjectTrigger').onclick = () => el('subjectOverlay').classList.toggle('hidden');
-    
-    // Shared Logic
-    let currentMode = 'typed';
-    let currentUnit = 1;
-    let queue = [];
-    let pointer = 0;
-    let score = 0;
-    let streak = 0;
-    let isPaused = false;
-    let timerInterval = null;
-    let timeLeft = 0;
-    let mcqLocked = false;
-    let known = new Set();
 
     function shuffle(arr) {
       const a = [...arr];
@@ -558,156 +340,149 @@
       return a;
     }
 
-    function setUnit(unit) {
-      currentUnit = unit;
-      queue = (unit === 'all') ? shuffle(allTerms) : shuffle(allTerms.filter(t => t.unit === unit));
-      pointer = 0;
-      score = 0;
-      streak = 0;
-      el('gameScreen').classList.remove('hidden');
-      el('resultScreen').classList.add('hidden');
-      document.querySelectorAll('.unit-btn').forEach((btn, idx) => {
-        btn.classList.toggle('active', (DATA[idx] && DATA[idx].unit === unit));
-      });
-      render();
-    }
-
     function render() {
-      const item = queue[pointer];
+      const item = state.queue[state.pointer];
       if (!item) return finish();
-      el('unitTitle').textContent = `Unit ${item.unit} · ${item.unitTitle}`;
-      el('termPrompt').textContent = currentMode === 'scenario' ? (item.scenario || item.term) : item.term;
-      el('chipUnit').textContent = `Unit ${item.unit}`;
-      el('chipIndex').textContent = `${pointer + 1} / ${queue.length}`;
-      el('chipPriority').classList.toggle('hidden', !item.priority);
-      el('typedAnswer').value = '';
-      el('feedbackBox').className = 'feedback';
-      el('feedbackBox').textContent = 'Your definition will appear here.';
-      el('mcqFeedback').className = 'feedback';
-      el('mcqFeedback').textContent = 'Answer to see feedback.';
-      el('examinerTip').classList.remove('visible');
-      mcqLocked = false;
-      updateHud();
-      startTimer();
-      if (currentMode === 'mcq' || currentMode === 'scenario') buildMcq(item);
-    }
 
-    function updateHud() {
-      el('hudMode').textContent = currentMode.toUpperCase();
-      el('hudScore').textContent = score;
-      el('hudStreak').textContent = streak + (streak >= 5 ? ' 🔥' : '');
-      el('masteryBar').style.width = ((known.size / Math.max(1, allTerms.length)) * 100) + '%';
-      el('sessionGoalStat').textContent = known.size;
+      el('promptText').textContent = item.term;
+      el('promptCounter').textContent = `${state.pointer + 1} / ${state.queue.length}`;
+      el('promptLabel').textContent = `Unit ${state.unit}: ${SUBJECTS[state.subject].units.find(u => u.id === state.unit).title}`;
+      
+      el('answerInput').value = '';
+      el('feedbackPanel').classList.add('hidden');
+      el('typedMode').classList.toggle('hidden', state.mode !== 'typed');
+      el('mcqMode').classList.toggle('hidden', state.mode !== 'mcq');
+      
+      if (state.mode === 'mcq') buildMcq(item);
+      updateMastery();
     }
 
     function buildMcq(item) {
-      const isScenario = currentMode === 'scenario';
-      const distractors = shuffle(allTerms.filter(t => t.term !== item.term)).slice(0, 3).map(t => isScenario ? t.term : t.definition);
-      const correctOption = isScenario ? item.term : item.definition;
-      const options = shuffle([correctOption, ...distractors]);
-      el('mcqOptions').innerHTML = '';
+      const all = SUBJECTS[state.subject].units.flatMap(u => u.terms);
+      const distractors = shuffle(all.filter(t => t.term !== item.term)).slice(0, 3).map(t => t.definition);
+      const options = shuffle([item.definition, ...distractors]);
+      const grid = el('mcqGrid');
+      grid.innerHTML = '';
       options.forEach(opt => {
         const btn = document.createElement('button');
-        btn.className = 'option';
+        btn.className = 'mode-btn';
         btn.textContent = opt;
-        btn.onclick = () => answerMcq(btn, opt === correctOption, correctOption);
-        el('mcqOptions').appendChild(btn);
+        btn.onclick = () => {
+          if (opt === item.definition) { 
+            state.score++; state.known.add(item.term); 
+            btn.style.borderColor = 'var(--color-success)';
+          } else {
+            btn.style.borderColor = 'var(--color-error)';
+          }
+          setTimeout(next, 1000);
+        };
+        grid.appendChild(btn);
       });
     }
 
-    function answerMcq(btn, isCorrect, correctText) {
-      if (mcqLocked) return;
-      mcqLocked = true;
-      clearInterval(timerInterval);
-      if (isCorrect) {
-        score++; streak++; known.add(queue[pointer].term);
-        btn.classList.add('correct');
-        el('mcqFeedback').className = 'feedback good';
-        el('mcqFeedback').innerHTML = `<div class="feedback-status">✅ Correct!</div><div class="feedback-body">Well done.</div>`;
-      } else {
-        streak = 0;
-        btn.classList.add('wrong', 'shake');
-        document.querySelectorAll('.option').forEach(o => { if (o.textContent === correctText) o.classList.add('correct'); });
-        el('mcqFeedback').className = 'feedback bad';
-        el('mcqFeedback').innerHTML = `<div class="feedback-status">❌ Wrong</div><div class="feedback-body">The correct answer was provided.</div>`;
-      }
-      if (queue[pointer].tip) { el('tipText').textContent = queue[pointer].tip; el('examinerTip').classList.add('visible'); }
-      updateHud();
-      setTimeout(next, 2000);
-    }
-
     function next() {
-      pointer++;
-      if (pointer >= queue.length) finish();
+      state.pointer++;
+      if (state.pointer >= state.queue.length) finish();
       else render();
     }
 
     function finish() {
-      el('gameScreen').classList.add('hidden');
-      el('resultScreen').classList.remove('hidden');
-      el('finalScore').textContent = Math.round((score / queue.length) * 100) + '%';
+      el('promptText').textContent = "Session Complete!";
+      el('typedMode').classList.add('hidden');
+      el('mcqMode').classList.add('hidden');
+      el('feedbackPanel').classList.remove('hidden');
+      el('feedbackTitle').textContent = "🎯 Final Score";
+      el('feedbackText').textContent = `You mastered ${Math.round((state.score/state.queue.length)*100)}% of this unit.`;
+      el('studyNotes').innerHTML = '';
+      el('continueBtn').textContent = "Restart Unit";
+      el('continueBtn').onclick = () => initSubject(state.subject);
     }
 
-    function startTimer() {
-      clearInterval(timerInterval);
-      timeLeft = 0;
-      el('timerDisplay').textContent = "00:00";
-      timerInterval = setInterval(() => {
-        if (isPaused) return;
-        timeLeft++;
-        const m = Math.floor(timeLeft / 60);
-        const s = timeLeft % 60;
-        el('timerDisplay').textContent = `${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}`;
-      }, 1000);
+    function updateMastery() {
+      const pct = Math.round((state.known.size / SUBJECTS[state.subject].units.flatMap(u => u.terms).length) * 100);
+      el('statMastery').textContent = pct + '%';
+      el('sessionMasteryText').textContent = pct + '%';
+      el('masteryBar').style.width = pct + '%';
     }
 
-    function renderWeakness() {
-      const dash = el('weaknessDashboard');
-      dash.innerHTML = '<div class="mini">Unit Performance</div>';
-      DATA.forEach(u => {
-        const bar = document.createElement('div');
-        bar.style.marginBottom = '10px';
-        bar.innerHTML = `<div style="display:flex; justify-content:space-between; font-size:10px;"><span>Unit ${u.unit}</span></div><div style="height:6px; background:var(--color-surface-offset); border-radius:999px;"><div style="width:0%; height:100%; background:var(--color-primary); border-radius:999px;"></div></div>`;
-        dash.appendChild(bar);
+    el('revealBtn').onclick = () => {
+      const item = state.queue[state.pointer];
+      el('feedbackPanel').classList.remove('hidden');
+      el('feedbackTitle').textContent = "📖 Official Definition";
+      el('feedbackText').textContent = item.definition;
+      
+      const notes = el('studyNotes');
+      notes.innerHTML = '';
+      item.points.forEach(p => {
+        const n = document.createElement('div');
+        n.className = 'note-item';
+        n.innerHTML = `<strong>Study Point</strong>${p}`;
+        notes.appendChild(n);
       });
-    }
+      const s = document.createElement('div');
+      s.className = 'note-item';
+      s.style.borderColor = 'var(--color-primary)';
+      s.innerHTML = `<strong style="color:var(--color-primary)">Examiner Secret</strong>${item.secret}`;
+      notes.appendChild(s);
+    };
 
-    // Init first subject
-    initSubject('business');
+    el('continueBtn').onclick = () => {
+      state.score++; 
+      state.known.add(state.queue[state.pointer].term);
+      next();
+    };
 
-    // Controls
+    el('knownBtn').onclick = () => { state.score++; state.known.add(state.queue[state.pointer].term); next(); };
+    el('nextBtn').onclick = next;
+    el('subjectBtn').onclick = () => el('subjectOverlay').classList.remove('hidden');
+    el('startSession').onclick = () => initSubject(state.subject);
+    el('themeBtn').onclick = () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', current === 'light' ? 'dark' : (current === 'dark' ? 'pink' : 'light'));
+    };
+
     document.querySelectorAll('[data-mode]').forEach(btn => btn.onclick = () => {
-      currentMode = btn.dataset.mode;
-      el('typedMode').classList.toggle('hidden', currentMode !== 'typed');
-      el('mcqMode').classList.toggle('hidden', currentMode === 'typed');
+      document.querySelectorAll('[data-mode]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.mode = btn.dataset.mode;
       render();
     });
 
-    el('checkBtn').onclick = () => {
-      const item = queue[pointer];
-      el('feedbackBox').innerHTML = `<div class="feedback-status">📖 Definition</div><div class="feedback-divider"></div><div class="feedback-body">${item.definition}</div>`;
-      if (item.tip) { el('tipText').textContent = item.tip; el('examinerTip').classList.add('visible'); }
-    };
-    
-    el('knowBtn').onclick = () => { score++; streak++; known.add(queue[pointer].term); updateHud(); next(); };
-    el('nextBtn').onclick = next;
-    el('nextMcqBtn').onclick = next;
-    el('restartBtn').onclick = () => setUnit(currentUnit);
-    el('shuffleAll').onclick = () => setUnit('all');
-    
-    el('pauseToggle').onclick = () => {
-      isPaused = !isPaused;
-      el('pauseToggle').textContent = isPaused ? "Pause: ON" : "Pause: Off";
-      el('pauseIndicator').classList.toggle('hidden', !isPaused);
+    // AI Logic
+    el('aiSettingsBtn').onclick = () => el('aiModal').classList.remove('hidden');
+    el('closeAi').onclick = () => el('aiModal').classList.add('hidden');
+    el('saveAi').onclick = () => {
+      state.geminiKey = el('apiKeyInput').value;
+      localStorage.setItem('geminiKey', state.geminiKey);
+      el('aiModal').classList.add('hidden');
+      alert("AI Key Saved!");
     };
 
-    document.querySelector('[data-theme-toggle]').onclick = () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'light' ? 'dark' : (current === 'dark' ? 'pink' : 'light');
-      document.documentElement.setAttribute('data-theme', next);
-    };
+    async function aiCheck() {
+      if (!state.geminiKey) return alert("Please set your AI key first!");
+      const item = state.queue[state.pointer];
+      const userAns = el('answerInput').value;
+      el('feedbackPanel').classList.remove('hidden');
+      el('feedbackTitle').textContent = "🤖 AI Grading...";
+      
+      try {
+        const prompt = `Grade this IGCSE student answer for "${item.term}". Official definition: "${item.definition}". User: "${userAns}". Return ONLY JSON: {"verdict": "Grade 9/7/5/Fail", "feedback": "1 sentence why"}`;
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${state.geminiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+        });
+        const data = await res.json();
+        const json = JSON.parse(data.candidates[0].content.parts[0].text.replace(/```json|```/g, ''));
+        el('feedbackTitle').textContent = `🤖 AI Verdict: ${json.verdict}`;
+        el('feedbackText').textContent = json.feedback;
+      } catch (e) {
+        el('feedbackText').textContent = "AI error. Check your key.";
+      }
+    }
+    el('aiBtn').onclick = aiCheck;
 
+    initSubject('business');
   </script>
-  <script src="study-hub.js"></script>
 </body>
 </html>
