@@ -1,5 +1,5 @@
 window.STUDY_DATA = {
-  "generatedAt": 1778349388.33294,
+  "generatedAt": 1778350727.8118947,
   "formulas": [
     {
       "section": "Ion Charges",
@@ -423,6 +423,10 @@ window.STUDY_DATA = {
         {
           "label": "Question Paper",
           "url": "english/4ea1-01-que-20231108.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-rms-20230302.pdf"
         }
       ]
     },
@@ -436,29 +440,7 @@ window.STUDY_DATA = {
         {
           "label": "Question Paper",
           "url": "english/4ea1-01r-que-20230113.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4EA1_01_2023_M3",
-      "title": "4EA1/01 · 2023 M3",
-      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
-      "paper_code": "4EA1",
-      "session": "2023_M3",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "english/4ea1-01-rms-20230302.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4EA1_01R_2023_M3",
-      "title": "4EA1/01R · 2023 M3",
-      "subtitle": "English Language A Paper 01R",
-      "paper_code": "4EA1",
-      "session": "2023_M3",
-      "assets": [
+        },
         {
           "label": "Mark Scheme",
           "url": "english/4ea1-01r-rms-20230302.pdf"
@@ -500,6 +482,19 @@ window.STUDY_DATA = {
       ]
     },
     {
+      "id": "4BS1_02_2022_Winter",
+      "title": "4BS1/02 · 2022 Winter",
+      "subtitle": "Business Paper 2: Investigating Large Businesses",
+      "paper_code": "4BS1",
+      "session": "2022_Winter",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "buiness/4bs1-02-rms-20220224.pdf"
+        }
+      ]
+    },
+    {
       "id": "4EA1_01_2022_Winter",
       "title": "4EA1/01 · 2022 Winter",
       "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
@@ -509,6 +504,14 @@ window.STUDY_DATA = {
         {
           "label": "Question Paper",
           "url": "english/4ea1-01-que-20220114.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-rms-20220224.pdf"
+        },
+        {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-rms-20220303.pdf"
         }
       ]
     },
@@ -522,55 +525,7 @@ window.STUDY_DATA = {
         {
           "label": "Question Paper",
           "url": "english/4ea1-01r-que-20220114.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02_2022_M2",
-      "title": "4BS1/02 · 2022 M2",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2022_M2",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "buiness/4bs1-02-rms-20220224.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4EA1_01_2022_M2",
-      "title": "4EA1/01 · 2022 M2",
-      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
-      "paper_code": "4EA1",
-      "session": "2022_M2",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "english/4ea1-01-rms-20220224.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4EA1_01_2022_M3",
-      "title": "4EA1/01 · 2022 M3",
-      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
-      "paper_code": "4EA1",
-      "session": "2022_M3",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "english/4ea1-01-rms-20220303.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4EA1_01R_2022_M3",
-      "title": "4EA1/01R · 2022 M3",
-      "subtitle": "English Language A Paper 01R",
-      "paper_code": "4EA1",
-      "session": "2022_M3",
-      "assets": [
+        },
         {
           "label": "Mark Scheme",
           "url": "english/4ea1-01r-rms-20220303.pdf"
@@ -602,6 +557,10 @@ window.STUDY_DATA = {
       "session": "2021_Summer",
       "assets": [
         {
+          "label": "Question Paper",
+          "url": "english/4ea1-01-que-20210427.pdf"
+        },
+        {
           "label": "Mark Scheme",
           "url": "english/4ea1-01-rms-20210604.pdf"
         }
@@ -615,8 +574,25 @@ window.STUDY_DATA = {
       "session": "2021_Winter",
       "assets": [
         {
+          "label": "Mark Scheme",
+          "url": "buiness/4bs1-02-msc-20210211.pdf"
+        },
+        {
           "label": "Question Paper",
           "url": "buiness/4bs1-02-que-20211126.pdf"
+        }
+      ]
+    },
+    {
+      "id": "4BS1_02R_2021_Winter",
+      "title": "4BS1/02R · 2021 Winter",
+      "subtitle": "Business Paper 02R",
+      "paper_code": "4BS1",
+      "session": "2021_Winter",
+      "assets": [
+        {
+          "label": "Mark Scheme",
+          "url": "buiness/4bs1-02r-msc-20210211.pdf"
         }
       ]
     },
@@ -628,69 +604,21 @@ window.STUDY_DATA = {
       "session": "2021_Winter",
       "assets": [
         {
+          "label": "Mark Scheme",
+          "url": "english/4ea1-01-msc-20210211.pdf"
+        },
+        {
           "label": "Question Paper",
           "url": "english/4ea1-01-que-20211102.pdf"
         }
       ]
     },
     {
-      "id": "4BS1_02_2021_M2",
-      "title": "4BS1/02 · 2021 M2",
-      "subtitle": "Business Paper 2: Investigating Large Businesses",
-      "paper_code": "4BS1",
-      "session": "2021_M2",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "buiness/4bs1-02-msc-20210211.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4BS1_02R_2021_M2",
-      "title": "4BS1/02R · 2021 M2",
-      "subtitle": "Business Paper 02R",
-      "paper_code": "4BS1",
-      "session": "2021_M2",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "buiness/4bs1-02r-msc-20210211.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4EA1_01_2021_M2",
-      "title": "4EA1/01 · 2021 M2",
-      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
-      "paper_code": "4EA1",
-      "session": "2021_M2",
-      "assets": [
-        {
-          "label": "Mark Scheme",
-          "url": "english/4ea1-01-msc-20210211.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4EA1_01_2021_M4",
-      "title": "4EA1/01 · 2021 M4",
-      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
-      "paper_code": "4EA1",
-      "session": "2021_M4",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "english/4ea1-01-que-20210427.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4EA1_01R_2021_M2",
-      "title": "4EA1/01R · 2021 M2",
+      "id": "4EA1_01R_2021_Winter",
+      "title": "4EA1/01R · 2021 Winter",
       "subtitle": "English Language A Paper 01R",
       "paper_code": "4EA1",
-      "session": "2021_M2",
+      "session": "2021_Winter",
       "assets": [
         {
           "label": "Mark Scheme",
@@ -733,6 +661,10 @@ window.STUDY_DATA = {
       "assets": [
         {
           "label": "Question Paper",
+          "url": "english/4ea1-01-que-20200305 (1).pdf"
+        },
+        {
+          "label": "Question Paper",
           "url": "english/4ea1-01-que-20201103.pdf"
         }
       ]
@@ -746,33 +678,11 @@ window.STUDY_DATA = {
       "assets": [
         {
           "label": "Question Paper",
-          "url": "english/4ea1-01r-que-20201103.pdf"
-        }
-      ]
-    },
-    {
-      "id": "4EA1_01_2020_M3",
-      "title": "4EA1/01 · 2020 M3",
-      "subtitle": "English Language A Paper 1: Non-fiction Texts and Transactional Writing",
-      "paper_code": "4EA1",
-      "session": "2020_M3",
-      "assets": [
-        {
-          "label": "Question Paper",
-          "url": "english/4ea1-01-que-20200305 (1).pdf"
-        }
-      ]
-    },
-    {
-      "id": "4EA1_01R_2020_M3",
-      "title": "4EA1/01R · 2020 M3",
-      "subtitle": "English Language A Paper 01R",
-      "paper_code": "4EA1",
-      "session": "2020_M3",
-      "assets": [
-        {
-          "label": "Question Paper",
           "url": "english/4ea1-01r-que-20200305.pdf"
+        },
+        {
+          "label": "Question Paper",
+          "url": "english/4ea1-01r-que-20201103.pdf"
         }
       ]
     },
@@ -819,8 +729,35 @@ window.STUDY_DATA = {
   ],
   "paperDrills": [
     {
+      "type": "mcq",
+      "source": "4bs1-02-2021-Winter_MS",
+      "question_id": "1 (a) (ii)",
+      "prompt": "Answer Mark 1 (a) (i) AO1 = 1 mark The only correct answer is B - Shares are traded on the stock exchange A is not correct because a plc is not controlled by the government Cis not correct because a plc can have more than 50 shareholders Dis not correct because there is no restriction in transfer of shares (1) Question Number",
+      "marks": 1,
+      "answer_letter": "C",
+      "answer_text": "Finance A is not correct because Human resources looks after people Bis not correct because Marketing identifies customers’ needs Dis not correct because Production is making goods"
+    },
+    {
+      "type": "mcq",
+      "source": "4bs1-02-2021-Winter_MS",
+      "question_id": "1 (a)(iv)",
+      "prompt": "Answer Mark 1 (a) (iii) AO2 = 1 mark The only correct answer is A - 12.5% Bis not correct because Total equals £1 200 000 and 20.8% - Business 4 Cis not correct because 25% = £300 000 – Business 1 Dis not correct because 29.2% = £350 000 – Business 5 (1) Question Number",
+      "marks": 1,
+      "answer_letter": "B",
+      "answer_text": "More funds taken out than are in the account A is not correct because borrowing regular amounts is a loan Cis not correct because money lent by many people is ‘just giving’ Dis not correct because a loan for repayment is a loan"
+    },
+    {
+      "type": "mcq",
+      "source": "4bs1-02-2021-Winter_MS",
+      "question_id": "1 (a)(vi)",
+      "prompt": "Answer Mark 1 (a) (v) AO2 = 1 mark The only correct answer is D - 2.53% A is not correct because calculation worked out on Cash assets not Total assets Bis not correct because percentage correct but not minus calculation wrong way round Cis not correct because calculation worked out using 2016-2017 figure not 2015-2016 figure (1) Question Number",
+      "marks": 1,
+      "answer_letter": "C",
+      "answer_text": "Job description A is not correct because a Business plan is not in recruitment Bis not correct because Induction training is after recruitment Dis not correct because Job enrichment is after recruitment"
+    },
+    {
       "type": "extended_answer",
-      "source": "4bs1-02-2021-M2_MS",
+      "source": "4bs1-02-2021-Winter_MS",
       "question_id": "1 (c)",
       "prompt": "Answer Mark 1 (b) AO1 = 1 mark Award 1 mark for a correct definition of social enterprise. • A business whose profits are used to benefit it and the community (1). (1) Question Number",
       "marks": 1,
@@ -828,7 +765,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2021-M2_MS",
+      "source": "4bs1-02-2021-Winter_MS",
       "question_id": "1 (e)",
       "prompt": "Answer Mark 1 (d) A02 = 1 mark Award 1 mark for a valid reason why Emirates uses competition pricing in the context of the business. • To attract more people to fly with Emirates and not its competitors (1). • As Emirates flies to 180 destinations consumers do not find it necessary to choose other airlines (1). Accept any other appropriate response. (1) Question Number",
       "marks": 2,
@@ -836,7 +773,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2021-M2_MS",
+      "source": "4bs1-02-2021-Winter_MS",
       "question_id": "2 (a)",
       "prompt": "Answer Mark 1 (f) A01 = 3 marks Award 1 mark for identification of a factor in Herzberg’s motivational theory, plus 2 further marks for explaining the reason, for a maximum of 3 marks. • One factor is called a hygiene factor (1) workers can become demotivated (1) if hygiene factors such as pay are not met (1). • The other factor is motivator (1) employees gain achievement in their job (1) which allows then to grow and develop (1). Answers that list two factors with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3) Question Number Indicative content Mark 1 (g) AO2 = 3 marks AO3 = 3 marks AO2 • Comparison of finances from different routes can be made from year to year. Emirates can make decisions on whether routes continue. AO3 • Decisions can then be made whether to reduce costs or change certain strategies. • The figures can also inform Emirates what action it might need to take in coming years. (6) Level Mark Descriptor 0 No rewardable material. Level 1 1–2 • Limited application of knowledge and understanding of business concepts and issues to the business context. (AO2) • Attempts to deconstruct business information and/or issues, finding limited connections between points. (AO3) Level 2 3–4 • Sound application of knowledge and understanding of business concepts and issues to the business context although there may be some inconsistencies. (AO2) • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies. (AO3) Level 3 5–6 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout. (AO2) • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning. (AO3) Question Number",
       "marks": 1,
@@ -844,7 +781,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2021-M2_MS",
+      "source": "4bs1-02-2021-Winter_MS",
       "question_id": "2 (c)",
       "prompt": "Answer Mark 2 (b) A02 = 1 mark Award 1 mark for a valid reason of having a loyalty programme in the context of the business. • Encourages customers to fly again with Emirates (1). • Loyalty to Emirates airline rather than competing airlines (1). Accept any other appropriate response. (1) Question Number",
       "marks": 3,
@@ -852,7 +789,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2021-M2_MS",
+      "source": "4bs1-02-2021-Winter_MS",
       "question_id": "2 (e)",
       "prompt": "Answer Mark 2 (d) A01 = 3 marks Award 1 mark for a reason for using seasonal staff, plus 2 further marks for explaining this reason, for a maximum of 3 marks. • Seasonal staff are employed when there is increased demand (1) this could be during holiday periods (1) when the full-time employees cannot meet the demand (1). Answers that list three reasons with no explanation will get a maximum of 1 mark. NB No marks are awarded for a definition. Accept any other appropriate response. (3) Question Number",
       "marks": 3,
@@ -860,7 +797,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2021-M2_MS",
+      "source": "4bs1-02-2021-Winter_MS",
       "question_id": "3 (a)",
       "prompt": "Indicative content Mark 2 (f) AO2 = 3 marks AO3 = 3 marks AO4 = 3 marks AO2 • Option 1 – Questionnaires are easy for passengers to complete. • Option 2 – Focus groups allow passengers to give their opinions face-to-face. AO3 • Option 1 – The questionnaire can be completed in as much detail as the passenger wants. • Option 2 –This means that passenger views on flights can be developed and investigated further if needed. AO4 • Option 1 – However, often they are not filled in correctly and do not give the information about flights needed by Emirates. • Option 2 – However, a focus group can only be for a certain number of passengers and therefore might not give a true cross section of all classes of passengers. (9) Level Mark Descriptor 0 No rewardable material. Level 1 1–3 • Limited application of knowledge and understanding of business concepts and issues to the business context. (AO2) • Attempts to deconstruct business information and/or issues, finding limited connections between points. (AO3) • Makes a judgement, providing a simple justification based on limited evaluation of business information and issues relevant to the choice made. (AO4) Level 2 4–6 • Sound application of knowledge and understanding of business concepts and issues to the business context although there may be some inconsistencies. (AO2) • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies. (AO3) • Makes a judgement, providing a justification based on sound evaluation of business information and issues relevant to the choice made. (AO4) Level 3 7–9 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout. (AO2) • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning. (AO3) • Makes a judgement, providing a clear justification based on a thorough evaluation of business information and issues relevant to the choice made. (AO4) Question Number",
       "marks": 1,
@@ -868,7 +805,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2021-M2_MS",
+      "source": "4bs1-02-2021-Winter_MS",
       "question_id": "3 (c)",
       "prompt": "Answer Mark 3 (b) A02 = 2 marks Award 1 mark for identifying a reason why Emirates would have short chains of command, plus 1 further mark for linking it to the context of the question. • Communication between Emirates’ employees involved in recycling would be quicker, and therefore, more accurate (1). Communication between these employees will only pass through a few levels before reaching the intended employee (1). NB Do not accept a reason that is not in the context of Emirates. Accept any other appropriate response. (2) Question Number",
       "marks": 2,
@@ -876,7 +813,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2021-M2_MS",
+      "source": "4bs1-02-2021-Winter_MS",
       "question_id": "4 (a)",
       "prompt": "Indicative content Mark 3 (d) AO2 = 3 marks AO3 = 3 marks AO2 • As Emirates recycles all waste from its aircraft this is a good marketing technique. • Emirates wants to maintain its reputation as a business that cares about the environment and does this by reducing its fuel consumption. AO3 • Emirates has a good record of recycling, which may prove attractive to people who care for the environment. They are more likely to use Emirates because of its environmental policies. • Although Emirates pollutes the environment by using fuel, it is now reducing that use and, therefore, has become less polluting. (6) Level Mark Descriptor 0 No rewardable material. Level 1 1–2 • Limited application of knowledge and understanding of business concepts and issues to the business context. (AO2) • Attempts to deconstruct business information and/or issues, finding limited connections between points. (AO3) Level 2 3–4 • Sound application of knowledge and understanding of business concepts and issues to the business context, although there may be some inconsistencies. (AO2) • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies. (AO3) Level 3 5–6 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout. (AO2) • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning. (AO3) Question Number Indicative content Mark 3 (e) AO2 = 3 marks AO3 = 3 marks AO4 = 3 marks AO2 • Option 1 – Increasing special offers encourages more passengers to fly with Emirates. • Option 2 – Many passengers will use social media and, therefore, it is a good way to advertise to a large number of potential passengers. AO3 • Option 1 – This improves sales for Emirates, which helps it towards regaining its prime position against its competitors. • Option 2 – It is a quicker, more up-to-date and less expensive way to get information out to passengers and potential passengers. AO4 • Option 1 – Although special offers help, it is the service and the way passengers are treated that improves the airline’s status. • Option 2 – However, there is no control over social media and what is being said about Emirates by the users of social media. (9) Level Mark Descriptor 0 No rewardable material. Level 1 1–3 • Limited application of knowledge and understanding of business concepts and issues to the business context. (AO2) • Attempts to deconstruct business information and/or issues, finding limited connections between points. (AO3) • Makes a judgement, providing a simple justification based on limited evaluation of business information and issues relevant to the choice made. (AO4) Level 2 4–6 • Sound application of knowledge and understanding of business concepts and issues to the business context although there may be some inconsistencies. (AO2) • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies. (AO3) • Makes a judgement, providing a justification based on sound evaluation of business information and issues relevant to the choice made. (AO4) Level 3 7–9 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout. (AO2) • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning. (AO3) • Makes a judgement, providing a clear justification based on a thorough evaluation of business information and issues relevant to the choice made. (AO4) Question Number",
       "marks": 2,
@@ -1378,7 +1315,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "1 (a) (i)",
       "prompt": "Which one of the following is an advantage of primary market research?",
       "marks": 1,
@@ -1386,7 +1323,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "1 (a) (ii)",
       "prompt": "Which one of the following is a financial objective?",
       "marks": 1,
@@ -1394,7 +1331,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "1 (a) (iii)",
       "prompt": "Which one of the following is the total revenue for a day?",
       "marks": 1,
@@ -1402,7 +1339,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "1 (a) (iv)",
       "prompt": "Which one of the following would be a disadvantage for a partner in a partnership?",
       "marks": 1,
@@ -1410,7 +1347,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "1 (a) (v)",
       "prompt": "What would be the brand value in 2019?",
       "marks": 1,
@@ -1418,7 +1355,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "1 (a) (vi)",
       "prompt": "Which one of the following is a source of long- term finance?",
       "marks": 1,
@@ -1426,7 +1363,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "definition",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "1 (b)",
       "prompt": "Define the term sole trader.",
       "marks": 1,
@@ -1434,7 +1371,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "definition",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "1 (c)",
       "prompt": "Define the term demographics.",
       "marks": 1,
@@ -1442,7 +1379,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "short_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "1 (d)",
       "prompt": "State one reason why Huawei may use share capital as a source of finance.",
       "marks": 1,
@@ -1450,7 +1387,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "calculation",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "1 (e)",
       "prompt": "Calculate, to two decimal places, the operating profit margin for Huawei.",
       "marks": 2,
@@ -1460,7 +1397,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "short_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "1 (f)",
       "prompt": "Explain one advantage for a business of using sponsorship.",
       "marks": 3,
@@ -1468,7 +1405,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "2 (a)",
       "prompt": "Analyse the benefits of Huawei of locating its factories near to its labour sources. Indicative content Mark 1 (g) AO2 = 3 marks AO3 = 3 marks AO2 • By locating a factory in an area where there is a skilled labour force it could reduce training costs • Huawei may need certain skills to operate manufacturing machinery for its products e.g. smartphones AO3 • The money saved could then be used for other purposes within Huawei • If those skills are available the factory may become more productive and efficient in manufacturing smartphones (6) Level Mark Descriptor 0 No rewardable material. Level 1 1–2 • Limited application of knowledge and understanding of business concepts and issues to the business context (AO2). • Attempts to deconstruct business information and/or issues, finding limited connections between points (AO3). Level 2 3–4 • Sound application of knowledge and understanding of business concepts and issues to the business context although there may be some inconsistencies (AO2). • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies (AO3). Level 3 5–6 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout (AO2). • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning (AO3). 4BS1 02 November 2021 Question Number State one possible reason why Huawei pays its employees in the UK above the minimum wage.",
       "marks": 1,
@@ -1476,7 +1413,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "short_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "2 (b)",
       "prompt": "State one possible reason why Huawei would want to keep its customers loyal to its brand.",
       "marks": 1,
@@ -1484,7 +1421,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "short_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "2 (c)",
       "prompt": "Explain one reason why having good public relations is important to a business.",
       "marks": 3,
@@ -1492,7 +1429,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "short_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "2 (d)",
       "prompt": "Explain one benefit of being a multinational business.",
       "marks": 3,
@@ -1500,7 +1437,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "short_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "2 (e)",
       "prompt": "Explain one reason why secondary research would be used by a business.",
       "marks": 3,
@@ -1508,7 +1445,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "3 (a)",
       "prompt": "Option 1: financial Option 2: non-financial. Indicative content Mark 2 (f) AO2 = 3 marks AO3 = 3 marks AO4 = 3 marks AO2 • Option 1 – By offering financial methods to its employees such as bonus payments, piece rates, employees will remain productive • Option 2 – If Huawei offers non-financial benefits such as job enrichment employees are more likely to enjoy working at the Huawei and feel motivated AO3 • Option 1 – Employees are more likely to stay with Huawei than move to another business • Option 2 – Employees will gain new skills and feel valued by Huawei, which may help them gain promotion such as becoming a supervisor of a group of staff assembling tablets or watches AO4 • Option 1 – However, employees may not be interested in bonus payments if they are assembling tablets and they do not meet the targets set therefore not getting the additional wage • Option 2 – However, not all employees are motivated by non-financial methods of motivation such as job enrichment, they may prefer to remain producing smartphones and would prefer to have additional wages in their payslips so that they can pay their bills (9) 4BS1 02 November 2021 Level Mark Descriptor 0 No rewardable material. Level 1 1–3 • Limited application of knowledge and understanding of business concepts and issues to the business context (AO2). • Attempts to deconstruct business information and/or issues, finding limited connections between points (AO3). • Makes a judgement, providing a simple justification based on limited evaluation of business information and issues relevant to the choice made (AO4). Level 2 4–6 • Sound application of knowledge and understanding of business concepts and issues to the business context although there may be some inconsistencies (AO2). • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies (AO3). • Makes a judgement, providing a justification based on sound evaluation of business information and issues relevant to the choice made (AO4). Level 3 7–9 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout (AO2). • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning (AO3). • Makes a judgement, providing a clear justification based on a thorough evaluation of business information and issues relevant to the choice made (AO4). 4BS1 02 November 2021 Question Number Define the term revenue.",
       "marks": 1,
@@ -1516,7 +1453,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "3 (b)",
       "prompt": "Outline one reason why Huawei would use robotics in the production of its products.",
       "marks": 2,
@@ -1524,7 +1461,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "calculation",
-      "source": "4bs1-02-2022-M2_MS",
+      "source": "4bs1-02-2022-Winter_MS",
       "question_id": "4 (a)",
       "prompt": "Calculate the interest Huawei would pay. Answer Additional guidance Mark 3 (c) A02 - 2 marks 69 941 000 000 x 4.5/100 (1) = 3 147 345 000 (1) Award 1 mark for correctly substituting numbers into formula. Award full marks for correct numerical answer without working. (2) 4BS1 02 November 2021 Question Number Analyse why Huawei offers its new employees in the design department off-the job training. Indicative content Mark 3 (d) AO2 = 3 marks AO3 = 3 marks AO2 • This involves new employees being trained outside Huawei at an external college by tutors and/or other experts in modern technology such as smartphones and tablets • Employees can learn at their own pace the detail and requirements of producing smartphones and tablets AO3 • As a result, it means that Huawei present employees concentrate on their work, and do not have to supervise or train new employees • Employees do not have to worry about making mistakes or errors that could cost Huawei money (6) Level Mark Descriptor 0 No rewardable material. Level 1 1–2 • Limited application of knowledge and understanding of business concepts and issues to the business context (AO2). • Attempts to deconstruct business information and/or issues, finding limited connections between points (AO3). Level 2 3–4 • Sound application of knowledge and understanding of business concepts and issues to the business context although there may be some inconsistencies (AO2). • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies (AO3). Level 3 5–6 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout (AO2). • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning (AO3). 4BS1 02 November 2021 Question Number Option 1: competition pricing Option 2: promotional pricing. Indicative content Mark 3 (e) AO2 = 3 marks AO3 = 3 marks AO4 = 3 marks AO2 • Option 1 – If Huawei uses this method of pricing, then it is likely to gain sales of the new smartphone because the price will be realistic • Option 2 – Selling at a cheaper price encourages customers to switch from their present brand to Huawei AO3 • Option 1 – This pricing strategy means that the consumers have more choice of smartphones as they are all priced at a similar rate • Option 2 – Huawei could gain a larger market share of smartphone users who change brands AO4 • Option 1 – However, this does not always mean that the cost of production is covered and if Huawei uses this method, it may lose out financially • Option 2 – However, promotional pricing may generate sales for the length of time of the promotion, but once the price of the smartphones reverts to their normal price it may reduce sales (9) 4BS1 02 November 2021 Level Mark Descriptor 0 No rewardable material. Level 1 1–3 • Limited application of knowledge and understanding of business concepts and issues to the business context (AO2). • Attempts to deconstruct business information and/or issues, finding limited connections between points (AO3). • Makes a judgement, providing a simple justification based on limited evaluation of business information and issues relevant to the choice made (AO4). Level 2 4–6 • Sound application of knowledge and understanding of business concepts and issues to the business context although there may be some inconsistencies (AO2). • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies (AO3). • Makes a judgement, providing a justification based on sound evaluation of business information and issues relevant to the choice made (AO4). Level 3 7– 9 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout (AO2). • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning (AO3). • Makes a judgement, providing a clear justification based on a thorough evaluation of business information and issues relevant to the choice made (AO4). 4BS1 02 November 2021 Question Number Calculate the cost of this smartphone in US Dollars",
       "marks": 2,
@@ -1534,7 +1471,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02r-2021-M2_MS",
+      "source": "4bs1-02r-2021-Winter_MS",
       "question_id": "1 (c)",
       "prompt": "Answer Mark 1 (b) AO1 = 1 mark Award 1 mark for a correct definition of commission. • Payment made to an employee linked to the number of sales made (1). (1) Question Number",
       "marks": 1,
@@ -1542,7 +1479,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02r-2021-M2_MS",
+      "source": "4bs1-02r-2021-Winter_MS",
       "question_id": "1 (e)",
       "prompt": "Answer Mark 1 (d) A02 = 1 mark Award 1 mark for a valid reason for having a short span of control in the context of the business. • This allows the directors of HRMW to communicate with all manufacturing departments such as boxing gloves and hockey sticks (1). Accept any other appropriate response. (1) Question Number",
       "marks": 2,
@@ -1550,7 +1487,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02r-2021-M2_MS",
+      "source": "4bs1-02r-2021-Winter_MS",
       "question_id": "2 (a)",
       "prompt": "Answer Mark 1 (f) A01 = 3 marks Award 1 mark for identification of a reason for sponsoring an event, plus 2 further marks for explaining the reason, for a maximum of 3 marks. • Sponsorship is making a financial contribution to an event (1). This makes more people aware of the business’s products (1). This could, in turn, increase sales of those products (1). Answers that list three reasons with no explanation will get a maximum of 1 mark. Accept any other appropriate response. (3) Question Number Indicative content Mark 1 (g) AO2 = 3 marks AO3 = 3 marks AO2 • It differentiates its football products from those of its competitors. • It helps customers to recognise its own logo that appears on all its products. AO3 • Advertising the footballs is easier because customers are aware of the brand name and the quality of products. • Customers are more likely to buy a HRMW hockey stick, rather than an unbranded product, when they see the logo. (6) Level Mark Descriptor 0 No rewardable material. Level 1 1-2 • Limited application of knowledge and understanding of business concepts and issues to the business context. (AO2) • Attempts to deconstruct business information and/or issues, finding limited connections between points. (AO3) Level 2 3-4 • Sound application of knowledge and understanding of business concepts and issues to the business context although there may be some inconsistencies. (AO2) • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies. (AO3) Level 3 5-6 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout. (AO2) • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning. (AO3) Question Number",
       "marks": 1,
@@ -1558,7 +1495,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02r-2021-M2_MS",
+      "source": "4bs1-02r-2021-Winter_MS",
       "question_id": "2 (c)",
       "prompt": "Answer Mark 2 (b) A02 = 1 mark Award 1 mark for a valid reason for carrying out market research in the context of the business. • HRMW can collect information relating to sports products it sells or intends to sell (1). Accept any other appropriate response. (1) Question Number",
       "marks": 3,
@@ -1566,7 +1503,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02r-2021-M2_MS",
+      "source": "4bs1-02r-2021-Winter_MS",
       "question_id": "2 (e)",
       "prompt": "Answer Mark 2 (d) A01 = 3 marks Award 1 mark for a benefit to using the internet for secondary market research, plus 2 further marks for explaining this benefit, for a maximum of 3 marks. • Using the internet for secondary research enables businesses to access a large volume of data (1). This means that businesses do not have to go out and collect the data themselves, as they find it on the internet (1). This is a much cheaper and quicker way of collecting the required information as someone else has already done it (1). Answers that list three benefits with no explanation will get a maximum of 1 mark. NB No marks are awarded for a definition. Accept any other appropriate response. (3) Question Number",
       "marks": 3,
@@ -1574,7 +1511,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02r-2021-M2_MS",
+      "source": "4bs1-02r-2021-Winter_MS",
       "question_id": "3 (a)",
       "prompt": "Indicative content Mark 2 (f) AO2 = 3 marks AO3 = 3 marks AO4 = 3 marks AO2 • Option 1 – By using this method the employees are involved in the process of improving the production of the sports products they manufacture. • Option 2 – With JIT (just-in-time) employees do not waste time waiting for materials to arrive such as leather used to make footballs. AO3 • Option 1 – The employees know ‘first-hand’ where improvements in the production of sports products could be made. • Option 2 – This saves HRMW from having to have space to store the materials from which it makes sporting products, and this saves costs. AO4 • Option 1 – However, there is no guarantee that the employees are willing to help improve the production of sports products thereby, saving the business money. • Option 2 – However, JIT can only work provided employees making footballs work at the same rate and that the supplier delivers the leather on time. (9) Level Mark Descriptor 0 No rewardable material. Level 1 1-3 • Limited application of knowledge and understanding of business concepts and issues to the business context. (AO2) • Attempts to deconstruct business information and/or issues, finding limited connections between points. (AO3) • Makes a judgement, providing a simple justification based on limited evaluation of business information and issues relevant to the choice made. (AO4) Level 2 4-6 • Sound application of knowledge and understanding of business concepts and issues to the business context although there may be some inconsistencies. (AO2) • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies. (AO3) • Makes a judgement, providing a justification based on sound evaluation of business information and issues relevant to the choice made. (AO4) Level 3 7 - 9 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout. (AO2) • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning. (AO3) • Makes a judgement, providing a clear justification based on a thorough evaluation of business information and issues relevant to the choice made. (AO4) Question Number",
       "marks": 1,
@@ -1582,7 +1519,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02r-2021-M2_MS",
+      "source": "4bs1-02r-2021-Winter_MS",
       "question_id": "3 (c)",
       "prompt": "Answer Mark 3 (b) A02 = 2 marks Award 1 mark for identifying a reason why HRMW would use robotics in its production, plus 1 further mark for linking it to the context of the question. • HRMW uses robots in the manufacture of these sportswear because they are more accurate than employees (1) reducing the number of errors in the products distributed to customers (1). They work 24/7 without having a break (1), which means that more sports products are made (1). NB Do not accept a reason that is not in the context of HRMW. Accept any other appropriate response. (2) Question Number",
       "marks": 2,
@@ -1590,7 +1527,7 @@ window.STUDY_DATA = {
     },
     {
       "type": "extended_answer",
-      "source": "4bs1-02r-2021-M2_MS",
+      "source": "4bs1-02r-2021-Winter_MS",
       "question_id": "4 (a)",
       "prompt": "Indicative content Mark 3 (d) AO2 = 3 marks AO3 = 3 marks AO2 • Using break-even charts assumes that all the tennis racquets are sold. • The simple chart assumes that the costs and revenues for the tennis racquets can be represented by a straight line. AO3 • The chart does not show if some of the tennis racquets are kept as stock items or if some of them remain unsold. • There may be other factors that need to be considered. Increased output may involve paying staff additional wages to produce more tennis racquets. (6) Level Mark Descriptor 0 No rewardable material. Level 1 1-2 • Limited application of knowledge and understanding of business concepts and issues to the business context. (AO2) • Attempts to deconstruct business information and/or issues, finding limited connections between points. (AO3) Level 2 3-4 • Sound application of knowledge and understanding of business concepts and issues to the business context although there may be some inconsistencies. (AO2) • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies. (AO3) Level 3 5-6 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout. (AO2) • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning. (AO3) Question Number Indicative content Mark 3 (e) AO2 = 3 marks AO3 = 3 marks AO4 = 3 marks AO2 • Option 1 – HRMW has the retained profit and this could be used straight away to pay for the R&Dfor the tennis racquets. • Option 2 – Selling off assets that HRMW owns and no longer uses makes good business sense. AO3 • Option 1 – Because HRMW has retained profits the manufacture of tennis racquets can begin immediately and bring in revenue. • Option 2 – Selling assets means that HRMW has another source of finance and does not need to use retained profit or take out a loan. AO4 • Option 1 – However, there may be insufficient retained profit and HRMW would then have to take out a loan which could be expensive. • Option 2 – However, if HRMW sells assets there is no guarantee that it can do so in time, which means it may have to find alternative sources of funds thereby, wasting time producing the tennis racquets for sale. (9) Level Mark Descriptor 0 No rewardable material. Level 1 1-3 • Limited application of knowledge and understanding of business concepts and issues to the business context. (AO2) • Attempts to deconstruct business information and/or issues, finding limited connections between points. (AO3) • Makes a judgement, providing a simple justification based on limited evaluation of business information and issues relevant to the choice made. (AO4) Level 2 4-6 • Sound application of knowledge and understanding of business concepts and issues to the business context although there may be some inconsistencies. (AO2) • Deconstructs business information and/or issues, finding interconnected points with chains of reasoning, although there may be some logical inconsistencies. (AO3) • Makes a judgement, providing a justification based on sound evaluation of business information and issues relevant to the choice made. (AO4) Level 3 7 - 9 • Detailed application of knowledge and understanding of business concepts and issues to the business context throughout. (AO2) • Deconstructs business information and/or issues, finding detailed interconnected points with logical chains of reasoning. (AO3) • Makes a judgement, providing a clear justification based on a thorough evaluation of business information and issues relevant to the choice made. (AO4) Question Number",
       "marks": 2,
@@ -3079,6 +3016,342 @@ window.STUDY_DATA = {
       "prompt": "Question 4 (c) from 4wch2-1c-2026-Winter_MS",
       "marks": 1,
       "mark_scheme": "M1 (both new conditions cause) decrease in percentage yield (of ammonia) M2 (because the position of) equilibrium shifts backwards / to the left hand side (due to the change in both conditions) M3 (the condition of) pressure has been decreased M4 (which) favours the side (of equation) with more molecules / moles (of gas) M5 (the condition of) temperature has been increased M6 (which) favours the reaction (direction) that is endothermic ACCEPT reaction/equation moves backwards/to the left 6 Total 14"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2021-Winter_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01-2021-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any of the following, up to a maximum of two marks: \n•  (‘I was) excited’ (1) \n•  (‘then I) panicked’ (1) \n•  (‘then I was) thrilled’ (1) \n•  (‘then I was) terrified’ (1) (2)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2021-Winter_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01-2021-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable interpretation of what the writer thinks about storytelling, in own words where possible, up to a maximum of four marks. For example: \n•  s torytelling has become very popular \n•  stories can be found in many different places \n•  although there is a danger in telling a single story, it is a good thing that there are so many stories being told \n•  you can find stories using technology very easily \n•  you can hear about the experiences of people from places such as India and Australia \n•  stories can provoke strong emotions such as love \n•  they can lead to many positive outcomes such as helping to end arguments and bringing people together \n•  despite the good things that stories can lead to, this does not always mean that stories improve the world. Reward all valid points. (4) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2021-Winter_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01-2021-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable description of how the writer reacts to the theft of her bike, up to a maximum of five marks. For example: \n•  the writer is shocked and upset: ‘I’m crying’ \n•  she feels indignant and angry ‘because I saved a lot of money for that bike’ \n•  she does not want the thief to get away with her bike and shouts in Swahili to attract attention: ‘I start screaming “Mwizi, mwizi!”’ \n•  it appears to be acceptable to her that the crowd has apprehended the thief: 'so mob justice in action. Right?' \n•  the writer realises that the young boy is not really sorry for taking her bike as it is the people who have caught him ‘who make him give me my bike back, and they also make him apologize’ \n•  she understands that he is resentful of her and ‘doesn’t like me simply because of what I represent’ \n•  the whole incident teaches her ‘a hard lesson that he didn’t like me, but you know what, he was right’ \n•  the opinion of the writer towards the young boy who takes her bike changes as she realises how fortunate she is compared to him: ‘I had a bike, and he barely had food’ \n•  she draws a message from the incident that we cannot ignore the stories of people whom we do not like and can learn from them. Reward all valid points. (5) 7"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2024-Winter_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01-2024-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "It was so nearly a fatal move. I skidded backwards, landing on my back and banging my head before spinning and sliding down the mountain at a rapidly increasing speed. Metre after metre passed by in a blur. Accept any of the following, up to a maximum of two marks: \n•  ‘skidded (backwards)’ (1) \n•  ‘spinning’ (1) \n•  ‘sliding (down the mountain)’ (1) \n•  ‘at (a rapidly increasing) speed’ / ‘rapidly’ (1) \n•  ‘Metre after metre passed by’ (1) \n•  ‘in a blur’ (1) (2) 5"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2024-Winter_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01-2024-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "When judged against the expertise of a lot of high-altitude mountaineers, I probably seemed fairly green. I’d started operating above 8,000 metres only a few years previously, but I’d quickly become a beast at high altitude and much of that, I’d believed, had to do with my freakish physiology3. Once I’d started climbing into the Death Zone, I found it relatively easy to move quickly at great heights, taking seventy steps before pausing for breath, whereas other mountaineers were only able to make four or five. My powers of recovery were also impressive. I often descended from peaks at speed, partying through the night in base camps and moving onto my next expedition the following morning. This was mountaineering, Nims-style: the relentless pursuit of excellence under brutal conditions. Nothing could hold me back, no matter the circumstances. Accept any reasonable explanation of what we learn about Nims Purja, in own words where possible, up to a maximum of four marks. For example: \n•  Nims does not have as much experience of high-altitude climbs as other expert mountaineers but this did not deter him \n•  he only started climbing above 8,000 metres in recent years \n•  he displayed confidence and soon became very skilled at climbing in the high zones \n•  Nims has an unusual/strong/good physiology/physical make- up \n•  he does not find it hard to climb with speed at high levels \n•  after the exertion of climbing, he can regain his strength efficiently \n•  he was able to come down mountains quickly \n•  Nims would celebrate at base camps after an expedition \n•  the next day he would be fit and ready for the next expedition \n•  he has an ambitious attitude and strives to climb well at all times in difficult circumstances \n•  he always demonstrates determination and perseverance/is unstoppable Reward all valid points. (4) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2024-Winter_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01-2024-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Another thirty or forty metres had raced by. As I fell, I had to find focus. Focus on my movement and increasing velocity; focus on the people fading into the clouds above me as I slipped further and further away. And focus on the techniques I needed to make an important self-arrest. Could I use my ice axe, digging it into the mountain to slow my fall? Yanking my axe underneath me, I held onto the head firmly, jamming the pick into the snow, but the drifts beneath were too soft, so I pushed again. Nothing. No hold. Any confidence I’d briefly felt in my ability to solve the problem was diminishing fast. My descent had increased in pace and I’d lost all control, when … there! Through the spray I’d spotted the fixed rope we’d been using to descend moments earlier. If I could reach for it with enough aggression, there was every chance I might be able to hang on. This was my last hope, and so I twisted, sticking out my arm and making a grab for the cord … Contact! Gripping hard, my palms burning, I pulled myself to a stop. Accept any reasonable description of what happened, up to a maximum of five marks. For example: \n•  Nims fell further down the mountain at great speed: ‘Another thirty or forty metres had raced by’ \n•  he tried to focus on things (his movement, his speed, other people he could see, the methods he could use to stop himself) \n•  he wondered if he could use his ice axe to slow his fall by ‘digging it into the mountain’ \n•  he tried to force the axe into the snow but failed as ‘the drifts beneath were too soft’ \n•  he made a further unsuccessful attempt to use the axe to stop himself from falling down the mountain \n•  Nims was increasingly worried. His 'confidence' in his ability to save himself was 'diminishing fast' \n•  the speed of his fall increased and he could not stop himself: ‘I’d lost all control’ \n•  he saw the rope he had been attached to previously and realised this could help \n•  knowing this was his ‘last hope’, Nims desperately stretched out for the rope \n•  by holding on to the rope tightly he was able to end his fall: ‘I pulled myself to a stop’ Reward all valid points. (5) 7"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2025-Winter_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01-2025-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Racial stereotyping is a big problem in sport and can have a huge impact on someone’s life. Vietnamese bodybuilder, Amazin LeThi, was bullied mercilessly for being the only Asian person involved in sport growing up. Accept any of the following, up to a maximum of two marks: \n•  ‘Vietnamese’ (1) \n•  ‘bodybuilder’ (1) \n•  ‘bullied (mercilessly)’ (1) \n•  ‘(the only) Asian (person)’ (1) \n•  ‘involved in sport (growing up)’ (1) (2) 5"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2025-Winter_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01-2025-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "She says growing up in Australia was an incredibly hostile environment as an ethnic minority, and she experienced bullying from kids at school, people in the community and even teachers. ‘I must have been seven years old,’ Amazin recalls. ‘One teacher made me stand up in front of the whole class – I was the only Asian child in the class – and they used me to illustrate an example of what failure looks like. All the kids just laughed. ‘The teacher then threw the blackboard eraser and I remember it hitting me. ‘I remember thinking in that moment – I will never be humiliated like that ever again, and I never want anyone else to experience that humiliation.’ This is when Amazin found sport. Throwing herself into physical activity provided an outlet from the pain she felt at being singled out and persecuted. But the team environment wasn’t exactly welcoming. Accept any reasonable explanation of Amazin LeThi’s experiences as a child, in own words where possible, up to a maximum of four marks. For example: \n•  as a child, Amazin lived in Australia \n•  it was not a friendly environment for racial minorities \n•  other children at the school were unkind to her \n•  she was also treated badly by local people and staff at the school \n•  there were no other children of the same ethnicity as Amazin in her class \n•  when she was seven years old, a schoolteacher singled her out because of her race / humiliated her \n•  the other pupils in the class found this humiliation amusing \n•  her educator hurled a board rubber (which struck Amazin) \n•  she determined that she would never suffer such mortification again \n•  she hoped that no one else would suffer in that way \n•  Amazin discovered that participating in sport relieved the suffering caused by discrimination that she experienced \n•  she was not made to feel comfortable as part of a sporting team/ she felt pushed out Reward all valid points. (4) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2025-Winter_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01-2025-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Amazin fell victim to the damaging stereotypes about Asian people in sports. It was assumed that she wouldn’t fit in in athletic environments, that she wouldn’t be any good at sports, that she would never achieve anything. ‘We are seen as very nerdy, very geeky, very studious,’ says Amazin. ‘So, we can’t be good at sports – we can’t be fast, we can’t be strong. ‘I loved athletics, but I was bullied by my teammates. I loved sprinting, but I was pulled aside by my coach and told that I was slowing the team down, that Asian people aren’t very good at fast sports, and he told me to try out for long- distance running instead because that will suit my physique.’ For Amazin, the use of archaic1 racial stereotypes about east Asians pushed her out of an environment that she loved and made her feel completely unwelcome. With team sports off the table, Amazin returned to her first love: weight training. Accept any reasonable description of Amazin LeThi’s experiences within the world of sport, up to a maximum of five marks. For example: \n•  Amazin suffered from prejudice caused by assumptions about how she would perform in sports based on her ethnicity: ‘fell victim to the damaging stereotypes about Asian people in sports’ \n•  people thought that she would be unsuited to the world of sport: ‘she wouldn’t fit in in athletic environments’ \n•  they also believed that she would be unsuccessful at sport: ‘that she would never achieve anything’ \n•  Amazin felt that others have preconceived notions of Asian people as intellectual ‒ “geeky’’ ‒ and therefore not sporty \n•  she loved participating in athletics but was treated unkindly ‒ ‘‘bullied’’ ‒ by the other athletes \n•  her trainer judged her performance harshly because of her ethnicity: ‘’Asian people aren’t very good at fast sports’’ \n•  she was withdrawn from sprinting despite her love for it, and advised to try longer races because of her body type \n•  although Amazin loved athletics, old-fashioned attitudes led to her feeling excluded: ‘archaic racial stereotypes … made her feel completely unwelcome’ \n•  feeling that she could not take part in team sports, she went back to weight training – ‘returned to her first love’ Reward all valid points. (5) 7"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2021-Summer_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01-2021-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any of the following, up to a maximum of two marks:  ‘headlights’ (1)  ‘oncoming’ (1)  ‘monsters’ (1)  ‘grinds (up towards me)’ (1)  ‘(passes in a) clattering/roar’ (1) (2)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2021-Summer_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01-2021-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable description of the writer’s ride down the mountainside, in own words, up to a maximum of four marks. For example:  it is night-time and very dark  the road is very high up  there are no lights on the bike  the writer is not wearing anything that will reflect light and show where he is  he is using the lights of the lorries to show the way  he is unable to see anything in front of him  there is another journalist cycling ahead of him  it is a very dangerous situation in which he could be hurt or even die  the writer knows that he should stop, but for some reason that he does not understand he feels compelled to carry on  the bike is travelling very fast  there is the smell of diesel in the air  the lorries are emitting a lot of smoke Reward all valid points. (4) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2021-Summer_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01-2021-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable explanation of what the writer is thinking and feeling, up to a maximum of five marks. For example:  the writer feels that he is travelling very fast and possibly in danger: ‘I am hurtling down, down, down’  he has some safety concerns and, although his clothing is not reflective, he is ‘wearing a helmet’  he recalls that he has not ‘encountered any traffic police’ apart from in Thimphu  he is ‘lost in the night’, suggesting not only that he does not know where he is, but perhaps also that he is feeling ‘lost’ in or overwhelmed by the moment  he is ‘genuinely worried’ that he may have gone the wrong way and ‘taken a wrong turning’  the writer is enjoying the darkness  despite knowing it is ‘irresponsible’, he is enjoying the difference between the uncertain situation he is in at this time and his normal life at home  he feels disconnected – ‘as if a string has snapped’ – from his existence in London  the situation is dangerous and he is ‘in real jeopardy’ but he feels ‘alive’  the realisation hits him that the excitement of the moment is ‘why I love to travel’ Reward all valid points. (5) 7"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2022-Winter_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01-2022-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any of the following, up to a maximum of two marks: \n•  ‘respect’ (1) \n•  ‘appreciation’ (1) \n•  ‘fame’ (1) \n•  ‘(and, well, a lot of) money’ (1) (2)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2022-Winter_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01-2022-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable description of Willard Wigan’s childhood, in own words where possible, up to a maximum of four marks. For example: \n•  Willard Wigan lived in Birmingham during the 1960s \n•  he could not read / and as a result his teachers and fellow pupils made fun of him \n•  nobody realised that he had a problem as the idea of dyslexia was not understood \n•  his teachers told him that he was not clever \n•  at school he was informed in front of his class that he would never be successful at anything \n•  when he was five, as an escape from school, Willard Wigan went to his garden shed / and started to make little sculptures \n•  he made friends with ants \n•  he constructed very small homes for ants \n•  he also made minuscule clothes for the ants \n•  because his teachers belittled him, he made tiny models of them so they too would look small Reward all valid points. (4) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2022-Winter_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01-2022-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable explanation of what we learn about Willard Wigan and his work, up to a maximum of five marks. For example: \n•  Willard Wigan managed to overcome his dyslexia: ‘he turned his teachers’ taunts into a challenge’ \n•  he was praised by the Prince of Wales who called his sculptures ‘‘‘phenomenal’’’ and gave him an award \n•  being recognised for his talent after years of being told he was a failure is very important: ‘‘‘a moment like that means everything’’’ \n•  his work is so impressive that it has been called ‘‘‘The eighth wonder of the world’’’ \n•  his work is difficult and can be ‘a frustrating challenge’ \n•  Willard Wigan takes pride in the positive reaction that his sculptures provoke: ‘he likes to see the look of awe in their faces’ \n•  his work goes beyond art as his skill in ‘working microscopically’ can help ‘people in the technology and medical fields’ \n•  experts in other areas struggle to comprehend what he is able to do: ‘Scientists are often baffled at Wigan’s ability to sculpt at the microscopic level’ (5) Reward all valid points. 7"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2022-Summer_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01-2022-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any of the following, up to a maximum of two marks: \n•  ‘(the) novelty’ (1) \n•  ‘(the avalanche of) information’ (1) \n•  ‘(the) busyness’ (1) \n•  ‘I was good (at it)’ (1) (2)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2022-Summer_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01-2022-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable explanation of the writer’s thoughts and feelings, in own words where possible, up to a maximum of four marks. For example: \n•  the writer feels that the girls at school look down on her \n•  she is unhappy that her mother, Win, supports her classmates’ views about her winning the poetry prize \n•  she thinks that her mother deliberately wants to stop her feeling too proud \n•  she believes that her mother can never simply congratulate her \n•  the writer thinks that her mother intuitively knows where she lacks confidence and can make her feel even more insecure \n•  she realises that her brother, David, does not get on as well at school as she does \n•  she is astounded at her mother's disappointment that Deborah is more successful than her brother and that she believes that doing well at school is less important for girls than for boys \n•  she is so taken aback by her mother’s opinions that she cannot respond \n•  she feels that her mother’s views are hurtful and very unjust, not just to her on a personal level but to every girl Reward all valid points. (4) 5"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2022-Summer_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01-2022-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable description of the argument between the writer and her parents, up to a maximum of five marks. For example: \n•  the writer’s mother, Win, seems to speak on behalf of both parents, using the pronouns ‘we’ and ‘us’ \n•  Win expresses the view, still common at the start of the 1960s, that a single woman should live at home ‘‘until you’re married’’ and thinks that Deborah should attend a local university \n•  the writer protests that she wants to get away from home and does not understand her mother’s stance: ‘‘You’ve been telling me how much you hate it all your life’’ \n•  Win’s ‘Pursed lips’ clearly show that she is unhappy/angry with Deborah’s refusal to conform \n•  Win expresses her points forcefully in short sentences \n•  when Deborah points out that Win seems rather hypocritical as ‘‘You didn’t stay with your family’’, she is told ‘‘I moved where my husband wanted to go. That’s what wives do’’ \n•  Win tells Deborah that she is not allowed to leave home: ‘‘Your father and I forbid you’’ as ‘‘You are still a child’’ \n•  Deborah is defiant: ‘‘You can’t forbid me’’ \n•  Win ends the argument thinking she has successfully enforced her will and refuses to discuss it further: ‘‘That’s an end to it’’ \n•  Deborah is taken aback and ‘shocked’ by the argument and seems determined not to give into her parents’ wishes: ‘That was not an end to it’ Reward all valid points. (5) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2023-Winter_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01-2023-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any of the following, up to a maximum of two marks: \n•  ‘pitbull (s)/dogs ’ (1) \n•  ‘rats’ (1) \n•  ‘(flocks of) gulls’ (1) \n•  ‘pigeons’ (1) \n•  ‘(a fleet of) raptors’ (1) \n•  ‘other birds’ (1) (2)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2023-Winter_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01-2023-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable description of the writer’s thoughts and actions, in own words where possible, up to a maximum of four marks. For example: \n•  the writer looks intently at the magpie \n•  it seems to him that the bird is very clever \n•  he feels that the bird is reciprocating his close examination of it \n•  the writer fears that things may go badly \n•  he believes he possesses negative qualities (which may make it hard to look after the magpie) \n•  the magpie, to his mind, is behaving like a small child \n•  he thinks that the magpie is fragile /but gaining in strength each day \n•  the writer does whatever the magpie seems to demand \n•  he collects food for the bird \n•  his whole life is devoted to looking after the bird, which wears him out Reward all valid points. (4) 5"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2023-Winter_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01-2023-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable explanation of what we learn about the magpie, up to a maximum of five marks. For example: \n•  the magpie is getting larger as it ‘outgrows its box’ \n•  it moves in a lively way – ‘scrabbles energetically’ – and demands to be carried \n•  it is keen to investigate its surroundings and ‘explore the world of our bedroom’ \n•  some of its movements seem ungainly: ‘pattering steps and clumsy leaps’ \n•  the magpie’s body seems too large for its delicatelooking legs \n•  it eagerly explores potentially dangerous areas of the house \n•  it now looks attractive: ‘quite a handsome fellow’ \n•  it has a confident demeanour, carries itself like royalty and looks as if it is wearing luxurious clothes \n•  the magpie likes to climb all over the writer: ‘I seem to be his tree now’ \n•  it nips the writer with its beak and makes loud noises \n•  the writer feels that the magpie is ‘looking up to me’ Reward all valid points. (5) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2024-Summer_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01-2024-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "The sun burst through a small gap in the clouds, momentarily illuminating the water. A flag snapped in the brisk breeze. The cobblestones glistened from a recent downpour, sparkling against the grey‑and‑white world around. Accept any of the following, up to a maximum of two marks: \n•  ‘(The) sun (burst through a small gap)’ (1) \n•  ‘clouds’ (1) \n•  ‘(brisk) breeze’ (1) \n•  ‘(recent) downpour’ (1) \n•  ‘grey-and-white (world)’ (1) (2) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2024-Summer_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01-2024-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "I was neck and neck with the leader of the pack and making good headway, but then I seemed to start slowing down. Something was very wrong. With each scoop of the paddle, water rushed over the gunwales and into my vessel. I pulled more carefully at the paddle, but still great waves of water overwhelmed my craft and the bow was dangerously close to the waterline. I leaned back to counterbalance, but now the sea was pouring into the stern. Water lapped around my ankles, then my knees. I scooped it with my hands and tried to bail as fast as I could. It was no good. Before I knew it, I began to tumble backwards, my knees lost their grip against the side and my hands were thrown into the air as my vessel and I flipped upside down. I felt a rush of salty water up my nostrils as I tumbled into the icy Irish Sea. I could hear the crowd and their gales of laughter over the water as I clung desperately to my vessel to stop it sinking. Accept any reasonable description of what happens in own words, where possible, up to a maximum of four marks. For example: \n•  the writer is doing well/is equal first place in the race \n•  his progress becomes slower \n•  there is a clear problem \n•  water pours into his tin bath/craft \n•  he paddles with greater caution but the water still comes in \n•  he tries to adjust his weight in the tin bath/ but it begins to sink \n•  the writer tries to empty the water out (to no avail) \n•  he begins to fall out of the bath \n•  the bath and/or the writer tip upside down \n•  water goes up the writer’s nose \n•  he falls into the freezing cold water \n•  the writer hears everybody laughing at him / the crowd was laughing \n•  he tries to prevent the bath going under the water Reward all valid points. (4) 7"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01-2024-Summer_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01-2024-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "It is moments like this that plunge me helplessly back to my childhood and my constant failure to achieve anything. I hauled myself back to the harbour wall. I could hear the chanting of the crowd. My cheeks were flushed with embarrassment as once again I clambered aboard the tiny bath. If there’s one thing I have learned over the years it is that stubbornness is a very powerful trait. It has served me well. Once again I dipped my paddle into the water. Far ahead of me, most of the baths had finished. I was a child again, paddling alone. It was only a few hundred metres but it felt like an ocean. I limped home, the last over the line. Humiliated and defeated. I dragged my tin bath up the slipway to more laughter from the crowd. A wave of nausea overwhelmed me as I staggered forwards. The world began to spin and my vision narrowed to a pinhole before I passed out. Accept any reasonable explanation of the writer’s thoughts and feelings, up to a maximum of five marks. For example: \n•  the experience reminds the writer of his childhood \n•  he remembers his frequent ‘failure to achieve anything’ \n•  he is persistent: ‘I hauled myself back to the harbour wall’, ‘once again’ \n•  he feels mortified in front of the crowd: ‘My cheeks were flushed with embarrassment’ \n•  the writer is determined, recalling how he has learnt that being stubborn can be helpful as it ‘is a very powerful trait’ \n•  the fact that he is the last competitor in the water brings back childhood memories of isolation: ‘I was a child again, paddling alone’ \n•  the remaining distance of the race seems much longer in his mind than it actually is and ‘felt like an ocean’ \n•  he feels embarrassed/ashamed of his performance: ‘Humiliated and defeated’ \n•  he is exhausted and feels sick \n•  he is so dizzy that he faints: ‘The world began to spin…before I passed out’ Reward all valid points. (5) 8"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2021-Winter_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01r-2021-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any of the following, up to a maximum of two marks: \n•  ‘a sight (to behold)’ (1) \n•  ‘Three feet square’ (1) \n•  ‘(constructed from) heavy (ply)’ (1) \n•  ‘bound every six inches’ (1) \n•  ‘thick bands of steel’ (1) (2)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2021-Winter_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01r-2021-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable description of what happens when the writer takes Cuthbert, the bird, out of the box, in own words where possible, up to a maximum of four marks. For example: \n•  when the writer puts Cuthbert on the floor, the bird attacks her savagely and bites her arm \n•  Cuthbert eats the piece of flesh she has torn from the writer and seems to really enjoy it \n•  the writer is stunned by this and she and the bird stare at each other \n•  the writer believes the bird will attack her again and cautiously leaves the room \n•  she returns with a towel and the two circle each other almost like opponents in battle \n•  the bird walks around the room in a threatening manner \n•  the noise of the boiler causes Cuthbert to turn away \n•  the writer throws the towel over the bird’s head and grabs her Reward all valid points. (4) 5"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2021-Winter_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01r-2021-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable explanation of how Cuthbert behaves, up to a maximum of five marks. For example: \n•  by raising or lowering her crest, Cuthbert clearly conveys her feelings: ‘leaving me in no doubt whatsoever about her mood’ \n•  she can be bad-tempered as is shown by ‘her red face would flush yellow’ \n•  she displays her anger by making a loud, harsh sound: ’her strident voice expressed her displeasure’ \n•  Cuthbert ‘frequently threw what can only be described as tantrums’, further demonstrating how ill-tempered she can be \n•  she conveys anger in a physical way by ‘throwing herself off the glove and spinning upside down, snapping as she rotated’ \n•  as Cuthbert can be so aggressive, ‘it was not safe to handle her without long sleeves’ \n•  in contrast to her fierce and violent attitude, like others with a similar personality, ‘she could be charming company’ when she chose \n•  at times the bird is peaceful and passive and will gaze trustingly into my eyes with an expression of ‘kindly friendliness’ \n•  the writer realises eventually that Cuthbert is ‘not really hostile’ but it is in her nature to use her sharp beak to try ‘different tastes’ Reward all valid points. (5) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2022-Winter_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01r-2022-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any of the following, up to a maximum of two marks: \n•  ‘(grass) cracks’ (1) \n•  ‘(grass) swishes’ (1) \n•  ‘(my) chest vibrates’ (1) \n•  ‘rumble / of heavy feet moving fast’ (1) \n•  ‘“Quickly, quickly!” / Hemanta / whispers’ (1) (2)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2022-Winter_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01r-2022-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable explanation of what we learn about the people and animals of Nepal’s Chitwan National Park, in own words where possible, up to a maximum of four marks. For example: \n•  Hemanta has been a guide in the park for many years \n•  walking in the park can be dangerous \n•  14 villagers lost their lives after being attacked by animals in the park in 2017 \n•  an elephant, which they called Ronaldo, has killed 15 local people \n•  the local people do not seek revenge on the animals who kill, so Ronaldo has not been shot - this would probably have happened elsewhere \n•  Ronaldo recently destroyed part of a hotel \n•  the local people’s attitude towards the damage and death caused by the animals is very tolerant, perhaps because they believe in the natural cycle of life \n•  the guides in the park do not carry guns and only have bamboo sticks to ward off the animals \n•  there is a sign in the park warning people not to scare the animals Reward all valid points. (4) 5"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2022-Winter_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01r-2022-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable description of the encounter with the rhinoceros, up to a maximum of five marks. For example: \n•  the writer and his companions meet the rhino suddenly at the end of the day: ‘The sun is fading when we turn a corner and come face to face with it’ \n•  the rhino had been walking around but has stopped and is watching them: he ‘is stock still now, his head turned pointedly in our direction’ \n•  the rhino is a large male: 'weighs more than a jeep', 'stands over 6ft at the shoulder' \n•  given the speed that he can run, is scarily close: ‘he’s only 50 metres away’ \n•  Hemanta leads the men back to try to hide behind a small tree \n•  the rhino does not take his eyes from them and ‘stares us down’ \n•  the writer observes the rhino closely and describes his appearance in detail: ‘Ribs show like hoops in a wooden barrel’ \n•  the rhino uses his senses to decide what to do next: he ‘sniffs hard’ and ‘takes gummy gulps of air’ \n•  the men try to make themselves look smaller as they wait to see what the rhino will do \n•  after what seems like a very long time – ‘an eternity later’ – the rhino moves away Reward all valid points. (5) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2022-Summer_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01r-2022-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any of the following, up to a maximum of two marks: \n•  ‘sunscreen’ (1) \n•  ‘(an oversized) T-shirt’ (1) \n•  ‘(comfortable) boots’ (1) \n•  ‘(a) camera’ (1) \n•  ‘painkillers’ (1) \n•  ‘(Lou’s wooden hiking) stick’ (1) (2)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2022-Summer_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01r-2022-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable description of what happens, in own words where possible, up to a maximum of four marks. For example: \n•  the move the writer made was unexpectedly perilous / there was no warning that it might be so risky \n•  everything happened very quickly but she remembers it clearly \n•  her right foot slid away \n•  with her left hand, the writer frantically tried to grab at something to stop herself from falling, but the rock was too smooth \n•  the accident happened swiftly but in her mind it seemed to take a long time \n•  the writer fell off the boulder stack \n•  there was a loud noise as she landed \n•  the pain she experienced was excruciating \n•  she told herself to get up \n•  the writer collapsed every time she tried to stand Reward all valid points. (4) 5"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2022-Summer_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01r-2022-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable explanation of what the writer is thinking and feeling, up to a maximum of five marks. For example: \n•  the writer felt more secure once she was able to pull her possessions near to her: ‘Having them close making me feel safer’ \n•  she is terrified — ‘Fear ran cold through my blood’ — when she sees a hawk above her and realises that she is now ‘Potential prey’ \n•  she decides to record a message for her loved ones ‘just in case’ she does not survive \n•  she believes that she has been foolish and in her message states ‘‘This is the stupidest thing I’ve ever done’’ \n•  she longs to be away from the desert: ‘‘I need to get out of here’’ \n•  the writer wants to let her family and friends know that she loves them \n•  recording her message is comforting as it seems as if ‘for one brief moment, I wasn’t alone’ \n•  she feels ‘hopeless’ \n•  all the hours she has spent on the internet now seem like wasted time: ‘Life thrown in the bin’ \n•  the ‘plummeting temperatures’ at night mean that she feels extremely cold \n•  she thinks what lies ahead of her will be ‘the longest night of my life’ Reward all valid points. (5) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2023-Winter_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01r-2023-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any of the following, up to a maximum of two marks: \n•  (‘crowd) struggles to control’ (1) \n•  ‘a number of’ (1) \n•  ‘stocky’ (1) \n•  ‘short-legged’ (1) \n•  ‘(wearing scarlet pom-pom) hats’ (1) \n•  ‘garlands (round their necks’) (1) (2)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2023-Winter_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01r-2023-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable explanation of what we learn about Prince Malik, in own words where possible, up to a maximum of four marks. For example: \n•  Prince Malik lives in a big house/is wealthy/is an important figure \n•  he is hospitable as he has arranged a meal for his guests \n•  he talks about his life \n•  he is unhappy that traditions are being lost/ is old- fashioned \n•  he prefers country life to urban life \n•  the Prince enjoys the pastimes of the countryside and goes riding every day \n•  he feels that he is part of a dying breed of people/ some one who likes to arrange activities for people \n•  he invites his visitors to a bull race; this could indicate that he is kind or wants to show them a local sport \n•  the writer feels Prince Malik would not allow them to refuse his invitation which suggests he is forceful Reward all valid points. (4) 5"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2023-Winter_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01r-2023-Winter_MS",
+      "marks": 1,
+      "mark_scheme": "Accept any reasonable description of the bull race, up to a maximum of five marks. For example: \n•  many people struggle to fit the yoke onto the bulls: ‘dozens of people grapple to get the joot onto the two sets of shoulders’ \n•  the bulls move in a frantic manner in order not to be engaged in the race: ‘the bulls …duck and weave … in a desperate attempt to avoid being involved in the racing’ \n•  the bulls have to be forced to the starting line, to which they are ‘dragged unceremoniously’ \n•  they are then manoeuvred into place by the outriders who ‘heave them into position’ \n•  the rider anxiously holds a flag and prepares to leap onto the board when the bulls are freed from restraint \n•  the timing of the bulls being released and the jockey getting onto the board is very important \n•  the rider has to maintain his balance as the bulls run off \n•  at first, the outriders move beside the bulls to keep them on course \n•  when the outriders drop away, the rider is dragged across the rough ground ‘hanging on for dear life’ \n•  one pair of bulls breaks away and charges at the people watching \n•  another pair of bulls run off the racetrack after ‘taking out the flag’ Reward all valid points. (5) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2023-Summer_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01r-2023-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Years earlier, his mother, Jo, had been miserable and lonely before him at the same school in East Dulwich. She too struggled to read and found it hard to write. Accept any of the following, up to a maximum of two marks: \n•  ‘(his) mother’ (1) \n•  ‘(had been) miserable’ (1) \n•  ‘(had been…) lonely’ (1) \n•  ‘same school (in East Dulwich)’ (1) \n•  ‘(she too) struggled (to read’) (1) \n•  ‘found it hard (to write)’ (1) (2)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2023-Summer_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01r-2023-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "He was put in the bottom class for all subjects. ‘There was a sense the race was already over. The rest had won and I had lost. If you were in the lower sets, you got the worst teachers. It felt like the classroom of the damned.’ His grandparents fought for further investigation — ‘they didn’t want the same mistakes to be made [as with his mother]’ — and at the end of primary school he was diagnosed with severe dyslexia and dyspraxia. But the pivotal moment came when, aged 13, he printed off a copy of the Disability Discrimination Act — ‘I couldn’t read it but highlighted bits at random to look official’ — and marched into the office of the teacher responsible for special educational needs to demand a teaching assistant and a laptop. It was granted. Accept any reasonable description of Will Carter’s experiences at school, in own words where possible, up to a maximum of four marks. For example: \n•  Will Carter was placed in the lowest class for every lesson \n•  he was made to feel that he had lost a race that everyone else succeeded in /felt hopeless \n•  his classes did not get good teachers \n•  Carter felt that his class had been condemned to suffer/discriminated against \n•  his grandparents insisted that he had further tests to find out what problems he might have \n•  it was discovered that he had conditions that affected his ability to read and write and carry out everyday tasks \n•  at age 13, Carter took matters into his own hands and got a copy of the Disability Discrimination Act \n•  although he was unable to read the document, he marked up certain parts of it and took it to the SEN teacher in order to try to get help \n•  he insisted that he should have someone to support his learning and a laptop computer \n•  Will was given the assistance that he had requested Reward all valid points. (4)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2023-Summer_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01r-2023-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "‘I went from being in the lowest sets to getting A stars. People really look down upon teaching assistants, but without them I wouldn’t have got through secondary school.’ But it was technology that changed everything. At first he copied and pasted text into Google Translate, using the speech function to hear what it said. He started aceing exams using speech recognition software, and won a place to study politics and international relations at the University of Bristol. While his coursemates were whizzing through reading lists, there were not enough hours in the day to listen to audiobook versions, if they were available. He hunted for shorter journal articles on the same topics and searched YouTube for lectures by the authors. He found a world of ideas was unlocked by ‘screen reader’ technology, which takes the words on a computer screen and reads them aloud. Accept any reasonable explanation of how Will Carter’s experience of education improved, up to a maximum of five marks. For example: \n•  Will Carter had previously limited academic success but started to achieve top grades: ‘I went from being in the lowest sets to getting A stars’ \n•  he believes his teaching assistants really helped him to do well as ’without them I wouldn’t have got through secondary school’ \n•  technology enabled him to succeed: ‘it was technology that changed everything’ \n•  Will achieved excellent exam results ‘using speech recognition software’ \n•  his exam success at school led to his studying for a degree as he ‘won a place to study politics and international relations at the University of Bristol’ \n•  it took him much longer to study than his fellow students, but he found ‘shorter journal articles on the same topics’ which enabled him to access the material \n•  Will also listened to ‘lectures by the authors’ so that he could keep up with work \n•  ‘screen reader’ technology’ allowed him to learn a great deal of new information as ‘a world of ideas was unlocked’ Reward all valid points. (5)"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2024-Summer_MS",
+      "question_id": "1",
+      "prompt": "English Language Question 1 from 4ea1-01r-2024-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "‘I’m not sure,’ I said, looking around uncertainly. The plane had literally landed in the middle of a cleared field surrounded by tall, lush vegetation, and I could see no sign of anything. It wasn’t an airport, as such; more a bush landing. Accept any of the following, up to a maximum of two marks:  ‘(in the middle of a cleared) field’ (1)  ‘(surrounded by tall, lush) vegetation’ (1)  ‘no sign of anything’ (1)  ‘It wasn’t an airport’ (1)  ‘(more a) bush (landing)’ (1) (2) 5"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2024-Summer_MS",
+      "question_id": "2",
+      "prompt": "English Language Question 2 from 4ea1-01r-2024-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Crocodylus was a brand-new little eco resort, built in the middle of the Daintree rainforest. It consisted of a number of simple huts around a small saltwater pool. They were wooden structures built on stilts, to lift them off the rainforest floor, and were connected by raised wooden walkways. The huts had green canvas walls, with rectangular holes cut out of them and covered with mosquito netting for windows. Lying there at night was like camping, the world beyond only a thin membrane away. Crocodylus seemed to be the essence of green. Everything in and around it was lush and exotic and growing as I watched. I was beguiled1 by Crocodylus on arrival. It had not taken me long to spot a sign saying ‘Workers wanted in exchange for free food and board’. Right away, I had signed up. Accept any reasonable explanation of what the writer tells us about Crocodylus in own words, where possible, up to a maximum of four marks. For example:  Crocodylus is small/has recently opened/been built  it is an environmentally-friendly/’green’ place where tourists can stay  it is situated in the middle of a rainforest  accommodation is in basic cabins/situated by a little pool  the buildings are made of wood/raised above the ground/and linked together  the sides of the buildings are made of material  there are holes for windows/draped with nets to keep out insects/there are insects  sleeping in one of the huts is like being in a tent  everything about Crocodylus is very green  there is lots of vegetation which appears to grow rapidly  the writer is immediately enchanted by the resort  Crocodylus needs people to work there Reward all valid points. (4) 6"
+    },
+    {
+      "type": "short_answer",
+      "source": "4ea1-01r-2024-Summer_MS",
+      "question_id": "3",
+      "prompt": "English Language Question 3 from 4ea1-01r-2024-Summer_MS",
+      "marks": 1,
+      "mark_scheme": "Every morning before starting work at 7 am., I went for a run or walk on the beach. During those early mornings, I thought constantly what I was going to do for a living on my return home to Ireland. I had a vague notion about making writing a career, although in what way, I couldn't see. I felt that in many ways my life had only truly started when I had got off the plane in Sydney, all those months ago. The sensation of freedom and distance from everything and everyone I knew had been thrilling. Here in Australia, I felt I could truly breathe for the first time in my life; could start exploring the person I might become, whoever that was going to be. As I ran and walked on the beach before starting work for the day, I knew again what I had already known for months: what I really wanted to do next was stay another year in Australia. My job in Crocodylus was open-ended: I had been told it was mine for as long as I wanted, and I wanted very badly to keep it as long as possible. Accept any reasonable explanation of the writer’s thoughts and feelings, up to a maximum of five marks. For example:  (when the writer is out in the morning), she considers her future career: ‘I thought constantly what I was going to do for a living’  she understands that at some point her travelling will end and she will ‘return home to Ireland’  she wonders about becoming a writer, although she is unsure how: ‘in what way I couldn’t see’  she feels she was trapped before/as if her life really began when she arrived in Australia some time earlier: ‘my life had only truly started when I had got off the plane in Sydney, all those months ago’  the writer found it exciting ‒ ‘thrilling’ ‒ to be away from home/she relishes the ‘sensation of freedom’  she believes that she has come alive on her trip/is relaxed: ‘I felt I could truly breathe for the first time in my life’  she thinks she can begin to find out who she really is: ‘start exploring the person I might become’  the thoughts she has each day when she walks or runs help to consolidate her plans for the future: ‘I knew again what I had already known for months’  the writer decides that she would like to remain where she is and ‘stay another year in Australia’  she has a strong desire to keep working at Crocodylus for ‘as long as possible’ Reward all valid points. (5) 7"
     }
   ],
   "examinerPlaybook": [

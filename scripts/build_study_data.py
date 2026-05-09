@@ -56,7 +56,7 @@ CHEM_GRID_RE = re.compile(
 
 # English-specific blocks often start with "Question Number" and then "Indicative content"
 ENGLISH_BLOCK_RE = re.compile(
-    r"Question\s+Number\s+(?P<id>\d+)\s+(?P<body>.*?)(?=(?:\s+Question\s+Number\s+)|\Z)",
+    r"Question\s+Number(?:.*?Mark)?\s+(?P<id>\d+)\s+(?P<body>.*?)(?=(?:Question\s+Number)|\Z)",
     re.S | re.I,
 )
 
@@ -481,12 +481,10 @@ def parse_filename_metadata(normalized_name: str) -> dict[str, str]:
         # If it's an 8-digit date (e.g. 20250123), group by series
         if len(session_raw) == 8:
             month = int(session_raw[4:6])
-            if month in (5, 6, 8):
+            if month in (4, 5, 6, 7, 8):
                 series = "Summer"
-            elif month in (10, 11, 1, 12):
-                series = "Winter"
             else:
-                series = f"M{month}"
+                series = "Winter"
         else:
             # Handle legacy 4-digit session (MMYY)
             series = session_raw
@@ -654,12 +652,10 @@ def build_paper_drills(deduped_paths: dict[str, Path]) -> list[dict[str, object]
                     year = session_raw[:4]
                     month = int(session_raw[4:6]) if len(session_raw) >= 6 else 0
                     
-                    if month in (5, 6, 8):
+                    if month in (4, 5, 6, 7, 8):
                         series = "Summer"
-                    elif month in (10, 11, 1, 12):
-                        series = "Winter"
                     else:
-                        series = f"M{month}"
+                        series = "Winter"
                     
                     group_key = f"{parts[0]}-{parts[1]}-{year}-{series}"
                     asset_key = "MS" if any(x in parts[2].lower() for x in ("rms", "msc", "ms")) else "QU"
