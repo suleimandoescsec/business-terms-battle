@@ -438,7 +438,7 @@ def parse_filename_metadata(normalized_name: str) -> dict[str, str]:
         
         if not match:
             # Try descriptive Business format: 4bs1-june-2022-ms-paper-2-edexcel-igcse-business.pdf
-            match = re.match(r"4bs1-(?P<month>[a-z]+)-(?P<year>\d{4})-(?P<asset>ms|qp|que|rms)-paper-(?P<paper>\d{2}r?)-.*\.pdf", normalized_name, re.I)
+            match = re.match(r"4bs1-(?P<month>[a-z]+)-(?P<year>\d{4})-(?P<asset>ms|qp|que|rms)-paper-(?P<paper>\d{1,2}r?)-.*\.pdf", normalized_name, re.I)
             if match:
                 code = "4BS1"
                 paper = match.group("paper").upper()
@@ -629,38 +629,13 @@ def merge_new_style_mcqs(mark_scheme_items: list[dict[str, object]], question_it
 def build_paper_drills(deduped_paths: dict[str, Path]) -> list[dict[str, object]]:
     groups: dict[str, dict[str, Path]] = {}
     for normalized_name, path in deduped_paths.items():
-        if (normalized_name.lower().startswith(("4bs1", "4wch", "4ea1"))) and normalized_name.endswith(".pdf"):
-            if normalized_name.startswith("4BS1_"):
-                group_key = normalized_name.rsplit("_", 1)[0]
-                asset_key = normalized_name.rsplit("_", 1)[1].removesuffix(".pdf")
-            elif normalized_name.startswith("4bs1-") and "paper-" in normalized_name.lower():
-                match = re.match(r"4bs1-(?P<month>[a-z]+)-(?P<year>\d{4})-(?P<asset>ms|qp|que|rms)-paper-(?P<paper>\d{2}r?)-.*\.pdf", normalized_name, re.I)
-                if match:
-                    month = match.group("month").capitalize()
-                    year = match.group("year")
-                    paper = match.group("paper").upper()
-                    group_key = f"4BS1-{paper}-{year}-{month}"
-                    asset = match.group("asset").lower()
-                    asset_key = "MS" if asset in ("ms", "rms", "msc") else "QU"
-                    groups.setdefault(group_key, {})[asset_key] = path
-                continue
-            else:
-                # 4wch1-1c-rms-20250821.pdf or 4ea1-01-que-20200305.pdf or 4bs1-02-que-20201117.pdf
-                parts = normalized_name.split("-")
-                if len(parts) >= 4:
-                    session_raw = parts[3].removesuffix(".pdf")
-                    year = session_raw[:4]
-                    month = int(session_raw[4:6]) if len(session_raw) >= 6 else 0
-                    
-                    if month in (4, 5, 6, 7, 8):
-                        series = "Summer"
-                    else:
-                        series = "Winter"
-                    
-                    group_key = f"{parts[0]}-{parts[1]}-{year}-{series}"
-                    asset_key = "MS" if any(x in parts[2].lower() for x in ("rms", "msc", "ms")) else "QU"
-                else:
-                    continue
+        if not normalized_name.endswith(".pdf"):
+            continue
+        
+        metadata = parse_filename_metadata(normalized_name)
+        if metadata.get("kind") == "paper":
+            group_key = metadata["group_id"]
+            asset_key = "MS" if metadata["asset_label"] == "Mark Scheme" else "QU"
             groups.setdefault(group_key, {})[asset_key] = path
 
 
@@ -671,16 +646,23 @@ def build_paper_drills(deduped_paths: dict[str, Path]) -> list[dict[str, object]
         metadata = parse_filename_metadata(f"{group_key}_MS.pdf")
         source_label = metadata.get("title", group_key)
 
-        if "MS" in files and "QU" in files:
+        if "MS" in files:
             ms_text = read_pdf_text(files["MS"])
-            qu_text = read_pdf_text(files["QU"])
-
+            
             if "SAM" in group_key:
-                items = parse_legacy_mcq_items(qu_text, ms_text, source_label=source_label)
+                if "QU" in files:
+                    qu_text = read_pdf_text(files["QU"])
+                    items = parse_legacy_mcq_items(qu_text, ms_text, source_label=source_label)
+                else:
+                    items = []
             else:
                 mark_scheme_items = parse_new_style_mark_scheme_items(ms_text, source_label=source_label)
-                question_items = parse_question_paper_mcqs(qu_text)
-                items = merge_new_style_mcqs(mark_scheme_items, question_items)
+                if "QU" in files:
+                    qu_text = read_pdf_text(files["QU"])
+                    question_items = parse_question_paper_mcqs(qu_text)
+                    items = merge_new_style_mcqs(mark_scheme_items, question_items)
+                else:
+                    items = mark_scheme_items
 
             for item in items:
                 key = (str(item["type"]), str(item["source"]), str(item["prompt"]))
