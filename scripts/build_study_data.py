@@ -42,7 +42,7 @@ MCQ_QUESTION_RE = re.compile(
     re.S | re.I,
 )
 NEW_STYLE_BLOCK_RE = re.compile(
-    r"Question\s+Number\s+(?P<prompt>.*?)\s+Answer\s+(?:Additional guidance\s+)?Mark\s+(?P<body>.*?)(?=(?:\s+Question\s+Number\s+)|\Z)",
+    r"Question\s+Number\s+(?P<prompt>(?:(?!\s+Question\s+Number\s+).)*?)\s+(?:Answer|Indicative\s+content)\s+(?:Additional guidance\s+)?(?:Mark|Marks)?\s+(?P<body>.*?)(?=(?:\s+Question\s+Number\s+)|\Z)",
     re.S | re.I,
 )
 LEGACY_ANSWER_RE = re.compile(
@@ -215,7 +215,27 @@ def parse_new_style_mark_scheme_items(text: str, source_label: str) -> list[dict
             prompt = f"Question {question_id} from {source_label}"
             body_text = "\n".join(lines)
         else:
-            prompt = clean_ws(match.group("prompt"))
+            raw_prompt = clean_ws(match.group("prompt"))
+            # Strip any leaked answer/mark header from the start of prompt
+            # Handles: "Answer Mark 1(a) AO2 = 2 marks 730000 x ..."
+            # Handles: "Answer Additional guidance Mark 4 (a) AO2 = 2 marks ..."
+            raw_prompt = re.sub(
+                r"^(?:Answer|Indicative\s+content)\s+(?:Additional\s+guidance\s+)?(?:Mark|Marks)?\s*[\d\s\(\)a-z]*(?:AO[1-4]\s*[=\-–]?\s*\d+\s*marks?\s*)+.*",
+                "",
+                raw_prompt,
+                flags=re.I | re.S,
+            ).strip()
+            # Also strip bare "Answer Additional guidance Mark X (x) AO..." lines when they ARE the whole prompt
+            if re.match(r"^Answer\s+(?:Additional\s+guidance\s+)?Mark\s+\d+", raw_prompt, re.I):
+                raw_prompt = ""
+            # Cap context-heavy scenario prompts cleanly at 300 chars
+            if len(raw_prompt) > 320:
+                raw_prompt = raw_prompt[:317].rsplit(' ', 1)[0] + '...'
+            prompt = raw_prompt
+            
+            # Skip items with no meaningful prompt (leaked headers that got wiped)
+            if not prompt or len(prompt.strip()) < 8:
+                continue
             body = match.group("body")
             question_match = re.search(r"(\d+\s*\([a-z]\)(?:\s*\([ivx]+\))?)", body, re.I)
             question_id = clean_ws(question_match.group(1)) if question_match else source_label
