@@ -15,6 +15,7 @@
       --color-bg: #f8fafc;
       --color-surface: #ffffff;
       --color-surface-2: #f1f5f9;
+      --color-surface-offset: #eef2f6;
       --color-border: #e2e8f0;
       --color-text: #0f172a;
       --color-text-muted: #64748b;
@@ -23,30 +24,30 @@
       --color-gold: #f59e0b;
       --font-display: 'Clash Display', sans-serif;
       --font-body: 'Satoshi', sans-serif;
+      --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 16px;
       --radius-xl: 24px;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1);
-      --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-6: 24px; --space-8: 32px;
+      --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 20px; --space-8: 32px;
+      --text-sm: 0.875rem; --text-base: 1rem; --text-lg: 1.125rem; --text-xl: 1.25rem;
     }
 
     [data-theme="dark"] {
       --color-bg: #0f172a;
       --color-surface: #1e293b;
       --color-surface-2: #334155;
+      --color-surface-offset: #1e293b;
       --color-border: #334155;
       --color-text: #f8fafc;
       --color-text-muted: #94a3b8;
       --color-primary: #f8fafc;
-      --color-primary-hover: #ffffff;
     }
 
     [data-theme="pink"] {
       --color-bg: #fff1f2;
       --color-surface: #ffffff;
       --color-surface-2: #fff1f2;
+      --color-surface-offset: #ffe4e6;
       --color-border: #fecdd3;
       --color-text: #881337;
       --color-text-muted: #be123c;
@@ -54,308 +55,168 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-      background-color: var(--color-bg); 
-      color: var(--color-text); 
-      font-family: var(--font-body); 
-      line-height: 1.5; 
-      transition: background-color 0.3s, color 0.3s;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+    body { background-color: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.5; transition: background-color 0.3s, color 0.3s; min-height: 100vh; }
+    
+    .app { max-width: 1240px; margin: 0 auto; padding: var(--space-4); }
+    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-8); padding: var(--space-2) 0; }
+    .brand { display: flex; align-items: center; gap: var(--space-3); }
+    .logo { width: 44px; height: 44px; background: var(--color-primary); color: var(--color-surface); border-radius: var(--radius-md); display: grid; place-items: center; }
+    .logo svg { width: 24px; height: 24px; }
+    .brand h1 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; }
+    .brand .mini { color: var(--color-text-muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+    
+    .controls { display: flex; gap: var(--space-2); align-items: center; }
+    .pill { padding: 0.5rem 1rem; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface); font-size: var(--text-sm); font-weight: 700; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+    .pill:hover { background: var(--color-surface-2); border-color: var(--color-primary); }
+    .icon-btn { width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface); cursor: pointer; display: grid; place-items: center; font-size: 1.2rem; }
 
-    .app-container { max-width: 1200px; margin: 0 auto; padding: var(--space-4); }
-
-    /* Top Navigation */
-    .top-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--space-4) 0;
-      margin-bottom: var(--space-8);
-    }
-    .brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; cursor: pointer; }
-    .brand span { color: var(--color-gold); }
-    .nav-controls { display: flex; gap: var(--space-2); align-items: center; }
-
-    /* Hero Section */
-    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-6); margin-bottom: var(--space-8); }
-    .panel { 
-      background: var(--color-surface); 
-      border: 1px solid var(--color-border); 
-      border-radius: var(--radius-xl); 
-      padding: var(--space-6);
-      box-shadow: var(--shadow-md);
-    }
-    .hero-card .sub { color: var(--color-text-muted); margin-bottom: var(--space-4); font-size: 0.95rem; }
-    .stats { display: flex; gap: var(--space-6); margin-top: var(--space-4); }
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-5); margin-bottom: var(--space-8); }
+    .panel { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-5); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    .hero-card .sub { color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: var(--space-4); }
+    .stats { display: flex; gap: var(--space-5); margin-top: var(--space-4); }
     .stat { flex: 1; }
-    .stat strong { display: block; font-size: 1.5rem; font-family: var(--font-display); }
-    .mini { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted); font-weight: 700; }
+    .stat strong { display: block; font-family: var(--font-display); font-size: 1.8rem; line-height: 1; margin-top: 4px; }
+    
+    .mode-selection { display: grid; gap: var(--space-3); }
+    .mode-btn { display: flex; justify-content: space-between; align-items: center; padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border: 1px solid transparent; cursor: pointer; text-align: left; transition: all 0.2s; }
+    .mode-btn:hover { border-color: var(--color-primary); transform: translateX(4px); }
+    .mode-btn.active { border-color: var(--color-primary); background: var(--color-surface); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .mode-btn strong { font-family: var(--font-display); display: block; font-size: 1.1rem; }
+    .mode-btn span { font-size: 1.5rem; }
 
-    /* Modes */
-    .modes { display: grid; gap: var(--space-3); }
-    .mode-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--space-4);
-      background: var(--color-surface-2);
-      border: 1px solid transparent;
-      border-radius: var(--radius-lg);
-      cursor: pointer;
-      text-align: left;
-      transition: all 0.2s;
-    }
-    .mode-card:hover { border-color: var(--color-gold); transform: translateX(5px); }
-    .mode-card.active { border-color: var(--color-gold); background: var(--color-surface); box-shadow: var(--shadow-sm); }
-    .mode-card span { font-size: 1.5rem; }
+    .layout { display: grid; grid-template-columns: 300px 1fr; gap: var(--space-5); }
+    .unit-list { display: grid; gap: var(--space-2); margin-top: var(--space-4); }
+    .unit-btn { width: 100%; text-align: left; padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border: 1px solid transparent; cursor: pointer; transition: all 0.2s; }
+    .unit-btn:hover { background: var(--color-surface-offset); }
+    .unit-btn.active { background: color-mix(in oklab, var(--color-primary) 10%, var(--color-surface-2)); border-color: color-mix(in oklab, var(--color-primary) 30%, transparent); font-weight: 700; }
 
-    /* Layout */
-    .layout { display: grid; grid-template-columns: 280px 1fr; gap: var(--space-6); }
-    .sidebar { display: flex; flex-direction: column; gap: var(--space-6); }
-    .unit-list { display: flex; flex-direction: column; gap: var(--space-2); max-height: 400px; overflow-y: auto; padding-right: var(--space-2); }
-    .unit-btn {
-      padding: var(--space-3);
-      background: var(--color-surface-2);
-      border: 1px solid transparent;
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      text-align: left;
-      font-size: 0.85rem;
-      transition: all 0.2s;
-    }
-    .unit-btn:hover { background: var(--color-surface); border-color: var(--color-border); }
-    .unit-btn.active { background: var(--color-gold); color: white; border-color: var(--color-gold); font-weight: 600; }
+    .game-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-4); }
+    .hud { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
+    .hud .tile { padding: var(--space-3); background: var(--color-surface-2); border-radius: var(--radius-lg); border: 1px solid rgba(0,0,0,0.05); text-align: center; }
+    .hud span { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--color-text-muted); }
+    .hud strong { font-family: var(--font-display); font-size: 1.2rem; }
 
-    /* Game Area */
-    .main-game { position: relative; }
-    .game-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-6); }
-    .hud { display: flex; gap: var(--space-4); }
-    .tile { 
-      background: var(--color-surface-2); 
-      padding: var(--space-2) var(--space-4); 
-      border-radius: var(--radius-md); 
-      text-align: center;
-      min-width: 80px;
-    }
-    .tile span { display: block; font-size: 0.65rem; text-transform: uppercase; color: var(--color-text-muted); font-weight: 700; }
-    .tile strong { font-family: var(--font-display); font-size: 1.25rem; }
+    .prompt { padding: var(--space-5); background: linear-gradient(180deg, color-mix(in oklab, var(--color-primary) 5%, var(--color-surface)), var(--color-surface)); border-radius: var(--radius-xl); border: 1px solid color-mix(in oklab, var(--color-primary) 15%, transparent); margin-bottom: var(--space-4); }
+    .prompt h2 { font-size: 2.2rem; line-height: 1.1; font-family: var(--font-display); margin-bottom: var(--space-3); }
+    .prompt p { color: var(--color-text-muted); font-size: 1.1rem; }
+    .chips { display: flex; gap: var(--space-2); margin-top: var(--space-3); }
+    .chip { padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.75rem; background: var(--color-surface-offset); font-weight: 600; }
 
-    .goal-tracker { margin-top: var(--space-4); }
-    .goal-bar { height: 8px; background: var(--color-surface-2); border-radius: 4px; overflow: hidden; margin-top: 4px; }
-    .goal-fill { height: 100%; background: var(--color-gold); width: 0%; transition: width 0.3s; }
+    textarea { width: 100%; min-height: 150px; padding: var(--space-4); border-radius: var(--radius-lg); border: 1px solid var(--color-border); background: var(--color-surface-2); font-family: inherit; font-size: 1.1rem; margin-bottom: var(--space-4); resize: vertical; }
+    textarea:focus { outline: none; border-color: var(--color-primary); background: var(--color-surface); }
 
-    .prompt { margin-bottom: var(--space-8); }
-    .prompt .label { font-size: 0.75rem; text-transform: uppercase; color: var(--color-gold); font-weight: 800; margin-bottom: var(--space-2); }
-    .prompt h2 { font-family: var(--font-display); font-size: 2.5rem; line-height: 1.1; margin-bottom: var(--space-3); }
-    .chips { display: flex; gap: var(--space-2); margin-top: var(--space-4); }
-    .chip { padding: 4px 12px; background: var(--color-surface-2); border-radius: 999px; font-size: 0.7rem; font-weight: 600; }
-    .chip.priority { background: #fef3c7; color: #92400e; }
+    .btn-row { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+    .action-btn { padding: 0.8rem 1.5rem; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface); font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .action-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .action-btn.primary { background: var(--color-primary); color: var(--color-bg); border-color: var(--color-primary); }
 
-    .answer-box { margin-top: var(--space-6); }
-    textarea { 
-      width: 100%; 
-      min-height: 150px; 
-      padding: var(--space-4); 
-      border-radius: var(--radius-lg); 
-      border: 2px solid var(--color-border); 
-      font-family: inherit; 
-      font-size: 1.1rem;
-      background: var(--color-surface-2);
-      margin-bottom: var(--space-4);
-      resize: vertical;
-    }
-    textarea:focus { outline: none; border-color: var(--color-gold); background: var(--color-surface); }
-
-    .btn-row { display: flex; gap: var(--space-2); flex-wrap: wrap; }
-    .action { 
-      padding: 10px 20px; 
-      border-radius: 999px; 
-      border: 1px solid var(--color-border); 
-      background: var(--color-surface); 
-      font-weight: 700; 
-      cursor: pointer; 
-      transition: all 0.2s;
-      font-size: 0.9rem;
-    }
-    .action:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
-    .action.primary { background: var(--color-primary); color: white; border-color: var(--color-primary); }
-    .action.gold { background: var(--color-gold); color: white; border-color: var(--color-gold); }
-
-    .feedback { 
-      margin-top: var(--space-6); 
-      padding: var(--space-4); 
-      border-radius: var(--radius-lg); 
-      background: var(--color-surface-2); 
-      border: 1px solid var(--color-border);
-      display: none;
-    }
-    .feedback.visible { display: block; animation: slideUp 0.3s ease; }
-    .feedback-status { font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .feedback { padding: var(--space-5); border-radius: var(--radius-lg); background: var(--color-surface-2); border: 1px solid rgba(0,0,0,0.05); margin-top: var(--space-4); display: none; }
+    .feedback.visible { display: block; animation: slideIn 0.3s ease; }
+    .feedback-status { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; }
     .feedback-body { font-size: 1rem; color: var(--color-text-muted); }
-    .note-item { 
-      margin-top: 8px; padding: 8px 12px; border-left: 3px solid var(--color-border); 
-      font-size: 0.9rem; background: var(--color-surface); border-radius: 4px;
-    }
+    .note-item { margin-top: 10px; padding: 10px; border-left: 3px solid var(--color-border); background: var(--color-surface); font-size: 0.9rem; border-radius: 4px; }
     .note-item strong { display: block; font-size: 0.7rem; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 2px; }
 
-    .examiner-tip {
-      margin-top: var(--space-4);
-      padding: var(--space-4);
-      border-radius: var(--radius-lg);
-      background: #eff6ff;
-      border-left: 4px solid #3b82f6;
-      color: #1e40af;
-      display: none;
-    }
+    .examiner-tip { margin-top: 1rem; padding: 1rem; border-radius: var(--radius-md); background: #fffbeb; border-left: 4px solid var(--color-gold); color: #92400e; display: none; }
     .examiner-tip.visible { display: block; }
 
-    /* Overlay */
-    .overlay {
-      position: fixed; inset: 0; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(8px);
-      z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: var(--space-8); color: white; text-align: center;
-    }
+    .overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(8px); z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: white; text-align: center; }
     .overlay.hidden { display: none; }
-    .overlay h1 { font-family: var(--font-display); font-size: 3.5rem; margin-bottom: var(--space-2); }
-    .overlay p { opacity: 0.7; margin-bottom: var(--space-8); max-width: 600px; }
-    .subject-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); max-width: 1000px; width: 100%; }
-    .subject-card {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-      padding: var(--space-8); border-radius: var(--radius-xl); cursor: pointer; transition: all 0.3s;
-    }
+    .overlay h1 { font-family: var(--font-display); font-size: 3.5rem; margin-bottom: 1rem; }
+    .subject-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; width: 100%; margin-top: 40px; }
+    .subject-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: var(--radius-xl); cursor: pointer; transition: all 0.3s; }
     .subject-card:hover { background: rgba(255,255,255,0.1); border-color: var(--color-gold); transform: translateY(-10px); }
-    .subject-card .icon { font-size: 3rem; margin-bottom: var(--space-4); display: block; }
-    .subject-card h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: var(--space-2); }
+    .subject-card h3 { font-family: var(--font-display); font-size: 1.5rem; margin: 16px 0 8px; }
 
-    /* Study Hub View Styles */
-    .hub-tabs { display: flex; gap: var(--space-2); margin-bottom: var(--space-6); }
-    .vault-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-4); }
-    .vault-card { background: var(--color-surface-2); border: 1px solid var(--color-border); padding: var(--space-4); border-radius: var(--radius-lg); text-align: left; }
-    .vault-card h3 { font-size: 1rem; margin: 8px 0; }
-    .vault-assets { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
-    .vault-link { font-size: 0.75rem; text-decoration: none; color: inherit; padding: 4px 12px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 999px; }
-    .vault-link:hover { border-color: var(--color-gold); }
+    .progress { height: 12px; width: 100%; background: var(--color-surface-offset); border-radius: 999px; overflow: hidden; margin-top: var(--space-4); }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--color-primary), var(--color-gold)); width: 0%; transition: width 0.3s; }
 
-    /* Utilities */
-    .pill { padding: 4px 16px; border-radius: 999px; background: var(--color-surface-2); border: 1px solid var(--color-border); font-size: 0.8rem; font-weight: 700; cursor: pointer; }
-    .pill.active { background: var(--color-gold); color: white; border-color: var(--color-gold); }
-    .hidden { display: none !important; }
-    @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .shake { animation: shake 0.4s ease-in-out; }
+    @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-8px); } 75% { transform: translateX(8px); } }
 
-    /* Pink Theme Animation */
-    .sakura-container { position: fixed; inset: 0; pointer-events: none; z-index: 999; display: none; }
-    [data-theme="pink"] .sakura-container { display: block; }
-    .petal { position: absolute; background: #ffb7c5; border-radius: 50% 0 50% 50%; top: -20px; animation: fall linear infinite; }
-    @keyframes fall { to { transform: translateY(100vh) rotate(360deg); } }
-
-    /* Pause Screen */
-    #pauseScreen {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
-      z-index: 2000; display: none; place-items: center; color: white; text-align: center;
-    }
+    /* Study Hub Styles */
+    .hub-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+    .vault-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .vault-card { background: var(--color-surface-2); padding: 20px; border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: left; }
+    
+    #pauseScreen { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 2000; display: none; place-items: center; color: white; }
     #pauseScreen.visible { display: grid; }
-
-    /* Result Screen */
-    .screen.center { text-align: center; padding: var(--space-8) 0; }
-    .result-score { font-family: var(--font-display); font-size: 5rem; color: var(--color-gold); margin: var(--space-4) 0; }
-
-    /* MCQ Grid */
-    .mcq-grid { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
-    .option {
-      padding: var(--space-4); background: var(--color-surface-2); border: 2px solid transparent;
-      border-radius: var(--radius-lg); cursor: pointer; text-align: left; transition: all 0.2s; width: 100%;
-    }
-    .option:hover { border-color: var(--color-gold); background: var(--color-surface); }
-    .option.correct { border-color: var(--color-success); background: #ecfdf5; color: #065f46; }
-    .option.wrong { border-color: var(--color-error); background: #fef2f2; color: #991b1b; animation: shake 0.4s; }
-    @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-
-    /* Weakness Dashboard */
-    .unit-score-bar { height: 6px; background: var(--color-surface-2); border-radius: 3px; overflow: hidden; margin: 4px 0 12px 0; }
-    .unit-score-fill { height: 100%; background: var(--color-success); transition: width 0.3s; }
-    .unit-score-fill.bad { background: var(--color-error); }
-
-    /* Fire Streak */
-    .fire-streak { color: var(--color-gold) !important; text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); animation: pulse 1s infinite; }
-    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-
   </style>
 </head>
 <body>
 
-  <div class="sakura-container" id="sakuraContainer"></div>
-
   <div id="subjectOverlay" class="overlay">
-    <h1>Revision Hub <span>Battle</span></h1>
-    <p>Premium IGCSE Mastery Hub. ADHD-friendly systems, real exam data, and Grade 9 secrets for Business, Chemistry, and English.</p>
+    <div class="mini" style="color:var(--color-gold)">Syllabus Mastery Hub</div>
+    <h1>Revision Battle</h1>
+    <p style="opacity: 0.7; max-width: 600px; margin-top: 1rem;">The ultimate ADHD-friendly prep tool. Level up your understanding with active recall and exam-style drills.</p>
     <div class="subject-grid">
       <div class="subject-card" onclick="selectSubject('business')">
-        <span class="icon">📈</span>
+        <div style="font-size: 3rem;">📈</div>
         <h3>Business P2</h3>
-        <p>10 Units · Master Definitions<br>Finance, HR, Marketing</p>
+        <p style="font-size: 0.8rem; opacity: 0.6;">10 Units · 152 Terms<br>Grade 9 Optimized</p>
       </div>
       <div class="subject-card" onclick="selectSubject('chemistry')">
-        <span class="icon">⚛️</span>
+        <div style="font-size: 3rem;">⚛️</div>
         <h3>Chemistry</h3>
-        <p>8 Units · Syllabus Drills<br>Organic, Atomic, Rates</p>
+        <p style="font-size: 0.8rem; opacity: 0.6;">8 Units · Syllabus Drills<br>Organic & Atomic Focus</p>
       </div>
       <div class="subject-card" onclick="selectSubject('english')">
-        <span class="icon">📝</span>
+        <div style="font-size: 3rem;">📝</div>
         <h3>English P1</h3>
-        <p>3 Units · Analysis Toolbox<br>Devices, Nuance, Structure</p>
+        <p style="font-size: 0.8rem; opacity: 0.6;">3 Units · Analysis Toolbox<br>Devices & Structure</p>
       </div>
     </div>
   </div>
 
   <div id="pauseScreen">
-    <div>
-      <h2 style="font-family: var(--font-display); font-size: 4rem; margin-bottom: 1rem;">ZEN PAUSE</h2>
-      <p style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem;">Momentum is built through consistent, focused bursts.</p>
-      <button class="action gold" onclick="togglePause()">Resume Battle</button>
+    <div style="text-align:center;">
+      <h2 style="font-family: var(--font-display); font-size: 4rem;">PAUSED</h2>
+      <p style="margin-bottom: 2rem; opacity: 0.7;">Focus is a muscle. Take a deep breath.</p>
+      <button class="pill" onclick="togglePause()" style="font-size: 1.2rem; padding: 1rem 2rem;">Resume Battle</button>
     </div>
   </div>
 
-  <div class="app-container">
-    <nav class="top-nav">
-      <div class="brand" onclick="location.reload()">RH <span>BATTLE</span></div>
-      <div class="nav-controls">
-        <button class="pill" id="subjectBtn">Switch Course</button>
-        <button class="pill" id="themeBtn">🌸</button>
-        <button class="pill" id="soundBtn">Sound: On</button>
-        <button class="pill" id="pauseBtn">Pause</button>
-        <button class="pill" id="aiSettingsBtn">⚙️</button>
+  <div class="app">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div class="mini" id="subjectTag">Loading...</div>
+          <h1 id="subjectTitle">Revision Battle</h1>
+        </div>
       </div>
-    </nav>
+      <div class="controls">
+        <button class="icon-btn" data-theme-toggle>🌙</button>
+        <button class="pill" onclick="el('subjectOverlay').classList.remove('hidden')">Switch Course</button>
+        <button class="pill" id="pauseBtn" onclick="togglePause()">Pause</button>
+        <button class="pill" onclick="el('aiModal').classList.remove('hidden')">⚙️ AI API</button>
+      </div>
+    </div>
 
     <section class="hero">
       <div class="panel hero-card">
-        <p class="sub" id="subjectSub">Advanced Syllabus Mastery Kit.</p>
+        <p class="sub" id="subjectDesc">Syllabus-aligned mastery with active recall, examiner secrets, and ADHD-optimized reward systems.</p>
         <div class="stats">
-          <div class="stat"><span class="mini">Units</span><strong id="unitCount">0</strong></div>
-          <div class="stat"><span class="mini">Terms</span><strong id="termCount">0</strong></div>
-          <div class="stat"><span class="mini">Goal</span><strong id="sessionGoal">0 mastered</strong></div>
+          <div class="stat"><span class="mini">Syllabus Units</span><strong id="unitCount">0</strong></div>
+          <div class="stat"><span class="mini">Total Terms</span><strong id="termCount">0</strong></div>
+          <div class="stat"><span class="mini">Goal Mastery</span><strong id="masteryPct">0%</strong></div>
         </div>
-        <div class="goal-tracker">
-          <div style="display:flex; justify-content:space-between; font-size:0.7rem; font-weight:700; text-transform:uppercase; color:var(--color-text-muted);">
-            <span>Session Goal</span>
-            <span id="goalText">0 / 10</span>
-          </div>
-          <div class="goal-bar"><div class="goal-fill" id="goalFill"></div></div>
-        </div>
+        <div class="progress"><div class="progress-fill" id="masteryBar"></div></div>
       </div>
-      <div class="panel modes">
-        <button class="mode-card active" data-mode="typed">
-          <div><strong>Definition Sprint</strong><div class="mini">Active recall with self-check.</div></div>
+      <div class="mode-selection">
+        <button class="mode-btn active" data-mode="typed">
+          <div><strong>Definition Sprint</strong><div class="mini">Type, reveal, and self-check</div></div>
           <span>✍️</span>
         </button>
-        <button class="mode-card" data-mode="mcq">
-          <div><strong>Quiz Clash</strong><div class="mini">Speed recall against time.</div></div>
+        <button class="mode-btn" data-mode="mcq">
+          <div><strong>Quiz Clash</strong><div class="mini">Multiple choice speed run</div></div>
           <span>⚡</span>
         </button>
-        <button class="mode-card" data-mode="hub">
-          <div><strong>Study Hub</strong><div class="mini">Formulas, papers, and vault.</div></div>
+        <button class="mode-btn" data-mode="hub">
+          <div><strong>Study Hub</strong><div class="mini">Formulas, papers, and vault</div></div>
           <span>🏛️</span>
         </button>
       </div>
@@ -364,38 +225,26 @@
     <div class="layout">
       <aside class="sidebar">
         <div class="panel">
-          <div class="mini" style="margin-bottom: var(--space-3);">Progress Tracker</div>
-          <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: var(--space-2);">
-            <div><span class="mini">Level</span><strong style="display:block; font-size:1.5rem; font-family:var(--font-display);" id="userLevel">1</strong></div>
-            <div style="text-align:right;"><span class="mini" id="xpText">0 terms mastered</span></div>
-          </div>
-          <div class="goal-bar" style="height:6px;"><div class="goal-fill" id="masteryBar"></div></div>
-          
-          <div class="mini" style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Unit Mastery</div>
-          <div id="performanceDashboard"></div>
-
-          <div class="mini" style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Course Units</div>
+          <div class="mini">Unit Navigator</div>
           <div class="unit-list" id="unitList"></div>
         </div>
-
-        <div class="panel" style="padding: var(--space-4);">
-          <div class="mini" style="margin-bottom: var(--space-2);">System</div>
-          <div style="display:grid; gap: var(--space-2);">
-            <button class="pill" onclick="exportData()">📥 Backup</button>
-            <button class="pill" onclick="document.getElementById('importFile').click()">📤 Restore</button>
-            <input type="file" id="importFile" class="hidden" onchange="importData(this)">
-            <button class="pill" style="color:var(--color-error); border-color:var(--color-error);" onclick="resetProgress()">🗑️ Reset</button>
+        <div class="panel" style="margin-top: 1.5rem;">
+          <div class="mini">Performance</div>
+          <div id="unitPerformance" style="margin-top: 1rem;"></div>
+          <div class="btn-row" style="margin-top: 1.5rem;">
+            <button class="pill" onclick="exportProgress()">📥 Backup</button>
+            <button class="pill" onclick="document.getElementById('importInput').click()">📤 Restore</button>
+            <input type="file" id="importInput" class="hidden" onchange="importProgress(this)">
           </div>
         </div>
       </aside>
 
-      <main class="main-game">
-        <!-- Battle Screen -->
+      <main class="main">
         <div class="panel" id="gameScreen">
           <div class="game-header">
             <div>
-              <div class="mini" id="currentUnitTitle">Unit 1</div>
-              <div class="sub" id="currentSubjectTitle">Loading...</div>
+              <div class="mini" id="activeUnitLabel">Unit 1</div>
+              <strong id="activeUnitTitle">...</strong>
             </div>
             <div class="hud">
               <div class="tile"><span>Score</span><strong id="hudScore">0</strong></div>
@@ -404,41 +253,42 @@
             </div>
           </div>
 
-          <div id="battleView">
+          <div id="quizView">
             <div class="prompt">
-              <div class="label" id="promptLabel">Define this key term</div>
+              <div class="label" id="promptLabel">Provide the definition for:</div>
               <h2 id="promptTerm">---</h2>
               <div class="chips">
-                <span class="chip" id="chipIndex">0 / 0</span>
-                <span class="chip priority hidden" id="chipPriority">High Priority</span>
+                <span class="chip" id="progressChip">0 / 0</span>
+                <span class="chip hidden" id="priorityChip" style="background:var(--color-gold); color:white;">🔥 High Frequency</span>
               </div>
             </div>
-            <div id="typedModeContainer">
-              <div class="answer-box">
-                <textarea id="answerInput" placeholder="Type your definition here..."></textarea>
-                <div class="btn-row">
-                  <button class="action primary" onclick="revealAnswer()">Reveal Answer</button>
-                  <button class="action" onclick="checkAI()">🤖 AI Check</button>
-                  <button class="action gold" onclick="markKnown()">I knew this</button>
-                  <button class="action" onclick="nextQuestion()">Skip</button>
-                </div>
-              </div>
-              <div class="feedback" id="feedbackPanel">
-                <div class="feedback-status" id="feedbackStatus">📖 Official Definition</div>
-                <div class="feedback-body" id="feedbackText"></div>
-                <div id="studyNotes" style="margin-top:1rem;"></div>
+
+            <div id="typedControls">
+              <textarea id="answerInput" placeholder="Type your definition here... (Hit 'Reveal' to check)"></textarea>
+              <div class="btn-row">
+                <button class="action-btn primary" onclick="revealAnswer()">Reveal Official Answer</button>
+                <button class="action-btn" onclick="checkAI()">🤖 AI Grading</button>
+                <button class="action-btn" id="knowBtn" onclick="markKnown()" style="border-color:var(--color-success); color:var(--color-success);">I Knew This</button>
+                <button class="action-btn" onclick="nextQuestion()">Skip</button>
               </div>
             </div>
-            <div id="mcqModeContainer" class="hidden">
+
+            <div id="mcqControls" class="hidden">
               <div class="mcq-grid" id="mcqOptions"></div>
             </div>
+
+            <div class="feedback" id="feedbackBox">
+              <div class="feedback-status" id="feedbackStatus">📖 Official Mark Scheme</div>
+              <div class="feedback-body" id="feedbackText"></div>
+              <div id="studyPoints" style="margin-top: 1rem;"></div>
+            </div>
+
             <div class="examiner-tip" id="examinerTip">
               <strong>💡 Examiner Secret:</strong> <span id="tipText"></span>
             </div>
           </div>
         </div>
 
-        <!-- Study Hub Screen -->
         <div class="panel hidden" id="hubScreen">
           <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1.5rem;">Study Hub</h2>
           <div class="hub-tabs">
@@ -454,9 +304,9 @@
               <div class="chips"><span class="chip" id="formulaIndexChip">0 / 0</span></div>
             </div>
             <div class="btn-row">
-              <button class="action primary" id="revealFormulaBtn">Reveal Formula</button>
-              <button class="action" id="nextFormulaBtn">Next Card</button>
-              <button class="action" id="shuffleFormulasBtn">Shuffle</button>
+              <button class="action-btn primary" id="revealFormulaBtn">Reveal Formula</button>
+              <button class="action-btn" id="nextFormulaBtn">Next Card</button>
+              <button class="action-btn" id="shuffleFormulasBtn">Shuffle</button>
             </div>
             <div class="feedback" id="formulaFeedback" style="margin-top:2rem;"></div>
           </div>
@@ -476,8 +326,8 @@
               <textarea id="paperDrillAnswer" placeholder="Type your answer based on the prompt..."></textarea>
             </div>
             <div class="btn-row" style="margin-top:1.5rem;">
-              <button class="action primary" id="showPaperAnswerBtn">Reveal Mark Scheme</button>
-              <button class="action" id="nextPaperDrillBtn">Next Drill</button>
+              <button class="action-btn primary" id="showPaperAnswerBtn">Reveal Mark Scheme</button>
+              <button class="action-btn" id="nextPaperDrillBtn">Next Drill</button>
             </div>
             <div class="feedback" id="paperDrillFeedback" style="margin-top:2rem;"></div>
           </div>
@@ -487,35 +337,36 @@
           </div>
         </div>
 
-        <div class="panel screen center hidden" id="resultScreen">
+        <div class="panel hidden center" id="resultScreen">
           <div class="mini">Session Complete</div>
-          <div class="result-score" id="resultScore">0%</div>
-          <p class="sub" id="resultMsg">Legendary work! Keep the momentum going.</p>
-          <button class="action primary" onclick="restartSession()">Restart Unit</button>
+          <h2 class="result-score" id="finalPct">0%</h2>
+          <p style="opacity: 0.7; margin-bottom: 2rem;">Excellent progress. Every session brings you closer to Grade 9.</p>
+          <button class="action-btn primary" onclick="restartUnit()">Study Unit Again</button>
+          <button class="action-btn" onclick="el('subjectOverlay').classList.remove('hidden')">Switch Course</button>
         </div>
       </main>
     </div>
   </div>
 
-  <!-- AI Modal -->
-  <div id="aiModal" class="overlay hidden" style="background:rgba(0,0,0,0.8); z-index:3000;">
-    <div class="panel" style="width:100%; max-width:400px; color:var(--color-text);">
-      <h2 style="font-family:var(--font-display); margin-bottom:1rem;">AI Setup</h2>
-      <input type="password" id="apiKeyInput" placeholder="Gemini API Key..." style="width:100%; padding:1rem; border-radius:10px; border:1px solid var(--color-border); margin-bottom:1.5rem;">
-      <div class="btn-row" style="justify-content:flex-end;">
-        <button class="action" onclick="el('aiModal').classList.add('hidden')">Close</button>
-        <button class="action primary" onclick="saveAIKey()">Save Key</button>
+  <div id="aiModal" class="overlay hidden">
+    <div class="panel" style="width: 100%; max-width: 400px; color: var(--color-text);">
+      <h2 style="font-family: var(--font-display); margin-bottom: 1rem;">AI Grading Setup</h2>
+      <p style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1.5rem;">Enter your Gemini API key to enable AI-powered feedback on your typed definitions.</p>
+      <input type="password" id="aiKeyInput" placeholder="Enter API Key..." style="width:100%; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border); margin-bottom: 1.5rem;">
+      <div class="btn-row" style="justify-content: flex-end;">
+        <button class="pill" onclick="el('aiModal').classList.add('hidden')">Cancel</button>
+        <button class="pill" onclick="saveAiKey()" style="background:var(--color-primary); color:white;">Save Key</button>
       </div>
     </div>
   </div>
 
   <script>
     const el = id => document.getElementById(id);
-
     const SUBJECTS = {
       business: {
-        title: "Business Paper 2",
-        sub: "The definitive IGCSE Mastery Hub. 10 Units covering the entire syllabus.",
+        tag: "IGCSE Business P2",
+        title: "Business Masterclass",
+        desc: "Advanced Paper 2 mastery. Focus on application, definitions, and examiner secrets.",
         units: [
           { id: 1, title: "Business Activity", terms: [
             { term: "Opportunity Cost", definition: "The next best alternative given up when making a choice.", points: ["Vital for evaluating government spending.", "Always mention 'next best alternative'."], secret: "Examiners love it when you link this to resource allocation." },
@@ -527,23 +378,24 @@
             { term: "Democratic Leadership", definition: "Managers involve employees in the decision-making process.", points: ["Improves morale.", "Utilises worker skills."], secret: "Often leads to better decision quality but slower implementation." },
             { term: "Job Enrichment", definition: "Adding more challenging tasks to a job to increase responsibility.", points: ["Motivates through achievement.", "Reduces labor turnover."], secret: "Part of Herzberg's 'Motivators'." }
           ]},
-          { id: 3, title: "Marketing Mix (4Ps)", terms: [
+          { id: 3, title: "Marketing Mix", terms: [
             { term: "Market Segmentation", definition: "Dividing a market into groups of buyers with similar needs.", points: ["Geographic, Demographic, Psychographic.", "Helps tailor the marketing mix."], secret: "Examiners look for 'Targeting' as the next logical step after segmentation." },
             { term: "Skimming Pricing", definition: "Setting a high price initially when a new product is launched.", points: ["Used for unique products (e.g. iPhones).", "Targets 'early adopters'."], secret: "Mention that competitors will soon enter, forcing prices down." }
           ]},
-          { id: 4, title: "Operations Management", terms: [
+          { id: 4, title: "Operations", terms: [
             { term: "Just In Time (JIT)", definition: "A production method where materials arrive only when needed.", points: ["Reduces storage costs.", "Improves cash flow."], secret: "Relies heavily on reliable suppliers. One delay stops the whole factory." },
             { term: "Quality Assurance", definition: "A system where quality is checked at every stage of production to prevent faults.", points: ["Zero defects goal.", "Employee empowerment."], secret: "Contrasts with 'Quality Control' (checking at the end)." }
           ]},
-          { id: 5, title: "Business Finance", terms: [
+          { id: 5, title: "Finance", terms: [
             { term: "Break-Even Point", definition: "The level of output where total revenue equals total costs.", points: ["Total Revenue = Total Cost.", "No profit or loss."], secret: "Formula: Fixed Costs / Contribution per unit." },
             { term: "Cash Flow Forecast", definition: "A prediction of money coming into and going out of a business.", points: ["Helps identify cash shortages.", "Used for bank loan applications."], secret: "Cash is not the same as profit!" }
           ]}
         ]
       },
       chemistry: {
+        tag: "IGCSE Chemistry",
         title: "Chemistry Hub",
-        sub: "Syllabus-Aligned Grade 9 Revision. 2025 Edition.",
+        desc: "Syllabus-aligned Grade 9 revision. Focus on organic, states, and atomic structure.",
         units: [
           { id: 1, title: "States & Separation", terms: [
             { term: "Rf Value", definition: "Distance moved by the substance / Distance moved by the solvent front.", points: ["Used to identify substances.", "Rf is always between 0 and 1."], secret: "Measure from the centre of the spot to the baseline." },
@@ -556,8 +408,9 @@
         ]
       },
       english: {
-        title: "English Language P1",
-        sub: "The Grade 9 Analysis Toolbox. Devices, Nuance & Frameworks.",
+        tag: "English Language P1",
+        title: "English Toolbox",
+        desc: "Grade 9 analysis framework. Devices, structure, and perspective.",
         units: [
           { id: 1, title: "Language Devices", terms: [
             { term: "Sibilance", definition: "Repetition of the 's' or 'sh' sound in close proximity.", points: ["Creates a hissing, sinister, or calming effect.", "Draws attention to specific imagery."], secret: "Never just name it; explain the *exact mood* it creates." },
@@ -578,29 +431,11 @@
       pointer: 0,
       score: 0,
       streak: 0,
-      sessionMastered: 0,
-      known: new Set(JSON.parse(localStorage.getItem('rh_known') || '[]')),
+      known: new Set(JSON.parse(localStorage.getItem('battle_known') || '[]')),
       timer: 0,
       timerInt: null,
       isPaused: false,
-      sound: true,
-      apiKey: localStorage.getItem('gemini_key') || ''
-    };
-
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    const sounds = {
-      play(f, t='sine', d=0.1) {
-        if(!state.sound) return;
-        const o = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
-        o.type = t; o.frequency.setValueAtTime(f, audioCtx.currentTime);
-        g.gain.setValueAtTime(0.05, audioCtx.currentTime);
-        g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + d);
-        o.connect(g); g.connect(audioCtx.destination);
-        o.start(); o.stop(audioCtx.currentTime + d);
-      },
-      success() { this.play(880, 'triangle', 0.2); this.play(1100, 'triangle', 0.3); },
-      fail() { this.play(220, 'sawtooth', 0.3); }
+      aiKey: localStorage.getItem('battle_aiKey') || ''
     };
 
     function selectSubject(id) {
@@ -612,8 +447,9 @@
 
     function initApp() {
       const sub = SUBJECTS[state.subject];
-      el('currentSubjectTitle').textContent = sub.title;
-      el('subjectSub').textContent = sub.sub;
+      el('subjectTag').textContent = sub.tag;
+      el('subjectTitle').textContent = sub.title;
+      el('subjectDesc').textContent = sub.desc;
       el('unitCount').textContent = sub.units.length;
       el('termCount').textContent = sub.units.flatMap(u => u.terms).length;
 
@@ -622,7 +458,7 @@
       sub.units.forEach(u => {
         const btn = document.createElement('button');
         btn.className = 'unit-btn' + (u.id === state.unit ? ' active' : '');
-        btn.innerHTML = `<strong>Unit ${u.id}</strong><div style="font-size:0.75rem; opacity:0.8;">${u.title}</div>`;
+        btn.innerHTML = `<strong>Unit ${u.id}</strong><div class="mini">${u.title}</div>`;
         btn.onclick = () => { state.unit = u.id; initApp(); };
         list.appendChild(btn);
       });
@@ -634,41 +470,34 @@
     function startSession() {
       el('gameScreen').classList.remove('hidden');
       el('hubScreen').classList.add('hidden');
-      el('battleView').classList.remove('hidden');
+      el('resultScreen').classList.add('hidden');
       const unitData = SUBJECTS[state.subject].units.find(u => u.id === state.unit);
       state.queue = shuffle([...unitData.terms]);
       state.pointer = 0;
+      state.score = 0;
       state.timer = 0;
       if(state.timerInt) clearInterval(state.timerInt);
-      state.timerInt = setInterval(() => { if(!state.isPaused) state.timer++; updateHUD(); }, 1000);
+      state.timerInt = setInterval(() => { if(!state.isPaused) state.timer++; updateHud(); }, 1000);
       render();
     }
 
     function render() {
       const item = state.queue[state.pointer];
       if(!item) return showResults();
-
-      el('gameScreen').classList.remove('hidden');
-      el('resultScreen').classList.add('hidden');
-      el('currentUnitTitle').textContent = `Unit ${state.unit}`;
+      
+      el('activeUnitLabel').textContent = `Unit ${state.unit}`;
+      el('activeUnitTitle').textContent = SUBJECTS[state.subject].units.find(u => u.id === state.unit).title;
       el('promptTerm').textContent = item.term;
-      el('chipIndex').textContent = `${state.pointer + 1} / ${state.queue.length}`;
-      el('chipPriority').classList.toggle('hidden', !item.priority);
+      el('progressChip').textContent = `${state.pointer + 1} / ${state.queue.length}`;
       el('answerInput').value = '';
-      el('feedbackPanel').classList.remove('visible');
+      el('feedbackBox').classList.remove('visible');
       el('examinerTip').classList.remove('visible');
       
-      el('typedModeContainer').classList.toggle('hidden', state.mode !== 'typed');
-      el('mcqModeContainer').classList.toggle('hidden', state.mode !== 'mcq');
+      el('typedControls').classList.toggle('hidden', state.mode !== 'typed');
+      el('mcqControls').classList.toggle('hidden', state.mode !== 'mcq');
       
       if(state.mode === 'mcq') buildMCQ(item);
       updateStats();
-    }
-
-    function showHub() {
-      el('gameScreen').classList.add('hidden');
-      el('hubScreen').classList.remove('hidden');
-      if(window.Hub) window.Hub.init();
     }
 
     function buildMCQ(item) {
@@ -679,24 +508,19 @@
       grid.innerHTML = '';
       options.forEach(opt => {
         const btn = document.createElement('button');
-        btn.className = 'option';
+        btn.className = 'pill' + (opt === item.definition ? ' hidden-answer' : '');
+        btn.style = "width: 100%; text-align: left; padding: 1.5rem; border-radius: 12px; margin-bottom: 10px;";
         btn.textContent = opt;
         btn.onclick = () => {
           if(opt === item.definition) {
-            btn.classList.add('correct');
-            sounds.success();
-            confetti({ particleCount: 50, spread: 60 });
-            state.streak++;
-            state.score++;
-            state.known.add(item.term);
-            saveKnown();
-            setTimeout(nextQuestion, 1000);
+            btn.style.borderColor = 'var(--color-success)';
+            state.score++; state.streak++; state.known.add(item.term);
+            saveKnown(); triggerConfetti(); setTimeout(nextQuestion, 1000);
           } else {
-            btn.classList.add('wrong');
-            sounds.fail();
+            btn.classList.add('shake');
+            btn.style.borderColor = 'var(--color-error)';
             state.streak = 0;
-            [...grid.children].forEach(b => { if(b.textContent === item.definition) b.classList.add('correct'); });
-            setTimeout(nextQuestion, 2000);
+            setTimeout(nextQuestion, 1500);
           }
           updateStats();
         };
@@ -706,20 +530,16 @@
 
     function revealAnswer() {
       const item = state.queue[state.pointer];
-      el('feedbackPanel').classList.add('visible');
+      el('feedbackBox').classList.add('visible');
       el('feedbackText').textContent = item.definition;
-      
-      const notes = el('studyNotes');
-      notes.innerHTML = '';
-      if(item.points) {
-        item.points.forEach(p => {
-          const div = document.createElement('div');
-          div.className = 'note-item';
-          div.innerHTML = `<strong>Study Point</strong>${p}`;
-          notes.appendChild(div);
-        });
-      }
-
+      const points = el('studyPoints');
+      points.innerHTML = '';
+      if(item.points) item.points.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'note-item';
+        div.innerHTML = `<strong>Study Point</strong>${p}`;
+        points.appendChild(div);
+      });
       if(item.secret) {
         el('examinerTip').classList.add('visible');
         el('tipText').textContent = item.secret;
@@ -729,74 +549,61 @@
     function markKnown() {
       const item = state.queue[state.pointer];
       state.known.add(item.term);
-      state.score++;
-      state.streak++;
-      state.sessionMastered++;
-      saveKnown();
-      sounds.success();
-      if(state.sessionMastered % 10 === 0) confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
-      nextQuestion();
+      state.score++; state.streak++;
+      saveKnown(); nextQuestion();
     }
 
     function nextQuestion() {
-      state.pointer++;
-      render();
+      state.pointer++; render();
     }
 
     function showResults() {
       el('gameScreen').classList.add('hidden');
       el('resultScreen').classList.remove('hidden');
       const pct = Math.round((state.score / state.queue.length) * 100);
-      el('resultScore').textContent = `${pct}%`;
-      updateStats();
+      el('finalPct').textContent = pct + '%';
     }
 
-    function restartSession() {
-      state.score = 0;
+    function restartUnit() {
       startSession();
     }
 
     function updateStats() {
       const subTerms = SUBJECTS[state.subject].units.flatMap(u => u.terms);
       const subKnown = subTerms.filter(t => state.known.has(t.term)).length;
-      const pct = Math.round((subKnown / subTerms.length) * 100);
-      
+      const pct = subTerms.length ? Math.round((subKnown / subTerms.length) * 100) : 0;
+      el('masteryPct').textContent = pct + '%';
       el('masteryBar').style.width = pct + '%';
-      el('xpText').textContent = `${subKnown} terms mastered`;
-      el('userLevel').textContent = Math.floor(subKnown / 5) + 1;
-      
-      const goalProg = state.sessionMastered % 10;
-      el('goalText').textContent = `${goalProg} / 10`;
-      el('goalFill').style.width = (goalProg * 10) + '%';
-      el('sessionGoal').textContent = `${state.sessionMastered} mastered`;
-      
-      updateHUD();
-      renderDashboard();
+      updateHud();
+      renderPerformance();
     }
 
-    function updateHUD() {
+    function updateHud() {
       el('hudScore').textContent = state.score;
       el('hudStreak').textContent = state.streak;
-      el('hudStreak').classList.toggle('fire-streak', state.streak >= 5);
-      
       const m = Math.floor(state.timer / 60);
       const s = state.timer % 60;
       el('hudTimer').textContent = `${m}:${s.toString().padStart(2, '0')}`;
     }
 
-    function renderDashboard() {
+    function renderPerformance() {
       const sub = SUBJECTS[state.subject];
-      const dash = el('performanceDashboard');
-      dash.innerHTML = '';
+      const perf = el('unitPerformance');
+      perf.innerHTML = '';
       sub.units.forEach(u => {
         const knownCount = u.terms.filter(t => state.known.has(t.term)).length;
         const pct = Math.round((knownCount / u.terms.length) * 100);
         const div = document.createElement('div');
+        div.style = "margin-bottom: 12px;";
         div.innerHTML = `
-          <div style="display:flex; justify-content:space-between; font-size:0.7rem; font-weight:700;"><span>UNIT ${u.id}</span><span>${pct}%</span></div>
-          <div class="unit-score-bar"><div class="unit-score-fill ${pct < 50 ? 'bad' : ''}" style="width:${pct}%"></div></div>
+          <div style="display:flex; justify-content:space-between; font-size: 0.7rem; font-weight:700; margin-bottom: 4px;">
+            <span>UNIT ${u.id}</span><span>${pct}%</span>
+          </div>
+          <div style="height: 4px; background: var(--color-surface-offset); border-radius: 99px; overflow: hidden;">
+            <div style="height: 100%; background: ${pct > 50 ? 'var(--color-success)' : 'var(--color-error)'}; width: ${pct}%;"></div>
+          </div>
         `;
-        dash.appendChild(div);
+        perf.appendChild(div);
       });
     }
 
@@ -806,79 +613,72 @@
       el('pauseBtn').textContent = state.isPaused ? "Resume" : "Pause";
     }
 
-    function saveKnown() { localStorage.setItem('rh_known', JSON.stringify([...state.known])); }
+    function showHub() {
+      el('gameScreen').classList.add('hidden');
+      el('hubScreen').classList.remove('hidden');
+      if(window.Hub) window.Hub.init();
+    }
+
+    function saveKnown() { localStorage.setItem('battle_known', JSON.stringify([...state.known])); }
     function shuffle(a) { for(let i=a.length-1; i>0; i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 
-    el('subjectBtn').onclick = () => el('subjectOverlay').classList.remove('hidden');
-    el('themeBtn').onclick = () => {
-      const themes = ['light', 'dark', 'pink'];
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = themes[(themes.indexOf(current) + 1) % themes.length];
-      document.documentElement.setAttribute('data-theme', next);
-    };
-    el('soundBtn').onclick = () => { state.sound = !state.sound; el('soundBtn').textContent = `Sound: ${state.sound ? 'On' : 'Off'}`; };
-    el('pauseBtn').onclick = togglePause;
-    el('aiSettingsBtn').onclick = () => el('aiModal').classList.remove('hidden');
-
-    document.querySelectorAll('.mode-card').forEach(btn => btn.onclick = () => {
-      document.querySelectorAll('.mode-card').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      state.mode = btn.dataset.mode;
-      if(state.mode === 'hub') showHub(); else startSession();
-    });
-
-    // AI Logic
-    function saveAIKey() {
-      state.apiKey = el('apiKeyInput').value;
-      localStorage.setItem('gemini_key', state.apiKey);
+    function saveAiKey() {
+      state.aiKey = el('aiKeyInput').value;
+      localStorage.setItem('battle_aiKey', state.aiKey);
       el('aiModal').classList.add('hidden');
-      alert("Key saved!");
+      alert("AI Key Saved!");
     }
 
     async function checkAI() {
-      if(!state.apiKey) return alert("Set API Key first!");
+      if(!state.aiKey) return alert("Set API key first!");
       const item = state.queue[state.pointer];
       const ans = el('answerInput').value;
-      el('feedbackPanel').classList.add('visible');
+      el('feedbackBox').classList.add('visible');
       el('feedbackStatus').textContent = "🤖 AI Thinking...";
       try {
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${state.apiKey}`, {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${state.aiKey}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ contents: [{ parts: [{ text: `Grade this IGCSE answer. Term: ${item.term}. Official: ${item.definition}. Student: ${ans}. Reply ONLY JSON: {"verdict": "Grade 9/7/5/Fail", "feedback": "1 sentence"}` }] }] })
+          body: JSON.stringify({ contents: [{ parts: [{ text: `Grade this IGCSE student answer. Term: ${item.term}. Official: ${item.definition}. Student: ${ans}. Return ONLY JSON: {"verdict": "Grade 9/7/5/Fail", "feedback": "1 sentence"}` }] }] })
         });
         const data = await res.json();
         const json = JSON.parse(data.candidates[0].content.parts[0].text.replace(/```json|```/g, ''));
         el('feedbackStatus').textContent = `🤖 AI Verdict: ${json.verdict}`;
         el('feedbackText').textContent = json.feedback;
-        if(json.verdict.includes('9') || json.verdict.includes('7')) { sounds.success(); state.streak++; updateStats(); }
       } catch(e) { el('feedbackText').textContent = "AI Error."; }
     }
 
-    function createPetal() {
-      if(document.documentElement.getAttribute('data-theme') !== 'pink') return;
-      const p = document.createElement('div'); p.className = 'petal';
-      const s = Math.random() * 10 + 10; p.style.width = s+'px'; p.style.height = s*0.8+'px';
-      p.style.left = Math.random() * 100 + 'vw';
-      p.style.animationDuration = (Math.random()*5+5)+'s';
-      p.style.opacity = Math.random()*0.5+0.5;
-      el('sakuraContainer').appendChild(p);
-      setTimeout(() => p.remove(), 10000);
-    }
-    setInterval(createPetal, 300);
+    function triggerConfetti() { confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } }); }
 
-    // ADHD Focus
-    setInterval(() => {
-      if(!state.isPaused) alert("🧠 ADHD Check: Stand up and stretch for 10 seconds!");
-    }, 20 * 60 * 1000);
+    // Mode Toggle
+    document.querySelectorAll('.mode-btn').forEach(btn => btn.onclick = () => {
+      document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.mode = btn.dataset.mode;
+      if(state.mode === 'hub') showHub(); else initApp();
+    });
 
-    function exportData() {
-      const data = { known: [...state.known], score: state.score };
-      const blob = new Blob([JSON.stringify(data)], {type:'application/json'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = 'revision_battle_data.json'; a.click();
+    // Theme Toggle
+    (function() {
+      const themes = ['light', 'dark', 'pink'];
+      let d = localStorage.getItem('theme') || 'light';
+      const apply = (t) => { document.documentElement.setAttribute('data-theme', t); localStorage.setItem('theme', t); };
+      apply(d);
+      document.querySelector('[data-theme-toggle]').onclick = () => {
+        d = themes[(themes.indexOf(d) + 1) % themes.length];
+        apply(d);
+      };
+    })();
+
+    function exportProgress() {
+      const data = { known: [...state.known], stats: state.streak };
+      const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'battle_progress.json';
+      a.click();
     }
-    function importData(input) {
+    function importProgress(input) {
       const file = input.files[0];
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -889,7 +689,6 @@
       };
       reader.readAsText(file);
     }
-    function resetProgress() { if(confirm("Delete all mastery?")) { localStorage.clear(); location.reload(); } }
 
     initApp();
   </script>
